@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "node16",
+    "target": "es2020", // set to the *lowest* target you support
+    "strict": true,
+//    "verbatimModuleSyntax": true,
+    "declaration": true,
+    "sourceMap": true,
+    "declarationMap": true,
+    "outDir": "./out",
+    "rootDir": "./src"
+  },
+  "include": ["src/**/*", "tests/**/*"]
+}
