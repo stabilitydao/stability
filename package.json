@@ -1,6 +1,6 @@
 {
   "name": "@stabilitydao/stability",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Stability Integration Pack",
   "main": "out/index.js",
   "repository": "https://github.com/stabilitydao/stability.git",
