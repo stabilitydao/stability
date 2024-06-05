@@ -1,8 +1,17 @@
 # Stability Integration Pack
 
+[![GitHub version](https://badge.fury.io/gh/stabilitydao%2Fstability.svg)](https://badge.fury.io/gh/stabilitydao%2Fstability)
+[![npm version](https://badge.fury.io/js/@stabilitydao%2Fstability.svg)](https://badge.fury.io/js/@stabilitydao%2Fstability)
+
 This is library for integrating the platform into Node.js applications.
 
 ## Usage
+
+Add npm package to your project:
+
+```shell
+yarn add @stabilitydao/stability
+```
 
 ### Deployments
 
