@@ -258,6 +258,21 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     defiLlama: 'gyroscope-protocol',
     github: 'gyrostable',
   },
+  baseswap: {
+    status: IntegrationStatus.ROADMAP,
+    name: 'BaseSwap',
+    website: 'https://baseswap.fi',
+    protocols: {
+      baseswap: {
+        name: 'BaseSwap',
+        category: DefiCategory.AMM,
+        networks: [NetworkId.BASE,],
+        strategies: [StrategyShortId.ABMF, StrategyShortId.CBMF],
+        adapters: ['UniswapV3Adapter',],
+      },
+    },
+    defiLlama: 'baseswap',
+  },
   // ALM
   gamma: {
     status: IntegrationStatus.LIVE,
@@ -395,11 +410,36 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           NetworkId.SCROLL,
           NetworkId.LINEA,
         ],
-        strategies: [StrategyShortId.CUMF],
+        strategies: [StrategyShortId.CUMF, StrategyShortId.CBMF,],
       },
     },
     defiLlama: 'charm-finance',
     github: 'charmfinance',
+  },
+  a51: {
+    status: IntegrationStatus.ROADMAP,
+    name: 'A51',
+    website: 'https://a51.finance',
+    protocols: {
+      a51: {
+        name: 'A51 Finance',
+        category: DefiCategory.ALM,
+        networks: [
+          NetworkId.ARBITRUM,
+          NetworkId.OPTIMISM,
+          NetworkId.BASE,
+          NetworkId.POLYGON,
+          NetworkId.BLAST,
+          NetworkId.SCROLL,
+          NetworkId.LINEA,
+          NetworkId.POLYGON_ZKEVM,
+          NetworkId.MANTA,
+        ],
+        strategies: [StrategyShortId.ABMF],
+      },
+    },
+    defiLlama: 'a51-finance',
+    github: 'a51finance',
   },
   // Lending
   compound: {

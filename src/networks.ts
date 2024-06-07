@@ -161,7 +161,7 @@ export const networks: {[chainId: string]: Network} = {
   "8453": {
     id: NetworkId.BASE,
     chainId: 8453,
-    status: IntegrationStatus.DEVELOPMENT,
+    status: IntegrationStatus.LIVE,
   },
   "9001": {
     id: NetworkId.EVMOS,
@@ -181,7 +181,7 @@ export const networks: {[chainId: string]: Network} = {
   "42161": {
     id: NetworkId.ARBITRUM,
     chainId: 42161,
-    status: IntegrationStatus.ROADMAP,
+    status: IntegrationStatus.DEVELOPMENT,
   },
   "42220": {
     id: NetworkId.CELO,

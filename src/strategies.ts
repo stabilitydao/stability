@@ -25,6 +25,8 @@ export enum StrategyShortId {
   AS1BLS = 'AS1BLS',
   GUMF = 'GUMF',
   CUMF = 'CUMF',
+  CBMF = 'CBMF',
+  ABMF = 'ABMF',
 }
 
 export enum StrategyState {
@@ -155,7 +157,6 @@ export const strategies: {[shortId in StrategyShortId]?:Strategy} = {
     color: "#07a658",
     bgColor: "#1a024d",
   },
-
   [StrategyShortId.GUMF]: {
     id: 'Gamma UniswapV3 Merkl Farm',
     shortId: StrategyShortId.GUMF,
@@ -170,6 +171,22 @@ export const strategies: {[shortId in StrategyShortId]?:Strategy} = {
     state: StrategyState.PROPOSED,
     contractGithubId: 144,
     color: "#ff2299",
+    bgColor: "#000000",
+  },
+  [StrategyShortId.CBMF]: {
+    id: 'Charm BaseSwap Merkl Farm',
+    shortId: StrategyShortId.CBMF,
+    state: StrategyState.PROPOSED,
+    contractGithubId: 148,
+    color: "#2238ff",
+    bgColor: "#000000",
+  },
+  [StrategyShortId.ABMF]: {
+    id: 'A51 BaseSwap Merkl Farm',
+    shortId: StrategyShortId.ABMF,
+    state: StrategyState.PROPOSED,
+    contractGithubId: 147,
+    color: "#e74c3c",
     bgColor: "#000000",
   },
 };
