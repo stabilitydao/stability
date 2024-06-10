@@ -1,4 +1,4 @@
-# Stability Integration Pack
+# Stability Integration Library
 
 [![GitHub version](https://badge.fury.io/gh/stabilitydao%2Fstability.svg)](https://badge.fury.io/gh/stabilitydao%2Fstability)
 [![npm version](https://badge.fury.io/js/@stabilitydao%2Fstability.svg)](https://badge.fury.io/js/@stabilitydao%2Fstability)
@@ -38,4 +38,5 @@ DeFi organizations, protocols, their integration statuses, usage and other infor
 
 ```shell
 yarn overview
+yarn overview-full
 ```

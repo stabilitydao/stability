@@ -1,19 +1,27 @@
 {
   "name": "@stabilitydao/stability",
-  "version": "0.2.0",
-  "description": "Stability Integration Pack",
+  "version": "0.3.0",
+  "description": "Stability Integration Library",
   "main": "out/index.js",
   "types": "out/index.d.ts",
-  "files": ["out", "LICENSE", "README.md", "package.json"],
+  "files": [
+    "out",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
   "repository": "https://github.com/stabilitydao/stability.git",
   "author": "stabilitydao",
   "license": "MIT",
   "private": false,
   "scripts": {
     "build": "tsc",
-    "overview": "ts-node tools/overview.ts"
+    "overview": "ts-node tools/overview.ts",
+    "overview-full": "ts-node tools/overview-full.ts"
   },
   "devDependencies": {
+    "ansis": "^3.2.0",
+    "console-table-printer": "^2.12.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   }

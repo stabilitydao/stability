@@ -1,8 +1,8 @@
-import {StrategyShortId} from "./strategies";
-import {NetworkId} from "./networks";
+import {strategies, StrategyShortId, StrategyState} from "./strategies";
+import {NetworkId, networks} from "./networks";
+import {deployments} from "./deployments";
 
 export type DeFiOrganization = {
-  status: IntegrationStatus
   name: string
   website: string
   protocols: { [protocolId: string]: DeFiProtocol }
@@ -15,19 +15,19 @@ export type DeFiProtocol = {
   category: DefiCategory
   networks: NetworkId[],
   strategies?: StrategyShortId[]
+  intermediaryStrategies?: StrategyShortId[]
   adapters?: string[]
   coreContracts?: string[]
 }
 
 export enum IntegrationStatus {
   LIVE = 'Live',
-  USE_VIA_LIVE = 'Use via live',
-  AWAITING_DEPLOYMENT = 'Awaiting Deployment',
+  IN_USE = 'In use',
+  BEING_DEPLOYED = 'Being deployed',
   DEVELOPMENT = 'Development',
-  ROADMAP = 'In Roadmap',
+  AWAITING = 'Awaiting', // awaiting development
   POSSIBLE = 'Possible',
-  PROPOSED = 'Proposed integration',
-  DECLINED = 'Declined',
+  PROPOSED = 'Proposed',
 }
 
 export enum DefiCategory {
@@ -44,10 +44,57 @@ export enum DefiCategory {
   LST = 'Liquid staking',
 }
 
+export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
+  if (p.coreContracts && p.coreContracts.length > 0) {
+    return IntegrationStatus.LIVE
+  }
+  if (p.adapters && p.adapters.length > 0) {
+    return IntegrationStatus.LIVE
+  }
+  if (p.strategies) {
+    for (const strategy of p.strategies) {
+      if (strategies[strategy]?.state == StrategyState.LIVE) {
+        return IntegrationStatus.LIVE
+      }
+      if (strategies[strategy]?.state == StrategyState.AWAITING_DEPLOYMENT) {
+        return IntegrationStatus.BEING_DEPLOYED
+      }
+      if (strategies[strategy]?.state == StrategyState.DEVELOPMENT) {
+        return IntegrationStatus.DEVELOPMENT
+      }
+      if (strategies[strategy]?.state == StrategyState.PROPOSED) {
+        return IntegrationStatus.AWAITING
+      }
+    }
+  }
+  if (p.intermediaryStrategies) {
+    for (const strategy of p.intermediaryStrategies) {
+      if (strategies[strategy]?.state == StrategyState.LIVE) {
+        return IntegrationStatus.IN_USE
+      }
+      if (strategies[strategy]?.state == StrategyState.AWAITING_DEPLOYMENT) {
+        return IntegrationStatus.BEING_DEPLOYED
+      }
+      if (strategies[strategy]?.state == StrategyState.DEVELOPMENT) {
+        return IntegrationStatus.DEVELOPMENT
+      }
+      if (strategies[strategy]?.state == StrategyState.PROPOSED) {
+        return IntegrationStatus.AWAITING
+      }
+    }
+  }
+  const supportedNetWorkIds = Object.keys(deployments).map(chainIdString => networks[chainIdString].id)
+  for (const protocolNetworkId of p.networks) {
+    if (supportedNetWorkIds.includes(protocolNetworkId as NetworkId)) {
+      return IntegrationStatus.POSSIBLE
+    }
+  }
+  return IntegrationStatus.PROPOSED
+}
+
 export const integrations: { [org: string]: DeFiOrganization } = {
   // oracle
   chainlink: {
-    status: IntegrationStatus.LIVE,
     name: 'ChainLink',
     website: 'https://chain.link',
     protocols: {
@@ -82,7 +129,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   // Rewarding
   angle: {
-    status: IntegrationStatus.LIVE,
     name: 'Angle',
     website: 'https://angle.money',
     protocols: {
@@ -102,7 +148,22 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           NetworkId.BLAST,
           NetworkId.IMMUTABLE_ZKEVM,
         ],
-        strategies: [StrategyShortId.QSMF, StrategyShortId.DQMF, StrategyShortId.GQMF, StrategyShortId.IRMF, StrategyShortId.GRMF],
+        strategies: [
+          StrategyShortId.QSMF,
+          StrategyShortId.DQMF,
+          StrategyShortId.IQMF,
+          StrategyShortId.GQMF,
+          StrategyShortId.IRMF,
+          StrategyShortId.GRMF,
+          StrategyShortId.SQMF,
+          StrategyShortId.RSBMF,
+          StrategyShortId.DRBMF,
+          StrategyShortId.IRBMF,
+          StrategyShortId.GUMF,
+          StrategyShortId.ABMF,
+          StrategyShortId.CBMF,
+          StrategyShortId.CUMF,
+        ],
       },
     },
     defiLlama: 'angle',
@@ -110,7 +171,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   // DeX agg
   oneInch: {
-    status: IntegrationStatus.LIVE,
     name: '1inch',
     website: 'https://1inch.io',
     protocols: {
@@ -140,7 +200,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   // DeX
   uniswap: {
-    status: IntegrationStatus.LIVE,
     name: "Uniswap",
     website: 'https://uniswap.org',
     protocols: {
@@ -159,13 +218,13 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           NetworkId.BLAST,
         ],
         adapters: ['UniswapV3Adapter'],
+        strategies: [StrategyShortId.CUMF,StrategyShortId.GUMF,]
       },
     },
     defiLlama: 'uniswap',
     github: 'Uniswap,,'
   },
   quickswap: {
-    status: IntegrationStatus.LIVE,
     name: 'QuickSwap',
     website: 'https://quickswap.exchange',
     protocols: {
@@ -190,7 +249,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: 'QuickSwap',
   },
   retro: {
-    status: IntegrationStatus.LIVE,
     name: 'Retro',
     website: 'https://retro.finance',
     protocols: {
@@ -205,7 +263,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     defiLlama: 'retro',
   },
   curve: {
-    status: IntegrationStatus.LIVE,
     name: 'Curve',
     website: 'https://curve.fi',
     protocols: {
@@ -237,7 +294,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: 'curvefi',
   },
   gyroscope: {
-    status: IntegrationStatus.POSSIBLE,
     name: 'Gyroscope',
     website: 'https://gyro.finance',
     protocols: {
@@ -253,13 +309,13 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           NetworkId.GNOSIS,
           NetworkId.POLYGON_ZKEVM,
         ],
+        strategies: [StrategyShortId.GAF,],
       },
     },
     defiLlama: 'gyroscope-protocol',
     github: 'gyrostable',
   },
   baseswap: {
-    status: IntegrationStatus.ROADMAP,
     name: 'BaseSwap',
     website: 'https://baseswap.fi',
     protocols: {
@@ -275,11 +331,10 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   // ALM
   gamma: {
-    status: IntegrationStatus.LIVE,
     name: 'Gamma',
     website: 'https://gamma.xyz',
     protocols: {
-      defiEdge: {
+      gamma: {
         name: 'Gamma',
         category: DefiCategory.ALM,
         networks: [
@@ -308,7 +363,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: 'GammaStrategies',
   },
   defiEdge: {
-    status: IntegrationStatus.LIVE,
     name: 'DefiEdge',
     website: 'https://www.defiedge.io',
     protocols: {
@@ -335,7 +389,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: 'defiedge',
   },
   ichi: {
-    status: IntegrationStatus.LIVE,
     name: 'Ichi',
     website: 'https://www.ichi.org',
     protocols: {
@@ -356,7 +409,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: 'ichifarm',
   },
   steer: {
-    status: IntegrationStatus.DEVELOPMENT,
     name: 'Steer',
     website: 'https://steer.finance',
     protocols: {
@@ -393,7 +445,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: 'steerprotocol',
   },
   charm: {
-    status: IntegrationStatus.ROADMAP,
     name: 'Charm',
     website: 'https://www.charm.fi',
     protocols: {
@@ -417,7 +468,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: 'charmfinance',
   },
   a51: {
-    status: IntegrationStatus.ROADMAP,
     name: 'A51',
     website: 'https://a51.finance',
     protocols: {
@@ -443,7 +493,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   // Lending
   compound: {
-    status: IntegrationStatus.LIVE,
     name: 'Compound',
     website: 'https://compound.finance',
     protocols: {
@@ -465,7 +514,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: 'compound-finance',
   },
   aave: {
-    status: IntegrationStatus.USE_VIA_LIVE,
     name: 'Aave',
     website: 'https://aave.com',
     protocols: {
@@ -485,7 +533,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           NetworkId.BSC,
           NetworkId.SCROLL,
         ],
-        strategies: [StrategyShortId.Y],
+        intermediaryStrategies: [StrategyShortId.Y],
       },
     },
     defiLlama: 'aave',
@@ -493,7 +541,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   // Boost aggregator
   convex: {
-    status: IntegrationStatus.LIVE,
     name: 'Convex',
     website: 'https://www.convexfinance.com',
     protocols: {
@@ -508,7 +555,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: 'convex-eth',
   },
   aura: {
-    status: IntegrationStatus.POSSIBLE,
     name: 'Aura',
     website: 'https://aura.finance',
     protocols: {
@@ -516,6 +562,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: 'Aura',
         category: DefiCategory.VE_AGG,
         networks: [NetworkId.ETHEREUM, NetworkId.ARBITRUM, NetworkId.POLYGON,],
+        strategies: [StrategyShortId.GAF,],
       },
     },
     defiLlama: 'aura',
@@ -523,7 +570,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   // ERC-4626
   yearn: {
-    status: IntegrationStatus.AWAITING_DEPLOYMENT,
     name: 'Yearn',
     website: 'https://yearn.fi',
     protocols: {
@@ -538,7 +584,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: 'yearn',
   },
   tetu: {
-    status: IntegrationStatus.POSSIBLE,
     name: 'Tetu',
     website: 'https://tetu.io',
     protocols: {
@@ -553,7 +598,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   // Index
   dhedge: {
-    status: IntegrationStatus.POSSIBLE,
     name: 'dHEDGE',
     website: 'https://dhedge.org',
     protocols: {
@@ -568,7 +612,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   // Bridge (liquidity transport etc)
   stargate: {
-    status: IntegrationStatus.USE_VIA_LIVE,
     name: 'Stargate',
     website: 'https://stargate.finance',
     protocols: {
@@ -576,7 +619,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: 'Stargate',
         category: DefiCategory.BRIDGE,
         networks: [NetworkId.ETHEREUM, NetworkId.BASE, NetworkId.ARBITRUM, NetworkId.POLYGON,],
-        strategies: [StrategyShortId.Y],
+        intermediaryStrategies: [StrategyShortId.Y],
       },
     },
     github: 'stargate-protocol',
@@ -584,7 +627,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   // Liquid staking
   lido: {
-    status: IntegrationStatus.USE_VIA_LIVE,
     name: 'Lido',
     website: 'https://lido.fi',
     protocols: {
@@ -599,7 +641,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     defiLlama: 'lido',
   },
   stader: {
-    status: IntegrationStatus.POSSIBLE,
     name: 'Stader Labs',
     website: 'https://www.staderlabs.com',
     protocols: {
