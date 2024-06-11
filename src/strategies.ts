@@ -200,3 +200,12 @@ export const getMerklStrategies = (): string[] => {
     return strategy.id
   })
 }
+
+export const getStrategyShortId = (strategyId: string): StrategyShortId|undefined => {
+  for (const strategyShortId of Object.keys(strategies)) {
+    if (strategies[strategyShortId as StrategyShortId].id === strategyId) {
+      return strategyShortId as StrategyShortId;
+    }
+  }
+  return undefined
+}
