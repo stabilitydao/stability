@@ -43,6 +43,10 @@ DeFi organizations, protocols, their integration statuses, usage and other infor
 
 * `getIntegrationStatus(p: DeFiProtocol): IntegrationStatus`
 
+### Tokenlist
+
+`stability.tokenlist.json`
+
 ## Develop
 
 ```shell

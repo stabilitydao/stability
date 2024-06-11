@@ -1,8 +1,9 @@
 import {deployments, integrations, IntegrationStatus, networks, strategies, StrategyShortId} from "../src";
 import {Table} from "console-table-printer";
 import {version} from '../package.json';
-import ansis, {red, green, cyan, black, ansi256, hex, bold, rgb} from 'ansis';
+import {hex, bold} from 'ansis';
 import {getIntegrationStatus} from "../src/integrations";
+import tokenlist from '../src/stability.tokenlist.json'
 
 console.log(bold`== Stability Integration Library v${version} ==`)
 console.log('')
@@ -16,7 +17,7 @@ console.log(`${Object.keys(networks).map(n => `${networks[n].id} [${n}]`).join('
 console.log('')
 // @ts-ignore
 console.log(bold`=== Strategies: ${Object.keys(strategies).length} ===`)
-for (let strategyShortId in StrategyShortId) {
+for (const strategyShortId of Object.keys(strategies)) {
   // @ts-ignore
   console.log(hex(strategies[strategyShortId].color).bgHex(strategies[strategyShortId].bgColor).bold`[${strategies[strategyShortId].state}] ${strategyShortId} | ${strategies[strategyShortId].id}`)
 }
@@ -65,4 +66,9 @@ for (const defiOrgCode of Object.keys(integrations)) {
 // @ts-ignore
 console.log(bold`=== DeFi protocols: ${protocolsTotal} ===`)
 table.printTable();
+console.log('')
 
+// @ts-ignore
+console.log(bold`=== Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map(t => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} networks ===`)
+console.log(`${tokenlist.tokens.map(t => `${t.symbol} [${t.chainId}]`).join(', ')}`)
+console.log('')
