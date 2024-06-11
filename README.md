@@ -39,4 +39,6 @@ DeFi organizations, protocols, their integration statuses, usage and other infor
 ```shell
 yarn overview
 yarn overview-full
+yarn test
+yarn coverage
 ```

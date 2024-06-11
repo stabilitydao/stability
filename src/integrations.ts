@@ -20,7 +20,7 @@ export type DeFiProtocol = {
   coreContracts?: string[]
 }
 
-export enum IntegrationStatus {
+export const enum IntegrationStatus {
   LIVE = 'Live',
   IN_USE = 'In use',
   BEING_DEPLOYED = 'Being deployed',
@@ -42,54 +42,6 @@ export enum DefiCategory {
   VAULTS_ERC4626 = 'Vaults ERC-4626',
   BRIDGE = 'Bridge',
   LST = 'Liquid staking',
-}
-
-export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
-  if (p.coreContracts && p.coreContracts.length > 0) {
-    return IntegrationStatus.LIVE
-  }
-  if (p.adapters && p.adapters.length > 0) {
-    return IntegrationStatus.LIVE
-  }
-  if (p.strategies) {
-    for (const strategy of p.strategies) {
-      if (strategies[strategy]?.state == StrategyState.LIVE) {
-        return IntegrationStatus.LIVE
-      }
-      if (strategies[strategy]?.state == StrategyState.AWAITING_DEPLOYMENT) {
-        return IntegrationStatus.BEING_DEPLOYED
-      }
-      if (strategies[strategy]?.state == StrategyState.DEVELOPMENT) {
-        return IntegrationStatus.DEVELOPMENT
-      }
-      if (strategies[strategy]?.state == StrategyState.PROPOSED) {
-        return IntegrationStatus.AWAITING
-      }
-    }
-  }
-  if (p.intermediaryStrategies) {
-    for (const strategy of p.intermediaryStrategies) {
-      if (strategies[strategy]?.state == StrategyState.LIVE) {
-        return IntegrationStatus.IN_USE
-      }
-      if (strategies[strategy]?.state == StrategyState.AWAITING_DEPLOYMENT) {
-        return IntegrationStatus.BEING_DEPLOYED
-      }
-      if (strategies[strategy]?.state == StrategyState.DEVELOPMENT) {
-        return IntegrationStatus.DEVELOPMENT
-      }
-      if (strategies[strategy]?.state == StrategyState.PROPOSED) {
-        return IntegrationStatus.AWAITING
-      }
-    }
-  }
-  const supportedNetWorkIds = Object.keys(deployments).map(chainIdString => networks[chainIdString].id)
-  for (const protocolNetworkId of p.networks) {
-    if (supportedNetWorkIds.includes(protocolNetworkId as NetworkId)) {
-      return IntegrationStatus.POSSIBLE
-    }
-  }
-  return IntegrationStatus.PROPOSED
 }
 
 export const integrations: { [org: string]: DeFiOrganization } = {
@@ -655,3 +607,51 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     defiLlama: 'stader',
   },
 };
+
+export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
+  if (p.coreContracts && p.coreContracts.length > 0) {
+    return IntegrationStatus.LIVE
+  }
+  if (p.adapters && p.adapters.length > 0) {
+    return IntegrationStatus.LIVE
+  }
+  if (p.strategies) {
+    for (const strategy of p.strategies) {
+      if (strategies[strategy]?.state == StrategyState.LIVE) {
+        return IntegrationStatus.LIVE
+      }
+      if (strategies[strategy]?.state == StrategyState.AWAITING_DEPLOYMENT) {
+        return IntegrationStatus.BEING_DEPLOYED
+      }
+      if (strategies[strategy]?.state == StrategyState.DEVELOPMENT) {
+        return IntegrationStatus.DEVELOPMENT
+      }
+      if (strategies[strategy]?.state == StrategyState.PROPOSED) {
+        return IntegrationStatus.AWAITING
+      }
+    }
+  }
+  if (p.intermediaryStrategies) {
+    for (const strategy of p.intermediaryStrategies) {
+      if (strategies[strategy]?.state == StrategyState.LIVE) {
+        return IntegrationStatus.IN_USE
+      }
+      if (strategies[strategy]?.state == StrategyState.AWAITING_DEPLOYMENT) {
+        return IntegrationStatus.BEING_DEPLOYED
+      }
+      if (strategies[strategy]?.state == StrategyState.DEVELOPMENT) {
+        return IntegrationStatus.DEVELOPMENT
+      }
+      if (strategies[strategy]?.state == StrategyState.PROPOSED) {
+        return IntegrationStatus.AWAITING
+      }
+    }
+  }
+  const supportedNetWorkIds = Object.keys(deployments).map(chainIdString => networks[chainIdString].id)
+  for (const protocolNetworkId of p.networks) {
+    if (supportedNetWorkIds.includes(protocolNetworkId as NetworkId)) {
+      return IntegrationStatus.POSSIBLE
+    }
+  }
+  return IntegrationStatus.PROPOSED
+}

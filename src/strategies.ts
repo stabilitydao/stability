@@ -1,3 +1,5 @@
+import {integrations} from "./integrations";
+
 export type Strategy = {
   id: string
   shortId: StrategyShortId
@@ -7,7 +9,7 @@ export type Strategy = {
   bgColor: string
 }
 
-export enum StrategyShortId {
+export const enum StrategyShortId {
   QSMF = 'QSMF',
   DQMF = 'DQMF',
   IQMF = 'IQMF',
@@ -36,7 +38,7 @@ export enum StrategyState {
   PROPOSED = 'Proposed',
 }
 
-export const strategies: {[shortId in StrategyShortId]?:Strategy} = {
+export const strategies: {[shortId in StrategyShortId]:Strategy} = {
   [StrategyShortId.QSMF]: {
     id: 'QuickSwap Static Merkl Farm',
     shortId: StrategyShortId.QSMF,
@@ -190,3 +192,11 @@ export const strategies: {[shortId in StrategyShortId]?:Strategy} = {
     bgColor: "#000000",
   },
 };
+
+export const getMerklStrategies = (): string[] => {
+  const strategyShortIds = integrations.angle.protocols.merkl.strategies as StrategyShortId[]
+  return strategyShortIds.map(shortId => {
+    const strategy = strategies[shortId] as Strategy
+    return strategy.id
+  })
+}
