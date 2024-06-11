@@ -1,6 +1,11 @@
-import {getMerklStrategies} from "../src/strategies";
+import {getMerklStrategies, getStrategyShortId} from "../src/strategies";
+import {StrategyShortId} from "../src";
 
 describe('testing strategies', () => {
+  test('get merkl strategies', () => {
+    expect(getStrategyShortId('QuickSwap Static Merkl Farm')).toBe(StrategyShortId.QSMF)
+    expect(getStrategyShortId('unknown')).toBe(undefined)
+  })
   test('get merkl strategies', () => {
     const merklStrategies = getMerklStrategies();
     expect(merklStrategies.includes('Gamma UniswapV3 Merkl Farm')).toBe(true);
