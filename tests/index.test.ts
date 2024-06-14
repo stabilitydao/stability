@@ -1,4 +1,12 @@
-import {NetworkId, networks, strategies, deployments, integrations, StrategyShortId} from "../src";
+import {
+  NetworkId,
+  networks,
+  strategies,
+  deployments,
+  integrations,
+  StrategyShortId,
+  tokenlist, subgraphs,
+} from "../src";
 
 describe('index', () => {
   test('deployments', () => {
@@ -12,5 +20,11 @@ describe('index', () => {
   })
   test('integrations', () => {
     expect(integrations["chainlink"].name).toBe('ChainLink')
+  })
+  test('tokenlist', () => {
+    expect(tokenlist.tokens.length).toBeGreaterThan(0)
+  })
+  test('subgraphs', () => {
+    expect(Object.keys(subgraphs).length).toBeGreaterThan(0)
   })
 })
