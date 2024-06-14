@@ -1,4 +1,4 @@
-import { getIntegrationStatus} from "../src/integrations";
+import { getIntegrationStatus} from "../src";
 import {NetworkId, strategies, StrategyShortId, StrategyState, DefiCategory, DeFiProtocol, IntegrationStatus} from "../src";
 
 describe('testing integrations', () => {

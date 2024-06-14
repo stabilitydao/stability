@@ -1,4 +1,4 @@
-import {integrations, networks, strategies, deployments} from "../src";
+import {integrations, networks, strategies, deployments, subgraphs} from "../src";
 import {version} from '../package.json';
 import tokenlist from '../src/stability.tokenlist.json'
 
@@ -12,3 +12,4 @@ for (const defiOrgCode of Object.keys(integrations)) {
 }
 console.log(`DeFi protocols: ${protocolsTotal}`)
 console.log(`Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map(t => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} networks.`)
+console.log(`Subgraph endpoints: ${Object.keys(subgraphs).length}`)

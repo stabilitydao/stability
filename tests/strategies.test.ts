@@ -1,4 +1,4 @@
-import {getMerklStrategies, getStrategyShortId} from "../src/strategies";
+import {getMerklStrategies, getStrategyShortId} from "../src";
 import {StrategyShortId} from "../src";
 
 describe('testing strategies', () => {

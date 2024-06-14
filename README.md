@@ -47,6 +47,16 @@ DeFi organizations, protocols, their integration statuses, usage and other infor
 
 `stability.tokenlist.json`
 
+### API types
+
+```typescript
+import type {ApiMainReply, ApiAggSwapData} from '@stabilitydao/stability'
+```
+
+### Subgraphs
+
+The Graph API query URLs for supported networks.
+
 ## Develop
 
 ```shell
