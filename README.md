@@ -2,6 +2,7 @@
 
 [![GitHub version](https://badge.fury.io/gh/stabilitydao%2Fstability.svg)](https://badge.fury.io/gh/stabilitydao%2Fstability)
 [![npm version](https://badge.fury.io/js/@stabilitydao%2Fstability.svg)](https://badge.fury.io/js/@stabilitydao%2Fstability)
+[![codecov](https://codecov.io/github/stabilitydao/stability/graph/badge.svg?token=V0JV1WOGMM)](https://codecov.io/github/stabilitydao/stability)
 
 This is library for integrating the platform into Node.js applications.
 
