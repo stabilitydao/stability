@@ -16,6 +16,14 @@ console.log(bold`=== Networks: ${Object.keys(networks).length} ===`)
 console.log(`${Object.keys(networks).map(n => `${networks[n].id} [${n}]`).join(', ')}`)
 console.log('')
 // @ts-ignore
+console.log(bold`=== Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map(t => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} networks ===`)
+console.log(`${tokenlist.tokens.map(t => `[${t.chainId}] ${t.symbol}`).join(', ')}`)
+console.log('')
+// @ts-ignore
+console.log(bold`=== Subgraph endpoints: ${Object.keys(subgraphs).length} ===`)
+console.log(`${Object.keys(subgraphs).map(chainId => `[${chainId}] ${subgraphs[chainId]}`).join("\n")}`)
+console.log('')
+// @ts-ignore
 console.log(bold`=== Strategies: ${Object.keys(strategies).length} ===`)
 for (const strategyShortId of Object.keys(strategies)) {
   // @ts-ignore
@@ -66,14 +74,4 @@ for (const defiOrgCode of Object.keys(integrations)) {
 // @ts-ignore
 console.log(bold`=== DeFi protocols: ${protocolsTotal} ===`)
 table.printTable();
-console.log('')
-
-// @ts-ignore
-console.log(bold`=== Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map(t => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} networks ===`)
-console.log(`${tokenlist.tokens.map(t => `[${t.chainId}] ${t.symbol}`).join(', ')}`)
-console.log('')
-
-// @ts-ignore
-console.log(bold`=== Subgraph endpoints: ${Object.keys(subgraphs).length} ===`)
-console.log(`${Object.keys(subgraphs).map(chainId => `[${chainId}] ${subgraphs[chainId]}`).join("\n")}`)
 console.log('')
