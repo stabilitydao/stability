@@ -162,7 +162,7 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
   [StrategyShortId.GUMF]: {
     id: 'Gamma UniswapV3 Merkl Farm',
     shortId: StrategyShortId.GUMF,
-    state: StrategyState.PROPOSED,
+    state: StrategyState.LIVE,
     contractGithubId: 145,
     color: "#ff0000",
     bgColor: "#000000",
