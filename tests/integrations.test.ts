@@ -16,7 +16,14 @@ describe('testing integrations', () => {
     protocol.coreContracts = undefined
     protocol.adapters = ['TestAdapter',]
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.LIVE)
+
+    protocol.networks = [NetworkId.EVMOS,]
+    expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.PROPOSED)
     protocol.adapters = undefined
+    protocol.coreContracts = ['PriceReader',]
+    expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.PROPOSED)
+    protocol.coreContracts = undefined
+
     protocol.strategies = [StrategyShortId.IQMF,]
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.LIVE)
     strategies[StrategyShortId.IQMF].state = StrategyState.AWAITING_DEPLOYMENT

@@ -1,8 +1,9 @@
 import {IntegrationStatus} from "./integrations";
+import {deployments} from "./deployments";
 
 export type Network = {
   id: NetworkId,
-  chainId: number|string,
+  chainId: number | string,
   status: IntegrationStatus,
 }
 
@@ -24,6 +25,7 @@ export const enum NetworkId {
   POLYGON_ZKEVM = 'Polygon zkEVM',
   IMMUTABLE_ZKEVM = 'Immutable zkEVM',
   ASTAR_ZKEVM = 'Astar zkEVM',
+  ZKFAIR = 'ZKFair',
   SCROLL = 'Scroll',
   ZKSYNC = 'zkSync',
   BLAST = 'Blast',
@@ -40,9 +42,11 @@ export const enum NetworkId {
   ROLLUX = 'Rollux',
   EVMOS = 'Evmos',
   TELOS = 'Telos EVM',
+  ZETA = 'ZetaChain',
+  MERLIN = 'Merlin',
 }
 
-export const networks: {[chainId: string]: Network} = {
+export const networks: { [chainId: string]: Network } = {
   "1": {
     id: NetworkId.ETHEREUM,
     chainId: 1,
@@ -113,11 +117,6 @@ export const networks: {[chainId: string]: Network} = {
     chainId: 570,
     status: IntegrationStatus.PROPOSED,
   },
-  "3776": {
-    id: NetworkId.ASTAR_ZKEVM,
-    chainId: 3776,
-    status: IntegrationStatus.PROPOSED,
-  },
   "1088": {
     id: NetworkId.METIS,
     chainId: 1088,
@@ -148,9 +147,24 @@ export const networks: {[chainId: string]: Network} = {
     chainId: 2222,
     status: IntegrationStatus.PROPOSED,
   },
+  "3776": {
+    id: NetworkId.ASTAR_ZKEVM,
+    chainId: 3776,
+    status: IntegrationStatus.PROPOSED,
+  },
+  "4200": {
+    id: NetworkId.MERLIN,
+    chainId: 4200,
+    status: IntegrationStatus.PROPOSED,
+  },
   "5000": {
     id: NetworkId.MANTLE,
     chainId: 5000,
+    status: IntegrationStatus.PROPOSED,
+  },
+  "7000": {
+    id: NetworkId.ZETA,
+    chainId: 7000,
     status: IntegrationStatus.PROPOSED,
   },
   "8217": {
@@ -188,6 +202,11 @@ export const networks: {[chainId: string]: Network} = {
     chainId: 42220,
     status: IntegrationStatus.PROPOSED,
   },
+  "42766": {
+    id: NetworkId.ZKFAIR,
+    chainId: 42766,
+    status: IntegrationStatus.PROPOSED,
+  },
   "43114": {
     id: NetworkId.AVALANCHE,
     chainId: 43114,
@@ -209,3 +228,5 @@ export const networks: {[chainId: string]: Network} = {
     status: IntegrationStatus.PROPOSED,
   },
 }
+
+export const getSupportedNetworkIds = () => Object.keys(deployments).map(chainId => networks[chainId].id)
