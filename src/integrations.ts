@@ -1,6 +1,5 @@
 import {strategies, StrategyShortId, StrategyState} from "./strategies";
-import {NetworkId, networks} from "./networks";
-import {deployments} from "./deployments";
+import {getSupportedNetworkIds, NetworkId} from "./networks";
 
 export type DeFiOrganization = {
   name: string
@@ -170,7 +169,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           NetworkId.BLAST,
         ],
         adapters: ['UniswapV3Adapter'],
-        strategies: [StrategyShortId.CUMF,StrategyShortId.GUMF,]
+        strategies: [StrategyShortId.CUMF, StrategyShortId.GUMF,]
       },
     },
     defiLlama: 'uniswap',
@@ -280,6 +279,20 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       },
     },
     defiLlama: 'baseswap',
+  },
+  agni: {
+    name: 'Agni',
+    website: 'https://agni.finance/',
+    protocols: {
+      agni: {
+        name: 'Agni',
+        category: DefiCategory.AMM,
+        networks: [NetworkId.MANTLE,],
+        adapters: ['UniswapV3Adapter',],
+      },
+    },
+    defiLlama: 'agni-finance',
+    github: 'agni-protocol',
   },
   // ALM
   gamma: {
@@ -442,6 +455,32 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     },
     defiLlama: 'a51-finance',
     github: 'a51finance',
+  },
+  skatefi: {
+    name: 'SkateFi',
+    website: 'https://www.rangeprotocol.com',
+    protocols: {
+      range: {
+        name: 'Range',
+        category: DefiCategory.ALM,
+        networks: [
+          NetworkId.ETHEREUM,
+          NetworkId.BSC,
+          NetworkId.ARBITRUM,
+          NetworkId.POLYGON,
+          NetworkId.MANTLE,
+          NetworkId.BASE,
+          NetworkId.MANTA,
+          NetworkId.SCROLL,
+          NetworkId.BLAST,
+          NetworkId.ZETA,
+          NetworkId.ZKFAIR,
+          NetworkId.MERLIN,
+        ],
+      },
+    },
+    defiLlama: 'skate-fi',
+    github: 'Range-Protocol',
   },
   // Lending
   compound: {
@@ -609,11 +648,13 @@ export const integrations: { [org: string]: DeFiOrganization } = {
 };
 
 export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
+  const supportedNetWorkIds = getSupportedNetworkIds()
+  const isSupportedNetwork = p.networks.some(r => supportedNetWorkIds.includes(r))
   if (p.coreContracts && p.coreContracts.length > 0) {
-    return IntegrationStatus.LIVE
+    return isSupportedNetwork ? IntegrationStatus.LIVE : IntegrationStatus.PROPOSED
   }
   if (p.adapters && p.adapters.length > 0) {
-    return IntegrationStatus.LIVE
+    return isSupportedNetwork ? IntegrationStatus.LIVE : IntegrationStatus.PROPOSED
   }
   if (p.strategies) {
     for (const strategy of p.strategies) {
@@ -647,11 +688,6 @@ export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
       }
     }
   }
-  const supportedNetWorkIds = Object.keys(deployments).map(chainIdString => networks[chainIdString].id)
-  for (const protocolNetworkId of p.networks) {
-    if (supportedNetWorkIds.includes(protocolNetworkId as NetworkId)) {
-      return IntegrationStatus.POSSIBLE
-    }
-  }
-  return IntegrationStatus.PROPOSED
+
+  return isSupportedNetwork ? IntegrationStatus.POSSIBLE : IntegrationStatus.PROPOSED
 }

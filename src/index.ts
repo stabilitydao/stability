@@ -1,5 +1,5 @@
 import {deployments, CoreContracts} from "./deployments";
-import {networks, NetworkId, Network} from "./networks";
+import {networks, NetworkId, Network, getSupportedNetworkIds} from "./networks";
 import {
   strategies,
   StrategyShortId,
@@ -42,4 +42,5 @@ export {
   getMerklStrategies,
   getStrategyShortId,
   getIntegrationStatus,
+  getSupportedNetworkIds,
 }
