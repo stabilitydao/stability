@@ -3,6 +3,7 @@ export type ApiMainReply = {
   about: string;
   status: string;
   services: string[];
+  platforms: Platforms;
   vaults: Vaults;
   underlyings: Underlyings;
   assetPrices: AssetPrices;
@@ -51,10 +52,27 @@ export type Vault = {
   tvl: string;
   strategy?: `0x${string}`;
   underlying?: `0x${string}`;
+  underlyingSymbol?: string;
   lastHardWork?: number;
   status?: string;
   strategySpecific?: string;
   strategyDescription?: string;
+  vaultType?: string;
+  version?: string;
+  assets?: `0x${string}`;
+  assetsAmounts?: string[];
+  assetsPricesOnCreation?: string[];
+  apr?: {
+    incomeLatest: string;
+    income24h: string;
+    incomeWeek: string;
+    vsHoldLifetime: string;
+    vsHoldAssetsLifetime: string[];
+  };
+  created?: number;
+  hardWorkOnDeposit?: boolean;
+  gasReserve?: string;
+  vaultManagerId?: number;
   pool?: {
     address: string;
     ammName?: string;
@@ -79,6 +97,7 @@ export type Vault = {
       inRange: boolean;
     }[];
   };
+  almRebalanceRawData?: string[][];
   risk?: Risk;
 };
 
@@ -98,3 +117,16 @@ export type AssetPriceUsd = {
   price: string;
   trusted: boolean;
 };
+
+export type Platform = {
+  versions: {
+    platform: string;
+    vaultType: { [id: string]: string };
+    strategy: { [id: string]: string };
+  };
+  bcAssets: string[];
+  buildingPayPerVaultToken: string;
+  buildingPermitToken: string;
+};
+
+export type Platforms = { [chainId: number]: Platform };
