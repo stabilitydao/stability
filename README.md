@@ -66,6 +66,14 @@ import type {ApiMainReply, ApiAggSwapData} from '@stabilitydao/stability'
 
 The Graph API query URLs for supported networks.
 
+### Addresses
+
+Third-party addresses.
+
+```typescript
+import {almFactories} from '@stabilitydao/stability'
+```
+
 ## Develop
 
 ```shell
