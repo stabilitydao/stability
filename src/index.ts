@@ -19,6 +19,7 @@ import {
 import {subgraphs} from "./subgraphs";
 import type {ApiMainReply, ApiAggSwapData} from "./api.types"
 import tokenlist from "./stability.tokenlist.json"
+import {almFactories} from "./addresses";
 
 export {
   deployments,
@@ -39,6 +40,7 @@ export {
   ApiMainReply,
   ApiAggSwapData,
   tokenlist,
+  almFactories,
   getMerklStrategies,
   getStrategyShortId,
   getIntegrationStatus,
