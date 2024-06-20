@@ -98,6 +98,12 @@ export type Vault = {
     }[];
   };
   almRebalanceRawData?: string[][];
+  almFee?: {
+    income: number;
+    deposit: number;
+    withdraw: number;
+    rebalance: number;
+  };
   risk?: Risk;
 };
 
