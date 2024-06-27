@@ -74,6 +74,14 @@ Third-party addresses.
 import {almFactories} from '@stabilitydao/stability'
 ```
 
+### Assets
+
+Asset addresses, description, website, color.
+
+#### Methods
+
+* `getAsset(chainId: string, tokenAddress: 0x${string}): Asset|undefined`
+
 ## Develop
 
 ```shell

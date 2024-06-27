@@ -20,6 +20,7 @@ import {subgraphs} from "./subgraphs";
 import type {ApiMainReply, ApiAggSwapData} from "./api.types"
 import tokenlist from "./stability.tokenlist.json"
 import {almFactories} from "./addresses";
+import {assets, Asset, getAsset} from "./assets";
 
 export {
   deployments,
@@ -45,4 +46,7 @@ export {
   getStrategyShortId,
   getIntegrationStatus,
   getSupportedNetworkIds,
+  assets,
+  Asset,
+  getAsset,
 }

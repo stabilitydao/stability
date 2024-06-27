@@ -5,7 +5,7 @@ import {
   deployments,
   integrations,
   StrategyShortId,
-  tokenlist, subgraphs, almFactories,
+  tokenlist, subgraphs, almFactories, assets,
 } from "../src";
 
 describe('index', () => {
@@ -30,5 +30,8 @@ describe('index', () => {
   test('almFactories', () => {
     expect(Object.keys(almFactories).length).toBeGreaterThan(0)
     expect(almFactories["137"].ichi.retro).toBe("0xb2f44D8545315cDd0bAaB4AC7233218b932a5dA7")
+  })
+  test('assets', () => {
+    expect(assets.length).toBeGreaterThan(0)
   })
 })

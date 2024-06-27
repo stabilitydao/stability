@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2024-06-10T00:00:00+00:00",
+  "timestamp": "2024-06-28T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 2,
+    "minor": 3,
     "patch": 0
   },
   "tags": {
@@ -20,6 +20,10 @@
     "lst": {
       "name": "Liquid Staking",
       "description": "Liquid staking token"
+    },
+    "wNative": {
+      "name": "Wrapped native coin",
+      "description": "WETH9 or similar contract for wrapping native coin to ERC20 token"
     }
   },
   "tokens": [
@@ -65,7 +69,8 @@
       "symbol": "WMATIC",
       "name": "Wrapped Matic",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/polygon.jpg"
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/polygon.jpg",
+      "tags": ["wNative"]
     },
     {
       "chainId": 137,
@@ -117,7 +122,7 @@
       "name": "Wrapped Ether",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/eth.jpg",
-      "tags": ["bridged"]
+      "tags": ["wNative"]
     },
     {
       "chainId": 8453,
@@ -162,6 +167,24 @@
       "name": "USD Base Coin",
       "decimals": 6,
       "logoURI": "https://basescan.org/token/images/usdbc_ofc_32.png",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x417Ac0e078398C154EdFadD9Ef675d30Be60Af93",
+      "symbol": "crvUSD",
+      "name": "Curve.Fi USD",
+      "decimals": 18,
+      "logoURI": "https://polygonscan.com/token/images/crvusd_32.png",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+      "symbol": "DAI",
+      "name": "Dai Stablecoin",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/dai.jpg",
       "tags": ["stablecoin", "bridged"]
     }
   ]
