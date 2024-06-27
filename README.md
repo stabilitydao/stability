@@ -78,6 +78,10 @@ import {almFactories} from '@stabilitydao/stability'
 
 Asset addresses, description, website, color.
 
+#### Methods
+
+* `getAsset(chainId: string, tokenAddress: 0x${string}): Asset|undefined`
+
 ## Develop
 
 ```shell

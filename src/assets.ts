@@ -92,3 +92,23 @@ export const assets: Asset[] = [
     color: "#2151f5",
   },
 ]
+
+export const getAsset = (chainId: string, tokenAddress: `0x${string}`): Asset|undefined => {
+  for (const asset of assets) {
+    const chainAddresses = asset.addresses[chainId]
+    if (chainAddresses) {
+      if (Array.isArray(chainAddresses)) {
+        for (const address of chainAddresses) {
+          if (address.toLowerCase() == tokenAddress.toLowerCase()) {
+            return asset
+          }
+        }
+      } else {
+        if (chainAddresses.toLowerCase() == tokenAddress.toLowerCase()) {
+          return asset
+        }
+      }
+    }
+  }
+  return undefined
+}
