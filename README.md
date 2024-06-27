@@ -74,6 +74,10 @@ Third-party addresses.
 import {almFactories} from '@stabilitydao/stability'
 ```
 
+### Assets
+
+Asset addresses, description, website, color.
+
 ## Develop
 
 ```shell
