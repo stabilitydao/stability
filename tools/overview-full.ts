@@ -1,7 +1,7 @@
 import {
   assets,
   deployments,
-  getNetworksTotals,
+  getNetworksTotals, getStrategiesTotals,
   integrations,
   IntegrationStatus,
   networks,
@@ -14,6 +14,7 @@ import {getIntegrationStatus} from "../src";
 import tokenlist from '../src/stability.tokenlist.json'
 
 const networkTotal = getNetworksTotals()
+const strategiesTotal = getStrategiesTotals()
 
 console.log(bold`== Stability Integration Library v${version} ==`)
 console.log('')
@@ -27,19 +28,20 @@ console.log(`Chain libraries: ${networkTotal.CHAINLIB_DONE + networkTotal.SUPPOR
 console.log(`${Object.keys(networks).map(n => `[${n}] ${networks[n].id}`).join(', ')}`)
 console.log('')
 // @ts-ignore
+console.log(bold`=== Strategies: ${Object.keys(strategies).length} ===`)
+console.log(`Live: ${strategiesTotal.LIVE}, deploying: ${strategiesTotal.DEPLOYMENT}, development: ${strategiesTotal.DEVELOPMENT}, awaiting: ${strategiesTotal.AWAITING}, blocked: ${strategiesTotal.BLOCKED}, possible: ${strategiesTotal.POSSIBLE}, proposal: ${strategiesTotal.PROPOSAL}.`)
+for (const strategyShortId of Object.keys(strategies)) {
+  // @ts-ignore
+  console.log(hex(strategies[strategyShortId].color).bgHex(strategies[strategyShortId].bgColor).bold`[${strategies[strategyShortId].state}] ${strategyShortId} | ${strategies[strategyShortId].id}`)
+}
+console.log('')
+// @ts-ignore
 console.log(bold`=== Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map(t => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} networks ===`)
 console.log(`${tokenlist.tokens.map(t => `[${t.chainId}] ${t.symbol}`).join(', ')}`)
 console.log('')
 // @ts-ignore
 console.log(bold`=== Assets: ${assets.length}`)
 console.log(`${assets.map(a => `${a.symbol}`).join(', ')}`)
-console.log('')
-// @ts-ignore
-console.log(bold`=== Strategies: ${Object.keys(strategies).length} ===`)
-for (const strategyShortId of Object.keys(strategies)) {
-  // @ts-ignore
-  console.log(hex(strategies[strategyShortId].color).bgHex(strategies[strategyShortId].bgColor).bold`[${strategies[strategyShortId].state}] ${strategyShortId} | ${strategies[strategyShortId].id}`)
-}
 console.log('')
 
 const table = new Table({
