@@ -229,4 +229,4 @@ export const networks: { [chainId: string]: Network } = {
   },
 }
 
-export const getSupportedNetworkIds = () => Object.keys(deployments).map(chainId => networks[chainId].id)
+export const getSupportedNetworkIds = (): NetworkId[] => Object.keys(deployments).map(chainId => networks[chainId].id)
