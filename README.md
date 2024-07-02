@@ -1,4 +1,4 @@
-# Stability Integration Library
+# 📦 Stability Integration Library
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/stabilitydao/stability)
 ![NPM Version](https://img.shields.io/npm/v/%40stabilitydao%2Fstability?label=NPM%20version)
@@ -12,7 +12,7 @@
 
 This is library for integrating Stability Platform into Node.js applications.
 
-## Usage
+## 🔌 Usage
 
 Add npm package to your project:
 
@@ -20,35 +20,66 @@ Add npm package to your project:
 yarn add @stabilitydao/stability
 ```
 
-### Deployments
+### #️⃣ Deployments
 
-Core contracts deployment addresses.
+Core contracts deployment addresses and subgraph API endpoints.
 
 ```typescript
 import {deployments} from "@stabilitydao/stability";
-console.log('Platform address on Polygon', deployments["137"].platform)
+console.log('Platform address on Polygon', deployments["137"].core.platform)
 ```
 
 #### Types
 
 ```typescript
-type CoreContracts = {
-  platform: `0x${string}`,
-  factory: `0x${string}`,
-  priceReader: `0x${string}`,
-  swapper: `0x${string}`,
-  hardWorker: `0x${string}`,
-  vaultManager: `0x${string}`,
-  strategyLogic: `0x${string}`,
-  zap: `0x${string}`,
+type Deployment = {
+  core: {
+    platform: `0x${string}`,
+    factory: `0x${string}`,
+    priceReader: `0x${string}`,
+    swapper: `0x${string}`,
+    hardWorker: `0x${string}`,
+    vaultManager: `0x${string}`,
+    strategyLogic: `0x${string}`,
+    zap: `0x${string}`,
+  },
+  subgraph: string,
 }
 ```
 
 #### Constants
 
-* `deployments: {[chainId:string]:CoreContracts}`
+* `deployments: {[chainId:string]:Deployment}`
 
-### Strategies
+### ⛓️ Networks
+
+Blockchains known to the platform and their integration statuses.
+
+#### Types
+
+```typescript
+type Network = {
+  id: NetworkId,
+  chainId: number | string,
+  status: NetworkStatus,
+}
+```
+
+#### Enums
+
+* `const enum NetworkId`
+* `const enum NetworkStatus`
+
+#### Constants
+
+* `networks: { [chainId: string]: Network }`
+
+#### Methods
+
+* `getSupportedNetworkIds(): NetworkId[]`
+* `getNetworksTotals(): {[status in NetworkStatus]: number}`
+
+### 💲 Strategies
 
 Comprehensive information about platform strategies for managing DeFi assets. Includes developed strategies and those currently in development or awaiting development.
 
@@ -80,33 +111,7 @@ type Strategy = {
 * `getMerklStrategies()`
 * `getStrategyShortId(id: string): StrategyShortId|undefined`
 
-### Networks
-
-Blockchains known to the platform and their integration statuses.
-
-#### Types
-
-```typescript
-type Network = {
-  id: NetworkId,
-  chainId: number | string,
-  status: IntegrationStatus,
-}
-```
-
-#### Enums
-
-* `const enum NetworkId`
-
-#### Constants
-
-* `networks: { [chainId: string]: Network }`
-
-#### Methods
-
-* `getSupportedNetworkIds(): NetworkId[]`
-
-### Integrations
+### 🌐 Integrations
 
 DeFi organizations, protocols, their integration statuses, usage and other information.
 
@@ -145,34 +150,7 @@ type DeFiProtocol = {
 
 * `getIntegrationStatus(p: DeFiProtocol): IntegrationStatus`
 
-### Tokenlist
-
-```typescript
-import {tokenlist} from '@stabilitydao/stability'
-```
-
-### API types
-
-```typescript
-type ApiMainReply = {
-  title: string;
-  about: string;
-  status: string;
-  services: string[];
-  platforms: Platforms;
-  vaults: Vaults;
-  underlyings: Underlyings;
-  assetPrices: AssetPrices;
-  error?: string;
-}
-```
-...
-
-### Subgraphs
-
-The Graph API query URLs for supported networks.
-
-### Addresses
+### 📌 Addresses
 
 Third-party addresses.
 
@@ -180,7 +158,7 @@ Third-party addresses.
 import {almFactories} from '@stabilitydao/stability'
 ```
 
-### Assets
+### 🪙 Assets
 
 Asset addresses, description, website, color.
 
@@ -204,7 +182,30 @@ type Asset = {
 
 * `getAsset(chainId: string, tokenAddress: 0x${string}): Asset|undefined`
 
-## Develop
+### 📜 Tokenlist
+
+```typescript
+import {tokenlist} from '@stabilitydao/stability'
+```
+
+### 📒 API types
+
+```typescript
+type ApiMainReply = {
+  title: string;
+  about: string;
+  status: string;
+  services: string[];
+  platforms: Platforms;
+  vaults: Vaults;
+  underlyings: Underlyings;
+  assetPrices: AssetPrices;
+  error?: string;
+}
+```
+...
+
+## 👷 Develop
 
 ```shell
 yarn overview
