@@ -29,9 +29,51 @@ import {deployments} from "@stabilitydao/stability";
 console.log('Platform address on Polygon', deployments["137"].platform)
 ```
 
+#### Types
+
+```typescript
+type CoreContracts = {
+  platform: `0x${string}`,
+  factory: `0x${string}`,
+  priceReader: `0x${string}`,
+  swapper: `0x${string}`,
+  hardWorker: `0x${string}`,
+  vaultManager: `0x${string}`,
+  strategyLogic: `0x${string}`,
+  zap: `0x${string}`,
+}
+```
+
+#### Constants
+
+* `deployments: {[chainId:string]:CoreContracts}`
+
 ### Strategies
 
 Comprehensive information about platform strategies for managing DeFi assets. Includes developed strategies and those currently in development or awaiting development.
+
+#### Types
+
+```typescript
+type Strategy = {
+  id: string
+  shortId: StrategyShortId
+  state: StrategyState
+  contractGithubId: number
+  color: string
+  bgColor: string
+}
+```
+
+#### Enums
+
+* `const enum StrategyShortId`
+* `enum StrategyState`
+
+#### Constants
+
+* `strategies: {[shortId in StrategyShortId]:Strategy}`
+* `strategyStateDescription: {[state in StrategyState]: string}`
 
 #### Methods
 
@@ -42,9 +84,62 @@ Comprehensive information about platform strategies for managing DeFi assets. In
 
 Blockchains known to the platform and their integration statuses.
 
+#### Types
+
+```typescript
+type Network = {
+  id: NetworkId,
+  chainId: number | string,
+  status: IntegrationStatus,
+}
+```
+
+#### Enums
+
+* `const enum NetworkId`
+
+#### Constants
+
+* `networks: { [chainId: string]: Network }`
+
+#### Methods
+
+* `getSupportedNetworkIds(): NetworkId[]`
+
 ### Integrations
 
 DeFi organizations, protocols, their integration statuses, usage and other information.
+
+#### Types
+
+```typescript
+type DeFiOrganization = {
+  name: string
+  website: string
+  protocols: { [protocolId: string]: DeFiProtocol }
+  defiLlama: string
+  github?: string
+}
+
+type DeFiProtocol = {
+  name: string
+  category: DefiCategory
+  networks: NetworkId[],
+  strategies?: StrategyShortId[]
+  intermediaryStrategies?: StrategyShortId[]
+  adapters?: string[]
+  coreContracts?: string[]
+}
+```
+
+#### Enums
+
+* `const enum IntegrationStatus`
+* `enum DefiCategory`
+
+#### Constants
+
+* `integrations: { [org: string]: DeFiOrganization }`
 
 #### Methods
 
@@ -59,8 +154,19 @@ import {tokenlist} from '@stabilitydao/stability'
 ### API types
 
 ```typescript
-import type {ApiMainReply, ApiAggSwapData} from '@stabilitydao/stability'
+type ApiMainReply = {
+  title: string;
+  about: string;
+  status: string;
+  services: string[];
+  platforms: Platforms;
+  vaults: Vaults;
+  underlyings: Underlyings;
+  assetPrices: AssetPrices;
+  error?: string;
+}
 ```
+...
 
 ### Subgraphs
 
@@ -77,6 +183,22 @@ import {almFactories} from '@stabilitydao/stability'
 ### Assets
 
 Asset addresses, description, website, color.
+
+#### Types
+
+```typescript
+type Asset = {
+  addresses: {[chainId:string]: `0x${string}`|`0x${string}`[]},
+  symbol: string,
+  description: string,
+  website: string,
+  color: string,
+}
+```
+
+#### Constants
+
+* `assets: Asset[]`
 
 #### Methods
 
