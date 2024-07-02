@@ -6,7 +6,7 @@ import {
   StrategyState,
   Strategy,
   getMerklStrategies,
-  getStrategyShortId
+  getStrategyShortId, strategyStateDescription
 } from "./strategies";
 import {
   integrations,
@@ -49,4 +49,5 @@ export {
   assets,
   Asset,
   getAsset,
+  strategyStateDescription,
 }

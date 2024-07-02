@@ -26,21 +26,21 @@ describe('testing integrations', () => {
 
     protocol.strategies = [StrategyShortId.IQMF,]
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.LIVE)
-    strategies[StrategyShortId.IQMF].state = StrategyState.AWAITING_DEPLOYMENT
+    strategies[StrategyShortId.IQMF].state = StrategyState.DEPLOYMENT
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.BEING_DEPLOYED)
     strategies[StrategyShortId.IQMF].state = StrategyState.DEVELOPMENT
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.DEVELOPMENT)
-    strategies[StrategyShortId.IQMF].state = StrategyState.PROPOSED
+    strategies[StrategyShortId.IQMF].state = StrategyState.PROPOSAL
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.AWAITING)
     protocol.strategies = undefined
     protocol.intermediaryStrategies = [StrategyShortId.IQMF,]
     strategies[StrategyShortId.IQMF].state = StrategyState.LIVE
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.IN_USE)
-    strategies[StrategyShortId.IQMF].state = StrategyState.AWAITING_DEPLOYMENT
+    strategies[StrategyShortId.IQMF].state = StrategyState.DEPLOYMENT
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.BEING_DEPLOYED)
     strategies[StrategyShortId.IQMF].state = StrategyState.DEVELOPMENT
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.DEVELOPMENT)
-    strategies[StrategyShortId.IQMF].state = StrategyState.PROPOSED
+    strategies[StrategyShortId.IQMF].state = StrategyState.PROPOSAL
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.AWAITING)
   })
 })

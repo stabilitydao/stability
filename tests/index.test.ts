@@ -5,7 +5,7 @@ import {
   deployments,
   integrations,
   StrategyShortId,
-  tokenlist, subgraphs, almFactories, assets,
+  tokenlist, subgraphs, almFactories, assets, strategyStateDescription, StrategyState,
 } from "../src";
 
 describe('index', () => {
@@ -33,5 +33,8 @@ describe('index', () => {
   })
   test('assets', () => {
     expect(assets.length).toBeGreaterThan(0)
+  })
+  test('strategyStateDescription', () => {
+    expect(strategyStateDescription[StrategyState.DEPLOYMENT]).toBe("The strategy has been developed. Awaiting deployment.")
   })
 })
