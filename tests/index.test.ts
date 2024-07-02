@@ -5,12 +5,12 @@ import {
   deployments,
   integrations,
   StrategyShortId,
-  tokenlist, subgraphs, almFactories, assets, strategyStateDescription, StrategyState,
+  tokenlist, almFactories, assets, strategyStateDescription, StrategyState,
 } from "../src";
 
 describe('index', () => {
   test('deployments', () => {
-    expect(deployments["137"].platform).toBe("0xb2a0737ef27b5Cc474D24c779af612159b1c3e60")
+    expect(deployments["137"].core.platform).toBe("0xb2a0737ef27b5Cc474D24c779af612159b1c3e60")
   })
   test('networks', () => {
     expect(networks["1"].id).toBe(NetworkId.ETHEREUM)
@@ -23,9 +23,6 @@ describe('index', () => {
   })
   test('tokenlist', () => {
     expect(tokenlist.tokens.length).toBeGreaterThan(0)
-  })
-  test('subgraphs', () => {
-    expect(Object.keys(subgraphs).length).toBeGreaterThan(0)
   })
   test('almFactories', () => {
     expect(Object.keys(almFactories).length).toBeGreaterThan(0)

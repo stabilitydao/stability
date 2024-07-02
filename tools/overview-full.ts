@@ -5,8 +5,7 @@ import {
   integrations,
   IntegrationStatus,
   networks,
-  strategies,
-  subgraphs
+  strategies
 } from "../src";
 import {Table} from "console-table-printer";
 import {version} from '../package.json';
@@ -20,7 +19,7 @@ console.log(bold`== Stability Integration Library v${version} ==`)
 console.log('')
 // @ts-ignore
 console.log(bold`=== Deployments: ${Object.keys(deployments).length} ===`)
-console.log(`${Object.keys(deployments).map(chainId => `Platform on ${networks[chainId].id} [${chainId}]: ${deployments[chainId].platform}`).join("\n")}`)
+console.log(`${Object.keys(deployments).map(chainId => `==== [${chainId}] ${networks[chainId].id} ====\nPlatform: ${deployments[chainId].core.platform}.\nSubgraph: ${deployments[chainId].subgraph}`).join("\n")}`)
 console.log('')
 // @ts-ignore
 console.log(bold`=== Networks: ${Object.keys(networks).length} ===`)
@@ -34,10 +33,6 @@ console.log('')
 // @ts-ignore
 console.log(bold`=== Assets: ${assets.length}`)
 console.log(`${assets.map(a => `${a.symbol}`).join(', ')}`)
-console.log('')
-// @ts-ignore
-console.log(bold`=== Subgraph endpoints: ${Object.keys(subgraphs).length} ===`)
-console.log(`${Object.keys(subgraphs).map(chainId => `[${chainId}] ${subgraphs[chainId]}`).join("\n")}`)
 console.log('')
 // @ts-ignore
 console.log(bold`=== Strategies: ${Object.keys(strategies).length} ===`)
