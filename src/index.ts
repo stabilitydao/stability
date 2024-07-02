@@ -1,5 +1,5 @@
 import {deployments, CoreContracts} from "./deployments";
-import {networks, NetworkId, Network, getSupportedNetworkIds} from "./networks";
+import {networks, NetworkId, Network, getSupportedNetworkIds, getNetworksTotals} from "./networks";
 import {
   strategies,
   StrategyShortId,
@@ -50,4 +50,5 @@ export {
   Asset,
   getAsset,
   strategyStateDescription,
+  getNetworksTotals,
 }

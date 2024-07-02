@@ -1,9 +1,20 @@
-import {assets, deployments, integrations, IntegrationStatus, networks, strategies, subgraphs} from "../src";
+import {
+  assets,
+  deployments,
+  getNetworksTotals,
+  integrations,
+  IntegrationStatus,
+  networks,
+  strategies,
+  subgraphs
+} from "../src";
 import {Table} from "console-table-printer";
 import {version} from '../package.json';
 import {hex, bold} from 'ansis';
 import {getIntegrationStatus} from "../src";
 import tokenlist from '../src/stability.tokenlist.json'
+
+const networkTotal = getNetworksTotals()
 
 console.log(bold`== Stability Integration Library v${version} ==`)
 console.log('')
@@ -13,7 +24,8 @@ console.log(`${Object.keys(deployments).map(chainId => `Platform on ${networks[c
 console.log('')
 // @ts-ignore
 console.log(bold`=== Networks: ${Object.keys(networks).length} ===`)
-console.log(`${Object.keys(networks).map(n => `${networks[n].id} [${n}]`).join(', ')}`)
+console.log(`Chain libraries: ${networkTotal.CHAINLIB_DONE + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.CHAINLIB_AWAITING} awaiting.`)
+console.log(`${Object.keys(networks).map(n => `[${n}] ${networks[n].id}`).join(', ')}`)
 console.log('')
 // @ts-ignore
 console.log(bold`=== Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map(t => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} networks ===`)
