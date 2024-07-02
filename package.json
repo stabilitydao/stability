@@ -1,6 +1,6 @@
 {
   "name": "@stabilitydao/stability",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Stability Integration Library",
   "main": "out/index.js",
   "types": "out/index.d.ts",

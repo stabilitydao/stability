@@ -1,4 +1,4 @@
-import {getMerklStrategies, getStrategyShortId} from "../src";
+import {getMerklStrategies, getStrategiesTotals, getStrategyShortId} from "../src";
 import {StrategyShortId} from "../src";
 
 describe('testing strategies', () => {
@@ -12,4 +12,7 @@ describe('testing strategies', () => {
     expect(merklStrategies.includes('A51 BaseSwap Merkl Farm')).toBe(true);
     expect(merklStrategies.length).toBeGreaterThan(13)
   });
+  test('get strategies totals', () => {
+    expect(getStrategiesTotals().LIVE).toBeGreaterThan(2)
+  })
 });

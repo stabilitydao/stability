@@ -1,19 +1,39 @@
-import {assets, deployments, integrations, IntegrationStatus, networks, strategies, subgraphs} from "../src";
+import {
+  assets,
+  deployments,
+  getNetworksTotals, getStrategiesTotals,
+  integrations,
+  IntegrationStatus,
+  networks,
+  strategies
+} from "../src";
 import {Table} from "console-table-printer";
 import {version} from '../package.json';
 import {hex, bold} from 'ansis';
 import {getIntegrationStatus} from "../src";
 import tokenlist from '../src/stability.tokenlist.json'
 
+const networkTotal = getNetworksTotals()
+const strategiesTotal = getStrategiesTotals()
+
 console.log(bold`== Stability Integration Library v${version} ==`)
 console.log('')
 // @ts-ignore
 console.log(bold`=== Deployments: ${Object.keys(deployments).length} ===`)
-console.log(`${Object.keys(deployments).map(chainId => `Platform on ${networks[chainId].id} [${chainId}]: ${deployments[chainId].platform}`).join("\n")}`)
+console.log(`${Object.keys(deployments).map(chainId => `==== [${chainId}] ${networks[chainId].id} ====\nPlatform: ${deployments[chainId].core.platform}.\nSubgraph: ${deployments[chainId].subgraph}`).join("\n")}`)
 console.log('')
 // @ts-ignore
 console.log(bold`=== Networks: ${Object.keys(networks).length} ===`)
-console.log(`${Object.keys(networks).map(n => `${networks[n].id} [${n}]`).join(', ')}`)
+console.log(`Chain libraries: ${networkTotal.CHAINLIB_DONE + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.CHAINLIB_AWAITING} awaiting.`)
+console.log(`${Object.keys(networks).map(n => `[${n}] ${networks[n].id}`).join(', ')}`)
+console.log('')
+// @ts-ignore
+console.log(bold`=== Strategies: ${Object.keys(strategies).length} ===`)
+console.log(`Live: ${strategiesTotal.LIVE}, deploying: ${strategiesTotal.DEPLOYMENT}, development: ${strategiesTotal.DEVELOPMENT}, awaiting: ${strategiesTotal.AWAITING}, blocked: ${strategiesTotal.BLOCKED}, possible: ${strategiesTotal.POSSIBLE}, proposal: ${strategiesTotal.PROPOSAL}.`)
+for (const strategyShortId of Object.keys(strategies)) {
+  // @ts-ignore
+  console.log(hex(strategies[strategyShortId].color).bgHex(strategies[strategyShortId].bgColor).bold`[${strategies[strategyShortId].state}] ${strategyShortId} | ${strategies[strategyShortId].id}`)
+}
 console.log('')
 // @ts-ignore
 console.log(bold`=== Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map(t => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} networks ===`)
@@ -22,17 +42,6 @@ console.log('')
 // @ts-ignore
 console.log(bold`=== Assets: ${assets.length}`)
 console.log(`${assets.map(a => `${a.symbol}`).join(', ')}`)
-console.log('')
-// @ts-ignore
-console.log(bold`=== Subgraph endpoints: ${Object.keys(subgraphs).length} ===`)
-console.log(`${Object.keys(subgraphs).map(chainId => `[${chainId}] ${subgraphs[chainId]}`).join("\n")}`)
-console.log('')
-// @ts-ignore
-console.log(bold`=== Strategies: ${Object.keys(strategies).length} ===`)
-for (const strategyShortId of Object.keys(strategies)) {
-  // @ts-ignore
-  console.log(hex(strategies[strategyShortId].color).bgHex(strategies[strategyShortId].bgColor).bold`[${strategies[strategyShortId].state}] ${strategyShortId} | ${strategies[strategyShortId].id}`)
-}
 console.log('')
 
 const table = new Table({

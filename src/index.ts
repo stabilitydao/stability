@@ -1,12 +1,12 @@
-import {deployments, CoreContracts} from "./deployments";
-import {networks, NetworkId, Network, getSupportedNetworkIds} from "./networks";
+import {deployments, Deployment} from "./deployments";
+import {networks, NetworkId, Network, getSupportedNetworkIds, getNetworksTotals} from "./networks";
 import {
   strategies,
   StrategyShortId,
   StrategyState,
   Strategy,
   getMerklStrategies,
-  getStrategyShortId
+  getStrategyShortId, strategyStateDescription, getStrategiesTotals
 } from "./strategies";
 import {
   integrations,
@@ -16,7 +16,6 @@ import {
   IntegrationStatus,
   getIntegrationStatus
 } from "./integrations";
-import {subgraphs} from "./subgraphs";
 import type {ApiMainReply, ApiAggSwapData} from "./api.types"
 import tokenlist from "./stability.tokenlist.json"
 import {almFactories} from "./addresses";
@@ -27,8 +26,7 @@ export {
   networks,
   strategies,
   integrations,
-  subgraphs,
-  CoreContracts,
+  Deployment,
   Network,
   NetworkId,
   Strategy,
@@ -49,4 +47,7 @@ export {
   assets,
   Asset,
   getAsset,
+  strategyStateDescription,
+  getNetworksTotals,
+  getStrategiesTotals,
 }
