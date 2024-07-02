@@ -110,6 +110,7 @@ type Strategy = {
 
 * `getMerklStrategies()`
 * `getStrategyShortId(id: string): StrategyShortId|undefined`
+* `getStrategiesTotals(): {[state in StrategyState]: number}`
 
 ### 🌐 Integrations
 
