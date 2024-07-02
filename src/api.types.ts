@@ -59,7 +59,7 @@ export type Vault = {
   strategyDescription?: string;
   vaultType?: string;
   version?: string;
-  assets?: `0x${string}`;
+  assets?: `0x${string}`[];
   assetsAmounts?: string[];
   assetsPricesOnCreation?: string[];
   apr?: {
