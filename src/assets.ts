@@ -91,6 +91,16 @@ export const assets: Asset[] = [
     website: "https://www.coinbase.com/cbeth",
     color: "#2151f5",
   },
+  {
+    addresses: {
+      "137": "0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD",
+      "8453": "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452",
+    },
+    symbol: "wstETH",
+    description: "wstETH is a wrapped version of stETH.",
+    website: "https://lido.fi",
+    color: "#00a3ff",
+  },
 ]
 
 export const getAsset = (chainId: string, tokenAddress: `0x${string}`): Asset|undefined => {

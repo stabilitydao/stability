@@ -57,7 +57,7 @@ export const networks: { [chainId: string]: Network } = {
   "1": {
     id: NetworkId.ETHEREUM,
     chainId: 1,
-    status: NetworkStatus.CHAINLIB_DEVELOPMENT,
+    status: NetworkStatus.CHAINLIB_DONE,
   },
   "10": {
     id: NetworkId.OPTIMISM,
