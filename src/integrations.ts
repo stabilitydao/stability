@@ -366,6 +366,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           NetworkId.POLYGON,
           NetworkId.BSC,
           NetworkId.CELO,
+          NetworkId.SKALE_EUROPA,
         ],
         strategies: [StrategyShortId.IQMF, StrategyShortId.IRMF],
       },

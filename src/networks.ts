@@ -51,6 +51,7 @@ export const enum NetworkId {
   TELOS = 'Telos EVM',
   ZETA = 'ZetaChain',
   MERLIN = 'Merlin',
+  SKALE_EUROPA = 'SKALE Europa Hub',
 }
 
 export const networks: { [chainId: string]: Network } = {
@@ -232,6 +233,11 @@ export const networks: { [chainId: string]: Network } = {
   "1313161554": {
     id: NetworkId.AURORA,
     chainId: 1313161554,
+    status: NetworkStatus.NOT_SUPPORTED,
+  },
+  "2046399126": {
+    id: NetworkId.SKALE_EUROPA,
+    chainId: 2046399126,
     status: NetworkStatus.NOT_SUPPORTED,
   },
 }
