@@ -127,7 +127,7 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
   [StrategyShortId.SQMF]: {
     id: 'Steer QuickSwap Merkl Farm',
     shortId: StrategyShortId.SQMF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.DEPLOYMENT,
     contractGithubId: 85,
     color: "#8587ff",
     bgColor: "#000000",

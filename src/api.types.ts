@@ -11,12 +11,24 @@ export type ApiMainReply = {
 };
 
 export type ApiAggSwapData = {
-  router: string;
   src: string;
   dst: string;
   amountIn: string;
-  amountOut: string;
-  txData: string;
+  aggApiReply?: {
+    status: number;
+    errorMessage?: string;
+  };
+  router?: string;
+  amountOut?: string;
+  txData?: string;
+  route?: InchRouteItem[][][];
+};
+
+export type InchRouteItem = {
+  name: string;
+  part: number;
+  fromTokenAddress: string;
+  toTokenAddress: string;
 };
 
 export type Underlyings = {
@@ -62,6 +74,7 @@ export type Vault = {
   assets?: `0x${string}`[];
   assetsAmounts?: string[];
   assetsPricesOnCreation?: string[];
+  assetsPricesLast?: string[];
   apr?: {
     incomeLatest: string;
     income24h: string;
