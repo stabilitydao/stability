@@ -20,6 +20,7 @@ import type {ApiMainReply, ApiAggSwapData} from "./api.types"
 import tokenlist from "./stability.tokenlist.json"
 import {almFactories} from "./addresses";
 import {assets, Asset, getAsset} from "./assets";
+import {seeds} from "./seeds";
 
 export {
   deployments,
@@ -50,4 +51,5 @@ export {
   strategyStateDescription,
   getNetworksTotals,
   getStrategiesTotals,
+  seeds,
 }

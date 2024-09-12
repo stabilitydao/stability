@@ -4,7 +4,7 @@ import {
   getNetworksTotals, getStrategiesTotals,
   integrations,
   IntegrationStatus,
-  networks,
+  networks, seeds,
   strategies
 } from "../src";
 import {Table} from "console-table-printer";
@@ -87,4 +87,9 @@ for (const defiOrgCode of Object.keys(integrations)) {
 // @ts-ignore
 console.log(bold`=== DeFi protocols: ${protocolsTotal} ===`)
 table.printTable();
+console.log('')
+console.log(bold`=== Seed nodes: ${'' + seeds.length} ===`)
+for (const seedNode of seeds) {
+  console.log(seedNode)
+}
 console.log('')

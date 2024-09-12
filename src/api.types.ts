@@ -1,13 +1,32 @@
-export type ApiMainReply = {
+export interface ApiMainReply {
   title: string;
-  about: string;
-  status: string;
-  services: string[];
+  network: StabilityNetwork;
   platforms: Platforms;
   vaults: Vaults;
   underlyings: Underlyings;
   assetPrices: AssetPrices;
   error?: string;
+}
+
+export interface StabilityNetwork {
+  status: string;
+  nodes: { [machineId: string]: NodeState };
+}
+
+export type NodeState = {
+  hostname: string | 'private';
+  seedNode: boolean;
+  lifetime: number;
+  about: string;
+  lastSeen?: number;
+  services: ServiceState[];
+};
+
+export type ServiceState = {
+  name: string;
+  id?: string;
+  status?: string;
+  stat?: any;
 };
 
 export type ApiAggSwapData = {
