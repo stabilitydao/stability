@@ -192,11 +192,9 @@ import {tokenlist} from '@stabilitydao/stability'
 ### 📒 API types
 
 ```typescript
-type ApiMainReply = {
+export interface ApiMainReply {
   title: string;
-  about: string;
-  status: string;
-  services: string[];
+  network: StabilityNetwork;
   platforms: Platforms;
   vaults: Vaults;
   underlyings: Underlyings;
@@ -204,7 +202,14 @@ type ApiMainReply = {
   error?: string;
 }
 ```
-...
+
+### 🌱 Seed nodes
+
+List of Stability Network seed nodes.
+
+```typescript
+import {seeds} from '@stabilitydao/stability'
+```
 
 ## 👷 Develop
 
