@@ -3,6 +3,7 @@ import {getSupportedNetworkIds, NetworkId} from "./networks";
 
 export type DeFiOrganization = {
   name: string
+  img: string
   website: string
   protocols: { [protocolId: string]: DeFiProtocol }
   defiLlama: string
@@ -47,6 +48,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // oracle
   chainlink: {
     name: 'ChainLink',
+    img: 'Chainlink.svg',
     website: 'https://chain.link',
     protocols: {
       chainlink: {
@@ -81,6 +83,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // Rewarding
   angle: {
     name: 'Angle',
+    img: 'angle.svg',
     website: 'https://angle.money',
     protocols: {
       merkl: {
@@ -123,6 +126,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // DeX agg
   oneInch: {
     name: '1inch',
+    img: '1inch.svg',
     website: 'https://1inch.io',
     protocols: {
       oneInch: {
@@ -152,6 +156,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // DeX
   uniswap: {
     name: "Uniswap",
+    img: 'Uniswap.svg',
     website: 'https://uniswap.org',
     protocols: {
       uniswapV3: {
@@ -177,6 +182,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   quickswap: {
     name: 'QuickSwap',
+    img: 'QuickSwap.svg',
     website: 'https://quickswap.exchange',
     protocols: {
       quickswapV3: {
@@ -201,6 +207,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   retro: {
     name: 'Retro',
+    img: 'Retro.svg',
     website: 'https://retro.finance',
     protocols: {
       retro: {
@@ -215,6 +222,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   curve: {
     name: 'Curve',
+    img: 'Curve.svg',
     website: 'https://curve.fi',
     protocols: {
       stableSwapNg: {
@@ -244,8 +252,53 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     defiLlama: 'curve-finance',
     github: 'curvefi',
   },
+  sushi: {
+    name: 'Sushi',
+    img: 'sushi.svg',
+    website: 'https://www.sushi.com',
+    protocols: {
+      v3Amm: {
+        name: 'V3 AMM',
+        category: DefiCategory.AMM,
+        networks: [
+          NetworkId.ARBITRUM_NOVA,
+          NetworkId.ARBITRUM,
+          NetworkId.AVALANCHE,
+          NetworkId.BASE,
+          NetworkId.BITTORRENT,
+          NetworkId.BLAST,
+          NetworkId.BOBA,
+          NetworkId.BSC,
+          NetworkId.CORE,
+          NetworkId.ETHEREUM,
+          NetworkId.FANTOM,
+          NetworkId.FILECOIN,
+          NetworkId.FUSE,
+          NetworkId.GNOSIS,
+          NetworkId.HAQQ,
+          NetworkId.KAVA,
+          NetworkId.LINEA,
+          NetworkId.METIS,
+          NetworkId.MOONBEAM,
+          NetworkId.MOONRIVER,
+          NetworkId.OPTIMISM,
+          NetworkId.POLYGON,
+          NetworkId.POLYGON_ZKEVM,
+          NetworkId.ROOTSTOCK,
+          NetworkId.SCROLL,
+          NetworkId.SKALE_EUROPA,
+          NetworkId.THUNDERCORE,
+          NetworkId.ZETA,
+        ],
+        strategies: [StrategyShortId.BSMF,],
+      },
+    },
+    github: 'sushiswap',
+    defiLlama: 'sushi',
+  },
   gyroscope: {
     name: 'Gyroscope',
+    img: 'Gyroscope.svg',
     website: 'https://gyro.finance',
     protocols: {
       eclp: {
@@ -268,6 +321,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   baseswap: {
     name: 'BaseSwap',
+    img: 'BaseSwap.svg',
     website: 'https://baseswap.fi',
     protocols: {
       baseswap: {
@@ -282,6 +336,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   agni: {
     name: 'Agni',
+    img: 'agni.avif',
     website: 'https://agni.finance/',
     protocols: {
       agni: {
@@ -297,6 +352,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // ALM
   gamma: {
     name: 'Gamma',
+    img: 'Gamma.svg',
     website: 'https://gamma.xyz',
     protocols: {
       gamma: {
@@ -329,6 +385,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   defiEdge: {
     name: 'DefiEdge',
+    img: 'DefiEdge.svg',
     website: 'https://www.defiedge.io',
     protocols: {
       defiEdge: {
@@ -355,6 +412,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   ichi: {
     name: 'Ichi',
+    img: 'Ichi.svg',
     website: 'https://www.ichi.org',
     protocols: {
       ichi: {
@@ -376,6 +434,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   steer: {
     name: 'Steer',
+    img: 'Steer.svg',
     website: 'https://steer.finance',
     protocols: {
       steer: {
@@ -412,6 +471,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   charm: {
     name: 'Charm',
+    img: 'Charm.svg',
     website: 'https://www.charm.fi',
     protocols: {
       alphaVaults: {
@@ -435,6 +495,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   a51: {
     name: 'A51',
+    img: 'A51.svg',
     website: 'https://a51.finance',
     protocols: {
       a51: {
@@ -459,7 +520,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   skatefi: {
     name: 'SkateFi',
-    website: 'https://www.rangeprotocol.com',
+    img: 'skatefi.svg',
+    website: 'https://www.skatefi.org',
     protocols: {
       range: {
         name: 'Range',
@@ -483,9 +545,37 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     defiLlama: 'skate-fi',
     github: 'Range-Protocol',
   },
+  beefy: {
+    name: 'Beefy',
+    img: 'beefy.svg',
+    website: 'https://beefy.com',
+    protocols: {
+      clm: {
+        name: 'CLM',
+        category: DefiCategory.ALM,
+        networks: [
+          NetworkId.BASE,
+          NetworkId.BSC,
+          NetworkId.ARBITRUM,
+          NetworkId.OPTIMISM,
+          NetworkId.LINEA,
+          NetworkId.SEI,
+          NetworkId.POLYGON,
+          NetworkId.MANTLE,
+          NetworkId.MANTA,
+          NetworkId.MOONBEAM,
+          NetworkId.ZKSYNC,
+        ],
+        strategies: [StrategyShortId.BSMF,],
+      },
+    },
+    github: 'beefyfinance',
+    defiLlama: 'beefy',
+  },
   // Lending
   compound: {
     name: 'Compound',
+    img: 'Compound.svg',
     website: 'https://compound.finance',
     protocols: {
       compoundV3: {
@@ -507,6 +597,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   aave: {
     name: 'Aave',
+    img: 'Aave.svg',
     website: 'https://aave.com',
     protocols: {
       aaveV3: {
@@ -534,6 +625,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // Boost aggregator
   convex: {
     name: 'Convex',
+    img: 'Convex.svg',
     website: 'https://www.convexfinance.com',
     protocols: {
       convex: {
@@ -548,6 +640,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   aura: {
     name: 'Aura',
+    img: 'aura.png',
     website: 'https://aura.finance',
     protocols: {
       aura: {
@@ -563,6 +656,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // ERC-4626
   yearn: {
     name: 'Yearn',
+    img: 'Yearn.svg',
     website: 'https://yearn.fi',
     protocols: {
       yearnV3: {
@@ -577,6 +671,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   tetu: {
     name: 'Tetu',
+    img: 'Tetu.svg',
     website: 'https://tetu.io',
     protocols: {
       tetuV2: {
@@ -591,6 +686,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // Index
   dhedge: {
     name: 'dHEDGE',
+    img: 'dhedge.svg',
     website: 'https://dhedge.org',
     protocols: {
       dhedge: {
@@ -605,6 +701,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // Bridge (liquidity transport etc)
   stargate: {
     name: 'Stargate',
+    img: 'Stargate.svg',
     website: 'https://stargate.finance',
     protocols: {
       stargate: {
@@ -620,6 +717,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // Liquid staking
   lido: {
     name: 'Lido',
+    img: 'Lido.svg',
     website: 'https://lido.fi',
     protocols: {
       lido: {
@@ -634,6 +732,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   stader: {
     name: 'Stader Labs',
+    img: 'Stader.svg',
     website: 'https://www.staderlabs.com',
     protocols: {
       stader: {

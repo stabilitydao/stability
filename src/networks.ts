@@ -52,6 +52,15 @@ export const enum NetworkId {
   ZETA = 'ZetaChain',
   MERLIN = 'Merlin',
   SKALE_EUROPA = 'SKALE Europa Hub',
+  SEI = 'Sei',
+  ARBITRUM_NOVA = 'Arbitrum Nova',
+  BITTORRENT = 'BitTorrent Chain',
+  CORE = 'Core Blockchain',
+  FILECOIN = 'Filecoin',
+  FUSE = 'Fuse',
+  HAQQ = 'Haqq',
+  ROOTSTOCK = 'Rootstock',
+  THUNDERCORE = 'ThunderCore',
 }
 
 export const networks: { [chainId: string]: Network } = {
@@ -63,6 +72,11 @@ export const networks: { [chainId: string]: Network } = {
   "10": {
     id: NetworkId.OPTIMISM,
     chainId: 10,
+    status: NetworkStatus.NOT_SUPPORTED,
+  },
+  "30": {
+    id: NetworkId.ROOTSTOCK,
+    chainId: 30,
     status: NetworkStatus.NOT_SUPPORTED,
   },
   "40": {
@@ -80,6 +94,16 @@ export const networks: { [chainId: string]: Network } = {
     chainId: 100,
     status: NetworkStatus.NOT_SUPPORTED,
   },
+  "108": {
+    id: NetworkId.THUNDERCORE,
+    chainId: 108,
+    status: NetworkStatus.NOT_SUPPORTED,
+  },
+  "122": {
+    id: NetworkId.FUSE,
+    chainId: 122,
+    status: NetworkStatus.NOT_SUPPORTED,
+  },
   "137": {
     id: NetworkId.POLYGON,
     chainId: 137,
@@ -93,6 +117,11 @@ export const networks: { [chainId: string]: Network } = {
   "196": {
     id: NetworkId.X_LAYER,
     chainId: 196,
+    status: NetworkStatus.NOT_SUPPORTED,
+  },
+  "199": {
+    id: NetworkId.BITTORRENT,
+    chainId: 199,
     status: NetworkStatus.NOT_SUPPORTED,
   },
   "238": {
@@ -115,6 +144,11 @@ export const networks: { [chainId: string]: Network } = {
     chainId: 288,
     status: NetworkStatus.NOT_SUPPORTED,
   },
+  "314": {
+    id: NetworkId.GNOSIS,
+    chainId: 314,
+    status: NetworkStatus.NOT_SUPPORTED,
+  },
   "324": {
     id: NetworkId.ZKSYNC,
     chainId: 324,
@@ -135,6 +169,11 @@ export const networks: { [chainId: string]: Network } = {
     chainId: 1101,
     status: NetworkStatus.NOT_SUPPORTED,
   },
+  "1116": {
+    id: NetworkId.CORE,
+    chainId: 1116,
+    status: NetworkStatus.NOT_SUPPORTED,
+  },
   "1284": {
     id: NetworkId.MOONBEAM,
     chainId: 1284,
@@ -143,6 +182,11 @@ export const networks: { [chainId: string]: Network } = {
   "1285": {
     id: NetworkId.MOONRIVER,
     chainId: 1285,
+    status: NetworkStatus.NOT_SUPPORTED,
+  },
+  "1329": {
+    id: NetworkId.SEI,
+    chainId: 1329,
     status: NetworkStatus.NOT_SUPPORTED,
   },
   "2000": {
@@ -190,6 +234,11 @@ export const networks: { [chainId: string]: Network } = {
     chainId: 9001,
     status: NetworkStatus.NOT_SUPPORTED,
   },
+  "11235": {
+    id: NetworkId.HAQQ,
+    chainId: 11235,
+    status: NetworkStatus.NOT_SUPPORTED,
+  },
   "13371": {
     id: NetworkId.IMMUTABLE_ZKEVM,
     chainId: 13371,
@@ -204,6 +253,11 @@ export const networks: { [chainId: string]: Network } = {
     id: NetworkId.ARBITRUM,
     chainId: 42161,
     status: NetworkStatus.CHAINLIB_DONE,
+  },
+  "42170": {
+    id: NetworkId.ARBITRUM_NOVA,
+    chainId: 42170,
+    status: NetworkStatus.NOT_SUPPORTED,
   },
   "42220": {
     id: NetworkId.CELO,

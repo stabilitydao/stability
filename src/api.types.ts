@@ -1,11 +1,20 @@
+
 export interface ApiMainReply {
   title: string;
+  total: Total;
   network: StabilityNetwork;
   platforms: Platforms;
   vaults: Vaults;
   underlyings: Underlyings;
   assetPrices: AssetPrices;
   error?: string;
+}
+
+export interface Total {
+  tvl: number;
+  activeVaults: number;
+  farms: number;
+  vaultForBuilding: number;
 }
 
 export interface StabilityNetwork {
