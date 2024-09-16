@@ -29,6 +29,7 @@ export const enum StrategyShortId {
   CUMF = 'CUMF',
   CBMF = 'CBMF',
   ABMF = 'ABMF',
+  BSMF = 'BSMF',
 }
 
 export enum StrategyState {
@@ -203,6 +204,14 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 147,
     color: "#e74c3c",
     bgColor: "#000000",
+  },
+  [StrategyShortId.BSMF]: {
+    id: 'Beefy Sushi Merkl Farm',
+    shortId: StrategyShortId.BSMF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 166,
+    color: '#ffffff',
+    bgColor: '#21243a',
   },
 };
 
