@@ -14,70 +14,23 @@ This is library for integrating Stability Platform into Node.js applications.
 
 ## 🔌 Usage
 
-Add npm package to your project:
+Add npm package to your js/ts project:
 
 ```shell
 yarn add @stabilitydao/stability
 ```
 
-### #️⃣ Deployments
+### 📡 API
 
-Core contracts deployment addresses and subgraph API endpoints.
-
-```typescript
-import {deployments} from "@stabilitydao/stability";
-console.log('Platform address on Polygon', deployments["137"].core.platform)
-```
-
-#### Types
+Up-to-date and pre-processed data for integrations with Stability can be obtained in a single API response, which is always available at any working node of the private p2p network Stability. This library contains addresses of seed nodes.
 
 ```typescript
-type Deployment = {
-  core: {
-    platform: `0x${string}`,
-    factory: `0x${string}`,
-    priceReader: `0x${string}`,
-    swapper: `0x${string}`,
-    hardWorker: `0x${string}`,
-    vaultManager: `0x${string}`,
-    strategyLogic: `0x${string}`,
-    zap: `0x${string}`,
-  },
-  subgraph: string,
-}
+import axios from "axios";
+import {type ApiMainReply, seeds} from "@stabilitydao/stability";
+
+const response = await axios.get(seeds[0]);
+const apiReply = response.data as ApiMainReply;
 ```
-
-#### Constants
-
-* `deployments: {[chainId:string]:Deployment}`
-
-### ⛓️ Networks
-
-Blockchains known to the platform and their integration statuses.
-
-#### Types
-
-```typescript
-type Network = {
-  id: NetworkId,
-  chainId: number | string,
-  status: NetworkStatus,
-}
-```
-
-#### Enums
-
-* `const enum NetworkId`
-* `const enum NetworkStatus`
-
-#### Constants
-
-* `networks: { [chainId: string]: Network }`
-
-#### Methods
-
-* `getSupportedNetworkIds(): NetworkId[]`
-* `getNetworksTotals(): {[status in NetworkStatus]: number}`
 
 ### 💲 Strategies
 
@@ -112,15 +65,75 @@ type Strategy = {
 * `getStrategyShortId(id: string): StrategyShortId|undefined`
 * `getStrategiesTotals(): {[state in StrategyState]: number}`
 
-### 🌐 Integrations
+### #️⃣ Deployments
 
-DeFi organizations, protocols, their integration statuses, usage and other information.
+Core contracts deployment addresses and subgraph API endpoints.
+
+```typescript
+import {deployments} from "@stabilitydao/stability";
+console.log('Platform address on Polygon', deployments["137"].core.platform)
+```
 
 #### Types
 
 ```typescript
-type DeFiOrganization = {
+type Deployment = {
+  core: {
+    platform: `0x${string}`,
+    factory: `0x${string}`,
+    priceReader: `0x${string}`,
+    swapper: `0x${string}`,
+    hardWorker: `0x${string}`,
+    vaultManager: `0x${string}`,
+    strategyLogic: `0x${string}`,
+    zap: `0x${string}`,
+  },
+  subgraph: string,
+}
+```
+
+#### Constants
+
+* `deployments: {[chainId:string]:Deployment}`
+
+### ⛓️ Chains
+
+Blockchains known to the platform and their integration statuses.
+
+#### Types
+
+```typescript
+type Network = {
+  id: NetworkId,
+  chainId: number | string,
+  status: NetworkStatus,
+}
+```
+
+#### Enums
+
+* `const enum NetworkId`
+* `const enum NetworkStatus`
+
+#### Constants
+
+* `networks: { [chainId: string]: Network }`
+
+#### Methods
+
+* `getSupportedNetworkIds(): NetworkId[]`
+* `getNetworksTotals(): {[status in NetworkStatus]: number}`
+
+### 🌐 Integrations
+
+DeFi organizations, protocols, their integration statuses, usage and other information. Each organization has link to image in [stabilitydao/.github](https://github.com/stabilitydao/.github) repo [`assets/` folder](https://github.com/stabilitydao/.github/tree/main/assets).
+
+#### Types
+
+```typescript
+export type DeFiOrganization = {
   name: string
+  img: string
   website: string
   protocols: { [protocolId: string]: DeFiProtocol }
   defiLlama: string
@@ -187,28 +200,6 @@ type Asset = {
 
 ```typescript
 import {tokenlist} from '@stabilitydao/stability'
-```
-
-### 📒 API types
-
-```typescript
-export interface ApiMainReply {
-  title: string;
-  network: StabilityNetwork;
-  platforms: Platforms;
-  vaults: Vaults;
-  underlyings: Underlyings;
-  assetPrices: AssetPrices;
-  error?: string;
-}
-```
-
-### 🌱 Seed nodes
-
-List of Stability Network seed nodes.
-
-```typescript
-import {seeds} from '@stabilitydao/stability'
 ```
 
 ## 👷 Develop
