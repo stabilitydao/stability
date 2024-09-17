@@ -25,6 +25,6 @@ let protocolsTotal = 0
 for (const defiOrgCode of Object.keys(integrations)) {
   protocolsTotal += Object.keys(integrations[defiOrgCode].protocols).length
 }
-console.log(`DeFi protocols: ${protocolsTotal}`)
+console.log(`DeFi organizations: ${Object.keys(integrations).length}. Protocols: ${protocolsTotal}.`)
 console.log(`Seed nodes: ${seeds.length}`)
 console.log(``)
