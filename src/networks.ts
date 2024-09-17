@@ -61,6 +61,8 @@ export const enum NetworkId {
   HAQQ = 'Haqq',
   ROOTSTOCK = 'Rootstock',
   THUNDERCORE = 'ThunderCore',
+  KROMA = 'Kroma',
+  WEMIX = 'WEMIX3.0',
 }
 
 export const networks: { [chainId: string]: Network } = {
@@ -139,6 +141,11 @@ export const networks: { [chainId: string]: Network } = {
     chainId: 252,
     status: NetworkStatus.NOT_SUPPORTED,
   },
+  "255": {
+    id: NetworkId.KROMA,
+    chainId: 255,
+    status: NetworkStatus.NOT_SUPPORTED,
+  },
   "288": {
     id: NetworkId.BOBA,
     chainId: 288,
@@ -167,6 +174,11 @@ export const networks: { [chainId: string]: Network } = {
   "1101": {
     id: NetworkId.POLYGON_ZKEVM,
     chainId: 1101,
+    status: NetworkStatus.NOT_SUPPORTED,
+  },
+  "1111" : {
+    id: NetworkId.WEMIX,
+    chainId: 1111,
     status: NetworkStatus.NOT_SUPPORTED,
   },
   "1116": {

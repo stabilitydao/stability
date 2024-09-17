@@ -40,19 +40,19 @@ export enum DefiCategory {
   ORACLE = 'Oracle',
   REWARDING = 'Rewarding',
   VAULTS_ERC4626 = 'Vaults ERC-4626',
-  BRIDGE = 'Bridge',
   LST = 'Liquid staking',
+  INTEROPERABILITY = 'Interoperability',
 }
 
 export const integrations: { [org: string]: DeFiOrganization } = {
-  // oracle
+  // oracle, cross-chain
   chainlink: {
     name: 'ChainLink',
     img: 'Chainlink.svg',
     website: 'https://chain.link',
     protocols: {
       chainlink: {
-        name: 'Chainlink',
+        name: 'Data Feeds',
         category: DefiCategory.ORACLE,
         networks: [
           NetworkId.ETHEREUM,
@@ -75,6 +75,27 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         ],
         coreContracts: ['PriceReader'],
         adapters: ['ChainLinkAdapter',],
+      },
+      ccip: {
+        name: 'CCIP',
+        category: DefiCategory.INTEROPERABILITY,
+        networks: [
+          NetworkId.ARBITRUM,
+          NetworkId.AVALANCHE,
+          NetworkId.BASE,
+          NetworkId.BLAST,
+          NetworkId.BSC,
+          NetworkId.CELO,
+          NetworkId.ETHEREUM,
+          NetworkId.GNOSIS,
+          NetworkId.KROMA,
+          NetworkId.METIS,
+          NetworkId.MODE,
+          NetworkId.OPTIMISM,
+          NetworkId.POLYGON,
+          NetworkId.WEMIX,
+          NetworkId.ZKSYNC,
+        ],
       },
     },
     defiLlama: 'chainlink',
@@ -247,6 +268,14 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         ],
         strategies: [StrategyShortId.CCF],
         adapters: ['CurveAdapter',],
+      },
+      llamalend: {
+        name: 'LlamaLend',
+        category: DefiCategory.LENDING,
+        networks: [
+          NetworkId.ETHEREUM,
+          NetworkId.ARBITRUM,
+        ],
       },
     },
     defiLlama: 'curve-finance',
@@ -698,16 +727,32 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     defiLlama: 'dhedge',
     github: 'dhedge',
   },
-  // Bridge (liquidity transport etc)
+  // INTEROPERABILITY (liquidity transport, cross-chain messaging etc)
   stargate: {
     name: 'Stargate',
     img: 'Stargate.svg',
     website: 'https://stargate.finance',
     protocols: {
-      stargate: {
-        name: 'Stargate',
-        category: DefiCategory.BRIDGE,
-        networks: [NetworkId.ETHEREUM, NetworkId.BASE, NetworkId.ARBITRUM, NetworkId.POLYGON,],
+      stargateV2: {
+        name: 'Stargate V2',
+        category: DefiCategory.INTEROPERABILITY,
+        networks: [
+          NetworkId.ETHEREUM,
+          NetworkId.BSC,
+          NetworkId.AVALANCHE,
+          NetworkId.POLYGON,
+          NetworkId.ARBITRUM,
+          NetworkId.OPTIMISM,
+          NetworkId.METIS,
+          NetworkId.LINEA,
+          NetworkId.MANTLE,
+          NetworkId.BASE,
+          NetworkId.KAVA,
+          NetworkId.SCROLL,
+          NetworkId.AURORA,
+          NetworkId.SEI,
+          // NetworkId.ZKSYNC, coming soon
+        ],
         intermediaryStrategies: [StrategyShortId.Y],
       },
     },
@@ -720,8 +765,13 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     img: 'Lido.svg',
     website: 'https://lido.fi',
     protocols: {
-      lido: {
-        name: 'Lido Staked MATIC',
+      stEth: {
+        name: 'stETH',
+        category: DefiCategory.LST,
+        networks: [NetworkId.ETHEREUM,],
+      },
+      stMatic: {
+        name: 'stMATIC',
         category: DefiCategory.LST,
         networks: [NetworkId.ETHEREUM, NetworkId.POLYGON,],
         strategies: [StrategyShortId.Y,],
