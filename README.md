@@ -38,21 +38,13 @@ Comprehensive information about platform strategies for managing DeFi assets. In
 
 #### Types
 
-```typescript
-type Strategy = {
-  id: string
-  shortId: StrategyShortId
-  state: StrategyState
-  contractGithubId: number
-  color: string
-  bgColor: string
-}
-```
+* `Strategy`
 
 #### Enums
 
 * `const enum StrategyShortId`
 * `enum StrategyState`
+* `enum BaseStrategy`
 
 #### Constants
 
@@ -76,21 +68,7 @@ console.log('Platform address on Polygon', deployments["137"].core.platform)
 
 #### Types
 
-```typescript
-type Deployment = {
-  core: {
-    platform: `0x${string}`,
-    factory: `0x${string}`,
-    priceReader: `0x${string}`,
-    swapper: `0x${string}`,
-    hardWorker: `0x${string}`,
-    vaultManager: `0x${string}`,
-    strategyLogic: `0x${string}`,
-    zap: `0x${string}`,
-  },
-  subgraph: string,
-}
-```
+* `Deployment`
 
 #### Constants
 
@@ -102,13 +80,7 @@ Blockchains known to the platform and their integration statuses.
 
 #### Types
 
-```typescript
-type Network = {
-  id: NetworkId,
-  chainId: number | string,
-  status: NetworkStatus,
-}
-```
+* `Network`
 
 #### Enums
 
@@ -130,26 +102,8 @@ DeFi organizations, protocols, their integration statuses, usage and other infor
 
 #### Types
 
-```typescript
-export type DeFiOrganization = {
-  name: string
-  img: string
-  website: string
-  protocols: { [protocolId: string]: DeFiProtocol }
-  defiLlama: string
-  github?: string
-}
-
-type DeFiProtocol = {
-  name: string
-  category: DefiCategory
-  networks: NetworkId[],
-  strategies?: StrategyShortId[]
-  intermediaryStrategies?: StrategyShortId[]
-  adapters?: string[]
-  coreContracts?: string[]
-}
-```
+* `DeFiOrganization`
+* `DeFiProtocol`
 
 #### Enums
 
@@ -178,15 +132,7 @@ Asset addresses, description, website, color.
 
 #### Types
 
-```typescript
-type Asset = {
-  addresses: {[chainId:string]: `0x${string}`|`0x${string}`[]},
-  symbol: string,
-  description: string,
-  website: string,
-  color: string,
-}
-```
+* `Asset`
 
 #### Constants
 
