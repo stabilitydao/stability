@@ -7,6 +7,9 @@ export type Strategy = {
   contractGithubId: number
   color: string
   bgColor: string
+  baseStrategies: BaseStrategy[]
+  sourceCode?: string
+  ammAdapter?: string
 }
 
 export const enum StrategyShortId {
@@ -42,6 +45,14 @@ export enum StrategyState {
   LIVE = 'LIVE',
 }
 
+export enum BaseStrategy {
+  FARMING = 'Farming',
+  LP = 'LP',
+  MERKL = 'Merkl',
+  ERC4626 = 'ERC4626',
+  LEVERAGED_LENDING = 'Leveraged Lending',
+}
+
 export const strategyStateDescription: {[state in StrategyState]: string} = {
   [StrategyState.PROPOSAL]: "The strategy described in free form is proposed for development",
   [StrategyState.POSSIBLE]: "Proposed strategy can be deployed at supported network",
@@ -60,6 +71,9 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 101,
     color: "#558ac5",
     bgColor: "#000000",
+    sourceCode: 'QuickSwapStaticMerklFarmStrategy.sol',
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
+    ammAdapter: 'Algebra',
   },
   [StrategyShortId.DQMF]: {
     id: 'DefiEdge QuickSwap Merkl Farm',
@@ -68,6 +82,9 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 80,
     color: "#a5c2ff",
     bgColor: "#000000",
+    sourceCode: 'DefiEdgeQuickSwapMerklFarmStrategy.sol',
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
+    ammAdapter: 'Algebra',
   },
   [StrategyShortId.IQMF]: {
     id: 'Ichi QuickSwap Merkl Farm',
@@ -76,6 +93,9 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 81,
     color: "#965fff",
     bgColor: "#000000",
+    sourceCode: 'IchiQuickSwapMerklFarmStrategy.sol',
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
+    ammAdapter: 'Algebra',
   },
   [StrategyShortId.GQMF]: {
     id: 'Gamma QuickSwap Merkl Farm',
@@ -84,6 +104,9 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 90,
     color: "#de43ff",
     bgColor: "#140414",
+    sourceCode: 'GammaQuickSwapMerklFarmStrategy.sol',
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
+    ammAdapter: 'Algebra',
   },
   [StrategyShortId.IRMF]: {
     id: 'Ichi Retro Merkl Farm',
@@ -92,6 +115,9 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 95,
     color: "#28fffb",
     bgColor: "#000000",
+    sourceCode: 'IchiRetroMerklFarmStrategy.sol',
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
+    ammAdapter: "UniswapV3",
   },
   [StrategyShortId.GRMF]: {
     id: 'Gamma Retro Merkl Farm',
@@ -100,6 +126,9 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 99,
     color: "#ff0000",
     bgColor: "#000000",
+    sourceCode: 'GammaRetroMerklFarmStrategy.sol',
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
+    ammAdapter: "UniswapV3",
   },
   [StrategyShortId.CF]: {
     id: 'Compound Farm',
@@ -107,6 +136,8 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     state: StrategyState.LIVE,
     contractGithubId: 79,
     color: "#00d395",
+    sourceCode: 'CompoundFarmStrategy.sol',
+    baseStrategies: [BaseStrategy.FARMING,],
     bgColor: "#000000",
   },
   [StrategyShortId.CCF]: {
@@ -116,6 +147,9 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 110,
     color: "#dddddd",
     bgColor: "#000000",
+    sourceCode: 'CurveConvexFarmStrategy.sol',
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING,],
+    ammAdapter: "Curve",
   },
   [StrategyShortId.Y]: {
     id: 'Yearn',
@@ -124,6 +158,8 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 114,
     color: "#dc568a",
     bgColor: "#000000",
+    sourceCode: 'YearnStrategy.sol',
+    baseStrategies: [BaseStrategy.ERC4626,],
   },
   [StrategyShortId.SQMF]: {
     id: 'Steer QuickSwap Merkl Farm',
@@ -132,6 +168,9 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 85,
     color: "#8587ff",
     bgColor: "#000000",
+    sourceCode: 'SteerQuickSwapMerklFarmStrategy.sol',
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
+    ammAdapter: 'Algebra',
   },
   [StrategyShortId.GAF]: {
     id: 'Gyroscope Aura Farm',
@@ -140,6 +179,8 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 121,
     color: "#f2fea6",
     bgColor: "#2e005f",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING,],
+    ammAdapter: 'Gyroscope',
   },
   [StrategyShortId.RSBMF]: {
     id: 'Retro Static Boosted Merkl Farm',
@@ -148,6 +189,8 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 122,
     color: "#ff0000",
     bgColor: "#420060",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
+    ammAdapter: "UniswapV3",
   },
   [StrategyShortId.DRBMF]: {
     id: 'DefiEdge Retro Boosted Merkl Farm',
@@ -156,6 +199,8 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 98,
     color: "#ff0000",
     bgColor: "#420060",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
+    ammAdapter: "UniswapV3",
   },
   [StrategyShortId.IRBMF]: {
     id: 'Ichi Retro Boosted Merkl Farm',
@@ -164,6 +209,8 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 91,
     color: "#e1d1ff",
     bgColor: "#420060",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
+    ammAdapter: "UniswapV3",
   },
   [StrategyShortId.AS1BLS]: {
     id: 'Aave Stader 1inch Balancer',
@@ -172,6 +219,7 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 127,
     color: "#07a658",
     bgColor: "#1a024d",
+    baseStrategies: [BaseStrategy.LEVERAGED_LENDING,],
   },
   [StrategyShortId.GUMF]: {
     id: 'Gamma UniswapV3 Merkl Farm',
@@ -180,6 +228,9 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 145,
     color: "#ff0000",
     bgColor: "#000000",
+    ammAdapter: "UniswapV3",
+    sourceCode: 'GammaUniswapV3MerklFarmStrategy.sol',
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
   },
   [StrategyShortId.CUMF]: {
     id: 'Charm UniswapV3 Merkl Farm',
@@ -188,6 +239,8 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 144,
     color: "#ff2299",
     bgColor: "#000000",
+    ammAdapter: "UniswapV3",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
   },
   [StrategyShortId.CBMF]: {
     id: 'Charm BaseSwap Merkl Farm',
@@ -196,6 +249,8 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 148,
     color: "#2238ff",
     bgColor: "#000000",
+    ammAdapter: "UniswapV3",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
   },
   [StrategyShortId.ABMF]: {
     id: 'A51 BaseSwap Merkl Farm',
@@ -204,6 +259,8 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 147,
     color: "#e74c3c",
     bgColor: "#000000",
+    ammAdapter: "UniswapV3",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
   },
   [StrategyShortId.BSMF]: {
     id: 'Beefy Sushi Merkl Farm',
@@ -212,6 +269,8 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     contractGithubId: 166,
     color: '#ffffff',
     bgColor: '#21243a',
+    ammAdapter: "UniswapV3",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
   },
 };
 
