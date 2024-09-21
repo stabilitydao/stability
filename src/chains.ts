@@ -95,7 +95,7 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.TELOS,
     chainId: 40,
     status: ChainStatus.NOT_SUPPORTED,
-    img: 'telos.png',
+    img: 'telos.svg',
   },
   "56": {
     name: ChainName.BSC,
@@ -113,11 +113,13 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.THUNDERCORE,
     chainId: 108,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'thundercore.png',
   },
   "122": {
     name: ChainName.FUSE,
     chainId: 122,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'fuse.svg',
   },
   "137": {
     name: ChainName.POLYGON,
@@ -240,6 +242,7 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.MANTLE,
     chainId: 5000,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'mantle.svg',
   },
   "7000": {
     name: ChainName.ZETA,
