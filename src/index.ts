@@ -1,12 +1,21 @@
 import {deployments, Deployment} from "./deployments";
-import {chains, ChainName, Chain, getSupportedChainNames, getChainsTotals} from "./chains";
+import {
+  chains,
+  ChainName,
+  ChainStatus,
+  Chain,
+  getSupportedChainNames,
+  getChainsTotals
+} from "./chains";
 import {
   strategies,
   StrategyShortId,
   StrategyState,
   Strategy,
   getMerklStrategies,
-  getStrategyShortId, strategyStateDescription, getStrategiesTotals
+  getStrategyShortId,
+  strategyStateDescription,
+  getStrategiesTotals,
 } from "./strategies";
 import {
   integrations,
@@ -30,6 +39,7 @@ export {
   Deployment,
   Chain,
   ChainName,
+  ChainStatus,
   Strategy,
   StrategyShortId,
   StrategyState,
