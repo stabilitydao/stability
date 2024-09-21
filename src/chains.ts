@@ -314,6 +314,7 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.LINEA,
     chainId: 59144,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'linea.webp',
   },
   "111188": {
     name: ChainName.REAL,
@@ -325,11 +326,13 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.SCROLL,
     chainId: 534352,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'scroll.webp',
   },
   "1313161554": {
     name: ChainName.AURORA,
     chainId: 1313161554,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'aurora.webp',
   },
   "2046399126": {
     name: ChainName.SKALE_EUROPA,
