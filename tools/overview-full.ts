@@ -23,11 +23,6 @@ console.log(bold`=== Deployments: ${Object.keys(deployments).length} ===`)
 console.log(`${Object.keys(deployments).map(chainId => `==== [${chainId}] ${chains[chainId].name} ====\nPlatform: ${deployments[chainId].core.platform}.\nSubgraph: ${deployments[chainId].subgraph}`).join("\n")}`)
 console.log('')
 // @ts-ignore
-console.log(bold`=== Networks: ${Object.keys(chains).length} ===`)
-console.log(`Chain libraries: ${networkTotal.AWAITING_DEPLOYMENT + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.AWAITING_DEVELOPER} awaiting.`)
-console.log(`${Object.keys(chains).map(n => `[${n}] ${chains[n].name}`).join(', ')}`)
-console.log('')
-// @ts-ignore
 console.log(bold`=== Strategies: ${Object.keys(strategies).length} ===`)
 console.log(`Live: ${strategiesTotal.LIVE}, deploying: ${strategiesTotal.DEPLOYMENT}, development: ${strategiesTotal.DEVELOPMENT}, awaiting: ${strategiesTotal.AWAITING}, blocked: ${strategiesTotal.BLOCKED}, possible: ${strategiesTotal.POSSIBLE}, proposal: ${strategiesTotal.PROPOSAL}.`)
 for (const strategyShortId of Object.keys(strategies)) {
@@ -36,14 +31,16 @@ for (const strategyShortId of Object.keys(strategies)) {
 }
 console.log('')
 // @ts-ignore
-console.log(bold`=== Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map(t => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} networks ===`)
-console.log(`${tokenlist.tokens.map(t => `[${t.chainId}] ${t.symbol}`).join(', ')}`)
+console.log(bold`=== Chains: ${Object.keys(chains).length} ===`)
+let multisigsTotal = 0
+for (const chain of Object.keys(chains)) {
+  if (chains[chain].multisig) {
+    multisigsTotal++
+  }
+}
+console.log(`Chain libraries: ${networkTotal.AWAITING_DEPLOYMENT + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.AWAITING_DEVELOPER} awaiting  dev. ${networkTotal.AWAITING_ISSUE_CREATION} awaiting creation. Multisigs: ${multisigsTotal}.`)
+console.log(`${Object.keys(chains).map(n => `[${n}] ${chains[n].name}`).join(', ')}`)
 console.log('')
-// @ts-ignore
-console.log(bold`=== Assets: ${assets.length}`)
-console.log(`${assets.map(a => `${a.symbol}`).join(', ')}`)
-console.log('')
-
 const table = new Table({
   columns: [
     { name: "Status", alignment: "left"},
@@ -87,6 +84,14 @@ for (const defiOrgCode of Object.keys(integrations)) {
 // @ts-ignore
 console.log(bold`=== DeFi protocols: ${protocolsTotal} ===`)
 table.printTable();
+console.log('')
+// @ts-ignore
+console.log(bold`=== Assets: ${assets.length}`)
+console.log(`${assets.map(a => `${a.symbol}`).join(', ')}`)
+console.log('')
+// @ts-ignore
+console.log(bold`=== Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map(t => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} networks ===`)
+console.log(`${tokenlist.tokens.map(t => `[${t.chainId}] ${t.symbol}`).join(', ')}`)
 console.log('')
 console.log(bold`=== Seed nodes: ${'' + seeds.length} ===`)
 for (const seedNode of seeds) {

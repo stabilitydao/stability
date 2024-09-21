@@ -67,6 +67,7 @@ export const enum ChainName {
   THUNDERCORE = 'ThunderCore',
   KROMA = 'Kroma',
   WEMIX = 'WEMIX3.0',
+  REAL = 'Re.al',
 }
 
 export const chains: { [chainId: string]: Chain } = {
@@ -310,6 +311,12 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.LINEA,
     chainId: 59144,
     status: ChainStatus.NOT_SUPPORTED,
+  },
+  "111188": {
+    name: ChainName.REAL,
+    chainId: 111188,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'real.webp',
   },
   "534352": {
     name: ChainName.SCROLL,
