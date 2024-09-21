@@ -80,21 +80,21 @@ Blockchains known to the platform and their integration statuses.
 
 #### Types
 
-* `Network`
+* `Chain`
 
 #### Enums
 
-* `const enum NetworkId`
-* `const enum NetworkStatus`
+* `const enum ChainName`
+* `const enum ChainStatus`
 
 #### Constants
 
-* `networks: { [chainId: string]: Network }`
+* `chains: { [chainId: string]: Chain }`
 
 #### Methods
 
-* `getSupportedNetworkIds(): NetworkId[]`
-* `getNetworksTotals(): {[status in NetworkStatus]: number}`
+* `getSupportedChainNames(): ChainName[]`
+* `getChainsTotals(): {[status in ChainStatus]: number}`
 
 ### 🌐 Integrations
 

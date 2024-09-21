@@ -1,11 +1,11 @@
-import {getNetworksTotals, getSupportedNetworkIds} from "../src";
+import {getChainsTotals, getSupportedChainNames} from "../src";
 
-describe('testing networks', () => {
+describe('testing chains', () => {
   test('get supported network IDs', () => {
-      expect(getSupportedNetworkIds().length).toBeGreaterThan(1)
+      expect(getSupportedChainNames().length).toBeGreaterThan(1)
   })
   test('getNetworksTotals', () => {
-    const s = getNetworksTotals()
+    const s = getChainsTotals()
     expect(s.SUPPORTED).toBeGreaterThan(1)
   })
 })
