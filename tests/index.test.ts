@@ -5,15 +5,16 @@ import {
   deployments,
   integrations,
   StrategyShortId,
-  tokenlist, almFactories, assets, strategyStateDescription, StrategyState, seeds,
+  tokenlist, almFactories, assets, strategyStateDescription, StrategyState, seeds, ChainStatus,
 } from "../src";
 
 describe('index', () => {
   test('deployments', () => {
     expect(deployments["137"].core.platform).toBe("0xb2a0737ef27b5Cc474D24c779af612159b1c3e60")
   })
-  test('networks', () => {
+  test('chains', () => {
     expect(chains["1"].name).toBe(ChainName.ETHEREUM)
+    expect(ChainStatus.NOT_SUPPORTED.toLowerCase()).toContain('not')
   })
   test('strategies', () => {
     expect(strategies[StrategyShortId.CCF].id).toBe('Curve Convex Farm')
