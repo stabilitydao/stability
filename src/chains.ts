@@ -338,6 +338,7 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.SKALE_EUROPA,
     chainId: 2046399126,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'skale-europa.webp',
   },
 }
 
