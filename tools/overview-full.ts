@@ -1,10 +1,10 @@
 import {
   assets,
   deployments,
-  getNetworksTotals, getStrategiesTotals,
+  getChainsTotals, getStrategiesTotals,
   integrations,
   IntegrationStatus,
-  networks, seeds,
+  chains, seeds,
   strategies
 } from "../src";
 import {Table} from "console-table-printer";
@@ -13,19 +13,19 @@ import {hex, bold} from 'ansis';
 import {getIntegrationStatus} from "../src";
 import tokenlist from '../src/stability.tokenlist.json'
 
-const networkTotal = getNetworksTotals()
+const networkTotal = getChainsTotals()
 const strategiesTotal = getStrategiesTotals()
 
 console.log(bold`== Stability Integration Library v${version} ==`)
 console.log('')
 // @ts-ignore
 console.log(bold`=== Deployments: ${Object.keys(deployments).length} ===`)
-console.log(`${Object.keys(deployments).map(chainId => `==== [${chainId}] ${networks[chainId].id} ====\nPlatform: ${deployments[chainId].core.platform}.\nSubgraph: ${deployments[chainId].subgraph}`).join("\n")}`)
+console.log(`${Object.keys(deployments).map(chainId => `==== [${chainId}] ${chains[chainId].name} ====\nPlatform: ${deployments[chainId].core.platform}.\nSubgraph: ${deployments[chainId].subgraph}`).join("\n")}`)
 console.log('')
 // @ts-ignore
-console.log(bold`=== Networks: ${Object.keys(networks).length} ===`)
-console.log(`Chain libraries: ${networkTotal.CHAINLIB_DONE + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.CHAINLIB_AWAITING} awaiting.`)
-console.log(`${Object.keys(networks).map(n => `[${n}] ${networks[n].id}`).join(', ')}`)
+console.log(bold`=== Networks: ${Object.keys(chains).length} ===`)
+console.log(`Chain libraries: ${networkTotal.AWAITING_DEPLOYMENT + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.AWAITING_DEVELOPER} awaiting.`)
+console.log(`${Object.keys(chains).map(n => `[${n}] ${chains[n].name}`).join(', ')}`)
 console.log('')
 // @ts-ignore
 console.log(bold`=== Strategies: ${Object.keys(strategies).length} ===`)

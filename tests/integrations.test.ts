@@ -1,15 +1,15 @@
 import { getIntegrationStatus} from "../src";
-import {NetworkId, strategies, StrategyShortId, StrategyState, DefiCategory, DeFiProtocol, IntegrationStatus} from "../src";
+import {ChainName, strategies, StrategyShortId, StrategyState, DefiCategory, DeFiProtocol, IntegrationStatus} from "../src";
 
 describe('testing integrations', () => {
   test('get protocol integration status', () => {
     const protocol: DeFiProtocol = {
       name: 'Test',
       category: DefiCategory.AMM,
-      networks: [NetworkId.BSC,],
+      chains: [ChainName.BSC,],
     }
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.PROPOSED)
-    protocol.networks = [NetworkId.POLYGON,]
+    protocol.chains = [ChainName.POLYGON,]
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.POSSIBLE)
     protocol.coreContracts = ['PriceReader',]
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.LIVE)
@@ -17,7 +17,7 @@ describe('testing integrations', () => {
     protocol.adapters = ['TestAdapter',]
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.LIVE)
 
-    protocol.networks = [NetworkId.EVMOS,]
+    protocol.chains = [ChainName.EVMOS,]
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.PROPOSED)
     protocol.adapters = undefined
     protocol.coreContracts = ['PriceReader',]
