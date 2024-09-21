@@ -24,7 +24,7 @@ console.log(`${Object.keys(deployments).map(chainId => `==== [${chainId}] ${chai
 console.log('')
 // @ts-ignore
 console.log(bold`=== Networks: ${Object.keys(chains).length} ===`)
-console.log(`Chain libraries: ${networkTotal.CHAINLIB_DONE + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.CHAINLIB_AWAITING} awaiting.`)
+console.log(`Chain libraries: ${networkTotal.AWAITING_DEPLOYMENT + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.AWAITING_DEVELOPER} awaiting.`)
 console.log(`${Object.keys(chains).map(n => `[${n}] ${chains[n].name}`).join(', ')}`)
 console.log('')
 // @ts-ignore
