@@ -76,7 +76,7 @@ console.log('Platform address on Polygon', deployments["137"].core.platform)
 
 ### ⛓️ Chains
 
-Blockchains known to the platform and their integration statuses.
+Blockchains known to the platform and their integration statuses. Each chain has link to image in [stabilitydao/.github](https://github.com/stabilitydao/.github) repo [`chains/` folder](https://github.com/stabilitydao/.github/tree/main/chains).
 
 #### Types
 

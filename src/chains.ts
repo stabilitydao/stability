@@ -147,12 +147,6 @@ export const chains: { [chainId: string]: Chain } = {
     status: ChainStatus.NOT_SUPPORTED,
     img: 'bittorrent.png',
   },
-  "238": {
-    name: ChainName.BLAST,
-    chainId: 238,
-    status: ChainStatus.NOT_SUPPORTED,
-    img: 'blast.png',
-  },
   "250": {
     name: ChainName.FANTOM,
     chainId: 250,
@@ -354,6 +348,12 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 59144,
     status: ChainStatus.NOT_SUPPORTED,
     img: 'linea.webp',
+  },
+  "81457": {
+    name: ChainName.BLAST,
+    chainId: 81457,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'blast.png',
   },
   "111188": {
     name: ChainName.REAL,
