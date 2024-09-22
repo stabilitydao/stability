@@ -169,7 +169,7 @@ export const chains: { [chainId: string]: Chain } = {
     status: ChainStatus.NOT_SUPPORTED,
   },
   "314": {
-    name: ChainName.GNOSIS,
+    name: ChainName.FILECOIN,
     chainId: 314,
     status: ChainStatus.NOT_SUPPORTED,
   },
