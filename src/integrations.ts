@@ -1,5 +1,5 @@
 import {strategies, StrategyShortId, StrategyState} from "./strategies";
-import {getSupportedChainNames, ChainName} from "./chains";
+import {ChainName, getSupportedChainNames} from "./chains";
 
 export type DeFiOrganization = {
   name: string
@@ -36,12 +36,12 @@ export enum DefiCategory {
   LENDING = 'Lending',
   DEX_AGG = 'DeX agg',
   YIELD_AGG = 'Yield agg',
-  VE_AGG = 'Boost VE-agg',
+  VE_AGG = 'VE-agg',
   ORACLE = 'Oracle',
   REWARDING = 'Rewarding',
-  VAULTS_ERC4626 = 'Vaults ERC-4626',
-  LST = 'Liquid staking',
-  INTEROPERABILITY = 'Interoperability',
+  ERC4626 = 'ERC-4626',
+  LSP = 'LSP',
+  INTERCHAIN = 'Interchain',
 }
 
 export const integrations: { [org: string]: DeFiOrganization } = {
@@ -78,7 +78,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       },
       ccip: {
         name: 'CCIP',
-        category: DefiCategory.INTEROPERABILITY,
+        category: DefiCategory.INTERCHAIN,
         chains: [
           ChainName.ARBITRUM,
           ChainName.AVALANCHE,
@@ -504,7 +504,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     website: 'https://www.charm.fi',
     protocols: {
       alphaVaults: {
-        name: 'Charm Alpha Vaults',
+        name: 'Alpha Vaults',
         category: DefiCategory.ALM,
         chains: [
           ChainName.ETHEREUM,
@@ -690,7 +690,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     protocols: {
       yearnV3: {
         name: 'Yearn V3',
-        category: DefiCategory.VAULTS_ERC4626,
+        category: DefiCategory.ERC4626,
         chains: [ChainName.ETHEREUM, ChainName.ARBITRUM, ChainName.POLYGON,],
         strategies: [StrategyShortId.Y],
       },
@@ -705,7 +705,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     protocols: {
       tetuV2: {
         name: 'Tetu V2',
-        category: DefiCategory.VAULTS_ERC4626,
+        category: DefiCategory.ERC4626,
         chains: [ChainName.BASE, ChainName.POLYGON,],
       },
     },
@@ -735,7 +735,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     protocols: {
       stargateV2: {
         name: 'Stargate V2',
-        category: DefiCategory.INTEROPERABILITY,
+        category: DefiCategory.INTERCHAIN,
         chains: [
           ChainName.ETHEREUM,
           ChainName.BSC,
@@ -765,14 +765,9 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     img: 'Lido.svg',
     website: 'https://lido.fi',
     protocols: {
-      stEth: {
+      lido: {
         name: 'stETH',
-        category: DefiCategory.LST,
-        chains: [ChainName.ETHEREUM,],
-      },
-      stMatic: {
-        name: 'stMATIC',
-        category: DefiCategory.LST,
+        category: DefiCategory.LSP,
         chains: [ChainName.ETHEREUM, ChainName.POLYGON,],
         strategies: [StrategyShortId.Y,],
       },
@@ -786,9 +781,9 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     website: 'https://www.staderlabs.com',
     protocols: {
       stader: {
-        name: 'Stader Liquid Staking',
-        category: DefiCategory.LST,
-        chains: [ChainName.ETHEREUM, ChainName.POLYGON,],
+        name: 'Stader',
+        category: DefiCategory.LSP,
+        chains: [ChainName.ETHEREUM, ChainName.POLYGON,ChainName.BSC,ChainName.HEDERA,],
         strategies: [StrategyShortId.AS1BLS,],
       },
     },
