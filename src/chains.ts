@@ -201,6 +201,7 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.POLYGON_ZKEVM,
     chainId: 1101,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'polygon-zkevm.png',
   },
   "1111" : {
     name: ChainName.WEMIX,
@@ -251,6 +252,7 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.MERLIN,
     chainId: 4200,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'merlin.webp',
   },
   "5000": {
     name: ChainName.MANTLE,
@@ -262,11 +264,13 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.ZETA,
     chainId: 7000,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'zetachain.png',
   },
   "8217": {
     name: ChainName.KLAYTN,
     chainId: 8217,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'klaytn.png',
   },
   "8453": {
     name: ChainName.BASE,
@@ -286,11 +290,13 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.HAQQ,
     chainId: 11235,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'haqq.png',
   },
   "13371": {
     name: ChainName.IMMUTABLE_ZKEVM,
     chainId: 13371,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'immutable-zkevm.png',
   },
   "34443": {
     name: ChainName.MODE,
@@ -309,21 +315,25 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.ARBITRUM_NOVA,
     chainId: 42170,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'arbitrum-nova.jpg',
   },
   "42220": {
     name: ChainName.CELO,
     chainId: 42220,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'celo.svg',
   },
   "42766": {
     name: ChainName.ZKFAIR,
     chainId: 42766,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'zkfair.png',
   },
   "43114": {
     name: ChainName.AVALANCHE,
     chainId: 43114,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'avalanche.png',
   },
   "59144": {
     name: ChainName.LINEA,

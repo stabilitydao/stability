@@ -25,7 +25,7 @@ import {
   IntegrationStatus,
   getIntegrationStatus
 } from "./integrations";
-import type {ApiMainReply, ApiAggSwapData} from "./api.types"
+import {ApiMainReply, ApiAggSwapData, ApiPostBody, ApiPostReply, InteractionType} from "./api.types"
 import tokenlist from "./stability.tokenlist.json"
 import {almFactories} from "./addresses";
 import {assets, Asset, getAsset} from "./assets";
@@ -49,6 +49,9 @@ export {
   IntegrationStatus,
   ApiMainReply,
   ApiAggSwapData,
+  ApiPostBody,
+  ApiPostReply,
+  InteractionType,
   tokenlist,
   almFactories,
   getMerklStrategies,

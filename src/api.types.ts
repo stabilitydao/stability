@@ -1,3 +1,6 @@
+// API types last update 22.09.2024
+
+//#region ===== Main reply  | GET /                                    =====
 
 export interface ApiMainReply {
   title: string;
@@ -15,6 +18,7 @@ export interface Total {
   activeVaults: number;
   farms: number;
   vaultForBuilding: number;
+  chainTvl: {[chainId: string]:number};
 }
 
 export interface StabilityNetwork {
@@ -36,27 +40,6 @@ export type ServiceState = {
   id?: string;
   status?: string;
   stat?: any;
-};
-
-export type ApiAggSwapData = {
-  src: string;
-  dst: string;
-  amountIn: string;
-  aggApiReply?: {
-    status: number;
-    errorMessage?: string;
-  };
-  router?: string;
-  amountOut?: string;
-  txData?: string;
-  route?: InchRouteItem[][][];
-};
-
-export type InchRouteItem = {
-  name: string;
-  part: number;
-  fromTokenAddress: string;
-  toTokenAddress: string;
 };
 
 export type Underlyings = {
@@ -165,6 +148,8 @@ export type AssetPriceUsd = {
   trusted: boolean;
 };
 
+export type Platforms = { [chainId: number]: Platform };
+
 export type Platform = {
   versions: {
     platform: string;
@@ -176,4 +161,89 @@ export type Platform = {
   buildingPermitToken: string;
 };
 
-export type Platforms = { [chainId: number]: Platform };
+//#endregion
+
+//#region ===== Sync        | POST /                                   =====
+
+export interface ApiPostBody {
+  type: InteractionType;
+  machineId: string;
+  accessCode: string;
+  state?: NodeState;
+  data?: any;
+}
+
+export enum InteractionType {
+  SYNC = 'SYNC',
+  DATA_DELIVERY = 'DATA_DELIVERY',
+}
+
+export interface  ApiPostReply {
+  message: string;
+  apiReply?: ApiMainReply,
+  tasks?: any;
+}
+
+//#endregion
+
+//#region ===== Swap by agg | GET /swap/:chainId/:src/:dst/:amountIn   =====
+
+export type ApiAggSwapData = {
+  src: string;
+  dst: string;
+  amountIn: string;
+  aggApiReply?: {
+    status: number;
+    errorMessage?: string;
+  };
+  router?: string;
+  amountOut?: string;
+  txData?: string;
+  route?: InchRouteItem[][][];
+};
+
+export type InchRouteItem = {
+  name: string;
+  part: number;
+  fromTokenAddress: string;
+  toTokenAddress: string;
+};
+
+//#endregion
+
+//#region ===== Factory     | GET /factory                             =====
+
+export interface ApiFactoryReply {
+  [chainId: string]: {
+    farms: Farm[];
+    toBuild: TBuildVariant[];
+  }
+}
+
+export interface Farm {
+  status: bigint;
+  pool: `0x${string}`;
+  strategyLogicId: string;
+  rewardAssets: `0x${string}`[];
+  addresses: `0x${string}`[];
+  nums: bigint[];
+  ticks: number[];
+}
+
+export type TBuildVariant = {
+  vaultType: string;
+  strategyId: string;
+  strategyDesc: string;
+  canBuild: boolean;
+  initParams: TInitParams;
+}
+
+export type TInitParams = {
+  initVaultAddresses: string[];
+  initVaultNums: bigint[];
+  initStrategyAddresses: string[];
+  initStrategyNums: bigint[];
+  initStrategyTicks: number[];
+}
+
+//#endregion
