@@ -68,6 +68,7 @@ export const enum ChainName {
   KROMA = 'Kroma',
   WEMIX = 'WEMIX3.0',
   REAL = 'Re.al',
+  HEDERA = 'Hedera',
 }
 
 export const chains: { [chainId: string]: Chain } = {
@@ -168,8 +169,14 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 288,
     status: ChainStatus.NOT_SUPPORTED,
   },
+  "295": {
+    name: ChainName.HEDERA,
+    chainId: 295,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'hedera.svg',
+  },
   "314": {
-    name: ChainName.GNOSIS,
+    name: ChainName.FILECOIN,
     chainId: 314,
     status: ChainStatus.NOT_SUPPORTED,
   },
