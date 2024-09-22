@@ -5,7 +5,7 @@ import {
   deployments,
   integrations,
   StrategyShortId,
-  tokenlist, almFactories, assets, strategyStateDescription, StrategyState, seeds, ChainStatus,
+  tokenlist, almFactories, assets, strategyStateDescription, StrategyState, seeds, ChainStatus, InteractionType,
 } from "../src";
 
 describe('index', () => {
@@ -37,5 +37,8 @@ describe('index', () => {
   })
   test('seeds', () => {
     expect(seeds.length).toBeGreaterThan(0)
+  })
+  test('api', () => {
+    expect(InteractionType.SYNC).toEqual('SYNC')
   })
 })
