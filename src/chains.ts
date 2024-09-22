@@ -4,7 +4,7 @@ export type Chain = {
   name: ChainName,
   chainId: number | string,
   status: ChainStatus,
-  img?: string,
+  img: string,
   multisig?: `0x${string}`,
   chainLibGithubId?: number,
 }
@@ -133,11 +133,13 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.MANTA,
     chainId: 169,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'manta.png',
   },
   "196": {
     name: ChainName.X_LAYER,
     chainId: 196,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'x-layer.webp',
   },
   "199": {
     name: ChainName.BITTORRENT,
@@ -149,26 +151,31 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.BLAST,
     chainId: 238,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'blast.png',
   },
   "250": {
     name: ChainName.FANTOM,
     chainId: 250,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'fantom.png',
   },
   "252": {
     name: ChainName.FRAXTAL,
     chainId: 252,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'fraxtal.webp',
   },
   "255": {
     name: ChainName.KROMA,
     chainId: 255,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'kroma.png',
   },
   "288": {
     name: ChainName.BOBA,
     chainId: 288,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'boba.svg',
   },
   "295": {
     name: ChainName.HEDERA,
@@ -180,11 +187,13 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.FILECOIN,
     chainId: 314,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'filecoin.png',
   },
   "324": {
     name: ChainName.ZKSYNC,
     chainId: 324,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'zksync.png',
   },
   "570": {
     name: ChainName.ROLLUX,
@@ -196,6 +205,7 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.METIS,
     chainId: 1088,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'metis.png',
   },
   "1101": {
     name: ChainName.POLYGON_ZKEVM,
@@ -219,11 +229,13 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.MOONBEAM,
     chainId: 1284,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'moonbeam.png',
   },
   "1285": {
     name: ChainName.MOONRIVER,
     chainId: 1285,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'moonriver.webp',
   },
   "1329": {
     name: ChainName.SEI,
@@ -241,6 +253,7 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.KAVA,
     chainId: 2222,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'kava.png',
   },
   "3776": {
     name: ChainName.ASTAR_ZKEVM,
@@ -302,6 +315,7 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.MODE,
     chainId: 34443,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'mode.png',
   },
   "42161": {
     name: ChainName.ARBITRUM,
