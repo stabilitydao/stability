@@ -143,6 +143,7 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.BITTORRENT,
     chainId: 199,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'bittorrent.png',
   },
   "238": {
     name: ChainName.BLAST,
@@ -189,6 +190,7 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.ROLLUX,
     chainId: 570,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'rollux.jpg',
   },
   "1088": {
     name: ChainName.METIS,
@@ -204,11 +206,13 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.WEMIX,
     chainId: 1111,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'wemix.svg',
   },
   "1116": {
     name: ChainName.CORE,
     chainId: 1116,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'core-blockchain.png',
   },
   "1284": {
     name: ChainName.MOONBEAM,
@@ -224,11 +228,13 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.SEI,
     chainId: 1329,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'sei.png',
   },
   "2000": {
     name: ChainName.DOGECHAIN,
     chainId: 2000,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'dogechain.png',
   },
   "2222": {
     name: ChainName.KAVA,
@@ -239,6 +245,7 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.ASTAR_ZKEVM,
     chainId: 3776,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'astar-zkevm.png',
   },
   "4200": {
     name: ChainName.MERLIN,
@@ -273,6 +280,7 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.EVMOS,
     chainId: 9001,
     status: ChainStatus.NOT_SUPPORTED,
+    img: 'evmos.png',
   },
   "11235": {
     name: ChainName.HAQQ,
@@ -345,7 +353,7 @@ export const chains: { [chainId: string]: Chain } = {
     name: ChainName.SKALE_EUROPA,
     chainId: 2046399126,
     status: ChainStatus.NOT_SUPPORTED,
-    img: 'skale-europa.webp',
+    img: 'skale-europa.jpg',
   },
 }
 
