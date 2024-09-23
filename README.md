@@ -148,6 +148,24 @@ Asset addresses, description, website, color.
 import {tokenlist} from '@stabilitydao/stability'
 ```
 
+### 🌉 Bridges
+
+#### Types
+
+* `Bridge`
+
+#### Enums
+
+* `const enum BridgeName`
+
+#### Constants
+
+* `bridges: Bridge[]`
+
+#### Methods
+
+* `getChainBridges(chainName: ChainName): Bridge[]`
+
 ## 👷 Develop
 
 ```shell

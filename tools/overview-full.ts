@@ -5,7 +5,7 @@ import {
   integrations,
   IntegrationStatus,
   chains, seeds,
-  strategies
+  strategies, bridges
 } from "../src";
 import {Table} from "console-table-printer";
 import {version} from '../package.json';
@@ -40,6 +40,9 @@ for (const chain of Object.keys(chains)) {
 }
 console.log(`Chain libraries: ${networkTotal.AWAITING_DEPLOYMENT + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.AWAITING_DEVELOPER} awaiting  dev. ${networkTotal.AWAITING_ISSUE_CREATION} awaiting creation. Multisigs: ${multisigsTotal}.`)
 console.log(`${Object.keys(chains).map(n => `[${n}] ${chains[n].name}`).join(', ')}`)
+console.log('')
+console.log(`=== Bridges: ${bridges.length} ===`)
+console.log(`${bridges.map(b => `${b.name}`).join(', ')}`)
 console.log('')
 const table = new Table({
   columns: [
