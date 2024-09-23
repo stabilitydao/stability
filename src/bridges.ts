@@ -14,9 +14,11 @@ export const enum BridgeName {
   SATELLITE = 'Satellite',
   ORBITER = 'Orbiter',
 
-  // Native official bridges
+  // official, native multi
   SUPERBRIDGE = 'Superbridge',
   BRIDGG = 'Brid.gg',
+
+  // official, native
   ARBITRUM = 'Arbitrum',
   POLYGON = 'Polygon portal',
   ROOTSTOCK = 'Rootstock Token Bridge',
@@ -30,74 +32,49 @@ export const enum BridgeName {
 }
 
 export const bridges: Bridge[] = [
+  // Liquidity transports
   {
-    name: BridgeName.REAL,
-    dapp: 'https://www.re.al/bridge',
-    img: `chains/${chains["111188"].img}`,
-    chains: [
-      ChainName.ETHEREUM,
-      ChainName.REAL,
-      ChainName.OPTIMISM,
-      ChainName.BSC,
-      ChainName.POLYGON,
-      ChainName.BASE,
-      ChainName.ARBITRUM,
-      ChainName.BLAST,
-      ChainName.SCROLL,
-    ],
-  },
-  {
-    name: BridgeName.ORBITER,
-    dapp: 'https://www.orbiter.finance',
-    img: 'assets/orbiter.jpg',
+    name: BridgeName.STARGATE,
+    dapp: 'https://stargate.finance/bridge',
+    img: `assets/${integrations['stargate'].img}`,
     chains: [
       ChainName.ETHEREUM,
       ChainName.ARBITRUM,
-      ChainName.OPTIMISM,
+      // astar
+      ChainName.ASTAR_ZKEVM,
+      ChainName.AURORA,
+      ChainName.AVALANCHE,
       ChainName.BASE,
-      ChainName.LINEA,
-      ChainName.SCROLL,
-      // taiko
-      ChainName.ZKSYNC,
-      // zora
-      // solana
-      // ton
-      ChainName.X_LAYER,
       ChainName.BLAST,
-      ChainName.MODE,
-      ChainName.MERLIN,
-      // bevm
-      // zksync lite
-      ChainName.POLYGON_ZKEVM,
-      ChainName.POLYGON,
-      ChainName.ARBITRUM_NOVA,
-      // loopring
-      // immutable x
-      // starknet
       ChainName.BSC,
-      // tron
-      ChainName.FUSE,
-      ChainName.MANTA,
-      // mint
-      // opbnb
-      // b^2 network
+      // ebi
+      ChainName.FANTOM,
+      // flare
       ChainName.FRAXTAL,
-      // matchain
-      ChainName.CORE,
+      ChainName.GNOSIS,
       // gravity
+      // iota
+      // kaia
+      ChainName.KAVA,
+      ChainName.LINEA,
+      ChainName.MANTA,
       ChainName.MANTLE,
-      // bouncebit
-      ChainName.ZETA,
-      // cyber
-      // bomechain
-      ChainName.ZKFAIR,
+      ChainName.METIS,
+      ChainName.MODE,
+      ChainName.MOONBEAM,
+      ChainName.MOONRIVER,
+      // opbnb
+      ChainName.OPTIMISM,
+      ChainName.POLYGON,
+      ChainName.POLYGON_ZKEVM,
+      // rari
+      ChainName.SCROLL,
+      ChainName.SEI,
+      // solana
+      // taiko
+      ChainName.X_LAYER,
       // zircuit
-      // bob
-      // optopia
-      // proof of play apex
-      // bitlayer
-      // zklink nova
-      // alienxchain
+      ChainName.ZKSYNC,
     ],
   },
   {
@@ -164,96 +141,105 @@ export const bridges: Bridge[] = [
     ],
   },
   {
-    name: BridgeName.STARGATE,
-    dapp: 'https://stargate.finance/bridge',
-    img: `assets/${integrations['stargate'].img}`,
+    name: BridgeName.ORBITER,
+    dapp: 'https://www.orbiter.finance',
+    img: 'assets/orbiter.jpg',
     chains: [
       ChainName.ETHEREUM,
       ChainName.ARBITRUM,
-      // astar
-      ChainName.ASTAR_ZKEVM,
-      ChainName.AURORA,
-      ChainName.AVALANCHE,
+      ChainName.OPTIMISM,
       ChainName.BASE,
-      ChainName.BLAST,
-      ChainName.BSC,
-      // ebi
-      ChainName.FANTOM,
-      // flare
-      ChainName.FRAXTAL,
-      ChainName.GNOSIS,
-      // gravity
-      // iota
-      // kaia
-      ChainName.KAVA,
       ChainName.LINEA,
-      ChainName.MANTA,
-      ChainName.MANTLE,
-      ChainName.METIS,
-      ChainName.MODE,
-      ChainName.MOONBEAM,
-      ChainName.MOONRIVER,
-      // opbnb
-      ChainName.OPTIMISM,
-      ChainName.POLYGON,
-      ChainName.POLYGON_ZKEVM,
-      // rari
       ChainName.SCROLL,
-      ChainName.SEI,
-      // solana
       // taiko
-      ChainName.X_LAYER,
-      // zircuit
       ChainName.ZKSYNC,
-    ],
-  },
-  {
-    name: BridgeName.MANTLE,
-    dapp: 'https://bridge.mantle.xyz/',
-    img: `chains/${chains["5000"].img}`,
-    chains: [
-      ChainName.ETHEREUM,
-      ChainName.MANTLE,
-    ],
-  },
-  {
-    name: BridgeName.MODE,
-    dapp: 'https://app.mode.network',
-    img: `chains/${chains["34443"].img}`,
-    chains: [
-      ChainName.ETHEREUM,
+      // zora
+      // solana
+      // ton
+      ChainName.X_LAYER,
+      ChainName.BLAST,
       ChainName.MODE,
+      ChainName.MERLIN,
+      // bevm
+      // zksync lite
+      ChainName.POLYGON_ZKEVM,
+      ChainName.POLYGON,
+      ChainName.ARBITRUM_NOVA,
+      // loopring
+      // immutable x
+      // starknet
+      ChainName.BSC,
+      // tron
+      ChainName.FUSE,
+      ChainName.MANTA,
+      // mint
+      // opbnb
+      // b^2 network
+      ChainName.FRAXTAL,
+      // matchain
+      ChainName.CORE,
+      // gravity
+      ChainName.MANTLE,
+      // bouncebit
+      ChainName.ZETA,
+      // cyber
+      // bomechain
+      ChainName.ZKFAIR,
+      // zircuit
+      // bob
+      // optopia
+      // proof of play apex
+      // bitlayer
+      // zklink nova
+      // alienxchain
+    ],
+  },
+
+  // official, native multi
+  {
+    name: BridgeName.BRIDGG,
+    dapp: 'https://www.brid.gg/',
+    img: 'assets/bridgg.png',
+    chains: [
+      ChainName.ETHEREUM,
       ChainName.OPTIMISM,
       ChainName.BASE,
-      ChainName.ARBITRUM,
-      ChainName.POLYGON,
+      ChainName.FRAXTAL,
+      ChainName.MODE,
+      // zora
+      // redstone
+      // lisk
     ],
   },
   {
-    name: BridgeName.CORE_APP,
-    dapp: 'https://core.app/en/bridge/',
-    img: 'assets/core-app.png',
+    name: BridgeName.SUPERBRIDGE,
+    dapp: 'https://superbridge.app/',
+    img: 'assets/superbridge.jpg',
     chains: [
       ChainName.ETHEREUM,
-      ChainName.AVALANCHE,
+      ChainName.BASE,
+      ChainName.OPTIMISM,
+      ChainName.MODE,
+      ChainName.FRAXTAL,
+      // zora
+      // public goods network
+      // lyra
+      // orderly
+      // lumic
+      // metal l2
+      // cyber
+      // mint
+      // lisk
+      // redstone
+      // xterio
+      // swan
+      // snaxchain
+      // world chain
+      // ChainName: soneium
     ],
   },
-  {
-    name: BridgeName.SKALE,
-    dapp: 'https://portal.skale.space/bridge',
-    img: `chains/${chains["2046399126"].img}`,
-    chains: [
-      ChainName.ETHEREUM,
-      ChainName.SKALE_EUROPA,
-      // Calypso Hub
-      // Nebula Gaming Hub
-      // CryptoBlades
-      // Wan-Red-Ain
-      // Razor network
-      // Adorable-Quaint-Bellatrix
-      // Titan AI hub
-    ],
-  },
+
+  // official, native
   {
     name: BridgeName.BNB,
     dapp: 'https://www.bnbchain.org/en/bnb-chain-bridge',
@@ -298,6 +284,74 @@ export const bridges: Bridge[] = [
     ],
   },
   {
+    name: BridgeName.ARBITRUM,
+    dapp: 'https://bridge.arbitrum.io/',
+    img: 'chains/arbitrum.svg',
+    chains: [
+      ChainName.ETHEREUM,
+      ChainName.ARBITRUM,
+      ChainName.ARBITRUM_NOVA,
+      // orbit: sanko, muster, l3x, pmon, superposition, proof of play apex...
+    ],
+  },
+  {
+    name: BridgeName.MANTLE,
+    dapp: 'https://bridge.mantle.xyz/',
+    img: `chains/${chains["5000"].img}`,
+    chains: [
+      ChainName.ETHEREUM,
+      ChainName.MANTLE,
+    ],
+  },
+  {
+    name: BridgeName.POLYGON,
+    dapp: 'https://portal.polygon.technology/bridge',
+    img: 'chains/polygon.svg',
+    chains: [
+      ChainName.ETHEREUM,
+      ChainName.POLYGON,
+      ChainName.POLYGON_ZKEVM,
+    ],
+  },
+  {
+    name: BridgeName.MODE,
+    dapp: 'https://app.mode.network',
+    img: `chains/${chains["34443"].img}`,
+    chains: [
+      ChainName.ETHEREUM,
+      ChainName.MODE,
+      ChainName.OPTIMISM,
+      ChainName.BASE,
+      ChainName.ARBITRUM,
+      ChainName.POLYGON,
+    ],
+  },
+  {
+    name: BridgeName.CORE_APP,
+    dapp: 'https://core.app/en/bridge/',
+    img: 'assets/core-app.png',
+    chains: [
+      ChainName.ETHEREUM,
+      ChainName.AVALANCHE,
+    ],
+  },
+  {
+    name: BridgeName.SKALE,
+    dapp: 'https://portal.skale.space/bridge',
+    img: `chains/${chains["2046399126"].img}`,
+    chains: [
+      ChainName.ETHEREUM,
+      ChainName.SKALE_EUROPA,
+      // Calypso Hub
+      // Nebula Gaming Hub
+      // CryptoBlades
+      // Wan-Red-Ain
+      // Razor network
+      // Adorable-Quaint-Bellatrix
+      // Titan AI hub
+    ],
+  },
+  {
     name: BridgeName.TELOS,
     dapp: 'https://bridge.telos.net/bridge',
     img: `chains/${chains["40"].img}`,
@@ -322,66 +376,19 @@ export const bridges: Bridge[] = [
     ],
   },
   {
-    name: BridgeName.POLYGON,
-    dapp: 'https://portal.polygon.technology/bridge',
-    img: 'chains/polygon.svg',
+    name: BridgeName.REAL,
+    dapp: 'https://www.re.al/bridge',
+    img: `chains/${chains["111188"].img}`,
     chains: [
       ChainName.ETHEREUM,
+      ChainName.REAL,
+      ChainName.OPTIMISM,
+      ChainName.BSC,
       ChainName.POLYGON,
-      ChainName.POLYGON_ZKEVM,
-    ],
-  },
-  {
-    name: BridgeName.ARBITRUM,
-    dapp: 'https://bridge.arbitrum.io/',
-    img: 'chains/arbitrum.svg',
-    chains: [
-      ChainName.ETHEREUM,
+      ChainName.BASE,
       ChainName.ARBITRUM,
-      ChainName.ARBITRUM_NOVA,
-      // orbit: sanko, muster, l3x, pmon, superposition, proof of play apex...
-    ],
-  },
-  {
-    name: BridgeName.BRIDGG,
-    dapp: 'https://www.brid.gg/',
-    img: 'assets/bridgg.png',
-    chains: [
-      ChainName.ETHEREUM,
-      ChainName.OPTIMISM,
-      ChainName.BASE,
-      ChainName.FRAXTAL,
-      ChainName.MODE,
-      // zora
-      // redstone
-      // lisk
-    ],
-  },
-  {
-    name: BridgeName.SUPERBRIDGE,
-    dapp: 'https://superbridge.app/',
-    img: 'assets/superbridge.jpg',
-    chains: [
-      ChainName.ETHEREUM,
-      ChainName.BASE,
-      ChainName.OPTIMISM,
-      ChainName.MODE,
-      ChainName.FRAXTAL,
-      // zora
-      // public goods network
-      // lyra
-      // orderly
-      // lumic
-      // metal l2
-      // cyber
-      // mint
-      // lisk
-      // redstone
-      // xterio
-      // swan
-      // snaxchain
-      // world chain
-      // ChainName: soneium
+      ChainName.BLAST,
+      ChainName.SCROLL,
     ],
   },
 ]

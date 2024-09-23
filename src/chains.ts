@@ -83,7 +83,7 @@ export const chains: { [chainId: string]: Chain } = {
   "10": {
     name: ChainName.OPTIMISM,
     chainId: 10,
-    status: ChainStatus.NOT_SUPPORTED,
+    status: ChainStatus.AWAITING_ISSUE_CREATION,
     img: 'optimism.svg',
     multisig: '0x06111E02BEb85B57caebEf15F5f90Bc82D54da3A',
   },
@@ -102,7 +102,7 @@ export const chains: { [chainId: string]: Chain } = {
   "56": {
     name: ChainName.BSC,
     chainId: 56,
-    status: ChainStatus.NOT_SUPPORTED,
+    status: ChainStatus.AWAITING_ISSUE_CREATION,
     img: 'bsc.svg',
     multisig: '0xFad77AAD3C3b769500F8743C16A27FBf951e3A78',
   },
@@ -342,7 +342,7 @@ export const chains: { [chainId: string]: Chain } = {
   "43114": {
     name: ChainName.AVALANCHE,
     chainId: 43114,
-    status: ChainStatus.NOT_SUPPORTED,
+    status: ChainStatus.AWAITING_ISSUE_CREATION,
     img: 'avalanche.png',
     multisig: '0xFad77AAD3C3b769500F8743C16A27FBf951e3A78',
   },
@@ -355,7 +355,7 @@ export const chains: { [chainId: string]: Chain } = {
   "81457": {
     name: ChainName.BLAST,
     chainId: 81457,
-    status: ChainStatus.NOT_SUPPORTED,
+    status: ChainStatus.AWAITING_ISSUE_CREATION,
     img: 'blast.png',
     multisig: '0xFad77AAD3C3b769500F8743C16A27FBf951e3A78',
   },
@@ -368,7 +368,7 @@ export const chains: { [chainId: string]: Chain } = {
   "534352": {
     name: ChainName.SCROLL,
     chainId: 534352,
-    status: ChainStatus.NOT_SUPPORTED,
+    status: ChainStatus.AWAITING_ISSUE_CREATION,
     img: 'scroll.webp',
     multisig: '0xFad77AAD3C3b769500F8743C16A27FBf951e3A78',
   },
