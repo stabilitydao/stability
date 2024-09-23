@@ -85,6 +85,7 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 10,
     status: ChainStatus.NOT_SUPPORTED,
     img: 'optimism.svg',
+    multisig: '0x06111E02BEb85B57caebEf15F5f90Bc82D54da3A',
   },
   "30": {
     name: ChainName.ROOTSTOCK,
@@ -103,6 +104,7 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 56,
     status: ChainStatus.NOT_SUPPORTED,
     img: 'bsc.svg',
+    multisig: '0xFad77AAD3C3b769500F8743C16A27FBf951e3A78',
   },
   "100": {
     name: ChainName.GNOSIS,
@@ -342,6 +344,7 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 43114,
     status: ChainStatus.NOT_SUPPORTED,
     img: 'avalanche.png',
+    multisig: '0xFad77AAD3C3b769500F8743C16A27FBf951e3A78',
   },
   "59144": {
     name: ChainName.LINEA,
@@ -354,6 +357,7 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 81457,
     status: ChainStatus.NOT_SUPPORTED,
     img: 'blast.png',
+    multisig: '0xFad77AAD3C3b769500F8743C16A27FBf951e3A78',
   },
   "111188": {
     name: ChainName.REAL,
@@ -366,6 +370,7 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 534352,
     status: ChainStatus.NOT_SUPPORTED,
     img: 'scroll.webp',
+    multisig: '0xFad77AAD3C3b769500F8743C16A27FBf951e3A78',
   },
   "1313161554": {
     name: ChainName.AURORA,
