@@ -49,11 +49,11 @@ export const bridges: Bridge[] = [
       ChainName.BSC,
       // ebi
       ChainName.FANTOM,
-      // flare
+      ChainName.FLARE,
       ChainName.FRAXTAL,
       ChainName.GNOSIS,
-      // gravity
-      // iota
+      ChainName.GRAVITY,
+      ChainName.IOTA,
       // kaia
       ChainName.KAVA,
       ChainName.LINEA,
@@ -63,17 +63,17 @@ export const bridges: Bridge[] = [
       ChainName.MODE,
       ChainName.MOONBEAM,
       ChainName.MOONRIVER,
-      // opbnb
+      ChainName.OPBNB,
       ChainName.OPTIMISM,
       ChainName.POLYGON,
       ChainName.POLYGON_ZKEVM,
-      // rari
+      ChainName.RARI,
       ChainName.SCROLL,
       ChainName.SEI,
       // solana
-      // taiko
+      ChainName.TAIKO,
       ChainName.X_LAYER,
-      // zircuit
+      ChainName.ZIRCUIT,
       ChainName.ZKSYNC,
     ],
   },
@@ -93,7 +93,7 @@ export const bridges: Bridge[] = [
       // bitsong
       ChainName.BLAST,
       // c4e
-      // carbon
+      ChainName.CARBON,
       // celestia
       ChainName.CELO,
       // centrifuge
@@ -101,14 +101,14 @@ export const bridges: Bridge[] = [
       // comdex
       // cosomhub
       // crescent
-      // dymension
+      ChainName.DYMENSION,
       ChainName.EVMOS,
       ChainName.FANTOM,
       // fetch
       ChainName.FILECOIN,
       ChainName.FRAXTAL,
       ChainName.HAQQ,
-      // immutable
+      ChainName.IMMUTABLE_ZKEVM,
       // ixo
       // juno
       ChainName.KAVA,
@@ -136,7 +136,7 @@ export const bridges: Bridge[] = [
       // stride
       // territori
       // umee
-      // xpla
+      ChainName.XPLA,
       // osmosis
     ],
   },
@@ -151,16 +151,16 @@ export const bridges: Bridge[] = [
       ChainName.BASE,
       ChainName.LINEA,
       ChainName.SCROLL,
-      // taiko
+      ChainName.TAIKO,
       ChainName.ZKSYNC,
-      // zora
+      ChainName.ZORA,
       // solana
       // ton
       ChainName.X_LAYER,
       ChainName.BLAST,
       ChainName.MODE,
       ChainName.MERLIN,
-      // bevm
+      ChainName.BEVM,
       // zksync lite
       ChainName.POLYGON_ZKEVM,
       ChainName.POLYGON,
@@ -172,25 +172,25 @@ export const bridges: Bridge[] = [
       // tron
       ChainName.FUSE,
       ChainName.MANTA,
-      // mint
-      // opbnb
+      ChainName.MINT,
+      ChainName.OPBNB,
       // b^2 network
       ChainName.FRAXTAL,
       // matchain
       ChainName.CORE,
-      // gravity
+      ChainName.GRAVITY,
       ChainName.MANTLE,
-      // bouncebit
+      ChainName.BOUNCEBIT,
       ChainName.ZETA,
-      // cyber
+      ChainName.CYBER,
       // bomechain
       ChainName.ZKFAIR,
-      // zircuit
-      // bob
+      ChainName.ZIRCUIT,
+      ChainName.BOB,
       // optopia
       // proof of play apex
-      // bitlayer
-      // zklink nova
+      ChainName.BITLAYER,
+      ChainName.ZKLINK,
       // alienxchain
     ],
   },
@@ -206,9 +206,9 @@ export const bridges: Bridge[] = [
       ChainName.BASE,
       ChainName.FRAXTAL,
       ChainName.MODE,
-      // zora
-      // redstone
-      // lisk
+      ChainName.ZORA,
+      // redstone (no in defillama)
+      // lisk (no in defillama)
     ],
   },
   {
@@ -221,14 +221,14 @@ export const bridges: Bridge[] = [
       ChainName.OPTIMISM,
       ChainName.MODE,
       ChainName.FRAXTAL,
-      // zora
+      ChainName.ZORA,
       // public goods network
       // lyra
       // orderly
       // lumic
       // metal l2
-      // cyber
-      // mint
+      ChainName.CYBER,
+      ChainName.MINT,
       // lisk
       // redstone
       // xterio
@@ -247,7 +247,7 @@ export const bridges: Bridge[] = [
     chains: [
       ChainName.ETHEREUM,
       ChainName.BSC,
-      // opBNB
+      ChainName.OPBNB,
       ChainName.ARBITRUM,
       ChainName.BASE,
       ChainName.POLYGON,
@@ -263,10 +263,10 @@ export const bridges: Bridge[] = [
       ChainName.EVMOS,
       // fncy
       ChainName.FANTOM,
-      // flare
+      ChainName.FLARE,
       // godwoken
-      // gravity alpha
-      // iota evm
+      ChainName.GRAVITY,
+      ChainName.IOTA,
       ChainName.KAVA,
       ChainName.KLAYTN,
       ChainName.MANTLE,
@@ -277,9 +277,9 @@ export const bridges: Bridge[] = [
       // oasis saphire
       // oasis
       ChainName.POLYGON_ZKEVM,
-      // rari
+      ChainName.RARI,
       ChainName.SCROLL,
-      // taiko
+      ChainName.TAIKO,
       ChainName.ZKSYNC,
     ],
   },

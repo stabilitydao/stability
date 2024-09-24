@@ -23,8 +23,8 @@ export const enum ChainName {
   ARBITRUM = 'Arbitrum One',
   BASE = 'Base',
   POLYGON = 'Polygon',
-  AVALANCHE = 'Avalanche C-Chain',
-  BSC = 'Binance Smart Chain',
+  AVALANCHE = 'Avalanche',
+  BSC = 'BNB Chain',
   CELO = 'Celo',
   FANTOM = 'Fantom',
   LINEA = 'Linea',
@@ -69,6 +69,24 @@ export const enum ChainName {
   WEMIX = 'WEMIX3.0',
   REAL = 'Re.al',
   HEDERA = 'Hedera',
+  ZORA = 'Zora',
+  TAIKO = 'Taiko',
+  GRAVITY = 'Gravity Alpha',
+  FLARE = 'Flare',
+  IOTA = 'IOTA EVM',
+  RARI = 'Rari',
+  OPBNB = 'opBNB',
+  CYBER = 'Cyber',
+  MINT = 'Mint',
+  ZIRCUIT = 'Zircuit',
+  BITLAYER = 'Bitlayer',
+  ZKLINK = 'zkLink Nova',
+  BOUNCEBIT = 'BounceBit',
+  BOB = 'BOB',
+  CARBON = 'Carbon',
+  XPLA = 'Xpla',
+  BEVM = 'BEVM',
+  DYMENSION = 'Dymension',
 }
 
 export const chains: { [chainId: string]: Chain } = {
@@ -87,11 +105,23 @@ export const chains: { [chainId: string]: Chain } = {
     img: 'optimism.svg',
     multisig: '0x06111E02BEb85B57caebEf15F5f90Bc82D54da3A',
   },
+  "14": {
+    name: ChainName.FLARE,
+    chainId: 14,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'flare.png',
+  },
   "30": {
     name: ChainName.ROOTSTOCK,
     chainId: 30,
     status: ChainStatus.NOT_SUPPORTED,
     img: 'rootstock.png',
+  },
+  "37": {
+    name: ChainName.XPLA,
+    chainId: 37,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'xpla.png',
   },
   "40": {
     name: ChainName.TELOS,
@@ -137,6 +167,12 @@ export const chains: { [chainId: string]: Chain } = {
     status: ChainStatus.NOT_SUPPORTED,
     img: 'manta.png',
   },
+  "185": {
+    name: ChainName.MINT,
+    chainId: 185,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'mint.png',
+  },
   "196": {
     name: ChainName.X_LAYER,
     chainId: 196,
@@ -148,6 +184,12 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 199,
     status: ChainStatus.NOT_SUPPORTED,
     img: 'bittorrent.png',
+  },
+  "204": {
+    name: ChainName.OPBNB,
+    chainId: 204,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'opbnb.png',
   },
   "250": {
     name: ChainName.FANTOM,
@@ -203,6 +245,12 @@ export const chains: { [chainId: string]: Chain } = {
     status: ChainStatus.NOT_SUPPORTED,
     img: 'metis.png',
   },
+  "1100": {
+    name: ChainName.DYMENSION,
+    chainId: 1100,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'dymension.png',
+  },
   "1101": {
     name: ChainName.POLYGON_ZKEVM,
     chainId: 1101,
@@ -239,6 +287,12 @@ export const chains: { [chainId: string]: Chain } = {
     status: ChainStatus.NOT_SUPPORTED,
     img: 'sei.png',
   },
+  "1625": {
+    name: ChainName.GRAVITY,
+    chainId: 1625,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'gravity.png',
+  },
   "2000": {
     name: ChainName.DOGECHAIN,
     chainId: 2000,
@@ -269,11 +323,23 @@ export const chains: { [chainId: string]: Chain } = {
     status: ChainStatus.NOT_SUPPORTED,
     img: 'mantle.svg',
   },
+  "6001": {
+    name: ChainName.BOUNCEBIT,
+    chainId: 6001,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'bouncebit.png',
+  },
   "7000": {
     name: ChainName.ZETA,
     chainId: 7000,
     status: ChainStatus.NOT_SUPPORTED,
     img: 'zetachain.png',
+  },
+  "7560": {
+    name: ChainName.CYBER,
+    chainId: 7560,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'cyber.png',
   },
   "8217": {
     name: ChainName.KLAYTN,
@@ -289,17 +355,35 @@ export const chains: { [chainId: string]: Chain } = {
     multisig: '0x626Bd898ca994c11c9014377f4c50d30f2B0006c',
     chainLibGithubId: 143,
   },
+  "8822": {
+    name: ChainName.IOTA,
+    chainId: 8822,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'iota.jpg',
+  },
   "9001": {
     name: ChainName.EVMOS,
     chainId: 9001,
     status: ChainStatus.NOT_SUPPORTED,
     img: 'evmos.png',
   },
+  "9790": {
+    name: ChainName.CARBON,
+    chainId: 9790,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'carbon.svg',
+  },
   "11235": {
     name: ChainName.HAQQ,
     chainId: 11235,
     status: ChainStatus.NOT_SUPPORTED,
     img: 'haqq.png',
+  },
+  "11501": {
+    name: ChainName.BEVM,
+    chainId: 11501,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'bevm.png',
   },
   "13371": {
     name: ChainName.IMMUTABLE_ZKEVM,
@@ -346,11 +430,23 @@ export const chains: { [chainId: string]: Chain } = {
     img: 'avalanche.png',
     multisig: '0xFad77AAD3C3b769500F8743C16A27FBf951e3A78',
   },
+  "48900": {
+    name: ChainName.ZIRCUIT,
+    chainId: 48900,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'zircuit.jpg',
+  },
   "59144": {
     name: ChainName.LINEA,
     chainId: 59144,
     status: ChainStatus.NOT_SUPPORTED,
     img: 'linea.webp',
+  },
+  "60808": {
+    name: ChainName.BOB,
+    chainId: 60808,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'bob.png',
   },
   "81457": {
     name: ChainName.BLAST,
@@ -365,12 +461,42 @@ export const chains: { [chainId: string]: Chain } = {
     status: ChainStatus.NOT_SUPPORTED,
     img: 'real.webp',
   },
+  "167000": {
+    name: ChainName.TAIKO,
+    chainId: 167000,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'taiko.png',
+  },
+  "200901": {
+    name: ChainName.BITLAYER,
+    chainId: 200901,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'bitlayer.jpg',
+  },
   "534352": {
     name: ChainName.SCROLL,
     chainId: 534352,
     status: ChainStatus.AWAITING_ISSUE_CREATION,
     img: 'scroll.webp',
     multisig: '0xFad77AAD3C3b769500F8743C16A27FBf951e3A78',
+  },
+  "810180": {
+    name: ChainName.ZKLINK,
+    chainId: 810180,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'zklink.png',
+  },
+  "7777777": {
+    name: ChainName.ZORA,
+    chainId: 7777777,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'zora.jpg',
+  },
+  "1380012617": {
+    name: ChainName.RARI,
+    chainId: 1380012617,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: 'rari.svg',
   },
   "1313161554": {
     name: ChainName.AURORA,
