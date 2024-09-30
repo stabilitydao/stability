@@ -9,6 +9,13 @@ export type Chain = {
   chainLibGithubId?: number,
 }
 
+export type ChainStatusInfo = {
+  title: string,
+  description: string,
+  color: string,
+  bgColor: string,
+}
+
 export const enum ChainStatus {
   SUPPORTED = 'SUPPORTED',
   AWAITING_DEPLOYMENT = 'AWAITING_DEPLOYMENT',
@@ -257,7 +264,7 @@ export const chains: { [chainId: string]: Chain } = {
     status: ChainStatus.NOT_SUPPORTED,
     img: 'polygon-zkevm.png',
   },
-  "1111" : {
+  "1111": {
     name: ChainName.WEMIX,
     chainId: 1111,
     status: ChainStatus.NOT_SUPPORTED,
@@ -512,16 +519,55 @@ export const chains: { [chainId: string]: Chain } = {
   },
 }
 
+export const chainStatusInfo: {[status in ChainStatus]: ChainStatusInfo} = {
+  [ChainStatus.SUPPORTED]: {
+    title: 'Supported',
+    description: 'Platform deployed and live in the chain',
+    color: '#4ade80', // green-400
+    bgColor: '#00521f',
+  },
+  [ChainStatus.AWAITING_DEPLOYMENT]: {
+    title: 'Awaiting deployment',
+    description: 'ChainLib and strategy contracts ready for deployment to the chain',
+    color: '#a78bfa', // violet-400
+    bgColor: '#55009d',
+  },
+  [ChainStatus.CHAINLIB_DEVELOPMENT]: {
+    title: 'Development',
+    description: 'Chain library being developed',
+    color: '#60a5fa', // blue-400
+    bgColor: '#1d3f6c',
+  },
+  [ChainStatus.AWAITING_DEVELOPER]: {
+    title: 'Awaiting developer',
+    description: 'We awaiting developer to be assigned to solve chain library issue',
+    color: '#fef08a', // yellow-200
+    bgColor: '#6e6514',
+  },
+  [ChainStatus.AWAITING_ISSUE_CREATION]: {
+    title: 'Awaiting issue',
+    description: 'We have treasury in this chain and chain library contract can be developed, need issue.',
+    color: '#fdba74', // orange-300
+    bgColor: '#b65100',
+  },
+  [ChainStatus.NOT_SUPPORTED]: {
+    title: 'Not supported',
+    description: 'Platform know this chain but dont has treasury and ChainLib issue for it',
+    color: '#eeeeee',
+    bgColor: '#2c2c2c',
+  },
+}
+
 export const getSupportedChainNames = (): ChainName[] => Object.keys(deployments).map(chainId => chains[chainId].name)
 
-export const getChainsTotals = (): {[status in ChainStatus]: number} => {
+export const getChainsTotals = (): { [status in ChainStatus]: number } => {
   const ids = Object.keys(chains)
   return {
-    [ChainStatus.SUPPORTED]: ids.filter(networkId => chains[networkId].status == ChainStatus.SUPPORTED ).length,
-    [ChainStatus.AWAITING_DEPLOYMENT]: ids.filter(networkId => chains[networkId].status == ChainStatus.AWAITING_DEPLOYMENT ).length,
-    [ChainStatus.CHAINLIB_DEVELOPMENT]: ids.filter(networkId => chains[networkId].status == ChainStatus.CHAINLIB_DEVELOPMENT ).length,
-    [ChainStatus.AWAITING_DEVELOPER]: ids.filter(networkId => chains[networkId].status == ChainStatus.AWAITING_DEVELOPER ).length,
-    [ChainStatus.AWAITING_ISSUE_CREATION]: ids.filter(networkId => chains[networkId].status == ChainStatus.AWAITING_ISSUE_CREATION ).length,
-    [ChainStatus.NOT_SUPPORTED]: ids.filter(networkId => chains[networkId].status == ChainStatus.NOT_SUPPORTED ).length,
+    [ChainStatus.SUPPORTED]: ids.filter(networkId => chains[networkId].status == ChainStatus.SUPPORTED).length,
+    [ChainStatus.AWAITING_DEPLOYMENT]: ids.filter(networkId => chains[networkId].status == ChainStatus.AWAITING_DEPLOYMENT).length,
+    [ChainStatus.CHAINLIB_DEVELOPMENT]: ids.filter(networkId => chains[networkId].status == ChainStatus.CHAINLIB_DEVELOPMENT).length,
+    [ChainStatus.AWAITING_DEVELOPER]: ids.filter(networkId => chains[networkId].status == ChainStatus.AWAITING_DEVELOPER).length,
+    [ChainStatus.AWAITING_ISSUE_CREATION]: ids.filter(networkId => chains[networkId].status == ChainStatus.AWAITING_ISSUE_CREATION).length,
+    [ChainStatus.NOT_SUPPORTED]: ids.filter(networkId => chains[networkId].status == ChainStatus.NOT_SUPPORTED).length,
   }
 }
