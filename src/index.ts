@@ -1,9 +1,11 @@
 import {deployments, Deployment} from "./deployments";
 import {
   chains,
+  chainStatusInfo,
   ChainName,
   ChainStatus,
   Chain,
+  ChainStatusInfo,
   getSupportedChainNames,
   getChainsTotals
 } from "./chains";
@@ -35,12 +37,14 @@ import {bridges, Bridge, BridgeName, getChainBridges} from "./bridges";
 export {
   deployments,
   chains,
+  chainStatusInfo,
   strategies,
   integrations,
   Deployment,
   Chain,
   ChainName,
   ChainStatus,
+  ChainStatusInfo,
   Strategy,
   StrategyShortId,
   StrategyState,
