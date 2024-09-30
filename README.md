@@ -12,6 +12,8 @@
 
 This is library for integrating Stability Platform into Node.js applications.
 
+![](chains.png)
+
 ## 🔌 Usage
 
 Add npm package to your js/ts project:
@@ -81,6 +83,7 @@ Blockchains known to the platform and their integration statuses. Each chain has
 #### Types
 
 * `Chain`
+* `ChainStatusInfo`
 
 #### Enums
 
@@ -90,6 +93,7 @@ Blockchains known to the platform and their integration statuses. Each chain has
 #### Constants
 
 * `chains: { [chainId: string]: Chain }`
+* `chainStatusInfo: {[status in ChainStatus]: ChainStatusInfo}`
 
 #### Methods
 
@@ -171,6 +175,7 @@ import {tokenlist} from '@stabilitydao/stability'
 ```shell
 yarn overview
 yarn overview-full
+yarn draw-chains
 yarn test
 yarn coverage
 ```
