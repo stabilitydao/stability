@@ -1,20 +1,23 @@
-// API types last update 22.09.2024
+// Types of ApiService v3.1.0 from 01.10.2024
 
 //#region ===== Main reply  | GET /                                    =====
 
 export interface ApiMainReply {
   title: string;
+  time: number;
   total: Total;
   network: StabilityNetwork;
   platforms: Platforms;
   vaults: Vaults;
   underlyings: Underlyings;
   assetPrices: AssetPrices;
+  leaderboard: User[];
   error?: string;
 }
 
 export interface Total {
   tvl: number;
+  usersEarned: number;
   activeVaults: number;
   farms: number;
   vaultForBuilding: number;
@@ -161,6 +164,12 @@ export type Platform = {
   buildingPermitToken: string;
 };
 
+export type User = {
+  address: `0x${string}`;
+  deposit: number;
+  earned: number;
+};
+
 //#endregion
 
 //#region ===== Sync        | POST /                                   =====
@@ -169,7 +178,8 @@ export interface ApiPostBody {
   type: InteractionType;
   machineId: string;
   accessCode: string;
-  state?: NodeState;
+  time: number;
+  state: NodeState;
   data?: any;
 }
 
@@ -212,7 +222,6 @@ export type InchRouteItem = {
 //#endregion
 
 //#region ===== Factory     | GET /factory                             =====
-
 export interface ApiFactoryReply {
   [chainId: string]: {
     farms: Farm[];
