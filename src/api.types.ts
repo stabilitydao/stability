@@ -1,4 +1,4 @@
-// Types of ApiService v3.1.0 from 01.10.2024
+// Types of ApiService v3.1.1 from 06.10.2024
 
 //#region ===== Main reply  | GET /                                    =====
 
@@ -83,6 +83,7 @@ export type Vault = {
   status?: string;
   strategySpecific?: string;
   strategyDescription?: string;
+  strategyVersion?: string;
   vaultType?: string;
   version?: string;
   assets?: `0x${string}`[];
