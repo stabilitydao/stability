@@ -465,8 +465,9 @@ export const chains: { [chainId: string]: Chain } = {
   "111188": {
     name: ChainName.REAL,
     chainId: 111188,
-    status: ChainStatus.NOT_SUPPORTED,
+    status: ChainStatus.AWAITING_ISSUE_CREATION,
     img: 'real.png',
+    multisig: '0x7B4388F4bD3A439E34a554EF67513112Bcd77Fba',
   },
   "167000": {
     name: ChainName.TAIKO,

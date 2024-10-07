@@ -37,6 +37,6 @@ export const deployments: {[chainId:string]:Deployment} = {
       strategyLogic: "0xbe491A023eA61B4b027ed0f2f2400748113797b1",
       zap: "0x00700766b0cA613D719A01eea6234eeE77592e15",
     },
-    subgraph: "https://gateway-arbitrum.network.thegraph.com/api/[api-key]/subgraphs/id/8uU5LrpCLCP1P31GBCUXu8AdWKQ2aW6mKTKsr2ssUdJS",
+    subgraph: "https://gateway-arbitrum.network.thegraph.com/api/[api-key]/subgraphs/id/FRK5vEJXX9w5Pt3nqeqGRX5s7k29AWCb7aXTfDwT6S8j",
   },
 }
