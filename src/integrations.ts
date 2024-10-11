@@ -12,8 +12,10 @@ export type DeFiOrganization = {
 
 export type DeFiProtocol = {
   name: string
+  img?: string // separate img for protocol
+  organization?: string // optimal org slug for usability
   category: DefiCategory
-  chains: ChainName[],
+  chains: ChainName[]
   strategies?: StrategyShortId[]
   intermediaryStrategies?: StrategyShortId[]
   adapters?: string[]
@@ -42,10 +44,11 @@ export enum DefiCategory {
   ERC4626 = 'ERC-4626',
   LSP = 'LSP',
   INTERCHAIN = 'Interchain',
+  CDP = 'CDP',
 }
 
 export const integrations: { [org: string]: DeFiOrganization } = {
-  // oracle, cross-chain
+  // oracle
   chainlink: {
     name: 'ChainLink',
     img: 'Chainlink.svg',
@@ -378,6 +381,35 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     defiLlama: 'agni-finance',
     github: 'agni-protocol',
   },
+  pearl: {
+    name: 'Pearl',
+    img: 'Pearl.png',
+    website: 'https://www.pearl.exchange/',
+    protocols: {
+      pearlV2: {
+        name: 'Pearl V2',
+        category: DefiCategory.AMM,
+        chains: [ChainName.REAL,],
+        strategies: [StrategyShortId.TPF, StrategyShortId.IPF,],
+      },
+      trident: {
+        name: 'Trident',
+        img: 'Trident.png',
+        category: DefiCategory.ALM,
+        chains: [ChainName.REAL,],
+        strategies: [StrategyShortId.TPF,],
+      },
+      stack: {
+        name: 'Stack More',
+        img: 'Stack.svg',
+        category: DefiCategory.CDP,
+        chains: [ChainName.REAL,],
+        strategies: [StrategyShortId.SL, StrategyShortId.SS,],
+      },
+    },
+    github: 'Pearl-Finance',
+    defiLlama: 'pearl-v2',
+  },
   // ALM
   gamma: {
     name: 'Gamma',
@@ -454,8 +486,9 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.BSC,
           ChainName.CELO,
           ChainName.SKALE_EUROPA,
+          ChainName.REAL,
         ],
-        strategies: [StrategyShortId.IQMF, StrategyShortId.IRMF],
+        strategies: [StrategyShortId.IQMF, StrategyShortId.IRMF, StrategyShortId.IPF,],
       },
     },
     defiLlama: 'ichi',

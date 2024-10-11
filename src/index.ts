@@ -18,6 +18,7 @@ import {
   getStrategyShortId,
   strategyStateDescription,
   getStrategiesTotals,
+  baseStrategyContracts, getStrategyProtocols,
 } from "./strategies";
 import {
   integrations,
@@ -61,12 +62,14 @@ export {
   almFactories,
   getMerklStrategies,
   getStrategyShortId,
+  getStrategyProtocols,
   getIntegrationStatus,
   getSupportedChainNames,
   assets,
   Asset,
   getAsset,
   strategyStateDescription,
+  baseStrategyContracts,
   getChainsTotals,
   getStrategiesTotals,
   seeds,

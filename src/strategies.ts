@@ -1,15 +1,16 @@
-import {integrations} from "./integrations";
+import {DeFiProtocol, integrations} from "./integrations";
 
 export type Strategy = {
   id: string
   shortId: StrategyShortId
   state: StrategyState
-  contractGithubId: number
+  contractGithubId: number|'is-being-created'
   color: string
   bgColor: string
   baseStrategies: BaseStrategy[]
   sourceCode?: string
   ammAdapter?: string
+  description?: string
 }
 
 export const enum StrategyShortId {
@@ -33,6 +34,10 @@ export const enum StrategyShortId {
   CBMF = 'CBMF',
   ABMF = 'ABMF',
   BSMF = 'BSMF',
+  TPF = 'TPF',
+  IPF = 'IPF',
+  SL = 'SL',
+  SS = 'SS',
 }
 
 export enum StrategyState {
@@ -61,6 +66,14 @@ export const strategyStateDescription: {[state in StrategyState]: string} = {
   [StrategyState.DEVELOPMENT]: "The strategy is under development",
   [StrategyState.DEPLOYMENT]: "The strategy has been developed. Awaiting deployment.",
   [StrategyState.LIVE]: "Vault and strategy are deployed and working",
+}
+
+export const baseStrategyContracts: {[baseStrategy in BaseStrategy]: string} = {
+  [BaseStrategy.LP]: 'LPStrategyBase',
+  [BaseStrategy.FARMING]: 'FarmingStrategyBase',
+  [BaseStrategy.MERKL]: 'MerklStrategyBase',
+  [BaseStrategy.ERC4626]: 'ERC4626StrategyBase',
+  [BaseStrategy.LEVERAGED_LENDING]: 'LeveragedLending',
 }
 
 export const strategies: {[shortId in StrategyShortId]:Strategy} = {
@@ -272,6 +285,48 @@ export const strategies: {[shortId in StrategyShortId]:Strategy} = {
     ammAdapter: "UniswapV3",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING,],
   },
+  [StrategyShortId.TPF]: {
+    id: 'Trident Pearl Farm',
+    shortId: StrategyShortId.TPF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 172,
+    color: '#ffe300',
+    bgColor: '#004e67',
+    ammAdapter: "UniswapV3",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING,],
+    description: "Earn Pearl LP rewards by Trident ALM",
+  },
+  [StrategyShortId.IPF]: {
+    id: 'Ichi Pearl Farm',
+    shortId: StrategyShortId.IPF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 174,
+    color: '#599bff',
+    bgColor: '#004e67',
+    ammAdapter: "UniswapV3",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING,],
+    description: "Earn Pearl LP rewards by Ichi",
+  },
+  [StrategyShortId.SL]: {
+    id: 'Stack Leverage',
+    shortId: StrategyShortId.SL,
+    state: StrategyState.AWAITING,
+    contractGithubId: 175,
+    color: '#ffbc0f',
+    bgColor: '#000000',
+    baseStrategies: [BaseStrategy.LEVERAGED_LENDING,],
+    description: "Manage leveraged Stack CDP position with yield-bearing collateral asset. Use Swapper.",
+  },
+  [StrategyShortId.SS]: {
+    id: 'Stack Staking',
+    shortId: StrategyShortId.SS,
+    state: StrategyState.AWAITING,
+    contractGithubId: 176,
+    color: '#ffbc0f',
+    bgColor: '#d60d1d',
+    baseStrategies: [],
+    description: 'Stake $MORE on Stack',
+  },
 };
 
 export const getMerklStrategies = (): string[] => {
@@ -302,4 +357,19 @@ export const getStrategiesTotals = (): {[state in StrategyState]: number} => {
     [StrategyState.DEPLOYMENT]: ids.filter(strategyShortId => strategies[strategyShortId as StrategyShortId].state == StrategyState.DEPLOYMENT ).length,
     [StrategyState.LIVE]: ids.filter(strategyShortId => strategies[strategyShortId as StrategyShortId].state == StrategyState.LIVE ).length,
   }
+}
+
+export const getStrategyProtocols = (shortId: StrategyShortId): DeFiProtocol[] => {
+  const r:DeFiProtocol[] = []
+  for (const orgSlug of Object.keys(integrations)) {
+    const org = integrations[orgSlug]
+    for (const protocolSlug of Object.keys(org.protocols)) {
+      const protocol = org.protocols[protocolSlug]
+      if (protocol.strategies?.includes(shortId)) {
+        protocol.organization = orgSlug
+        r.push(protocol)
+      }
+    }
+  }
+  return r
 }

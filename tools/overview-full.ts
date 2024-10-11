@@ -93,7 +93,7 @@ console.log(bold`=== Assets: ${assets.length}`)
 console.log(`${assets.map(a => `${a.symbol}`).join(', ')}`)
 console.log('')
 // @ts-ignore
-console.log(bold`=== Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map(t => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} networks ===`)
+console.log(bold`=== Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map(t => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} chains ===`)
 console.log(`${tokenlist.tokens.map(t => `[${t.chainId}] ${t.symbol}`).join(', ')}`)
 console.log('')
 console.log(bold`=== Seed nodes: ${'' + seeds.length} ===`)
