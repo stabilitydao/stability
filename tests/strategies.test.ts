@@ -1,5 +1,12 @@
-import {getMerklStrategies, getStrategiesTotals, getStrategyShortId} from "../src";
-import {StrategyShortId} from "../src";
+import {
+  baseStrategyContracts,
+  getMerklStrategies,
+  getStrategiesTotals,
+  getStrategyProtocols,
+  getStrategyShortId,
+  StrategyShortId
+} from "../src";
+import {BaseStrategy} from "../src/strategies";
 
 describe('testing strategies', () => {
   test('get merkl strategies', () => {
@@ -14,5 +21,11 @@ describe('testing strategies', () => {
   });
   test('get strategies totals', () => {
     expect(getStrategiesTotals().LIVE).toBeGreaterThan(2)
+  })
+  test('get strategy protocols', () => {
+    expect(getStrategyProtocols(StrategyShortId.IPF).length).toBeGreaterThan(0)
+  })
+  test('get strategy protocols', () => {
+    expect(baseStrategyContracts[BaseStrategy.FARMING]).toEqual('FarmingStrategyBase')
   })
 });

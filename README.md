@@ -52,6 +52,7 @@ Comprehensive information about platform strategies for managing DeFi assets. In
 
 * `strategies: {[shortId in StrategyShortId]:Strategy}`
 * `strategyStateDescription: {[state in StrategyState]: string}`
+* `baseStrategyContracts: {[baseStrategy in BaseStrategy]: string}`
 
 #### Methods
 
