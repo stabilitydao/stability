@@ -60,6 +60,7 @@ Comprehensive information about platform strategies for managing DeFi assets. In
 * `getStrategyShortId(id: string): StrategyShortId|undefined`
 * `getStrategiesTotals(): {[state in StrategyState]: number}`
 * `getStrategyProtocols(shortId: StrategyShortId): DeFiProtocol[]`
+* `getChainStrategies(chainName: ChainName): Strategy[]`
 
 ### #️⃣ Deployments
 

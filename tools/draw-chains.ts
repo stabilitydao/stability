@@ -7,6 +7,16 @@ import {version} from '../package.json';
 async function main() {
   console.log('== Draw chains ==')
 
+  // check tmp dirs
+  const tmpDir = './temp';
+  const coversDir = './temp/covers';
+  if (!fs.existsSync(tmpDir)){
+    fs.mkdirSync(tmpDir);
+  }
+  if (!fs.existsSync(coversDir)){
+    fs.mkdirSync(coversDir);
+  }
+
   // save to
   const filename = './chains.png';
 
@@ -18,12 +28,6 @@ async function main() {
   const chainBlockSize = 86
   const chainBlockPadding = 20
   const xPadding = 76
-
-  // check tmp dir
-  const tmpDir = './temp';
-  if (!fs.existsSync(tmpDir)){
-    fs.mkdirSync(tmpDir);
-  }
 
   // download chain images
   console.log(`Download ${Object.keys(chains).length} chain images..`)
@@ -42,8 +46,8 @@ async function main() {
   console.log()
 
   // Instantiate the canvas object
-  const canvas = createCanvas(width, height);
-  const ctx = canvas.getContext("2d");
+  let canvas = createCanvas(width, height);
+  let ctx = canvas.getContext("2d");
 
   // bg
   const bgColor = '#15003b'
@@ -125,6 +129,45 @@ async function main() {
   const buffer = canvas.toBuffer("image/png");
   fs.writeFileSync(filename, buffer);
   console.log(`Image of chains collection generated and saved to ${filename}`)
+
+  // draw covers
+  for (const chainId in chains) {
+    const chain = chains[chainId]
+    // Dimensions for the image
+    const coverWidth = 1000;
+    const coverHeight = 1000;
+
+    // Instantiate the canvas object
+    canvas = createCanvas(coverWidth, coverHeight);
+    ctx = canvas.getContext("2d");
+
+    // bg
+    // const bgColor = '#15003b'
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, coverWidth, coverHeight);
+
+    // chain name
+    ctx.font = 'bold 90px "Sans"'
+    ctx.fillStyle = "#ffffff";
+    ctx.fillText(chain.name, 100, 830)
+    ctx.font = '40px "Sans"'
+    ctx.fillText(`Chain ID: ${chainId}`, 100, 900)
+
+    // image
+    const image = await loadImage(`${tmpDir}/${chain.img}`)
+    ctx.drawImage(
+      image,
+      250,
+      170,
+      500,
+      500
+    )
+
+    // Write the image to file
+    const buffer = canvas.toBuffer("image/png");
+    fs.writeFileSync(`${coversDir}/${chainId}.png`, buffer);
+  }
+  console.log(`Covers of chains generated and saved to ${coversDir}`)
 }
 
 async function downloadFile(url:string, filepath:string) {

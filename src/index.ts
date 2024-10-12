@@ -18,7 +18,9 @@ import {
   getStrategyShortId,
   strategyStateDescription,
   getStrategiesTotals,
-  baseStrategyContracts, getStrategyProtocols,
+  baseStrategyContracts,
+  getStrategyProtocols,
+  getChainStrategies,
 } from "./strategies";
 import {
   integrations,
@@ -66,6 +68,7 @@ export {
   getStrategyProtocols,
   getIntegrationStatus,
   getChainProtocols,
+  getChainStrategies,
   getSupportedChainNames,
   assets,
   Asset,

@@ -112,6 +112,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     protocols: {
       merkl: {
         name: 'Merkl',
+        img: 'Merkl.svg',
         category: DefiCategory.REWARDING,
         // chains with active rewards
         chains: [
@@ -400,7 +401,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         strategies: [StrategyShortId.TPF,],
       },
       stack: {
-        name: 'Stack More',
+        name: 'Stack',
         img: 'Stack.svg',
         category: DefiCategory.CDP,
         chains: [ChainName.REAL,],
