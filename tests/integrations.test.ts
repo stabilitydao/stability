@@ -1,4 +1,4 @@
-import { getIntegrationStatus} from "../src";
+import {getChainProtocols, getIntegrationStatus} from "../src";
 import {ChainName, strategies, StrategyShortId, StrategyState, DefiCategory, DeFiProtocol, IntegrationStatus} from "../src";
 
 describe('testing integrations', () => {
@@ -42,5 +42,9 @@ describe('testing integrations', () => {
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.DEVELOPMENT)
     strategies[StrategyShortId.IQMF].state = StrategyState.PROPOSAL
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.AWAITING)
+  })
+  test('get chain protocols', () => {
+    const protocols = getChainProtocols("111188")
+    expect(protocols.length).toBeGreaterThan(3)
   })
 })

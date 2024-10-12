@@ -59,6 +59,7 @@ Comprehensive information about platform strategies for managing DeFi assets. In
 * `getMerklStrategies()`
 * `getStrategyShortId(id: string): StrategyShortId|undefined`
 * `getStrategiesTotals(): {[state in StrategyState]: number}`
+* `getStrategyProtocols(shortId: StrategyShortId): DeFiProtocol[]`
 
 ### #️⃣ Deployments
 
@@ -122,6 +123,7 @@ DeFi organizations, protocols, their integration statuses, usage and other infor
 #### Methods
 
 * `getIntegrationStatus(p: DeFiProtocol): IntegrationStatus`
+* `getChainProtocols(chainId: string): DeFiProtocol[]`
 
 ### 📌 Addresses
 
