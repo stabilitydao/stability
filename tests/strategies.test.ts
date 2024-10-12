@@ -1,5 +1,5 @@
 import {
-  baseStrategyContracts,
+  baseStrategyContracts, ChainName, getChainStrategies,
   getMerklStrategies,
   getStrategiesTotals,
   getStrategyProtocols,
@@ -27,5 +27,9 @@ describe('testing strategies', () => {
   })
   test('get strategy protocols', () => {
     expect(baseStrategyContracts[BaseStrategy.FARMING]).toEqual('FarmingStrategyBase')
+  })
+  test('get chain strategies', () => {
+    const realStrategies = getChainStrategies(ChainName.REAL)
+    expect(realStrategies.length).toBeGreaterThan(3)
   })
 });

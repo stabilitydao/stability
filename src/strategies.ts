@@ -1,4 +1,5 @@
 import {DeFiProtocol, integrations} from "./integrations";
+import {ChainName} from "./chains";
 
 export type Strategy = {
   id: string
@@ -371,5 +372,25 @@ export const getStrategyProtocols = (shortId: StrategyShortId): DeFiProtocol[] =
       }
     }
   }
+  return r
+}
+
+export const getChainStrategies = (chainName: ChainName): Strategy[] => {
+  const r:Strategy[] = []
+
+  for (const strategyShortId of Object.keys(strategies)) {
+    let chainOk = true
+    const protocols = getStrategyProtocols(strategyShortId as StrategyShortId)
+    for (const protocol of protocols) {
+      if (!protocol.chains.includes(chainName)) {
+        chainOk = false
+        break
+      }
+    }
+    if (chainOk) {
+      r.push(strategies[strategyShortId as StrategyShortId])
+    }
+  }
+
   return r
 }
