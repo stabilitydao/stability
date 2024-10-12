@@ -1,5 +1,5 @@
 import {strategies, StrategyShortId, StrategyState} from "./strategies";
-import {ChainName, getSupportedChainNames} from "./chains";
+import {ChainName, chains, getSupportedChainNames} from "./chains";
 
 export type DeFiOrganization = {
   name: string
@@ -868,4 +868,19 @@ export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
   }
 
   return isSupportedNetwork ? IntegrationStatus.POSSIBLE : IntegrationStatus.PROPOSED
+}
+
+export const getChainProtocols = (chainId: string): DeFiProtocol[] => {
+  const r: DeFiProtocol[] = []
+  for (const orgSlug of Object.keys(integrations)) {
+    const org = integrations[orgSlug]
+    for (const protocolSlug of Object.keys(org.protocols)) {
+      const protocol = org.protocols[protocolSlug]
+      if (protocol.chains.includes(chains[chainId].name)) {
+        protocol.organization = orgSlug
+        r.push(protocol)
+      }
+    }
+  }
+  return r
 }

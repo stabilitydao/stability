@@ -28,7 +28,7 @@ export const enum BridgeName {
   CORE_APP = 'Core Tools Bridge',
   MODE = 'Mode App',
   MANTLE = 'Mantle Bridge',
-  REAL = 're.al Bridge',
+  REAL = 'Re.al Bridge',
 }
 
 export const bridges: Bridge[] = [

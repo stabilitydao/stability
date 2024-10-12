@@ -26,7 +26,8 @@ import {
   DeFiOrganization,
   DeFiProtocol,
   IntegrationStatus,
-  getIntegrationStatus
+  getIntegrationStatus,
+  getChainProtocols
 } from "./integrations";
 import {ApiMainReply, ApiAggSwapData, ApiPostBody, ApiPostReply, InteractionType} from "./api.types"
 import tokenlist from "./stability.tokenlist.json"
@@ -64,6 +65,7 @@ export {
   getStrategyShortId,
   getStrategyProtocols,
   getIntegrationStatus,
+  getChainProtocols,
   getSupportedChainNames,
   assets,
   Asset,
