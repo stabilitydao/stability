@@ -5,7 +5,7 @@ import {
   integrations,
   IntegrationStatus,
   chains, seeds,
-  strategies, bridges
+  strategies, bridges, contests
 } from "../src";
 import {Table} from "console-table-printer";
 import {version} from '../package.json';
@@ -99,5 +99,15 @@ console.log('')
 console.log(bold`=== Seed nodes: ${'' + seeds.length} ===`)
 for (const seedNode of seeds) {
   console.log(seedNode)
+}
+console.log('')
+// @ts-ignore
+console.log(bold`=== Contests: ${Object.keys(contests).filter(c => !contests[c].hidden).length} ===`)
+for (const contestId of Object.keys(contests).filter(c => !contests[c].hidden)) {
+  const contest = contests[contestId]
+  const startDateArr = new Date(contest.start * 1000).toUTCString().split(' ')
+  const endDateArr = new Date(contest.end * 1000).toUTCString().split(' ')
+  const dates = `${startDateArr[1]} ${startDateArr[2]} ${startDateArr[3]} - ${endDateArr[1]} ${endDateArr[2]} ${endDateArr[3]}`
+  console.log(`[${contestId}] ${contest.name}. ${dates}. Rewards: ${contest.rewards.map(r => r.type).join(', ')}.`)
 }
 console.log('')
