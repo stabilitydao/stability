@@ -1,4 +1,4 @@
-// Types of ApiService v3.1.1 from 06.10.2024
+// Types of ApiService v3.3.0 from 16.10.2024
 
 //#region ===== Main reply  | GET /                                    =====
 
@@ -11,7 +11,8 @@ export interface ApiMainReply {
   vaults: Vaults;
   underlyings: Underlyings;
   assetPrices: AssetPrices;
-  leaderboard: User[];
+  leaderboard: User[]; // deprecated since v3.3.0
+  leaderboards: Leaderboards;
   error?: string;
 }
 
@@ -56,10 +57,12 @@ export type Underlying = {
   name?: string;
   apr: {
     daily?: number;
+    weekly?: number;
     monthly?: number;
     allTime?: number;
     status?: string;
   };
+  provider?: string;
 };
 
 export type Vaults = {
@@ -110,6 +113,7 @@ export type Vault = {
     amountToken1?: number;
     fee?: number;
     tick?: number;
+    ampFactor?: string;
   };
   alm?: {
     protocol: string;
@@ -165,10 +169,16 @@ export type Platform = {
   buildingPermitToken: string;
 };
 
+export type Leaderboards = { [id: string]: User[] };
+
 export type User = {
   address: `0x${string}`;
   deposit: number;
   earned: number;
+  xp?: number;
+  points?: number;
+  name?: string;
+  img?: string;
 };
 
 //#endregion
