@@ -174,12 +174,28 @@ import {tokenlist} from '@stabilitydao/stability'
 
 * `getChainBridges(chainName: ChainName): Bridge[]`
 
+### 🏆 Contests
+
+#### Types
+
+* `YieldContest`
+* `Reward`
+
+#### Constants
+
+* `contests: { [contestId: string]: YieldContest }`
+
+#### Enums
+
+* `enum RewardType`
+
 ## 👷 Develop
 
 ```shell
 yarn overview
 yarn overview-full
 yarn draw-chains
+yarn create-contests
 yarn test
 yarn coverage
 ```

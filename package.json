@@ -1,6 +1,6 @@
 {
   "name": "@stabilitydao/stability",
-  "version": "0.17.1",
+  "version": "0.18.0",
   "description": "Stability Integration Library",
   "main": "out/index.js",
   "types": "out/index.d.ts",
@@ -22,7 +22,8 @@
     "overview-full": "ts-node tools/overview-full.ts",
     "postbuild": "shx cp src/*.tokenlist.json out/",
     "draw-chains": "ts-node tools/draw-chains.ts",
-    "issue": "ts-node tools/issue.ts"
+    "issue": "ts-node tools/issue.ts",
+    "create-contests": "ts-node tools/create-contests.ts"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
