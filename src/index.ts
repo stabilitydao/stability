@@ -7,7 +7,8 @@ import {
   Chain,
   ChainStatusInfo,
   getSupportedChainNames,
-  getChainsTotals
+  getChainsTotals,
+  getChainByName
 } from "./chains";
 import {
   strategies,
@@ -71,6 +72,7 @@ export {
   getChainProtocols,
   getChainStrategies,
   getSupportedChainNames,
+  getChainByName,
   assets,
   Asset,
   getAsset,
