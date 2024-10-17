@@ -1,12 +1,13 @@
 import {ChainName} from "./chains";
 
-  export interface YieldContest {
+export interface YieldContest {
   // name of the contest
   name: string,
   // start timestamp
   start: number,
   // end timestamp
   end: number,
+  minEarn: number,
   // contest rewards
   rewards: Reward[],
   // integration of quest platform campaign
@@ -52,6 +53,7 @@ export const contests: { [contestId: string]: YieldContest } = {
     name: 'Dev pre contest 1',
     start: 1728518400, // Thu Oct 10 2024 00:00:00 GMT+0000
     end: 1729123199, // Wed Oct 16 2024 23:59:59 GMT+0000
+    minEarn: 0.01,
     rewards: [], // no rewards
     hidden: true,
   },
@@ -60,6 +62,7 @@ export const contests: { [contestId: string]: YieldContest } = {
     name: 'Dev pre contest 2',
     start: 1729123200, // Thu Oct 17 2024 00:00:00 GMT+0000
     end: 1729727999, // Wed Oct 23 2024 23:59:59 GMT+0000
+    minEarn: 0.1,
     rewards: [], // no rewards
     hidden: true,
   },
@@ -68,6 +71,7 @@ export const contests: { [contestId: string]: YieldContest } = {
     name: "Yield Contest #1",
     start: 1729728000, // Thu, 24 Oct 2024 00:00:00 GMT
     end: 1730937599,   // Wed, 06 Nov 2024 23:59:59 GMT
+    minEarn: 0.1,
     rewards:
       [
         {
@@ -82,6 +86,7 @@ export const contests: { [contestId: string]: YieldContest } = {
     name: "Yield Contest #2",
     start: 1730937600, // Thu, 07 Nov 2024 00:00:00 GMT
     end: 1732147199,   // Wed, 20 Nov 2024 23:59:59 GMT
+    minEarn: 1,
     rewards: [
       {
         type: RewardType.POINTS,
@@ -105,6 +110,7 @@ export const contests: { [contestId: string]: YieldContest } = {
     name: "Yield Contest #3",
     start: 1732147200, // Thu, 21 Nov 2024 00:00:00 GMT
     end: 1733356799,   // Wed, 04 Dec 2024 23:59:59 GMT
+    minEarn: 1,
     rewards: [
       {
         type: RewardType.POINTS,
@@ -139,4 +145,3 @@ export const contests: { [contestId: string]: YieldContest } = {
     ],
   },
 }
-
