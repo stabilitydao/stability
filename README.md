@@ -103,6 +103,7 @@ Blockchains known to the platform and their integration statuses. Each chain has
 
 * `getSupportedChainNames(): ChainName[]`
 * `getChainsTotals(): {[status in ChainStatus]: number}`
+* `getChainByName(chainName: ChainName): Chain`
 
 ### 🌐 Integrations
 
