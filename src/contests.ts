@@ -7,9 +7,10 @@ export interface YieldContest {
   start: number,
   // end timestamp
   end: number,
-  minEarn: number,
+  // minimal USD income to pass contest
+  minEarn: number|"TBA",
   // contest rewards
-  rewards: Reward[],
+  rewards: Reward[]|"TBA",
   // integration of quest platform campaign
   integration?: {
     // Intract campaign id
@@ -143,5 +144,21 @@ export const contests: { [contestId: string]: YieldContest } = {
         },
       },
     ],
+  },
+  "y4": {
+    // 05 Dec 2024 - 18 Dec 2024
+    name: "Yield Contest #4",
+    start: 1733356800, // Thu, 05 Dec 2024 00:00:00 GMT
+    end: 1734566399,   // Wed, 18 Dec 2024 23:59:59 GMT
+    minEarn: "TBA",
+    rewards: "TBA",
+  },
+  "y5": {
+    // 19 Dec 2024 - 01 Jan 2025
+    name: "Yield Contest #5",
+    start: 1734566400, // Thu, 19 Dec 2024 00:00:00 GMT
+    end: 1735775999,   // Wed, 01 Jan 2025 23:59:59 GMT
+    minEarn: "TBA",
+    rewards: "TBA",
   },
 }
