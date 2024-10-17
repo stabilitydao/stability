@@ -37,7 +37,7 @@ import {almFactories} from "./addresses";
 import {assets, Asset, getAsset} from "./assets";
 import {seeds} from "./seeds";
 import {bridges, Bridge, BridgeName, getChainBridges} from "./bridges";
-import {contests} from "./contests";
+import {contests, YieldContest, Reward, RewardType} from "./contests";
 
 export {
   deployments,
@@ -84,4 +84,7 @@ export {
   BridgeName,
   getChainBridges,
   contests,
+  YieldContest,
+  Reward,
+  RewardType,
 }
