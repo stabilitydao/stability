@@ -1,4 +1,4 @@
-import {contests, RewardType, YieldContest} from "../src";
+import {contests, Reward, RewardType, YieldContest} from "../src";
 
 describe('testing contests', () => {
   test('check start less then end', () => {
@@ -8,6 +8,6 @@ describe('testing contests', () => {
   })
   test('types', () => {
     const c: YieldContest = contests["y1"]
-    expect(c.rewards[0].type).toEqual(RewardType.POINTS)
+    expect((c.rewards[0] as Reward).type).toEqual(RewardType.POINTS)
   })
 })
