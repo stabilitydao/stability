@@ -1,6 +1,7 @@
 # 📦 Stability Integration Library
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/stabilitydao/stability)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/stabilitydao/stability/main)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/stabilitydao/stability/dev)
 ![NPM Version](https://img.shields.io/npm/v/%40stabilitydao%2Fstability?label=NPM%20version)
 ![GitHub Tag](https://img.shields.io/github/v/tag/stabilitydao/stability)
 
