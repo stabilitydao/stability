@@ -1,10 +1,10 @@
 import {ChainName, getChainByName, getChainsTotals, getSupportedChainNames} from "../src";
 
 describe('testing chains', () => {
-  test('get supported network IDs', () => {
+  test('get supported chain names', () => {
       expect(getSupportedChainNames().length).toBeGreaterThan(1)
   })
-  test('getNetworksTotals', () => {
+  test('getChainsTotals', () => {
     const s = getChainsTotals()
     expect(s.SUPPORTED).toBeGreaterThan(1)
   })
@@ -16,5 +16,4 @@ describe('testing chains', () => {
     };
     expect(t).toThrow(Error);
   })
-
 })
