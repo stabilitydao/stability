@@ -1,6 +1,6 @@
-// Types of ApiService v3.3.0 from 16.10.2024
+// Types of ApiService v4.0.0 from 18.10.2024
 
-//#region ===== Main reply  | GET /                                    =====
+//#region ===== Main reply            | GET /                                    =====
 
 export interface ApiMainReply {
   title: string;
@@ -183,15 +183,19 @@ export type User = {
 
 //#endregion
 
-//#region ===== Sync        | POST /                                   =====
+//#region ===== Sync                  | POST /                                   =====
 
 export interface ApiPostBody {
   type: InteractionType;
   machineId: string;
   accessCode: string;
-  time: number;
+  time: {
+    main: number,
+    factory: number,
+    contests: number,
+  },
   state: NodeState;
-  data?: any;
+  data?: PlatformDataPartial;
 }
 
 export enum InteractionType {
@@ -201,13 +205,25 @@ export enum InteractionType {
 
 export interface  ApiPostReply {
   message: string;
-  apiReply?: ApiMainReply,
+  data: PlatformDataPartial|PlatformDataFull,
   tasks?: any;
+}
+
+export interface PlatformDataPartial {
+  main?: ApiMainReply,
+  factory?: ApiFactoryReply,
+  contests?: ApiContestsReply,
+}
+
+export interface PlatformDataFull extends PlatformDataPartial {
+  main: ApiMainReply,
+  factory: ApiFactoryReply,
+  contests: ApiContestsReply,
 }
 
 //#endregion
 
-//#region ===== Swap by agg | GET /swap/:chainId/:src/:dst/:amountIn   =====
+//#region ===== Swap by agg           | GET /swap/:chainId/:src/:dst/:amountIn   =====
 
 export type ApiAggSwapData = {
   src: string;
@@ -232,21 +248,25 @@ export type InchRouteItem = {
 
 //#endregion
 
-//#region ===== Factory     | GET /factory                             =====
+//#region ===== Factory               | GET /factory                             =====
 export interface ApiFactoryReply {
-  [chainId: string]: {
-    farms: Farm[];
-    toBuild: TBuildVariant[];
+  time: number
+  hash: string
+  data: {
+    [chainId: string]: {
+      farms: Farm[];
+      toBuild: TBuildVariant[];
+    }
   }
 }
 
 export interface Farm {
-  status: bigint;
+  status: number;
   pool: `0x${string}`;
   strategyLogicId: string;
   rewardAssets: `0x${string}`[];
   addresses: `0x${string}`[];
-  nums: bigint[];
+  nums: string[];
   ticks: number[];
 }
 
@@ -260,10 +280,53 @@ export type TBuildVariant = {
 
 export type TInitParams = {
   initVaultAddresses: string[];
-  initVaultNums: bigint[];
+  initVaultNums: string[];
   initStrategyAddresses: string[];
-  initStrategyNums: bigint[];
+  initStrategyNums: string[];
   initStrategyTicks: number[];
+}
+
+//#endregion
+
+//#region ===== Contests              | GET /contests                            =====
+
+export interface ApiContestsReply {
+  time: number
+  hash: string
+  data: Leaderboards,
+}
+
+//#endregion
+
+//#region ===== Contest               | GET /contests/:contestId                 =====
+
+export interface ApiContestReply {
+  leaderboard: User[]
+}
+
+//#endregion
+
+//#region ===== Verify task [Intract] | GET /verify/intract/:contestId           =====
+
+export interface ApiVerifyIntractPostRequestBody {
+  address: string,
+  twitter?: string,
+  twitterHandle?: string,
+  discord?: string,
+  discordUsername?: string,
+  telegram?: string,
+  email?: string,
+}
+
+export interface ApiVerifyIntractReply {
+  error: {
+    code: number, // 0 - ok
+    message: string,
+  },
+  data: { // required, whether success or error
+    result: true | false, // bool, the user has done the task.
+    value: number, // earned USD
+  },
 }
 
 //#endregion
