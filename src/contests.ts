@@ -50,18 +50,9 @@ export enum RewardType {
 
 export const contests: { [contestId: string]: YieldContest } = {
   "d1": {
-    // 10 Oct 2024 - 16 Oct 2024
-    name: 'Dev pre contest 1',
+    // 10 Oct 2024 - 23 Oct 2024
+    name: 'Pre-launch contest',
     start: 1728518400, // Thu Oct 10 2024 00:00:00 GMT+0000
-    end: 1729123199, // Wed Oct 16 2024 23:59:59 GMT+0000
-    minEarn: 0.01,
-    rewards: [], // no rewards
-    hidden: true,
-  },
-  "d2": {
-    // 17 Oct 2024 - 23 Oct 2024
-    name: 'Dev pre contest 2',
-    start: 1729123200, // Thu Oct 17 2024 00:00:00 GMT+0000
     end: 1729727999, // Wed Oct 23 2024 23:59:59 GMT+0000
     minEarn: 0.1,
     rewards: [], // no rewards
@@ -87,17 +78,17 @@ export const contests: { [contestId: string]: YieldContest } = {
     name: "Yield Contest #2",
     start: 1730937600, // Thu, 07 Nov 2024 00:00:00 GMT
     end: 1732147199,   // Wed, 20 Nov 2024 23:59:59 GMT
-    minEarn: 1,
+    minEarn: 0.2,
     rewards: [
       {
         type: RewardType.POINTS,
         winners: 50,
         winnerReward: 130,
       },
-      // 200 USDT
+      // 100 USDT
       {
         type: RewardType.ERC20,
-        winners: 20,
+        winners: 10,
         winnerReward: 10,
         contract: {
           chain: ChainName.POLYGON,
@@ -116,12 +107,12 @@ export const contests: { [contestId: string]: YieldContest } = {
       {
         type: RewardType.POINTS,
         winners: 100,
-        winnerReward: 100,
+        winnerReward: 200,
       },
-      // 500 USDT
+      // 200 USDT
       {
         type: RewardType.ERC20,
-        winners: 50,
+        winners: 20,
         winnerReward: 10,
         contract: {
           chain: ChainName.POLYGON,
@@ -150,14 +141,85 @@ export const contests: { [contestId: string]: YieldContest } = {
     name: "Yield Contest #4",
     start: 1733356800, // Thu, 05 Dec 2024 00:00:00 GMT
     end: 1734566399,   // Wed, 18 Dec 2024 23:59:59 GMT
-    minEarn: "TBA",
-    rewards: "TBA",
+    minEarn: 1,
+    rewards: [
+      {
+        type: RewardType.POINTS,
+        winners: 100,
+        winnerReward: 200,
+      },
+      // 200 USDT
+      {
+        type: RewardType.ERC20,
+        winners: 20,
+        winnerReward: 10,
+        contract: {
+          chain: ChainName.POLYGON,
+          address: "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+        },
+      },
+      // StrategyLogic
+      {
+        type: RewardType.NFT,
+        winners: 3,
+        winnerReward: 1,
+        contract: {
+          chain: ChainName.POLYGON,
+          address: "0xD16b60E39284190D9201f0eaD42c4674C310e905",
+          tokenIds: [
+            10, // Yearn
+            7, // QuickSwap Static Merkl Farm
+            4, // Ichi QuickSwap Merkl Farm
+          ]
+        },
+      },
+    ],
   },
   "y5": {
     // 19 Dec 2024 - 01 Jan 2025
     name: "Yield Contest #5",
     start: 1734566400, // Thu, 19 Dec 2024 00:00:00 GMT
     end: 1735775999,   // Wed, 01 Jan 2025 23:59:59 GMT
+    minEarn: "TBA",
+    rewards: "TBA",
+  },
+  "y6": {
+    // 02 Jan 2025 - 15 Jan 2025
+    name: "Yield Contest #6",
+    start: 1735776000, // Thu, 02 Jan 2025 00:00:00 GMT
+    end: 1736985599,   // Wed, 15 Jan 2025 23:59:59 GMT
+    minEarn: "TBA",
+    rewards: "TBA",
+  },
+  "y7": {
+    // 16 Jan 2025 - 29 Jan 2025
+    name: "Yield Contest #7",
+    start: 1736985600, // Thu, 16 Jan 2025 00:00:00 GMT
+    end: 1738195199,   // Wed, 29 Jan 2025 23:59:59 GMT
+    minEarn: "TBA",
+    rewards: "TBA",
+  },
+  "y8": {
+    // 30 Jan 2025 - 12 Feb 2025
+    name: "Yield Contest #8",
+    start: 1738195200, // Thu, 30 Jan 2025 00:00:00 GMT
+    end: 1739404799,   // Wed, 12 Feb 2025 23:59:59 GMT
+    minEarn: "TBA",
+    rewards: "TBA",
+  },
+  "y9": {
+    // 13 Feb 2025 - 26 Feb 2025
+    name: "Yield Contest #9",
+    start: 1739404800, // Thu, 13 Feb 2025 00:00:00 GMT
+    end: 1740614399,   // Wed, 26 Feb 2025 23:59:59 GMT
+    minEarn: "TBA",
+    rewards: "TBA",
+  },
+  "y10": {
+    // 27 Feb 2025 - 12 Mar 2025
+    name: "Yield Contest #10",
+    start: 1740614400, // Thu, 27 Feb 2025 00:00:00 GMT
+    end: 1741823999,   // Wed, 12 Mar 2025 23:59:59 GMT
     minEarn: "TBA",
     rewards: "TBA",
   },
