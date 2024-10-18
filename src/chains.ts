@@ -573,3 +573,13 @@ export const getChainsTotals = (): { [status in ChainStatus]: number } => {
     [ChainStatus.NOT_SUPPORTED]: ids.filter(networkId => chains[networkId].status == ChainStatus.NOT_SUPPORTED).length,
   }
 }
+
+export const getChainByName = (chainName: ChainName): Chain => {
+  for (const chainId in chains) {
+    const chain = chains[chainId]
+    if (chain && chain.name === chainName) {
+      return chain
+    }
+  }
+  throw new Error(`Incorrect chain name ${chainName}`)
+}

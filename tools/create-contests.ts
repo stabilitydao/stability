@@ -20,6 +20,8 @@ for (let i = +(lastId.replace('y', '') || 0) + 1; i < +(lastId.replace('y', '') 
   name: "${name}",
   start: ${start}, // ${new Date(start * 1000).toUTCString()}
   end: ${end},   // ${new Date(end * 1000).toUTCString()}
+  minEarn: "TBA",
+  rewards: "TBA",
 \},`)
   prevTs += PERIOD
 }
