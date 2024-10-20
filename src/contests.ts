@@ -18,7 +18,7 @@ export interface YieldContest {
   },
   // XP multiplier
   xpMultiplier?: number,
-  // image file in stabilitydao/.github/contests
+  // image file in stabilitydao/.github/covers
   img?: string,
   // hidden service contest for devs
   hidden?: boolean,
@@ -72,6 +72,7 @@ export const contests: { [contestId: string]: YieldContest } = {
           winnerReward: 120,
         },
       ],
+    img: 'y1.jpg',
   },
   "y2": {
     // 07 Nov 2024 - 20 Nov 2024
