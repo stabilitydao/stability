@@ -73,6 +73,10 @@ export const contests: { [contestId: string]: YieldContest } = {
         },
       ],
     img: 'y1.jpg',
+    integration: {
+      intract: '671516efc0c9e039a625fc93',
+    },
+    xpMultiplier: 5,
   },
   "y2": {
     // 07 Nov 2024 - 20 Nov 2024

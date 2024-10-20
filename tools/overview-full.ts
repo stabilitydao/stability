@@ -108,6 +108,7 @@ for (const contestId of Object.keys(contests).filter(c => !contests[c].hidden)) 
   const startDateArr = new Date(contest.start * 1000).toUTCString().split(' ')
   const endDateArr = new Date(contest.end * 1000).toUTCString().split(' ')
   const dates = `${startDateArr[1]} ${startDateArr[2]} ${startDateArr[3]} - ${endDateArr[1]} ${endDateArr[2]} ${endDateArr[3]}`
-  console.log(`[${contestId}] ${contest.name}. ${dates}. Rewards: ${Array.isArray(contest.rewards) ? contest.rewards.map(r => r.type).join(', ') : contest.rewards}.${!!contest.img ? ` Image: ${contest.img}.` : ''}`)
+  // @ts-ignore
+  console.log(`[${contestId}] ${contest.name}. ${dates}. Rewards: ${Array.isArray(contest.rewards) ? contest.rewards.map(r => r.type).join(', ') : contest.rewards}.${!!contest.img ? ` Image: ${contest.img}.` : ''}${!!contest.integration ? ` Integration: ${Object.keys(contest.integration)[0]}, ${contest.integration[Object.keys(contest.integration)[0]] || ''}.` : ''}`)
 }
 console.log('')
