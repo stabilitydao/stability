@@ -1,303 +1,186 @@
-import {strategies, StrategyShortId, StrategyState} from "./strategies";
-import {ChainName, chains, getSupportedChainNames} from "./chains";
+import { strategies, StrategyShortId, StrategyState } from "./strategies";
+import { ChainName, chains, getSupportedChainNames } from "./chains";
 
 export type DeFiOrganization = {
-  name: string
-  img: string
-  website: string
-  protocols: { [protocolId: string]: DeFiProtocol }
-  defiLlama: string
-  github?: string
-}
+  name: string;
+  img: string;
+  website: string;
+  protocols: { [protocolId: string]: DeFiProtocol };
+  defiLlama: string;
+  github?: string;
+};
 
 export type DeFiProtocol = {
-  name: string
-  img?: string // separate img for protocol
-  organization?: string // optimal org slug for usability
-  category: DefiCategory
-  chains: ChainName[]
-  strategies?: StrategyShortId[]
-  intermediaryStrategies?: StrategyShortId[]
-  adapters?: string[]
-  coreContracts?: string[]
-}
+  name: string;
+  img?: string; // separate img for protocol
+  organization?: string; // optimal org slug for usability
+  category: DefiCategory;
+  chains: ChainName[];
+  strategies?: StrategyShortId[];
+  intermediaryStrategies?: StrategyShortId[];
+  adapters?: string[];
+  coreContracts?: string[];
+};
 
 export const enum IntegrationStatus {
-  LIVE = 'Live',
-  IN_USE = 'In use',
-  BEING_DEPLOYED = 'Being deployed',
-  DEVELOPMENT = 'Development',
-  AWAITING = 'Awaiting', // awaiting development
-  POSSIBLE = 'Possible',
-  PROPOSED = 'Proposed',
+  LIVE = "Live",
+  IN_USE = "In use",
+  BEING_DEPLOYED = "Being deployed",
+  DEVELOPMENT = "Development",
+  AWAITING = "Awaiting", // awaiting development
+  POSSIBLE = "Possible",
+  PROPOSED = "Proposed",
 }
 
 export enum DefiCategory {
-  AMM = 'AMM',
-  ALM = 'ALM',
-  LENDING = 'Lending',
-  DEX_AGG = 'DeX agg',
-  YIELD_AGG = 'Yield agg',
-  VE_AGG = 'VE-agg',
-  ORACLE = 'Oracle',
-  REWARDING = 'Rewarding',
-  ERC4626 = 'ERC-4626',
-  LSP = 'LSP',
-  INTERCHAIN = 'Interchain',
-  CDP = 'CDP',
+  AMM = "AMM",
+  ALM = "ALM",
+  LENDING = "Lending",
+  DEX_AGG = "DeX agg",
+  YIELD_AGG = "Yield agg",
+  VE_AGG = "VE-agg",
+  ORACLE = "Oracle",
+  REWARDING = "Rewarding",
+  ERC4626 = "ERC-4626",
+  LSP = "LSP",
+  INTERCHAIN = "Interchain",
+  CDP = "CDP",
 }
 
 export const integrations: { [org: string]: DeFiOrganization } = {
   // oracle
   chainlink: {
-    name: 'ChainLink',
-    img: 'Chainlink.svg',
-    website: 'https://chain.link',
+    name: "ChainLink",
+    img: "Chainlink.svg",
+    website: "https://chain.link",
     protocols: {
       chainlink: {
-        name: 'Data Feeds',
+        name: "Data Feeds",
         category: DefiCategory.ORACLE,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.BASE,
-          ChainName.ARBITRUM,
-          ChainName.POLYGON,
-          ChainName.AVALANCHE,
-          ChainName.BSC,
-          ChainName.CELO,
-          ChainName.FANTOM,
-          ChainName.LINEA,
-          ChainName.GNOSIS,
-          ChainName.OPTIMISM,
-          ChainName.MOONBEAM,
-          ChainName.MOONRIVER,
-          ChainName.POLYGON_ZKEVM,
-          ChainName.ZKSYNC,
-          ChainName.METIS,
-          ChainName.SCROLL,
-        ],
-        coreContracts: ['PriceReader'],
-        adapters: ['ChainLinkAdapter',],
+        chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.AVALANCHE, ChainName.BSC, ChainName.CELO, ChainName.FANTOM, ChainName.LINEA, ChainName.GNOSIS, ChainName.OPTIMISM, ChainName.MOONBEAM, ChainName.MOONRIVER, ChainName.POLYGON_ZKEVM, ChainName.ZKSYNC, ChainName.METIS, ChainName.SCROLL],
+        coreContracts: ["PriceReader"],
+        adapters: ["ChainLinkAdapter"],
       },
       ccip: {
-        name: 'CCIP',
+        name: "CCIP",
         category: DefiCategory.INTERCHAIN,
-        chains: [
-          ChainName.ARBITRUM,
-          ChainName.AVALANCHE,
-          ChainName.BASE,
-          ChainName.BLAST,
-          ChainName.BSC,
-          ChainName.CELO,
-          ChainName.ETHEREUM,
-          ChainName.GNOSIS,
-          ChainName.KROMA,
-          ChainName.METIS,
-          ChainName.MODE,
-          ChainName.OPTIMISM,
-          ChainName.POLYGON,
-          ChainName.WEMIX,
-          ChainName.ZKSYNC,
-        ],
+        chains: [ChainName.ARBITRUM, ChainName.AVALANCHE, ChainName.BASE, ChainName.BLAST, ChainName.BSC, ChainName.CELO, ChainName.ETHEREUM, ChainName.GNOSIS, ChainName.KROMA, ChainName.METIS, ChainName.MODE, ChainName.OPTIMISM, ChainName.POLYGON, ChainName.WEMIX, ChainName.ZKSYNC],
       },
     },
-    defiLlama: 'chainlink',
-    github: 'smartcontractkit',
+    defiLlama: "chainlink",
+    github: "smartcontractkit",
   },
   // Rewarding
   angle: {
-    name: 'Angle',
-    img: 'angle.svg',
-    website: 'https://angle.money',
+    name: "Angle",
+    img: "angle.svg",
+    website: "https://angle.money",
     protocols: {
       merkl: {
-        name: 'Merkl',
-        img: 'Merkl.svg',
+        name: "Merkl",
+        img: "Merkl.svg",
         category: DefiCategory.REWARDING,
         // chains with active rewards
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.BASE,
-          ChainName.ARBITRUM,
-          ChainName.POLYGON,
-          ChainName.OPTIMISM,
-          ChainName.POLYGON_ZKEVM,
-          ChainName.SCROLL,
-          ChainName.LINEA,
-          ChainName.BLAST,
-          ChainName.IMMUTABLE_ZKEVM,
-        ],
-        strategies: [
-          StrategyShortId.QSMF,
-          StrategyShortId.DQMF,
-          StrategyShortId.IQMF,
-          StrategyShortId.GQMF,
-          StrategyShortId.IRMF,
-          StrategyShortId.GRMF,
-          StrategyShortId.SQMF,
-          StrategyShortId.RSBMF,
-          StrategyShortId.DRBMF,
-          StrategyShortId.IRBMF,
-          StrategyShortId.GUMF,
-          StrategyShortId.ABMF,
-          StrategyShortId.CBMF,
-          StrategyShortId.CUMF,
-        ],
+        chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.OPTIMISM, ChainName.POLYGON_ZKEVM, ChainName.SCROLL, ChainName.LINEA, ChainName.BLAST, ChainName.IMMUTABLE_ZKEVM],
+        strategies: [StrategyShortId.QSMF, StrategyShortId.DQMF, StrategyShortId.IQMF, StrategyShortId.GQMF, StrategyShortId.IRMF, StrategyShortId.GRMF, StrategyShortId.SQMF, StrategyShortId.RSBMF, StrategyShortId.DRBMF, StrategyShortId.IRBMF, StrategyShortId.GUMF, StrategyShortId.ABMF, StrategyShortId.CBMF, StrategyShortId.CUMF],
       },
     },
-    defiLlama: 'angle',
-    github: 'AngleProtocol',
+    defiLlama: "angle",
+    github: "AngleProtocol",
   },
   // DeX agg
   oneInch: {
-    name: '1inch',
-    img: '1inch.svg',
-    website: 'https://1inch.io',
+    name: "1inch",
+    img: "1inch.svg",
+    website: "https://1inch.io",
     protocols: {
       oneInch: {
-        name: '1inch',
+        name: "1inch",
         category: DefiCategory.DEX_AGG,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.BASE,
-          ChainName.ARBITRUM,
-          ChainName.POLYGON,
-          ChainName.OPTIMISM,
-          ChainName.ZKSYNC,
-          ChainName.BSC,
-          ChainName.GNOSIS,
-          ChainName.AVALANCHE,
-          ChainName.FANTOM,
-          ChainName.KLAYTN,
-          ChainName.AURORA,
-        ],
-        coreContracts: ['Zap'],
-        strategies: [StrategyShortId.AS1BLS,],
+        chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.OPTIMISM, ChainName.ZKSYNC, ChainName.BSC, ChainName.GNOSIS, ChainName.AVALANCHE, ChainName.FANTOM, ChainName.KLAYTN, ChainName.AURORA],
+        coreContracts: ["Zap"],
+        strategies: [StrategyShortId.AS1BLS],
       },
     },
-    defiLlama: '1inch-network',
-    github: '1inch',
+    defiLlama: "1inch-network",
+    github: "1inch",
   },
   // DeX
   uniswap: {
     name: "Uniswap",
-    img: 'Uniswap.svg',
-    website: 'https://uniswap.org',
+    img: "Uniswap.svg",
+    website: "https://uniswap.org",
     protocols: {
       uniswapV3: {
-        name: 'Uniswap V3',
+        name: "Uniswap V3",
         category: DefiCategory.AMM,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.BASE,
-          ChainName.ARBITRUM,
-          ChainName.POLYGON,
-          ChainName.OPTIMISM,
-          ChainName.BSC,
-          ChainName.AVALANCHE,
-          ChainName.CELO,
-          ChainName.BLAST,
-        ],
-        adapters: ['UniswapV3Adapter'],
-        strategies: [StrategyShortId.CUMF, StrategyShortId.GUMF,]
+        chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.OPTIMISM, ChainName.BSC, ChainName.AVALANCHE, ChainName.CELO, ChainName.BLAST],
+        adapters: ["UniswapV3Adapter"],
+        strategies: [StrategyShortId.CUMF, StrategyShortId.GUMF],
       },
     },
-    defiLlama: 'uniswap',
-    github: 'Uniswap,,'
+    defiLlama: "uniswap",
+    github: "Uniswap,,",
   },
   quickswap: {
-    name: 'QuickSwap',
-    img: 'QuickSwap.svg',
-    website: 'https://quickswap.exchange',
+    name: "QuickSwap",
+    img: "QuickSwap.svg",
+    website: "https://quickswap.exchange",
     protocols: {
       quickswapV3: {
-        name: 'QuickSwap V3',
+        name: "QuickSwap V3",
         category: DefiCategory.AMM,
-        chains: [
-          ChainName.POLYGON,
-          ChainName.POLYGON_ZKEVM,
-          ChainName.MANTA,
-          ChainName.IMMUTABLE_ZKEVM,
-          ChainName.ASTAR_ZKEVM,
-          ChainName.DOGECHAIN,
-          ChainName.X_LAYER,
-          ChainName.KAVA,
-        ],
-        strategies: [StrategyShortId.QSMF, StrategyShortId.DQMF, StrategyShortId.GQMF, StrategyShortId.IQMF,],
-        adapters: ['AlgebraAdapter',],
+        chains: [ChainName.POLYGON, ChainName.POLYGON_ZKEVM, ChainName.MANTA, ChainName.IMMUTABLE_ZKEVM, ChainName.ASTAR_ZKEVM, ChainName.DOGECHAIN, ChainName.X_LAYER, ChainName.KAVA],
+        strategies: [StrategyShortId.QSMF, StrategyShortId.DQMF, StrategyShortId.GQMF, StrategyShortId.IQMF],
+        adapters: ["AlgebraAdapter"],
       },
     },
-    defiLlama: 'quickswap',
-    github: 'QuickSwap',
+    defiLlama: "quickswap",
+    github: "QuickSwap",
   },
   retro: {
-    name: 'Retro',
-    img: 'Retro.svg',
-    website: 'https://retro.finance',
+    name: "Retro",
+    img: "Retro.svg",
+    website: "https://retro.finance",
     protocols: {
       retro: {
-        name: 'Retro',
+        name: "Retro",
         category: DefiCategory.AMM,
-        chains: [ChainName.POLYGON,],
-        strategies: [
-          StrategyShortId.IRMF,
-          StrategyShortId.GRMF,
-          StrategyShortId.RSBMF,
-          StrategyShortId.DRBMF,
-          StrategyShortId.IRBMF,
-        ],
-        adapters: ['UniswapV3Adapter',],
+        chains: [ChainName.POLYGON],
+        strategies: [StrategyShortId.IRMF, StrategyShortId.GRMF, StrategyShortId.RSBMF, StrategyShortId.DRBMF, StrategyShortId.IRBMF],
+        adapters: ["UniswapV3Adapter"],
       },
     },
-    defiLlama: 'retro',
+    defiLlama: "retro",
   },
   curve: {
-    name: 'Curve',
-    img: 'Curve.svg',
-    website: 'https://curve.fi',
+    name: "Curve",
+    img: "Curve.svg",
+    website: "https://curve.fi",
     protocols: {
       stableSwapNg: {
-        name: 'StableSwapNG',
+        name: "StableSwapNG",
         category: DefiCategory.AMM,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.BASE,
-          ChainName.ARBITRUM,
-          ChainName.POLYGON,
-          ChainName.AVALANCHE,
-          ChainName.AURORA,
-          ChainName.BSC,
-          ChainName.CELO,
-          ChainName.FANTOM,
-          ChainName.GNOSIS,
-          ChainName.KAVA,
-          ChainName.MOONBEAM,
-          ChainName.OPTIMISM,
-          ChainName.X_LAYER,
-          ChainName.FRAXTAL,
-        ],
+        chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.AVALANCHE, ChainName.AURORA, ChainName.BSC, ChainName.CELO, ChainName.FANTOM, ChainName.GNOSIS, ChainName.KAVA, ChainName.MOONBEAM, ChainName.OPTIMISM, ChainName.X_LAYER, ChainName.FRAXTAL],
         strategies: [StrategyShortId.CCF],
-        adapters: ['CurveAdapter',],
+        adapters: ["CurveAdapter"],
       },
       llamalend: {
-        name: 'LlamaLend',
+        name: "LlamaLend",
         category: DefiCategory.LENDING,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.ARBITRUM,
-        ],
+        chains: [ChainName.ETHEREUM, ChainName.ARBITRUM],
       },
     },
-    defiLlama: 'curve-finance',
-    github: 'curvefi',
+    defiLlama: "curve-finance",
+    github: "curvefi",
   },
   sushi: {
-    name: 'Sushi',
-    img: 'sushi.svg',
-    website: 'https://www.sushi.com',
+    name: "Sushi",
+    img: "sushi.svg",
+    website: "https://www.sushi.com",
     protocols: {
       v3Amm: {
-        name: 'V3 AMM',
+        name: "V3 AMM",
         category: DefiCategory.AMM,
         chains: [
           ChainName.ARBITRUM_NOVA,
@@ -329,452 +212,321 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.THUNDERCORE,
           ChainName.ZETA,
         ],
-        strategies: [StrategyShortId.BSMF,],
+        strategies: [StrategyShortId.BSMF],
       },
     },
-    github: 'sushiswap',
-    defiLlama: 'sushi',
+    github: "sushiswap",
+    defiLlama: "sushi",
   },
   gyroscope: {
-    name: 'Gyroscope',
-    img: 'Gyroscope.svg',
-    website: 'https://gyro.finance',
+    name: "Gyroscope",
+    img: "Gyroscope.svg",
+    website: "https://gyro.finance",
     protocols: {
       eclp: {
-        name: 'E-CLP',
+        name: "E-CLP",
         category: DefiCategory.AMM,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.BASE,
-          ChainName.ARBITRUM,
-          ChainName.POLYGON,
-          ChainName.OPTIMISM,
-          ChainName.GNOSIS,
-          ChainName.POLYGON_ZKEVM,
-        ],
-        strategies: [StrategyShortId.GAF,],
+        chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.OPTIMISM, ChainName.GNOSIS, ChainName.POLYGON_ZKEVM],
+        strategies: [StrategyShortId.GAF],
       },
     },
-    defiLlama: 'gyroscope-protocol',
-    github: 'gyrostable',
+    defiLlama: "gyroscope-protocol",
+    github: "gyrostable",
   },
   baseswap: {
-    name: 'BaseSwap',
-    img: 'BaseSwap.svg',
-    website: 'https://baseswap.fi',
+    name: "BaseSwap",
+    img: "BaseSwap.svg",
+    website: "https://baseswap.fi",
     protocols: {
       baseswap: {
-        name: 'BaseSwap',
+        name: "BaseSwap",
         category: DefiCategory.AMM,
-        chains: [ChainName.BASE,],
+        chains: [ChainName.BASE],
         strategies: [StrategyShortId.ABMF, StrategyShortId.CBMF],
-        adapters: ['UniswapV3Adapter',],
+        adapters: ["UniswapV3Adapter"],
       },
     },
-    defiLlama: 'baseswap',
+    defiLlama: "baseswap",
   },
   agni: {
-    name: 'Agni',
-    img: 'agni.avif',
-    website: 'https://agni.finance/',
+    name: "Agni",
+    img: "agni.avif",
+    website: "https://agni.finance/",
     protocols: {
       agni: {
-        name: 'Agni',
+        name: "Agni",
         category: DefiCategory.AMM,
-        chains: [ChainName.MANTLE,],
-        adapters: ['UniswapV3Adapter',],
+        chains: [ChainName.MANTLE],
+        adapters: ["UniswapV3Adapter"],
       },
     },
-    defiLlama: 'agni-finance',
-    github: 'agni-protocol',
+    defiLlama: "agni-finance",
+    github: "agni-protocol",
   },
   pearl: {
-    name: 'Pearl',
-    img: 'Pearl.png',
-    website: 'https://www.pearl.exchange/',
+    name: "Pearl",
+    img: "Pearl.png",
+    website: "https://www.pearl.exchange/",
     protocols: {
       pearlV2: {
-        name: 'Pearl V2',
+        name: "Pearl V2",
         category: DefiCategory.AMM,
-        chains: [ChainName.REAL,],
-        strategies: [StrategyShortId.TPF, StrategyShortId.IPF,],
+        chains: [ChainName.REAL],
+        strategies: [StrategyShortId.TPF, StrategyShortId.IPF],
       },
       trident: {
-        name: 'Trident',
-        img: 'Trident.png',
+        name: "Trident",
+        img: "Trident.png",
         category: DefiCategory.ALM,
-        chains: [ChainName.REAL,],
-        strategies: [StrategyShortId.TPF,],
+        chains: [ChainName.REAL],
+        strategies: [StrategyShortId.TPF],
       },
       stack: {
-        name: 'Stack',
-        img: 'Stack.svg',
+        name: "Stack",
+        img: "Stack.svg",
         category: DefiCategory.CDP,
-        chains: [ChainName.REAL,],
-        strategies: [StrategyShortId.SL, StrategyShortId.SS,],
+        chains: [ChainName.REAL],
+        strategies: [StrategyShortId.SL, StrategyShortId.SS],
       },
     },
-    github: 'Pearl-Finance',
-    defiLlama: 'pearl-v2',
+    github: "Pearl-Finance",
+    defiLlama: "pearl-v2",
   },
   // ALM
   gamma: {
-    name: 'Gamma',
-    img: 'Gamma.svg',
-    website: 'https://gamma.xyz',
+    name: "Gamma",
+    img: "Gamma.svg",
+    website: "https://gamma.xyz",
     protocols: {
       gamma: {
-        name: 'Gamma',
+        name: "Gamma",
         category: DefiCategory.ALM,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.BASE,
-          ChainName.ARBITRUM,
-          ChainName.POLYGON,
-          ChainName.POLYGON_ZKEVM,
-          ChainName.MANTA,
-          ChainName.IMMUTABLE_ZKEVM,
-          ChainName.ASTAR_ZKEVM,
-          ChainName.BSC,
-          ChainName.MANTLE,
-          ChainName.LINEA,
-          ChainName.MOONBEAM,
-          ChainName.ROLLUX,
-          ChainName.AVALANCHE,
-          ChainName.GNOSIS,
-          ChainName.METIS,
-          ChainName.BLAST,
-        ],
+        chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.POLYGON_ZKEVM, ChainName.MANTA, ChainName.IMMUTABLE_ZKEVM, ChainName.ASTAR_ZKEVM, ChainName.BSC, ChainName.MANTLE, ChainName.LINEA, ChainName.MOONBEAM, ChainName.ROLLUX, ChainName.AVALANCHE, ChainName.GNOSIS, ChainName.METIS, ChainName.BLAST],
         strategies: [StrategyShortId.GQMF, StrategyShortId.GRMF],
       },
     },
-    defiLlama: 'gamma',
-    github: 'GammaStrategies',
+    defiLlama: "gamma",
+    github: "GammaStrategies",
   },
   defiEdge: {
-    name: 'DefiEdge',
-    img: 'DefiEdge.svg',
-    website: 'https://www.defiedge.io',
+    name: "DefiEdge",
+    img: "DefiEdge.svg",
+    website: "https://www.defiedge.io",
     protocols: {
       defiEdge: {
-        name: 'DefiEdge',
+        name: "DefiEdge",
         category: DefiCategory.ALM,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.BASE,
-          ChainName.ARBITRUM,
-          ChainName.POLYGON,
-          ChainName.AVALANCHE,
-          ChainName.BSC,
-          ChainName.OPTIMISM,
-          ChainName.LINEA,
-          ChainName.X_LAYER,
-          ChainName.POLYGON_ZKEVM,
-          ChainName.ZKSYNC,
-        ],
+        chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.AVALANCHE, ChainName.BSC, ChainName.OPTIMISM, ChainName.LINEA, ChainName.X_LAYER, ChainName.POLYGON_ZKEVM, ChainName.ZKSYNC],
         strategies: [StrategyShortId.DQMF],
       },
     },
-    defiLlama: 'defiedge',
-    github: 'defiedge',
+    defiLlama: "defiedge",
+    github: "defiedge",
   },
   ichi: {
-    name: 'Ichi',
-    img: 'Ichi.svg',
-    website: 'https://www.ichi.org',
+    name: "Ichi",
+    img: "Ichi.svg",
+    website: "https://www.ichi.org",
     protocols: {
       ichi: {
-        name: 'Ichi',
+        name: "Ichi",
         category: DefiCategory.ALM,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.ARBITRUM,
-          ChainName.POLYGON,
-          ChainName.BSC,
-          ChainName.CELO,
-          ChainName.SKALE_EUROPA,
-          ChainName.REAL,
-        ],
-        strategies: [StrategyShortId.IQMF, StrategyShortId.IRMF, StrategyShortId.IPF,],
+        chains: [ChainName.ETHEREUM, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.BSC, ChainName.CELO, ChainName.SKALE_EUROPA, ChainName.REAL],
+        strategies: [StrategyShortId.IQMF, StrategyShortId.IRMF, StrategyShortId.IPF],
       },
     },
-    defiLlama: 'ichi',
-    github: 'ichifarm',
+    defiLlama: "ichi",
+    github: "ichifarm",
   },
   steer: {
-    name: 'Steer',
-    img: 'Steer.svg',
-    website: 'https://steer.finance',
+    name: "Steer",
+    img: "Steer.svg",
+    website: "https://steer.finance",
     protocols: {
       steer: {
-        name: 'Steer',
+        name: "Steer",
         category: DefiCategory.ALM,
-        chains: [
-          ChainName.BASE,
-          ChainName.ARBITRUM,
-          ChainName.POLYGON,
-          ChainName.OPTIMISM,
-          ChainName.AVALANCHE,
-          ChainName.KAVA,
-          ChainName.BSC,
-          ChainName.CELO,
-          ChainName.POLYGON_ZKEVM,
-          ChainName.METIS,
-          ChainName.LINEA,
-          ChainName.SCROLL,
-          ChainName.FANTOM,
-          ChainName.MANTLE,
-          ChainName.MANTA,
-          ChainName.ASTAR_ZKEVM,
-          ChainName.BLAST,
-          ChainName.X_LAYER,
-          ChainName.EVMOS,
-          ChainName.MODE,
-          ChainName.TELOS,
-        ],
+        chains: [ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.OPTIMISM, ChainName.AVALANCHE, ChainName.KAVA, ChainName.BSC, ChainName.CELO, ChainName.POLYGON_ZKEVM, ChainName.METIS, ChainName.LINEA, ChainName.SCROLL, ChainName.FANTOM, ChainName.MANTLE, ChainName.MANTA, ChainName.ASTAR_ZKEVM, ChainName.BLAST, ChainName.X_LAYER, ChainName.EVMOS, ChainName.MODE, ChainName.TELOS, ChainName.FLARE],
         strategies: [StrategyShortId.SQMF],
       },
     },
-    defiLlama: 'steer-protocol',
-    github: 'steerprotocol',
+    defiLlama: "steer-protocol",
+    github: "steerprotocol",
   },
   charm: {
-    name: 'Charm',
-    img: 'Charm.svg',
-    website: 'https://www.charm.fi',
+    name: "Charm",
+    img: "Charm.svg",
+    website: "https://www.charm.fi",
     protocols: {
       alphaVaults: {
-        name: 'Alpha Vaults',
+        name: "Alpha Vaults",
         category: DefiCategory.ALM,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.ARBITRUM,
-          ChainName.OPTIMISM,
-          ChainName.BASE,
-          ChainName.POLYGON,
-          ChainName.BLAST,
-          ChainName.SCROLL,
-          ChainName.LINEA,
-        ],
-        strategies: [StrategyShortId.CUMF, StrategyShortId.CBMF,],
+        chains: [ChainName.ETHEREUM, ChainName.ARBITRUM, ChainName.OPTIMISM, ChainName.BASE, ChainName.POLYGON, ChainName.BLAST, ChainName.SCROLL, ChainName.LINEA],
+        strategies: [StrategyShortId.CUMF, StrategyShortId.CBMF],
       },
     },
-    defiLlama: 'charm-finance',
-    github: 'charmfinance',
+    defiLlama: "charm-finance",
+    github: "charmfinance",
   },
   a51: {
-    name: 'A51',
-    img: 'A51.svg',
-    website: 'https://a51.finance',
+    name: "A51",
+    img: "A51.svg",
+    website: "https://a51.finance",
     protocols: {
       a51: {
-        name: 'A51 Finance',
+        name: "A51 Finance",
         category: DefiCategory.ALM,
-        chains: [
-          ChainName.ARBITRUM,
-          ChainName.OPTIMISM,
-          ChainName.BASE,
-          ChainName.POLYGON,
-          ChainName.BLAST,
-          ChainName.SCROLL,
-          ChainName.LINEA,
-          ChainName.POLYGON_ZKEVM,
-          ChainName.MANTA,
-        ],
+        chains: [ChainName.ARBITRUM, ChainName.OPTIMISM, ChainName.BASE, ChainName.POLYGON, ChainName.BLAST, ChainName.SCROLL, ChainName.LINEA, ChainName.POLYGON_ZKEVM, ChainName.MANTA],
         strategies: [StrategyShortId.ABMF],
       },
     },
-    defiLlama: 'a51-finance',
-    github: 'a51finance',
+    defiLlama: "a51-finance",
+    github: "a51finance",
   },
   skatefi: {
-    name: 'SkateFi',
-    img: 'skatefi.svg',
-    website: 'https://www.skatefi.org',
+    name: "SkateFi",
+    img: "skatefi.svg",
+    website: "https://www.skatefi.org",
     protocols: {
       range: {
-        name: 'Range',
+        name: "Range",
         category: DefiCategory.ALM,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.BSC,
-          ChainName.ARBITRUM,
-          ChainName.POLYGON,
-          ChainName.MANTLE,
-          ChainName.BASE,
-          ChainName.MANTA,
-          ChainName.SCROLL,
-          ChainName.BLAST,
-          ChainName.ZETA,
-          ChainName.ZKFAIR,
-          ChainName.MERLIN,
-        ],
+        chains: [ChainName.ETHEREUM, ChainName.BSC, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.MANTLE, ChainName.BASE, ChainName.MANTA, ChainName.SCROLL, ChainName.BLAST, ChainName.ZETA, ChainName.ZKFAIR, ChainName.MERLIN],
       },
     },
-    defiLlama: 'skate-fi',
-    github: 'Range-Protocol',
+    defiLlama: "skate-fi",
+    github: "Range-Protocol",
   },
   beefy: {
-    name: 'Beefy',
-    img: 'beefy.svg',
-    website: 'https://beefy.com',
+    name: "Beefy",
+    img: "beefy.svg",
+    website: "https://beefy.com",
     protocols: {
       clm: {
-        name: 'CLM',
+        name: "CLM",
         category: DefiCategory.ALM,
-        chains: [
-          ChainName.BASE,
-          ChainName.BSC,
-          ChainName.ARBITRUM,
-          ChainName.OPTIMISM,
-          ChainName.LINEA,
-          ChainName.SEI,
-          ChainName.POLYGON,
-          ChainName.MANTLE,
-          ChainName.MANTA,
-          ChainName.MOONBEAM,
-          ChainName.ZKSYNC,
-        ],
-        strategies: [StrategyShortId.BSMF,],
+        chains: [ChainName.BASE, ChainName.BSC, ChainName.ARBITRUM, ChainName.OPTIMISM, ChainName.LINEA, ChainName.SEI, ChainName.POLYGON, ChainName.MANTLE, ChainName.MANTA, ChainName.MOONBEAM, ChainName.ZKSYNC],
+        strategies: [StrategyShortId.BSMF],
       },
     },
-    github: 'beefyfinance',
-    defiLlama: 'beefy',
+    github: "beefyfinance",
+    defiLlama: "beefy",
   },
   // Lending
   compound: {
-    name: 'Compound',
-    img: 'Compound.svg',
-    website: 'https://compound.finance',
+    name: "Compound",
+    img: "Compound.svg",
+    website: "https://compound.finance",
     protocols: {
       compoundV3: {
-        name: 'Compound 3',
+        name: "Compound 3",
         category: DefiCategory.LENDING,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.BASE,
-          ChainName.ARBITRUM,
-          ChainName.POLYGON,
-          ChainName.OPTIMISM,
-          ChainName.SCROLL,
-        ],
+        chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.OPTIMISM, ChainName.SCROLL],
         strategies: [StrategyShortId.CF],
       },
     },
-    defiLlama: 'compound-finance',
-    github: 'compound-finance',
+    defiLlama: "compound-finance",
+    github: "compound-finance",
   },
   aave: {
-    name: 'Aave',
-    img: 'Aave.svg',
-    website: 'https://aave.com',
+    name: "Aave",
+    img: "Aave.svg",
+    website: "https://aave.com",
     protocols: {
       aaveV3: {
-        name: 'Aave V3',
+        name: "Aave V3",
         category: DefiCategory.LENDING,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.BASE,
-          ChainName.ARBITRUM,
-          ChainName.POLYGON,
-          ChainName.AVALANCHE,
-          ChainName.FANTOM,
-          ChainName.OPTIMISM,
-          ChainName.METIS,
-          ChainName.GNOSIS,
-          ChainName.BSC,
-          ChainName.SCROLL,
-        ],
+        chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.AVALANCHE, ChainName.FANTOM, ChainName.OPTIMISM, ChainName.METIS, ChainName.GNOSIS, ChainName.BSC, ChainName.SCROLL],
         intermediaryStrategies: [StrategyShortId.Y],
       },
     },
-    defiLlama: 'aave',
-    github: 'aave',
+    defiLlama: "aave",
+    github: "aave",
   },
   // Boost aggregator
   convex: {
-    name: 'Convex',
-    img: 'Convex.svg',
-    website: 'https://www.convexfinance.com',
+    name: "Convex",
+    img: "Convex.svg",
+    website: "https://www.convexfinance.com",
     protocols: {
       convex: {
-        name: 'Convex',
+        name: "Convex",
         category: DefiCategory.VE_AGG,
-        chains: [ChainName.ETHEREUM, ChainName.ARBITRUM, ChainName.POLYGON,],
+        chains: [ChainName.ETHEREUM, ChainName.ARBITRUM, ChainName.POLYGON],
         strategies: [StrategyShortId.CCF],
       },
     },
-    defiLlama: 'convex-finance',
-    github: 'convex-eth',
+    defiLlama: "convex-finance",
+    github: "convex-eth",
   },
   aura: {
-    name: 'Aura',
-    img: 'aura.png',
-    website: 'https://aura.finance',
+    name: "Aura",
+    img: "aura.png",
+    website: "https://aura.finance",
     protocols: {
       aura: {
-        name: 'Aura',
+        name: "Aura",
         category: DefiCategory.VE_AGG,
-        chains: [ChainName.ETHEREUM, ChainName.ARBITRUM, ChainName.POLYGON,],
-        strategies: [StrategyShortId.GAF,],
+        chains: [ChainName.ETHEREUM, ChainName.ARBITRUM, ChainName.POLYGON],
+        strategies: [StrategyShortId.GAF],
       },
     },
-    defiLlama: 'aura',
-    github: 'aurafinance',
+    defiLlama: "aura",
+    github: "aurafinance",
   },
   // ERC-4626
   yearn: {
-    name: 'Yearn',
-    img: 'Yearn.svg',
-    website: 'https://yearn.fi',
+    name: "Yearn",
+    img: "Yearn.svg",
+    website: "https://yearn.fi",
     protocols: {
       yearnV3: {
-        name: 'Yearn V3',
+        name: "Yearn V3",
         category: DefiCategory.ERC4626,
-        chains: [ChainName.ETHEREUM, ChainName.ARBITRUM, ChainName.POLYGON,],
+        chains: [ChainName.ETHEREUM, ChainName.ARBITRUM, ChainName.POLYGON],
         strategies: [StrategyShortId.Y],
       },
     },
-    defiLlama: 'yearn-finance',
-    github: 'yearn',
+    defiLlama: "yearn-finance",
+    github: "yearn",
   },
   tetu: {
-    name: 'Tetu',
-    img: 'Tetu.svg',
-    website: 'https://tetu.io',
+    name: "Tetu",
+    img: "Tetu.svg",
+    website: "https://tetu.io",
     protocols: {
       tetuV2: {
-        name: 'Tetu V2',
+        name: "Tetu V2",
         category: DefiCategory.ERC4626,
-        chains: [ChainName.BASE, ChainName.POLYGON,],
+        chains: [ChainName.BASE, ChainName.POLYGON],
       },
     },
-    defiLlama: 'tetu',
-    github: 'tetu-io',
+    defiLlama: "tetu",
+    github: "tetu-io",
   },
   // Index
   dhedge: {
-    name: 'dHEDGE',
-    img: 'dhedge.svg',
-    website: 'https://dhedge.org',
+    name: "dHEDGE",
+    img: "dhedge.svg",
+    website: "https://dhedge.org",
     protocols: {
       dhedge: {
-        name: 'dHEDGE',
+        name: "dHEDGE",
         category: DefiCategory.YIELD_AGG,
-        chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON,],
+        chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON],
       },
     },
-    defiLlama: 'dhedge',
-    github: 'dhedge',
+    defiLlama: "dhedge",
+    github: "dhedge",
   },
   // INTEROPERABILITY (liquidity transport, cross-chain messaging etc)
   stargate: {
-    name: 'Stargate',
-    img: 'Stargate.svg',
-    website: 'https://stargate.finance',
+    name: "Stargate",
+    img: "Stargate.svg",
+    website: "https://stargate.finance",
     protocols: {
       stargateV2: {
-        name: 'Stargate V2',
+        name: "Stargate V2",
         category: DefiCategory.INTERCHAIN,
         chains: [
           ChainName.ETHEREUM,
@@ -796,98 +548,113 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         intermediaryStrategies: [StrategyShortId.Y],
       },
     },
-    github: 'stargate-protocol',
-    defiLlama: 'stargate',
+    github: "stargate-protocol",
+    defiLlama: "stargate",
   },
   // Liquid staking
   lido: {
-    name: 'Lido',
-    img: 'Lido.svg',
-    website: 'https://lido.fi',
+    name: "Lido",
+    img: "Lido.svg",
+    website: "https://lido.fi",
     protocols: {
       lido: {
-        name: 'stETH',
+        name: "stETH",
         category: DefiCategory.LSP,
-        chains: [ChainName.ETHEREUM, ChainName.POLYGON,],
-        strategies: [StrategyShortId.Y,],
+        chains: [ChainName.ETHEREUM, ChainName.POLYGON],
+        strategies: [StrategyShortId.Y],
       },
     },
-    github: 'lidofinance',
-    defiLlama: 'lido',
+    github: "lidofinance",
+    defiLlama: "lido",
   },
   stader: {
-    name: 'Stader Labs',
-    img: 'Stader.svg',
-    website: 'https://www.staderlabs.com',
+    name: "Stader Labs",
+    img: "Stader.svg",
+    website: "https://www.staderlabs.com",
     protocols: {
       stader: {
-        name: 'Stader',
+        name: "Stader",
         category: DefiCategory.LSP,
-        chains: [ChainName.ETHEREUM, ChainName.POLYGON,ChainName.BSC,ChainName.HEDERA,],
-        strategies: [StrategyShortId.AS1BLS,],
+        chains: [ChainName.ETHEREUM, ChainName.POLYGON, ChainName.BSC, ChainName.HEDERA],
+        strategies: [StrategyShortId.AS1BLS],
       },
     },
-    github: 'stader-labs',
-    defiLlama: 'stader',
+    github: "stader-labs",
+    defiLlama: "stader",
+  },
+  dezswap: {
+    name: "Dezswap",
+    img: "Dezswap.svg",
+    website: "https://dezswap.io/",
+    protocols: {
+      dezswap: {
+        name: "Dezswap",
+        category: DefiCategory.AMM,
+        chains: [ChainName.XPLA],
+        adapters: ["UniswapV3Adapter"],
+      },
+    },
+    github: "dezswap",
+    defiLlama: "dezswap",
   },
 };
 
 export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
-  const supportedNetWorkIds = getSupportedChainNames()
-  const isSupportedNetwork = p.chains.some(r => supportedNetWorkIds.includes(r))
+  const supportedNetWorkIds = getSupportedChainNames();
+  const isSupportedNetwork = p.chains.some(r => supportedNetWorkIds.includes(r));
   if (p.coreContracts && p.coreContracts.length > 0) {
-    return isSupportedNetwork ? IntegrationStatus.LIVE : IntegrationStatus.PROPOSED
+    return isSupportedNetwork ? IntegrationStatus.LIVE : IntegrationStatus.PROPOSED;
   }
   if (p.adapters && p.adapters.length > 0) {
-    return isSupportedNetwork ? IntegrationStatus.LIVE : IntegrationStatus.PROPOSED
+    return isSupportedNetwork ? IntegrationStatus.LIVE : IntegrationStatus.PROPOSED;
   }
   if (p.strategies) {
     for (const strategy of p.strategies) {
       if (strategies[strategy]?.state == StrategyState.LIVE) {
-        return IntegrationStatus.LIVE
+        return IntegrationStatus.LIVE;
       }
       if (strategies[strategy]?.state == StrategyState.DEPLOYMENT) {
-        return IntegrationStatus.BEING_DEPLOYED
+        return IntegrationStatus.BEING_DEPLOYED;
       }
       if (strategies[strategy]?.state == StrategyState.DEVELOPMENT) {
-        return IntegrationStatus.DEVELOPMENT
+        return IntegrationStatus.DEVELOPMENT;
       }
       if (strategies[strategy]?.state == StrategyState.PROPOSAL) {
-        return IntegrationStatus.AWAITING
+        return IntegrationStatus.AWAITING;
       }
     }
   }
   if (p.intermediaryStrategies) {
     for (const strategy of p.intermediaryStrategies) {
       if (strategies[strategy]?.state == StrategyState.LIVE) {
-        return IntegrationStatus.IN_USE
+        return IntegrationStatus.IN_USE;
       }
       if (strategies[strategy]?.state == StrategyState.DEPLOYMENT) {
-        return IntegrationStatus.BEING_DEPLOYED
+        return IntegrationStatus.BEING_DEPLOYED;
       }
       if (strategies[strategy]?.state == StrategyState.DEVELOPMENT) {
-        return IntegrationStatus.DEVELOPMENT
+        return IntegrationStatus.DEVELOPMENT;
       }
       if (strategies[strategy]?.state == StrategyState.PROPOSAL) {
-        return IntegrationStatus.AWAITING
+        return IntegrationStatus.AWAITING;
       }
     }
   }
 
-  return isSupportedNetwork ? IntegrationStatus.POSSIBLE : IntegrationStatus.PROPOSED
-}
+  return isSupportedNetwork ? IntegrationStatus.POSSIBLE : IntegrationStatus.PROPOSED;
+};
 
 export const getChainProtocols = (chainId: string): DeFiProtocol[] => {
-  const r: DeFiProtocol[] = []
+  const r: DeFiProtocol[] = [];
   for (const orgSlug of Object.keys(integrations)) {
-    const org = integrations[orgSlug]
+    const org = integrations[orgSlug];
     for (const protocolSlug of Object.keys(org.protocols)) {
-      const protocol = org.protocols[protocolSlug]
+      const protocol = org.protocols[protocolSlug];
       if (protocol.chains.includes(chains[chainId].name)) {
-        protocol.organization = orgSlug
-        r.push(protocol)
+        protocol.organization = orgSlug;
+        r.push(protocol);
       }
     }
   }
-  return r
-}
+  return r;
+};
