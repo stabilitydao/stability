@@ -32,5 +32,5 @@ console.log(`Chains: ${Object.keys(chains).length}. ChainLib: ${networkTotal.AWA
 console.log(`DeFi organizations: ${Object.keys(integrations).length}. Protocols: ${protocolsTotal}.`)
 console.log(`Assets: ${assets.length}. Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map(t => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} chains.`)
 console.log(`Seed nodes: ${seeds.length}`)
-console.log(`Contests: ${Object.keys(contests).filter(c => !contests[c].hidden).length}`)
+console.log(`Contests: ${Object.keys(contests).filter(c => !contests[c].hidden).length}. Contests with images: ${Object.keys(contests).filter(c => !contests[c].hidden).filter(c => !!contests[c].img).length}.`)
 console.log(``)
