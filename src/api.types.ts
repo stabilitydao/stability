@@ -306,7 +306,7 @@ export interface ApiContestReply {
 
 //#endregion
 
-//#region ===== Verify task [Intract] | GET /verify/intract/:contestId           =====
+//#region ===== Verify task [Intract] | POST /verify/intract/:contestId          =====
 
 export interface ApiVerifyIntractPostRequestBody {
   address: string,
