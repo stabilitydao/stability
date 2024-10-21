@@ -17,6 +17,9 @@ export const assets: Asset[] = [
         "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
         "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
       ],
+      "111188": [
+        "0xc518A88c67CECA8B3f24c4562CB71deeB2AF86B7",
+      ],
     },
     symbol: "USDC",
     description:
@@ -185,6 +188,15 @@ export const assets: Asset[] = [
       "Caviar $CVR is a self-sustaining liquid-wrapper for locked tokens $vePEARL, the governance token of the Pearl Exchange. Initially developed by Tangible and now managed by the Pearl team.",
     website: "https://www.pearl.exchange/caviar",
     color: "#8d8be1",
+  },
+  {
+    addresses: {
+      "111188": "0x6B2e0fACD2F2A8f407aC591067Ac06b5d29247E4",
+    },
+    symbol: "SACRA",
+    description: "Dark Fantasy on-chain RPG",
+    website: "https://sacra.game",
+    color: "#ff0000",
   },
 ];
 
