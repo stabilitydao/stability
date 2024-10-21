@@ -227,4 +227,68 @@ export const contests: { [contestId: string]: YieldContest } = {
     minEarn: "TBA",
     rewards: "TBA",
   },
+  y11: {
+    // 13 Mar 2025 - 26 Mar 2025
+    name: "Yield Contest #11",
+    start: 1741824000, // Thu, 13 Mar 2025 00:00:00 GMT
+    end: 1743033599, // Wed, 26 Mar 2025 23:59:59 GMT
+    minEarn: "TBA",
+    rewards: "TBA",
+  },
+  y12: {
+    // 27 Mar 2025 - 09 Apr 2025
+    name: "Yield Contest #12",
+    start: 1743033600, // Thu, 27 Mar 2025 00:00:00 GMT
+    end: 1744243199, // Wed, 09 Apr 2025 23:59:59 GMT
+    minEarn: "TBA",
+    rewards: "TBA",
+  },
+  y13: {
+    // 10 Apr 2025 - 23 Apr 2025
+    name: "Yield Contest #13",
+    start: 1744243200, // Thu, 10 Apr 2025 00:00:00 GMT
+    end: 1745452799, // Wed, 23 Apr 2025 23:59:59 GMT
+    minEarn: "TBA",
+    rewards: "TBA",
+  },
+  y14: {
+    // 24 Apr 2025 - 07 May 2025
+    name: "Yield Contest #14",
+    start: 1745452800, // Thu, 24 Apr 2025 00:00:00 GMT
+    end: 1746662399, // Wed, 07 May 2025 23:59:59 GMT
+    minEarn: "TBA",
+    rewards: "TBA",
+  },
+  y15: {
+    // 08 May 2025 - 21 May 2025
+    name: "Yield Contest #15",
+    start: 1746662400, // Thu, 08 May 2025 00:00:00 GMT
+    end: 1747871999, // Wed, 21 May 2025 23:59:59 GMT
+    minEarn: "TBA",
+    rewards: "TBA",
+  },
+  y16: {
+    // 22 May 2025 - 04 Jun 2025
+    name: "Yield Contest #16",
+    start: 1747872000, // Thu, 22 May 2025 00:00:00 GMT
+    end: 1749081599, // Wed, 04 Jun 2025 23:59:59 GMT
+    minEarn: "TBA",
+    rewards: "TBA",
+  },
+  y17: {
+    // 05 Jun 2025 - 18 Jun 2025
+    name: "Yield Contest #17",
+    start: 1749081600, // Thu, 05 Jun 2025 00:00:00 GMT
+    end: 1750291199, // Wed, 18 Jun 2025 23:59:59 GMT
+    minEarn: "TBA",
+    rewards: "TBA",
+  },
+  y18: {
+    // 19 Jun 2025 - 02 Jul 2025
+    name: "Yield Contest #18",
+    start: 1750291200, // Thu, 19 Jun 2025 00:00:00 GMT
+    end: 1751500799, // Wed, 02 Jul 2025 23:59:59 GMT
+    minEarn: "TBA",
+    rewards: "TBA",
+  },
 };

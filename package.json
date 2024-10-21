@@ -23,7 +23,7 @@
     "postbuild": "shx cp src/*.tokenlist.json out/",
     "draw-chains": "ts-node tools/draw-chains.ts",
     "issue": "ts-node tools/issue.ts",
-    "create-contests": "ts-node tools/create-contests.ts"
+    "contests-maker": "ts-node tools/contests-maker.ts"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
