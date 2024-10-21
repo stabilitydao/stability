@@ -1,18 +1,18 @@
 export type Deployment = {
   core: {
-    platform: `0x${string}`,
-    factory: `0x${string}`,
-    priceReader: `0x${string}`,
-    swapper: `0x${string}`,
-    hardWorker: `0x${string}`,
-    vaultManager: `0x${string}`,
-    strategyLogic: `0x${string}`,
-    zap: `0x${string}`,
-  },
-  subgraph: string,
-}
+    platform: `0x${string}`;
+    factory: `0x${string}`;
+    priceReader: `0x${string}`;
+    swapper: `0x${string}`;
+    hardWorker: `0x${string}`;
+    vaultManager: `0x${string}`;
+    strategyLogic: `0x${string}`;
+    zap: `0x${string}`;
+  };
+  subgraph: string;
+};
 
-export const deployments: {[chainId:string]:Deployment} = {
+export const deployments: { [chainId: string]: Deployment } = {
   "137": {
     core: {
       platform: "0xb2a0737ef27b5Cc474D24c779af612159b1c3e60",
@@ -24,7 +24,8 @@ export const deployments: {[chainId:string]:Deployment} = {
       strategyLogic: "0xD16b60E39284190D9201f0eaD42c4674C310e905",
       zap: "0xEA3fABD8cC14705d7E66D1833a547D31882aEA9b",
     },
-    subgraph: "https://gateway-arbitrum.network.thegraph.com/api/[api-key]/subgraphs/id/7WgM7jRzoW7yiJCE8DMEwCxtN3KLisYrVVShuAL2Kz4N",
+    subgraph:
+      "https://gateway-arbitrum.network.thegraph.com/api/[api-key]/subgraphs/id/7WgM7jRzoW7yiJCE8DMEwCxtN3KLisYrVVShuAL2Kz4N",
   },
   "8453": {
     core: {
@@ -37,6 +38,7 @@ export const deployments: {[chainId:string]:Deployment} = {
       strategyLogic: "0xbe491A023eA61B4b027ed0f2f2400748113797b1",
       zap: "0x00700766b0cA613D719A01eea6234eeE77592e15",
     },
-    subgraph: "https://gateway-arbitrum.network.thegraph.com/api/[api-key]/subgraphs/id/FRK5vEJXX9w5Pt3nqeqGRX5s7k29AWCb7aXTfDwT6S8j",
+    subgraph:
+      "https://gateway-arbitrum.network.thegraph.com/api/[api-key]/subgraphs/id/FRK5vEJXX9w5Pt3nqeqGRX5s7k29AWCb7aXTfDwT6S8j",
   },
-}
+};

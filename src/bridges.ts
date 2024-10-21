@@ -1,42 +1,42 @@
-import {ChainName, chains} from "./chains";
-import {integrations} from "./integrations";
+import { ChainName, chains } from "./chains";
+import { integrations } from "./integrations";
 
 export type Bridge = {
-  name: BridgeName,
-  dapp: string,
-  img: string,
-  chains: ChainName[],
-}
+  name: BridgeName;
+  dapp: string;
+  img: string;
+  chains: ChainName[];
+};
 
 export const enum BridgeName {
   // Liquidity transports
-  STARGATE = 'Stargate',
-  SATELLITE = 'Satellite',
-  ORBITER = 'Orbiter',
+  STARGATE = "Stargate",
+  SATELLITE = "Satellite",
+  ORBITER = "Orbiter",
 
   // official, native multi
-  SUPERBRIDGE = 'Superbridge',
-  BRIDGG = 'Brid.gg',
+  SUPERBRIDGE = "Superbridge",
+  BRIDGG = "Brid.gg",
 
   // official, native
-  ARBITRUM = 'Arbitrum',
-  POLYGON = 'Polygon portal',
-  ROOTSTOCK = 'Rootstock Token Bridge',
-  TELOS = 'Telos Bridge',
-  BNB = 'BNB Chain Bridge',
-  SKALE = 'SKALE Portal',
-  CORE_APP = 'Core Tools Bridge',
-  MODE = 'Mode App',
-  MANTLE = 'Mantle Bridge',
-  REAL = 'Re.al Bridge',
+  ARBITRUM = "Arbitrum",
+  POLYGON = "Polygon portal",
+  ROOTSTOCK = "Rootstock Token Bridge",
+  TELOS = "Telos Bridge",
+  BNB = "BNB Chain Bridge",
+  SKALE = "SKALE Portal",
+  CORE_APP = "Core Tools Bridge",
+  MODE = "Mode App",
+  MANTLE = "Mantle Bridge",
+  REAL = "Re.al Bridge",
 }
 
 export const bridges: Bridge[] = [
   // Liquidity transports
   {
     name: BridgeName.STARGATE,
-    dapp: 'https://stargate.finance/bridge',
-    img: `assets/${integrations['stargate'].img}`,
+    dapp: "https://stargate.finance/bridge",
+    img: `assets/${integrations["stargate"].img}`,
     chains: [
       ChainName.ETHEREUM,
       ChainName.ARBITRUM,
@@ -79,8 +79,8 @@ export const bridges: Bridge[] = [
   },
   {
     name: BridgeName.SATELLITE,
-    dapp: 'https://satellite.money',
-    img: 'assets/satellite.svg',
+    dapp: "https://satellite.money",
+    img: "assets/satellite.svg",
     chains: [
       ChainName.ETHEREUM,
       // agoric
@@ -142,8 +142,8 @@ export const bridges: Bridge[] = [
   },
   {
     name: BridgeName.ORBITER,
-    dapp: 'https://www.orbiter.finance',
-    img: 'assets/orbiter.jpg',
+    dapp: "https://www.orbiter.finance",
+    img: "assets/orbiter.jpg",
     chains: [
       ChainName.ETHEREUM,
       ChainName.ARBITRUM,
@@ -198,8 +198,8 @@ export const bridges: Bridge[] = [
   // official, native multi
   {
     name: BridgeName.BRIDGG,
-    dapp: 'https://www.brid.gg/',
-    img: 'assets/bridgg.png',
+    dapp: "https://www.brid.gg/",
+    img: "assets/bridgg.png",
     chains: [
       ChainName.ETHEREUM,
       ChainName.OPTIMISM,
@@ -213,8 +213,8 @@ export const bridges: Bridge[] = [
   },
   {
     name: BridgeName.SUPERBRIDGE,
-    dapp: 'https://superbridge.app/',
-    img: 'assets/superbridge.jpg',
+    dapp: "https://superbridge.app/",
+    img: "assets/superbridge.jpg",
     chains: [
       ChainName.ETHEREUM,
       ChainName.BASE,
@@ -242,7 +242,7 @@ export const bridges: Bridge[] = [
   // official, native
   {
     name: BridgeName.BNB,
-    dapp: 'https://www.bnbchain.org/en/bnb-chain-bridge',
+    dapp: "https://www.bnbchain.org/en/bnb-chain-bridge",
     img: `chains/${chains["56"].img}`,
     chains: [
       ChainName.ETHEREUM,
@@ -285,8 +285,8 @@ export const bridges: Bridge[] = [
   },
   {
     name: BridgeName.ARBITRUM,
-    dapp: 'https://bridge.arbitrum.io/',
-    img: 'chains/arbitrum.svg',
+    dapp: "https://bridge.arbitrum.io/",
+    img: "chains/arbitrum.svg",
     chains: [
       ChainName.ETHEREUM,
       ChainName.ARBITRUM,
@@ -296,26 +296,19 @@ export const bridges: Bridge[] = [
   },
   {
     name: BridgeName.MANTLE,
-    dapp: 'https://bridge.mantle.xyz/',
+    dapp: "https://bridge.mantle.xyz/",
     img: `chains/${chains["5000"].img}`,
-    chains: [
-      ChainName.ETHEREUM,
-      ChainName.MANTLE,
-    ],
+    chains: [ChainName.ETHEREUM, ChainName.MANTLE],
   },
   {
     name: BridgeName.POLYGON,
-    dapp: 'https://portal.polygon.technology/bridge',
-    img: 'chains/polygon.svg',
-    chains: [
-      ChainName.ETHEREUM,
-      ChainName.POLYGON,
-      ChainName.POLYGON_ZKEVM,
-    ],
+    dapp: "https://portal.polygon.technology/bridge",
+    img: "chains/polygon.svg",
+    chains: [ChainName.ETHEREUM, ChainName.POLYGON, ChainName.POLYGON_ZKEVM],
   },
   {
     name: BridgeName.MODE,
-    dapp: 'https://app.mode.network',
+    dapp: "https://app.mode.network",
     img: `chains/${chains["34443"].img}`,
     chains: [
       ChainName.ETHEREUM,
@@ -328,16 +321,13 @@ export const bridges: Bridge[] = [
   },
   {
     name: BridgeName.CORE_APP,
-    dapp: 'https://core.app/en/bridge/',
-    img: 'assets/core-app.png',
-    chains: [
-      ChainName.ETHEREUM,
-      ChainName.AVALANCHE,
-    ],
+    dapp: "https://core.app/en/bridge/",
+    img: "assets/core-app.png",
+    chains: [ChainName.ETHEREUM, ChainName.AVALANCHE],
   },
   {
     name: BridgeName.SKALE,
-    dapp: 'https://portal.skale.space/bridge',
+    dapp: "https://portal.skale.space/bridge",
     img: `chains/${chains["2046399126"].img}`,
     chains: [
       ChainName.ETHEREUM,
@@ -353,7 +343,7 @@ export const bridges: Bridge[] = [
   },
   {
     name: BridgeName.TELOS,
-    dapp: 'https://bridge.telos.net/bridge',
+    dapp: "https://bridge.telos.net/bridge",
     img: `chains/${chains["40"].img}`,
     chains: [
       ChainName.ETHEREUM,
@@ -368,16 +358,13 @@ export const bridges: Bridge[] = [
   },
   {
     name: BridgeName.ROOTSTOCK,
-    dapp: 'https://dapp.tokenbridge.rootstock.io/',
-    img: 'chains/rootstock.png',
-    chains: [
-      ChainName.ETHEREUM,
-      ChainName.ROOTSTOCK,
-    ],
+    dapp: "https://dapp.tokenbridge.rootstock.io/",
+    img: "chains/rootstock.png",
+    chains: [ChainName.ETHEREUM, ChainName.ROOTSTOCK],
   },
   {
     name: BridgeName.REAL,
-    dapp: 'https://www.re.al/bridge',
+    dapp: "https://www.re.al/bridge",
     img: `chains/${chains["111188"].img}`,
     chains: [
       ChainName.ETHEREUM,
@@ -391,14 +378,14 @@ export const bridges: Bridge[] = [
       ChainName.SCROLL,
     ],
   },
-]
+];
 
 export const getChainBridges = (chainName: ChainName): Bridge[] => {
-  const r: Bridge[] = []
+  const r: Bridge[] = [];
   for (const bridge of bridges) {
     if (bridge.chains.includes(chainName)) {
-      r.push(bridge)
+      r.push(bridge);
     }
   }
-  return  r
-}
+  return r;
+};

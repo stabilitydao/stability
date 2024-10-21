@@ -29,7 +29,7 @@ Up-to-date and pre-processed data for integrations with Stability can be obtaine
 
 ```typescript
 import axios from "axios";
-import {type ApiMainReply, seeds} from "@stabilitydao/stability";
+import { type ApiMainReply, seeds } from "@stabilitydao/stability";
 
 const response = await axios.get(seeds[0]);
 const apiReply = response.data as ApiMainReply;
@@ -41,44 +41,44 @@ Comprehensive information about platform strategies for managing DeFi assets. In
 
 #### Types
 
-* `Strategy`
+- `Strategy`
 
 #### Enums
 
-* `const enum StrategyShortId`
-* `enum StrategyState`
-* `enum BaseStrategy`
+- `const enum StrategyShortId`
+- `enum StrategyState`
+- `enum BaseStrategy`
 
 #### Constants
 
-* `strategies: {[shortId in StrategyShortId]:Strategy}`
-* `strategyStateDescription: {[state in StrategyState]: string}`
-* `baseStrategyContracts: {[baseStrategy in BaseStrategy]: string}`
+- `strategies: {[shortId in StrategyShortId]:Strategy}`
+- `strategyStateDescription: {[state in StrategyState]: string}`
+- `baseStrategyContracts: {[baseStrategy in BaseStrategy]: string}`
 
 #### Methods
 
-* `getMerklStrategies()`
-* `getStrategyShortId(id: string): StrategyShortId|undefined`
-* `getStrategiesTotals(): {[state in StrategyState]: number}`
-* `getStrategyProtocols(shortId: StrategyShortId): DeFiProtocol[]`
-* `getChainStrategies(chainName: ChainName): Strategy[]`
+- `getMerklStrategies()`
+- `getStrategyShortId(id: string): StrategyShortId|undefined`
+- `getStrategiesTotals(): {[state in StrategyState]: number}`
+- `getStrategyProtocols(shortId: StrategyShortId): DeFiProtocol[]`
+- `getChainStrategies(chainName: ChainName): Strategy[]`
 
 ### #️⃣ Deployments
 
 Core contracts deployment addresses and subgraph API endpoints.
 
 ```typescript
-import {deployments} from "@stabilitydao/stability";
-console.log('Platform address on Polygon', deployments["137"].core.platform)
+import { deployments } from "@stabilitydao/stability";
+console.log("Platform address on Polygon", deployments["137"].core.platform);
 ```
 
 #### Types
 
-* `Deployment`
+- `Deployment`
 
 #### Constants
 
-* `deployments: {[chainId:string]:Deployment}`
+- `deployments: {[chainId:string]:Deployment}`
 
 ### ⛓️ Chains
 
@@ -86,24 +86,24 @@ Blockchains known to the platform and their integration statuses. Each chain has
 
 #### Types
 
-* `Chain`
-* `ChainStatusInfo`
+- `Chain`
+- `ChainStatusInfo`
 
 #### Enums
 
-* `const enum ChainName`
-* `const enum ChainStatus`
+- `const enum ChainName`
+- `const enum ChainStatus`
 
 #### Constants
 
-* `chains: { [chainId: string]: Chain }`
-* `chainStatusInfo: {[status in ChainStatus]: ChainStatusInfo}`
+- `chains: { [chainId: string]: Chain }`
+- `chainStatusInfo: {[status in ChainStatus]: ChainStatusInfo}`
 
 #### Methods
 
-* `getSupportedChainNames(): ChainName[]`
-* `getChainsTotals(): {[status in ChainStatus]: number}`
-* `getChainByName(chainName: ChainName): Chain`
+- `getSupportedChainNames(): ChainName[]`
+- `getChainsTotals(): {[status in ChainStatus]: number}`
+- `getChainByName(chainName: ChainName): Chain`
 
 ### 🌐 Integrations
 
@@ -111,29 +111,29 @@ DeFi organizations, protocols, their integration statuses, usage and other infor
 
 #### Types
 
-* `DeFiOrganization`
-* `DeFiProtocol`
+- `DeFiOrganization`
+- `DeFiProtocol`
 
 #### Enums
 
-* `const enum IntegrationStatus`
-* `enum DefiCategory`
+- `const enum IntegrationStatus`
+- `enum DefiCategory`
 
 #### Constants
 
-* `integrations: { [org: string]: DeFiOrganization }`
+- `integrations: { [org: string]: DeFiOrganization }`
 
 #### Methods
 
-* `getIntegrationStatus(p: DeFiProtocol): IntegrationStatus`
-* `getChainProtocols(chainId: string): DeFiProtocol[]`
+- `getIntegrationStatus(p: DeFiProtocol): IntegrationStatus`
+- `getChainProtocols(chainId: string): DeFiProtocol[]`
 
 ### 📌 Addresses
 
 Third-party addresses.
 
 ```typescript
-import {almFactories} from '@stabilitydao/stability'
+import { almFactories } from "@stabilitydao/stability";
 ```
 
 ### 🪙 Assets
@@ -142,54 +142,54 @@ Asset addresses, description, website, color.
 
 #### Types
 
-* `Asset`
+- `Asset`
 
 #### Constants
 
-* `assets: Asset[]`
+- `assets: Asset[]`
 
 #### Methods
 
-* `getAsset(chainId: string, tokenAddress: 0x${string}): Asset|undefined`
+- `getAsset(chainId: string, tokenAddress: 0x${string}): Asset|undefined`
 
 ### 📜 Tokenlist
 
 ```typescript
-import {tokenlist} from '@stabilitydao/stability'
+import { tokenlist } from "@stabilitydao/stability";
 ```
 
 ### 🌉 Bridges
 
 #### Types
 
-* `Bridge`
+- `Bridge`
 
 #### Enums
 
-* `const enum BridgeName`
+- `const enum BridgeName`
 
 #### Constants
 
-* `bridges: Bridge[]`
+- `bridges: Bridge[]`
 
 #### Methods
 
-* `getChainBridges(chainName: ChainName): Bridge[]`
+- `getChainBridges(chainName: ChainName): Bridge[]`
 
 ### 🏆 Contests
 
 #### Types
 
-* `YieldContest`
-* `Reward`
+- `YieldContest`
+- `Reward`
 
 #### Constants
 
-* `contests: { [contestId: string]: YieldContest }`
+- `contests: { [contestId: string]: YieldContest }`
 
 #### Enums
 
-* `enum RewardType`
+- `enum RewardType`
 
 ## 👷 Develop
 
@@ -197,7 +197,9 @@ import {tokenlist} from '@stabilitydao/stability'
 yarn overview
 yarn overview-full
 yarn draw-chains
-yarn create-contests
+yarn contests-maker
 yarn test
 yarn coverage
+yarn prettier . --check
+yarn prettier . --write
 ```

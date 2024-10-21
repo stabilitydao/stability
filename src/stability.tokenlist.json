@@ -131,7 +131,7 @@
       "name": "Wrapped Liquid Staked Ether 2.0",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/wsteth.jpg",
-      "tags": ["lst","bridged"]
+      "tags": ["lst", "bridged"]
     },
     {
       "chainId": 8453,

@@ -1,3 +1,1 @@
-export const seeds: string[] = [
-  'https://api.stabilitydao.org',
-]
+export const seeds: string[] = ["https://api.stabilitydao.org"];

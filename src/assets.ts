@@ -1,18 +1,24 @@
 export type Asset = {
-  addresses: {[chainId:string]: `0x${string}`|`0x${string}`[]},
-  symbol: string,
-  description: string,
-  website: string,
-  color: string,
-}
+  addresses: { [chainId: string]: `0x${string}` | `0x${string}`[] };
+  symbol: string;
+  description: string;
+  website: string;
+  color: string;
+};
 
 export const assets: Asset[] = [
   {
     addresses: {
-      "137": ["0x2791bca1f2de4661ed88a30c99a7a9449aa84174", "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",],
-      "8453": ["0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",],
+      "137": [
+        "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+        "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+      ],
+      "8453": [
+        "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      ],
     },
-    symbol: 'USDC',
+    symbol: "USDC",
     description:
       "USDC is a fully-reserved stablecoin, which is a type of cryptocurrency, or digital asset.",
     website: "https://www.circle.com/en/usdc",
@@ -33,7 +39,7 @@ export const assets: Asset[] = [
     addresses: {
       "137": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
       "8453": "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
-      "111188": "0x75d0cBF342060b14c2fC756fd6E717dFeb5B1B70"
+      "111188": "0x75d0cBF342060b14c2fC756fd6E717dFeb5B1B70",
     },
     symbol: "DAI",
     description:
@@ -57,8 +63,7 @@ export const assets: Asset[] = [
       "8453": "0x4200000000000000000000000000000000000006",
     },
     symbol: "WETH",
-    description:
-      "WETH is an ERC-20 token that represents 1 Ether (ETH)",
+    description: "WETH is an ERC-20 token that represents 1 Ether (ETH)",
     website: "https://weth.io/",
     color: "#6372a2",
   },
@@ -88,7 +93,8 @@ export const assets: Asset[] = [
       "8453": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
     },
     symbol: "cbETH",
-    description: "Coinbase Wrapped Staked ETH (“cbETH”) is a utility token that represents ETH staked through Coinbase.",
+    description:
+      "Coinbase Wrapped Staked ETH (“cbETH”) is a utility token that represents ETH staked through Coinbase.",
     website: "https://www.coinbase.com/cbeth",
     color: "#2151f5",
   },
@@ -107,7 +113,7 @@ export const assets: Asset[] = [
       "111188": "0x90c6E93849E06EC7478ba24522329d14A5954Df4",
     },
     symbol: "WREETH",
-    description: 'Wrapped reETH (native gas token to the chain)',
+    description: "Wrapped reETH (native gas token to the chain)",
     website: "https://re.al",
     color: "#ababab",
   },
@@ -116,7 +122,8 @@ export const assets: Asset[] = [
       "111188": "0x83feDBc0B85c6e29B589aA6BdefB1Cc581935ECD",
     },
     symbol: "USTB",
-    description: 'The permissionless, cross-chain, rebasing stablecoin backed by T-Bills.',
+    description:
+      "The permissionless, cross-chain, rebasing stablecoin backed by T-Bills.",
     website: "https://www.tangible.store/ustb",
     color: "#339985",
   },
@@ -125,7 +132,8 @@ export const assets: Asset[] = [
       "111188": "0xAEC9e50e3397f9ddC635C6c429C8C7eca418a143",
     },
     symbol: "arcUSD",
-    description: 'Arcana is a protocol built on re.al that captures the yield from a variety of delta-neutral trade strategies and distributes it in the form of a rebasing token that is soft-pegged to the dollar, arcUSD.',
+    description:
+      "Arcana is a protocol built on re.al that captures the yield from a variety of delta-neutral trade strategies and distributes it in the form of a rebasing token that is soft-pegged to the dollar, arcUSD.",
     website: "https://www.arcana.finance/",
     color: "#f8f295",
   },
@@ -134,7 +142,7 @@ export const assets: Asset[] = [
       "111188": "0xCE1581d7b4bA40176f0e219b2CaC30088Ad50C7A",
     },
     symbol: "PEARL",
-    description: 'Main utility token of Pearl DeX. ',
+    description: "Main utility token of Pearl DeX. ",
     website: "https://www.pearl.exchange/",
     color: "#2457ab",
   },
@@ -143,7 +151,8 @@ export const assets: Asset[] = [
       "111188": "0x25ea98ac87A38142561eA70143fd44c4772A16b6",
     },
     symbol: "MORE",
-    description: 'Stack Finance is a borrowing and leverage platform that uses a variety of crypto native and real world asset tokens as collateral to borrow the stablecoin $MORE.',
+    description:
+      "Stack Finance is a borrowing and leverage platform that uses a variety of crypto native and real world asset tokens as collateral to borrow the stablecoin $MORE.",
     website: "https://www.stackmore.xyz/",
     color: "#d60d1d",
   },
@@ -152,7 +161,8 @@ export const assets: Asset[] = [
       "111188": "0x4644066f535Ead0cde82D209dF78d94572fCbf14",
     },
     symbol: "RWA",
-    description: 'The RWA token is the governance token to the re.al ecosystem.',
+    description:
+      "The RWA token is the governance token to the re.al ecosystem.",
     website: "https://re.al",
     color: "#ffffff",
   },
@@ -161,8 +171,9 @@ export const assets: Asset[] = [
       "111188": "0x835d3E1C0aA079C6164AAd21DCb23E60eb71AF48",
     },
     symbol: "UKRE",
-    description: 'Real estate basket in Tangible',
-    website: "https://www.tangible.store/baskets/0x835d3E1C0aA079C6164AAd21DCb23E60eb71AF48",
+    description: "Real estate basket in Tangible",
+    website:
+      "https://www.tangible.store/baskets/0x835d3E1C0aA079C6164AAd21DCb23E60eb71AF48",
     color: "#8d8be1",
   },
   {
@@ -170,28 +181,32 @@ export const assets: Asset[] = [
       "111188": "0xB08F026f8a096E6d92eb5BcbE102c273A7a2d51C",
     },
     symbol: "CVR",
-    description: 'Caviar $CVR is a self-sustaining liquid-wrapper for locked tokens $vePEARL, the governance token of the Pearl Exchange. Initially developed by Tangible and now managed by the Pearl team.',
+    description:
+      "Caviar $CVR is a self-sustaining liquid-wrapper for locked tokens $vePEARL, the governance token of the Pearl Exchange. Initially developed by Tangible and now managed by the Pearl team.",
     website: "https://www.pearl.exchange/caviar",
     color: "#8d8be1",
   },
-]
+];
 
-export const getAsset = (chainId: string, tokenAddress: `0x${string}`): Asset|undefined => {
+export const getAsset = (
+  chainId: string,
+  tokenAddress: `0x${string}`,
+): Asset | undefined => {
   for (const asset of assets) {
-    const chainAddresses = asset.addresses[chainId]
+    const chainAddresses = asset.addresses[chainId];
     if (chainAddresses) {
       if (Array.isArray(chainAddresses)) {
         for (const address of chainAddresses) {
           if (address.toLowerCase() == tokenAddress.toLowerCase()) {
-            return asset
+            return asset;
           }
         }
       } else {
         if (chainAddresses.toLowerCase() == tokenAddress.toLowerCase()) {
-          return asset
+          return asset;
         }
       }
     }
   }
-  return undefined
-}
+  return undefined;
+};
