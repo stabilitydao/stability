@@ -294,7 +294,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.TPF]: {
     id: "Trident Pearl Farm",
     shortId: StrategyShortId.TPF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.DEVELOPMENT,
     contractGithubId: 172,
     color: "#ffe300",
     bgColor: "#004e67",
