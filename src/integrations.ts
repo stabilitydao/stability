@@ -846,6 +846,21 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: "stader-labs",
     defiLlama: "stader",
   },
+  dezswap: {
+    name: "Dezswap",
+    img: "Dezswap.svg",
+    website: "https://dezswap.io/",
+    protocols: {
+      dezswap: {
+        name: "Dezswap",
+        category: DefiCategory.AMM,
+        chains: [ChainName.XPLA],
+        adapters: ["UniswapV3Adapter"],
+      },
+    },
+    github: "dezswap",
+    defiLlama: "dezswap",
+  },
 };
 
 export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
