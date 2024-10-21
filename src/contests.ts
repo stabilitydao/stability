@@ -1,88 +1,87 @@
-import {ChainName} from "./chains";
+import { ChainName } from "./chains";
 
 export interface YieldContest {
   // name of the contest
-  name: string,
+  name: string;
   // start timestamp
-  start: number,
+  start: number;
   // end timestamp
-  end: number,
+  end: number;
   // minimal USD income to pass contest
-  minEarn: number|"TBA",
+  minEarn: number | "TBA";
   // contest rewards
-  rewards: Reward[]|"TBA",
+  rewards: Reward[] | "TBA";
   // integration of quest platform campaign
   integration?: {
     // Intract campaign id
-    intract?: string,
-  },
+    intract?: string;
+  };
   // XP multiplier
-  xpMultiplier?: number,
+  xpMultiplier?: number;
   // image file in stabilitydao/.github/covers
-  img?: string,
+  img?: string;
   // hidden service contest for devs
-  hidden?: boolean,
+  hidden?: boolean;
 }
 
 export interface Reward {
-  type: RewardType,
+  type: RewardType;
   // number of winners
-  winners: number,
+  winners: number;
   // reward per winner
-  winnerReward: number,
+  winnerReward: number;
   // contract of reward
   contract?: {
-    chain: ChainName,
-    address: `0x${string}`,
-    tokenIds?: number[],
-  },
+    chain: ChainName;
+    address: `0x${string}`;
+    tokenIds?: number[];
+  };
 }
 
 export enum RewardType {
   // Any transferable ERC-20 token
   // Intract: ERC20 Tokens (USDT, etc claimed on intract) + Custom FTs (claimed on our side)
-  ERC20 = 'ERC20 Token',
+  ERC20 = "ERC20 Token",
   // any our (Vault Manager, Strategy Logic) or external (deployed on quest platform, etc) NFTs
-  NFT = 'NFTs',
+  NFT = "NFTs",
   // official points
-  POINTS = 'Points',
+  POINTS = "Points",
 }
 
 export const contests: { [contestId: string]: YieldContest } = {
-  "d1": {
+  d1: {
     // 10 Oct 2024 - 23 Oct 2024
-    name: 'Pre-launch contest',
+    name: "Pre-launch contest",
     start: 1728518400, // Thu Oct 10 2024 00:00:00 GMT+0000
     end: 1729727999, // Wed Oct 23 2024 23:59:59 GMT+0000
     minEarn: 0.1,
     rewards: [], // no rewards
     hidden: true,
   },
-  "y1": {
+  y1: {
     // 24 Oct 2024 - 06 Nov 2024
     name: "Yield Contest #1",
     start: 1729728000, // Thu, 24 Oct 2024 00:00:00 GMT
-    end: 1730937599,   // Wed, 06 Nov 2024 23:59:59 GMT
+    end: 1730937599, // Wed, 06 Nov 2024 23:59:59 GMT
     minEarn: 0.1,
-    rewards:
-      [
-        {
-          type: RewardType.POINTS,
-          winners: 50,
-          winnerReward: 120,
-        },
-      ],
-    img: 'y1.jpg',
+    rewards: [
+      {
+        type: RewardType.POINTS,
+        winners: 50,
+        winnerReward: 120,
+      },
+    ],
+    img: "y1.jpg",
     integration: {
-      intract: '671516efc0c9e039a625fc93',
+      intract: "671516efc0c9e039a625fc93",
     },
     xpMultiplier: 5,
   },
-  "y2": {
+  y2: {
     // 07 Nov 2024 - 20 Nov 2024
     name: "Yield Contest #2",
     start: 1730937600, // Thu, 07 Nov 2024 00:00:00 GMT
-    end: 1732147199,   // Wed, 20 Nov 2024 23:59:59 GMT
+    end: 1732147199, // Wed, 20 Nov 2024 23:59:59 GMT
     minEarn: 0.2,
     rewards: [
       {
@@ -102,11 +101,11 @@ export const contests: { [contestId: string]: YieldContest } = {
       },
     ],
   },
-  "y3": {
+  y3: {
     // 21 Nov 2024 - 04 Dec 2024
     name: "Yield Contest #3",
     start: 1732147200, // Thu, 21 Nov 2024 00:00:00 GMT
-    end: 1733356799,   // Wed, 04 Dec 2024 23:59:59 GMT
+    end: 1733356799, // Wed, 04 Dec 2024 23:59:59 GMT
     minEarn: 1,
     rewards: [
       {
@@ -136,16 +135,16 @@ export const contests: { [contestId: string]: YieldContest } = {
             30, // C-DAI-Y
             28, // C-USDC-Y
             21, // C-E-U-IQMF
-          ]
+          ],
         },
       },
     ],
   },
-  "y4": {
+  y4: {
     // 05 Dec 2024 - 18 Dec 2024
     name: "Yield Contest #4",
     start: 1733356800, // Thu, 05 Dec 2024 00:00:00 GMT
-    end: 1734566399,   // Wed, 18 Dec 2024 23:59:59 GMT
+    end: 1734566399, // Wed, 18 Dec 2024 23:59:59 GMT
     minEarn: 1,
     rewards: [
       {
@@ -175,57 +174,57 @@ export const contests: { [contestId: string]: YieldContest } = {
             10, // Yearn
             7, // QuickSwap Static Merkl Farm
             4, // Ichi QuickSwap Merkl Farm
-          ]
+          ],
         },
       },
     ],
   },
-  "y5": {
+  y5: {
     // 19 Dec 2024 - 01 Jan 2025
     name: "Yield Contest #5",
     start: 1734566400, // Thu, 19 Dec 2024 00:00:00 GMT
-    end: 1735775999,   // Wed, 01 Jan 2025 23:59:59 GMT
+    end: 1735775999, // Wed, 01 Jan 2025 23:59:59 GMT
     minEarn: "TBA",
     rewards: "TBA",
   },
-  "y6": {
+  y6: {
     // 02 Jan 2025 - 15 Jan 2025
     name: "Yield Contest #6",
     start: 1735776000, // Thu, 02 Jan 2025 00:00:00 GMT
-    end: 1736985599,   // Wed, 15 Jan 2025 23:59:59 GMT
+    end: 1736985599, // Wed, 15 Jan 2025 23:59:59 GMT
     minEarn: "TBA",
     rewards: "TBA",
   },
-  "y7": {
+  y7: {
     // 16 Jan 2025 - 29 Jan 2025
     name: "Yield Contest #7",
     start: 1736985600, // Thu, 16 Jan 2025 00:00:00 GMT
-    end: 1738195199,   // Wed, 29 Jan 2025 23:59:59 GMT
+    end: 1738195199, // Wed, 29 Jan 2025 23:59:59 GMT
     minEarn: "TBA",
     rewards: "TBA",
   },
-  "y8": {
+  y8: {
     // 30 Jan 2025 - 12 Feb 2025
     name: "Yield Contest #8",
     start: 1738195200, // Thu, 30 Jan 2025 00:00:00 GMT
-    end: 1739404799,   // Wed, 12 Feb 2025 23:59:59 GMT
+    end: 1739404799, // Wed, 12 Feb 2025 23:59:59 GMT
     minEarn: "TBA",
     rewards: "TBA",
   },
-  "y9": {
+  y9: {
     // 13 Feb 2025 - 26 Feb 2025
     name: "Yield Contest #9",
     start: 1739404800, // Thu, 13 Feb 2025 00:00:00 GMT
-    end: 1740614399,   // Wed, 26 Feb 2025 23:59:59 GMT
+    end: 1740614399, // Wed, 26 Feb 2025 23:59:59 GMT
     minEarn: "TBA",
     rewards: "TBA",
   },
-  "y10": {
+  y10: {
     // 27 Feb 2025 - 12 Mar 2025
     name: "Yield Contest #10",
     start: 1740614400, // Thu, 27 Feb 2025 00:00:00 GMT
-    end: 1741823999,   // Wed, 12 Mar 2025 23:59:59 GMT
+    end: 1741823999, // Wed, 12 Mar 2025 23:59:59 GMT
     minEarn: "TBA",
     rewards: "TBA",
   },
-}
+};

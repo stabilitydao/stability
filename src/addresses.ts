@@ -1,9 +1,9 @@
 export const almFactories: {
-  [chainId:string]: {
-    [almId:string]: {
-      [dexId:string]: `0x${string}`,
-    },
-  },
+  [chainId: string]: {
+    [almId: string]: {
+      [dexId: string]: `0x${string}`;
+    };
+  };
 } = {
   "137": {
     ichi: {
@@ -14,4 +14,4 @@ export const almFactories: {
       quickswapV3: "0x730d158D29165C55aBF368e9608Af160DD21Bd80",
     },
   },
-}
+};

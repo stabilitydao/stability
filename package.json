@@ -1,6 +1,6 @@
 {
   "name": "@stabilitydao/stability",
-  "version": "0.19.1",
+  "version": "0.20.0",
   "description": "Stability Integration Library",
   "main": "out/index.js",
   "types": "out/index.d.ts",
@@ -32,6 +32,7 @@
     "canvas": "^2.11.2",
     "console-table-printer": "^2.12.0",
     "jest": "^29.7.0",
+    "prettier": "3.3.3",
     "shx": "^0.3.4",
     "ts-jest": "^29.1.4",
     "ts-node": "^10.9.2",
