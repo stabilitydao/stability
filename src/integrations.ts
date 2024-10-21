@@ -57,7 +57,29 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       chainlink: {
         name: "Data Feeds",
         category: DefiCategory.ORACLE,
+<<<<<<< HEAD
         chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.AVALANCHE, ChainName.BSC, ChainName.CELO, ChainName.FANTOM, ChainName.LINEA, ChainName.GNOSIS, ChainName.OPTIMISM, ChainName.MOONBEAM, ChainName.MOONRIVER, ChainName.POLYGON_ZKEVM, ChainName.ZKSYNC, ChainName.METIS, ChainName.SCROLL],
+=======
+        chains: [
+          ChainName.ETHEREUM,
+          ChainName.BASE,
+          ChainName.ARBITRUM,
+          ChainName.POLYGON,
+          ChainName.AVALANCHE,
+          ChainName.BSC,
+          ChainName.CELO,
+          ChainName.FANTOM,
+          ChainName.LINEA,
+          ChainName.GNOSIS,
+          ChainName.OPTIMISM,
+          ChainName.MOONBEAM,
+          ChainName.MOONRIVER,
+          ChainName.POLYGON_ZKEVM,
+          ChainName.ZKSYNC,
+          ChainName.METIS,
+          ChainName.SCROLL,
+        ],
+>>>>>>> origin/dev
         coreContracts: ["PriceReader"],
         adapters: ["ChainLinkAdapter"],
       },
@@ -97,7 +119,24 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       oneInch: {
         name: "1inch",
         category: DefiCategory.DEX_AGG,
+<<<<<<< HEAD
         chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.OPTIMISM, ChainName.ZKSYNC, ChainName.BSC, ChainName.GNOSIS, ChainName.AVALANCHE, ChainName.FANTOM, ChainName.KLAYTN, ChainName.AURORA],
+=======
+        chains: [
+          ChainName.ETHEREUM,
+          ChainName.BASE,
+          ChainName.ARBITRUM,
+          ChainName.POLYGON,
+          ChainName.OPTIMISM,
+          ChainName.ZKSYNC,
+          ChainName.BSC,
+          ChainName.GNOSIS,
+          ChainName.AVALANCHE,
+          ChainName.FANTOM,
+          ChainName.KLAYTN,
+          ChainName.AURORA,
+        ],
+>>>>>>> origin/dev
         coreContracts: ["Zap"],
         strategies: [StrategyShortId.AS1BLS],
       },
@@ -114,7 +153,21 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       uniswapV3: {
         name: "Uniswap V3",
         category: DefiCategory.AMM,
+<<<<<<< HEAD
         chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.OPTIMISM, ChainName.BSC, ChainName.AVALANCHE, ChainName.CELO, ChainName.BLAST],
+=======
+        chains: [
+          ChainName.ETHEREUM,
+          ChainName.BASE,
+          ChainName.ARBITRUM,
+          ChainName.POLYGON,
+          ChainName.OPTIMISM,
+          ChainName.BSC,
+          ChainName.AVALANCHE,
+          ChainName.CELO,
+          ChainName.BLAST,
+        ],
+>>>>>>> origin/dev
         adapters: ["UniswapV3Adapter"],
         strategies: [StrategyShortId.CUMF, StrategyShortId.GUMF],
       },
@@ -130,8 +183,27 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       quickswapV3: {
         name: "QuickSwap V3",
         category: DefiCategory.AMM,
+<<<<<<< HEAD
         chains: [ChainName.POLYGON, ChainName.POLYGON_ZKEVM, ChainName.MANTA, ChainName.IMMUTABLE_ZKEVM, ChainName.ASTAR_ZKEVM, ChainName.DOGECHAIN, ChainName.X_LAYER, ChainName.KAVA],
         strategies: [StrategyShortId.QSMF, StrategyShortId.DQMF, StrategyShortId.GQMF, StrategyShortId.IQMF],
+=======
+        chains: [
+          ChainName.POLYGON,
+          ChainName.POLYGON_ZKEVM,
+          ChainName.MANTA,
+          ChainName.IMMUTABLE_ZKEVM,
+          ChainName.ASTAR_ZKEVM,
+          ChainName.DOGECHAIN,
+          ChainName.X_LAYER,
+          ChainName.KAVA,
+        ],
+        strategies: [
+          StrategyShortId.QSMF,
+          StrategyShortId.DQMF,
+          StrategyShortId.GQMF,
+          StrategyShortId.IQMF,
+        ],
+>>>>>>> origin/dev
         adapters: ["AlgebraAdapter"],
       },
     },
@@ -147,7 +219,17 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Retro",
         category: DefiCategory.AMM,
         chains: [ChainName.POLYGON],
+<<<<<<< HEAD
         strategies: [StrategyShortId.IRMF, StrategyShortId.GRMF, StrategyShortId.RSBMF, StrategyShortId.DRBMF, StrategyShortId.IRBMF],
+=======
+        strategies: [
+          StrategyShortId.IRMF,
+          StrategyShortId.GRMF,
+          StrategyShortId.RSBMF,
+          StrategyShortId.DRBMF,
+          StrategyShortId.IRBMF,
+        ],
+>>>>>>> origin/dev
         adapters: ["UniswapV3Adapter"],
       },
     },
@@ -226,7 +308,19 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       eclp: {
         name: "E-CLP",
         category: DefiCategory.AMM,
+<<<<<<< HEAD
         chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.OPTIMISM, ChainName.GNOSIS, ChainName.POLYGON_ZKEVM],
+=======
+        chains: [
+          ChainName.ETHEREUM,
+          ChainName.BASE,
+          ChainName.ARBITRUM,
+          ChainName.POLYGON,
+          ChainName.OPTIMISM,
+          ChainName.GNOSIS,
+          ChainName.POLYGON_ZKEVM,
+        ],
+>>>>>>> origin/dev
         strategies: [StrategyShortId.GAF],
       },
     },
@@ -331,8 +425,25 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       ichi: {
         name: "Ichi",
         category: DefiCategory.ALM,
+<<<<<<< HEAD
         chains: [ChainName.ETHEREUM, ChainName.ARBITRUM, ChainName.POLYGON, ChainName.BSC, ChainName.CELO, ChainName.SKALE_EUROPA, ChainName.REAL],
         strategies: [StrategyShortId.IQMF, StrategyShortId.IRMF, StrategyShortId.IPF],
+=======
+        chains: [
+          ChainName.ETHEREUM,
+          ChainName.ARBITRUM,
+          ChainName.POLYGON,
+          ChainName.BSC,
+          ChainName.CELO,
+          ChainName.SKALE_EUROPA,
+          ChainName.REAL,
+        ],
+        strategies: [
+          StrategyShortId.IQMF,
+          StrategyShortId.IRMF,
+          StrategyShortId.IPF,
+        ],
+>>>>>>> origin/dev
       },
     },
     defiLlama: "ichi",
@@ -361,7 +472,20 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       alphaVaults: {
         name: "Alpha Vaults",
         category: DefiCategory.ALM,
+<<<<<<< HEAD
         chains: [ChainName.ETHEREUM, ChainName.ARBITRUM, ChainName.OPTIMISM, ChainName.BASE, ChainName.POLYGON, ChainName.BLAST, ChainName.SCROLL, ChainName.LINEA],
+=======
+        chains: [
+          ChainName.ETHEREUM,
+          ChainName.ARBITRUM,
+          ChainName.OPTIMISM,
+          ChainName.BASE,
+          ChainName.POLYGON,
+          ChainName.BLAST,
+          ChainName.SCROLL,
+          ChainName.LINEA,
+        ],
+>>>>>>> origin/dev
         strategies: [StrategyShortId.CUMF, StrategyShortId.CBMF],
       },
     },
@@ -405,7 +529,23 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       clm: {
         name: "CLM",
         category: DefiCategory.ALM,
+<<<<<<< HEAD
         chains: [ChainName.BASE, ChainName.BSC, ChainName.ARBITRUM, ChainName.OPTIMISM, ChainName.LINEA, ChainName.SEI, ChainName.POLYGON, ChainName.MANTLE, ChainName.MANTA, ChainName.MOONBEAM, ChainName.ZKSYNC],
+=======
+        chains: [
+          ChainName.BASE,
+          ChainName.BSC,
+          ChainName.ARBITRUM,
+          ChainName.OPTIMISM,
+          ChainName.LINEA,
+          ChainName.SEI,
+          ChainName.POLYGON,
+          ChainName.MANTLE,
+          ChainName.MANTA,
+          ChainName.MOONBEAM,
+          ChainName.ZKSYNC,
+        ],
+>>>>>>> origin/dev
         strategies: [StrategyShortId.BSMF],
       },
     },
@@ -513,7 +653,16 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       dhedge: {
         name: "dHEDGE",
         category: DefiCategory.YIELD_AGG,
+<<<<<<< HEAD
         chains: [ChainName.ETHEREUM, ChainName.BASE, ChainName.ARBITRUM, ChainName.POLYGON],
+=======
+        chains: [
+          ChainName.ETHEREUM,
+          ChainName.BASE,
+          ChainName.ARBITRUM,
+          ChainName.POLYGON,
+        ],
+>>>>>>> origin/dev
       },
     },
     defiLlama: "dhedge",
@@ -575,12 +724,22 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       stader: {
         name: "Stader",
         category: DefiCategory.LSP,
+<<<<<<< HEAD
         chains: [ChainName.ETHEREUM, ChainName.POLYGON, ChainName.BSC, ChainName.HEDERA],
+=======
+        chains: [
+          ChainName.ETHEREUM,
+          ChainName.POLYGON,
+          ChainName.BSC,
+          ChainName.HEDERA,
+        ],
+>>>>>>> origin/dev
         strategies: [StrategyShortId.AS1BLS],
       },
     },
     github: "stader-labs",
     defiLlama: "stader",
+<<<<<<< HEAD
   },
   dezswap: {
     name: "Dezswap",
@@ -596,17 +755,34 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     },
     github: "dezswap",
     defiLlama: "dezswap",
+=======
+>>>>>>> origin/dev
   },
 };
 
 export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
   const supportedNetWorkIds = getSupportedChainNames();
+<<<<<<< HEAD
   const isSupportedNetwork = p.chains.some(r => supportedNetWorkIds.includes(r));
   if (p.coreContracts && p.coreContracts.length > 0) {
     return isSupportedNetwork ? IntegrationStatus.LIVE : IntegrationStatus.PROPOSED;
   }
   if (p.adapters && p.adapters.length > 0) {
     return isSupportedNetwork ? IntegrationStatus.LIVE : IntegrationStatus.PROPOSED;
+=======
+  const isSupportedNetwork = p.chains.some((r) =>
+    supportedNetWorkIds.includes(r),
+  );
+  if (p.coreContracts && p.coreContracts.length > 0) {
+    return isSupportedNetwork
+      ? IntegrationStatus.LIVE
+      : IntegrationStatus.PROPOSED;
+  }
+  if (p.adapters && p.adapters.length > 0) {
+    return isSupportedNetwork
+      ? IntegrationStatus.LIVE
+      : IntegrationStatus.PROPOSED;
+>>>>>>> origin/dev
   }
   if (p.strategies) {
     for (const strategy of p.strategies) {
@@ -641,7 +817,13 @@ export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
     }
   }
 
+<<<<<<< HEAD
   return isSupportedNetwork ? IntegrationStatus.POSSIBLE : IntegrationStatus.PROPOSED;
+=======
+  return isSupportedNetwork
+    ? IntegrationStatus.POSSIBLE
+    : IntegrationStatus.PROPOSED;
+>>>>>>> origin/dev
 };
 
 export const getChainProtocols = (chainId: string): DeFiProtocol[] => {

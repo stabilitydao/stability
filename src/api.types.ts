@@ -1,4 +1,4 @@
-// Types of ApiService v4.0.0 from 18.10.2024
+// Types of ApiService v4.0.0 from 21.10.2024
 
 //#region ===== Main reply            | GET /                                    =====
 
@@ -22,7 +22,7 @@ export interface Total {
   activeVaults: number;
   farms: number;
   vaultForBuilding: number;
-  chainTvl: {[chainId: string]:number};
+  chainTvl: { [chainId: string]: number };
 }
 
 export interface StabilityNetwork {
@@ -31,7 +31,7 @@ export interface StabilityNetwork {
 }
 
 export type NodeState = {
-  hostname: string | 'private';
+  hostname: string | "private";
   seedNode: boolean;
   lifetime: number;
   about: string;
@@ -190,35 +190,35 @@ export interface ApiPostBody {
   machineId: string;
   accessCode: string;
   time: {
-    main: number,
-    factory: number,
-    contests: number,
-  },
+    main: number;
+    factory: number;
+    contests: number;
+  };
   state: NodeState;
   data?: PlatformDataPartial;
 }
 
 export enum InteractionType {
-  SYNC = 'SYNC',
-  DATA_DELIVERY = 'DATA_DELIVERY',
+  SYNC = "SYNC",
+  DATA_DELIVERY = "DATA_DELIVERY",
 }
 
-export interface  ApiPostReply {
+export interface ApiPostReply {
   message: string;
-  data: PlatformDataPartial|PlatformDataFull,
+  data: PlatformDataPartial | PlatformDataFull;
   tasks?: any;
 }
 
 export interface PlatformDataPartial {
-  main?: ApiMainReply,
-  factory?: ApiFactoryReply,
-  contests?: ApiContestsReply,
+  main?: ApiMainReply;
+  factory?: ApiFactoryReply;
+  contests?: ApiContestsReply;
 }
 
 export interface PlatformDataFull extends PlatformDataPartial {
-  main: ApiMainReply,
-  factory: ApiFactoryReply,
-  contests: ApiContestsReply,
+  main: ApiMainReply;
+  factory: ApiFactoryReply;
+  contests: ApiContestsReply;
 }
 
 //#endregion
@@ -250,14 +250,14 @@ export type InchRouteItem = {
 
 //#region ===== Factory               | GET /factory                             =====
 export interface ApiFactoryReply {
-  time: number
-  hash: string
+  time: number;
+  hash: string;
   data: {
     [chainId: string]: {
       farms: Farm[];
       toBuild: TBuildVariant[];
-    }
-  }
+    };
+  };
 }
 
 export interface Farm {
@@ -276,7 +276,7 @@ export type TBuildVariant = {
   strategyDesc: string;
   canBuild: boolean;
   initParams: TInitParams;
-}
+};
 
 export type TInitParams = {
   initVaultAddresses: string[];
@@ -284,16 +284,16 @@ export type TInitParams = {
   initStrategyAddresses: string[];
   initStrategyNums: string[];
   initStrategyTicks: number[];
-}
+};
 
 //#endregion
 
 //#region ===== Contests              | GET /contests                            =====
 
 export interface ApiContestsReply {
-  time: number
-  hash: string
-  data: Leaderboards,
+  time: number;
+  hash: string;
+  data: Leaderboards;
 }
 
 //#endregion
@@ -301,32 +301,33 @@ export interface ApiContestsReply {
 //#region ===== Contest               | GET /contests/:contestId                 =====
 
 export interface ApiContestReply {
-  leaderboard: User[]
+  leaderboard: User[];
 }
 
 //#endregion
 
-//#region ===== Verify task [Intract] | GET /verify/intract/:contestId           =====
+//#region ===== Verify task [Intract] | POST /verify/intract/:contestId          =====
 
 export interface ApiVerifyIntractPostRequestBody {
-  address: string,
-  twitter?: string,
-  twitterHandle?: string,
-  discord?: string,
-  discordUsername?: string,
-  telegram?: string,
-  email?: string,
+  address: string;
+  twitter?: string;
+  twitterHandle?: string;
+  discord?: string;
+  discordUsername?: string;
+  telegram?: string;
+  email?: string;
 }
 
 export interface ApiVerifyIntractReply {
   error: {
-    code: number, // 0 - ok
-    message: string,
-  },
-  data: { // required, whether success or error
-    result: true | false, // bool, the user has done the task.
-    value: number, // earned USD
-  },
+    code: number; // 0 - ok
+    message: string;
+  };
+  data: {
+    // required, whether success or error
+    result: true | false; // bool, the user has done the task.
+    value: number; // earned USD
+  };
 }
 
 //#endregion

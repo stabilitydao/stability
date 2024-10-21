@@ -530,7 +530,8 @@ export const chainStatusInfo: { [status in ChainStatus]: ChainStatusInfo } = {
   },
   [ChainStatus.AWAITING_DEPLOYMENT]: {
     title: "Awaiting deployment",
-    description: "ChainLib and strategy contracts ready for deployment to the chain",
+    description:
+      "ChainLib and strategy contracts ready for deployment to the chain",
     color: "#a78bfa", // violet-400
     bgColor: "#55009d",
   },
@@ -542,35 +543,54 @@ export const chainStatusInfo: { [status in ChainStatus]: ChainStatusInfo } = {
   },
   [ChainStatus.AWAITING_DEVELOPER]: {
     title: "Awaiting developer",
-    description: "We awaiting developer to be assigned to solve chain library issue",
+    description:
+      "We awaiting developer to be assigned to solve chain library issue",
     color: "#fef08a", // yellow-200
     bgColor: "#796e00",
   },
   [ChainStatus.AWAITING_ISSUE_CREATION]: {
     title: "Awaiting issue",
-    description: "We have treasury in this chain and chain library contract can be developed, need issue.",
+    description:
+      "We have treasury in this chain and chain library contract can be developed, need issue.",
     color: "#ff4646",
     bgColor: "#7c0000",
   },
   [ChainStatus.NOT_SUPPORTED]: {
     title: "Not supported",
-    description: "Platform know this chain but dont has treasury and ChainLib issue for it",
+    description:
+      "Platform know this chain but dont has treasury and ChainLib issue for it",
     color: "#eeeeee",
     bgColor: "#2c2c2c",
   },
 };
 
-export const getSupportedChainNames = (): ChainName[] => Object.keys(deployments).map(chainId => chains[chainId].name);
+export const getSupportedChainNames = (): ChainName[] =>
+  Object.keys(deployments).map((chainId) => chains[chainId].name);
 
 export const getChainsTotals = (): { [status in ChainStatus]: number } => {
   const ids = Object.keys(chains);
   return {
-    [ChainStatus.SUPPORTED]: ids.filter(networkId => chains[networkId].status == ChainStatus.SUPPORTED).length,
-    [ChainStatus.AWAITING_DEPLOYMENT]: ids.filter(networkId => chains[networkId].status == ChainStatus.AWAITING_DEPLOYMENT).length,
-    [ChainStatus.CHAINLIB_DEVELOPMENT]: ids.filter(networkId => chains[networkId].status == ChainStatus.CHAINLIB_DEVELOPMENT).length,
-    [ChainStatus.AWAITING_DEVELOPER]: ids.filter(networkId => chains[networkId].status == ChainStatus.AWAITING_DEVELOPER).length,
-    [ChainStatus.AWAITING_ISSUE_CREATION]: ids.filter(networkId => chains[networkId].status == ChainStatus.AWAITING_ISSUE_CREATION).length,
-    [ChainStatus.NOT_SUPPORTED]: ids.filter(networkId => chains[networkId].status == ChainStatus.NOT_SUPPORTED).length,
+    [ChainStatus.SUPPORTED]: ids.filter(
+      (networkId) => chains[networkId].status == ChainStatus.SUPPORTED,
+    ).length,
+    [ChainStatus.AWAITING_DEPLOYMENT]: ids.filter(
+      (networkId) =>
+        chains[networkId].status == ChainStatus.AWAITING_DEPLOYMENT,
+    ).length,
+    [ChainStatus.CHAINLIB_DEVELOPMENT]: ids.filter(
+      (networkId) =>
+        chains[networkId].status == ChainStatus.CHAINLIB_DEVELOPMENT,
+    ).length,
+    [ChainStatus.AWAITING_DEVELOPER]: ids.filter(
+      (networkId) => chains[networkId].status == ChainStatus.AWAITING_DEVELOPER,
+    ).length,
+    [ChainStatus.AWAITING_ISSUE_CREATION]: ids.filter(
+      (networkId) =>
+        chains[networkId].status == ChainStatus.AWAITING_ISSUE_CREATION,
+    ).length,
+    [ChainStatus.NOT_SUPPORTED]: ids.filter(
+      (networkId) => chains[networkId].status == ChainStatus.NOT_SUPPORTED,
+    ).length,
   };
 };
 

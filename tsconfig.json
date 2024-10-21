@@ -3,14 +3,14 @@
     "module": "node16",
     "target": "es2020", // set to the *lowest* target you support
     "strict": true,
-//    "verbatimModuleSyntax": true,
+    //    "verbatimModuleSyntax": true,
     "declaration": true,
     "sourceMap": true,
     "declarationMap": true,
     "outDir": "./out",
     "rootDir": "./src",
     "resolveJsonModule": true,
-    "esModuleInterop": true,
+    "esModuleInterop": true
   },
-  "include": ["src/**/*",]
+  "include": ["src/**/*"]
 }
