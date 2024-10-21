@@ -17,9 +17,7 @@ export const assets: Asset[] = [
         "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
         "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
       ],
-      "111188": [
-        "0xc518A88c67CECA8B3f24c4562CB71deeB2AF86B7",
-      ],
+      "111188": ["0xc518A88c67CECA8B3f24c4562CB71deeB2AF86B7"],
     },
     symbol: "USDC",
     description:
