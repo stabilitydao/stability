@@ -861,6 +861,138 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: "dezswap",
     defiLlama: "dezswap",
   },
+  clearpool: {
+    name: "Clearpool",
+    img: "Clearpool.png",
+    website: "https://clearpool.finance/",
+    protocols: {
+      clearpool: {
+        name: "Clearpool",
+        category: DefiCategory.LENDING,
+        chains: [
+          ChainName.FLARE,
+          ChainName.ETHEREUM,
+          ChainName.OPTIMISM,
+          ChainName.MANTLE,
+          ChainName.BASE,
+          ChainName.POLYGON_ZKEVM,
+          ChainName.POLYGON,
+          ChainName.AVALANCHE,
+          ChainName.ARBITRUM,
+        ],
+        adapters: ["DefiLlamaAdapter"],
+      },
+    },
+    github: "clearpool-finance",
+    defiLlama: "clearpool",
+  },
+  mintswap: {
+    name: "MintSwap",
+    img: "Mintswap.png",
+    website: "https://www.mintswap.finance/",
+    protocols: {
+      mintswapfinance: {
+        name: "MintSwap Finance",
+        category: DefiCategory.AMM,
+        chains: [ChainName.MINT],
+        adapters: ["UniswapV3Adapter"],
+      },
+    },
+    github: "MintSwapFinance",
+    defiLlama: "mintswap-finance",
+  },
+  kiloex: {
+    name: "KiloEx",
+    img: "Kiloex.svg",
+    website: "https://www.kiloex.io/",
+    protocols: {
+      kiloex: {
+        name: "KiloEx",
+        category: DefiCategory.DEX_AGG,
+        chains: [
+          ChainName.OPBNB,
+          ChainName.BSC,
+          ChainName.MANTA,
+          ChainName.TAIKO,
+        ],
+      },
+    },
+    github: "KiloExPerp",
+    defiLlama: "kiloex",
+  },
+  dymensiondex: {
+    name: "Dymension DEX",
+    img: "Dymensiondex.svg",
+    website: "https://portal.dymension.xyz/",
+    protocols: {
+      dymensiondex: {
+        name: "Dymension DEX",
+        category: DefiCategory.AMM,
+        chains: [ChainName.DYMENSION],
+      },
+    },
+    github: "dymensionxyz",
+    defiLlama: "dymension-dex",
+  },
+  camelot: {
+    name: "Camelot",
+    img: "Camelot.svg",
+    website: "https://camelot.exchange/",
+    protocols: {
+      camelot: {
+        name: "Camelot",
+        category: DefiCategory.AMM,
+        chains: [ChainName.GRAVITY, ChainName.ARBITRUM, ChainName.RARI],
+        adapters: ["UniswapV3Adapter"],
+      },
+    },
+    github: "camelotlabs",
+    defiLlama: "camelot",
+  },
+  bouncebit: {
+    name: "BounceBit",
+    img: "Bouncebit.png",
+    website: "https://bouncebit.io/",
+    protocols: {
+      bouncebitcedefi: {
+        name: "BounceBit CeDeFi",
+        category: DefiCategory.YIELD_AGG,
+        chains: [ChainName.BOUNCEBIT, ChainName.BSC, ChainName.ETHEREUM],
+      },
+    },
+    github: "BounceBit-Labs",
+    defiLlama: "bouncebit-cedefi",
+  },
+  cyberswap: {
+    name: "CyberSwap",
+    img: "Cyberswap.svg",
+    website: "https://cyberswap.cc/",
+    protocols: {
+      cyberswap: {
+        name: "CyberSwap",
+        category: DefiCategory.AMM,
+        chains: [ChainName.CYBER],
+        adapters: ["UniswapV2Adapter"],
+      },
+    },
+    github: "Cyberswap-DEX",
+    defiLlama: "cyberswap",
+  },
+  deepr: {
+    name: "Deepr",
+    img: "Deepr.png",
+    website: "https://www.deepr.finance/",
+    protocols: {
+      deeprfinance: {
+        name: "Deepr Finance",
+        category: DefiCategory.LENDING,
+        chains: [ChainName.IOTA],
+        adapters: ["CompoundV2Adapter"],
+      },
+    },
+    github: "Deepr-Finance",
+    defiLlama: "deepr-finance",
+  },
 };
 
 export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
