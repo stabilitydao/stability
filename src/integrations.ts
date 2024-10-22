@@ -923,7 +923,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   dymensiondex: {
     name: "Dymension DEX",
     img: "Dymensiondex.svg",
-    website: "https://portal.dymension.xyz/",
+    website: "https://dymension.xyz/",
     protocols: {
       dymensiondex: {
         name: "Dymension DEX",
