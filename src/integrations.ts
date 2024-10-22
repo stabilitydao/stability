@@ -848,7 +848,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   dezswap: {
     name: "Dezswap",
-    img: "Dezswap.png",
+    img: "dezswap.png",
     website: "https://dezswap.io/",
     protocols: {
       dezswap: {
