@@ -218,7 +218,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       },
     },
     defiLlama: "uniswap",
-    github: "Uniswap,,",
+    github: "Uniswap",
   },
   quickswap: {
     name: "QuickSwap",
@@ -934,7 +934,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: "KiloExPerp",
     defiLlama: "kiloex",
   },
-  dymensiondex: {
+  dymension: {
     name: "Dymension DEX",
     img: "Dymensiondex.svg",
     website: "https://dymension.xyz/",
@@ -1066,9 +1066,9 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: "zerolend",
     defiLlama: "zerolend",
   },
-  avalonfinance: {
-    name: "Avalon Finance",
-    img: "Avalonfinance.svg",
+  avalonlabs: {
+    name: "Avalon Labs",
+    img: "Avalonlabs.svg",
     website: "https://www.avalonfinance.xyz/",
     protocols: {
       avalonfinance: {
@@ -1126,8 +1126,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: "IzumiFinance",
     defiLlama: "iziswap",
   },
-  desynliquidstrategy: {
-    name: "DeSyn Liquid Strategy",
+  desyn: {
+    name: "DeSyn",
     img: "Desynliquidstrategy.png",
     website: "https://www.desyn.io/",
     protocols: {
