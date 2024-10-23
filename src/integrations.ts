@@ -926,7 +926,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     protocols: {
       dymensiondex: {
         name: "Dymension DEX",
-        category: DefiCategory.AMM,
+        category: DefiCategory.DEX_AGG,
         chains: [ChainName.DYMENSION],
       },
     },
