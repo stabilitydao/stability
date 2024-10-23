@@ -927,8 +927,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.OPBNB,
           ChainName.BSC,
           ChainName.MANTA,
-          ChainName.TAIKO,
-        ],
+          ChainName.TAIKO],
+          //todo BSqared
       },
     },
     github: "KiloExPerp",
@@ -957,6 +957,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Camelot 3",
         category: DefiCategory.AMM,
         chains: [ChainName.GRAVITY, ChainName.ARBITRUM, ChainName.RARI],
+        //todo ApeChain, Xai, Sanko, Reya Network
         adapters: ["UniswapV3Adapter"],
       },
     },
@@ -1010,6 +1011,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Deepr Finance",
         category: DefiCategory.LENDING,
         chains: [ChainName.IOTA],
+        //todo ShimmerEVM
       },
     },
     github: "Deepr-Finance",
@@ -1043,28 +1045,21 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: "Bidohub",
     defiLlama: "bido-finance",
   },
-  zerolend: {
-    name: "ZeroLend",
-    img: "Zerolend.svg",
-    website: "https://zerolend.xyz/",
+  zircuit: {
+    name: "Zircuit",
+    img: "Zircuitstaking.svg",
+    website: "https://www.zircuit.com/",
     protocols: {
-      zerolend: {
-        name: "ZeroLend",
-        category: DefiCategory.LENDING,
+      zircuitstaking: {
+        name: "Zircuit Staking",
+        category: DefiCategory.REWARDING,
         chains: [
-          ChainName.LINEA,
           ChainName.ETHEREUM,
-          ChainName.BLAST,
-          ChainName.ZKSYNC,
-          ChainName.BASE,
-          ChainName.MANTA,
-          ChainName.X_LAYER,
           ChainName.ZIRCUIT,
         ],
       },
     },
-    github: "zerolend",
-    defiLlama: "zerolend",
+    defiLlama: "zircuit-staking",
   },
   avalonlabs: {
     name: "Avalon Labs",
@@ -1121,6 +1116,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.POLYGON,
           ChainName.ETHEREUM,
         ],
+        //todo Ultron, OntologyEVM, Meter, Cronos
       },
     },
     github: "IzumiFinance",
