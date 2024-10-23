@@ -979,7 +979,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     protocols: {
       cyberswap: {
         name: "CyberSwap",
-        category: DefiCategory.AMM,
+        category: DefiCategory.DEX_AGG,
         chains: [ChainName.CYBER],
       },
     },
