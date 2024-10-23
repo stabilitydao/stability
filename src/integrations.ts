@@ -950,11 +950,21 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   bouncebit: {
     name: "BounceBit",
-    img: "Bouncebit.png",
+    img: "Bouncebit.svg",
     website: "https://bouncebit.io/",
     protocols: {
       bouncebitcedefi: {
         name: "BounceBit CeDeFi",
+        category: DefiCategory.DEX_AGG,
+        chains: [ChainName.BOUNCEBIT, ChainName.BSC, ChainName.ETHEREUM],
+      },
+      bouncebitpremium: {
+        name: "BounceBit Premium",
+        category: DefiCategory.YIELD_AGG,
+        chains: [ChainName.BOUNCEBIT, ChainName.BSC, ChainName.ETHEREUM],
+      },
+      bouncebiteasy: {
+        name: "BounceBit Easy",
         category: DefiCategory.YIELD_AGG,
         chains: [ChainName.BOUNCEBIT, ChainName.BSC, ChainName.ETHEREUM],
       },
