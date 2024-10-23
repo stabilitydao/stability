@@ -927,8 +927,9 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.OPBNB,
           ChainName.BSC,
           ChainName.MANTA,
-          ChainName.TAIKO],
-          //todo BSqared
+          ChainName.TAIKO,
+        ],
+        //todo BSqared
       },
     },
     github: "KiloExPerp",
@@ -1053,10 +1054,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       zircuitstaking: {
         name: "Zircuit Staking",
         category: DefiCategory.REWARDING,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.ZIRCUIT,
-        ],
+        chains: [ChainName.ETHEREUM, ChainName.ZIRCUIT],
       },
     },
     defiLlama: "zircuit-staking",
