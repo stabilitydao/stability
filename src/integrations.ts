@@ -887,7 +887,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   mintswap: {
     name: "MintSwap",
-    img: "Mintswap.png",
+    img: "Mintswap.svg",
     website: "https://www.mintswap.finance/",
     protocols: {
       mintswapfinance: {
@@ -938,8 +938,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     img: "Camelot.svg",
     website: "https://camelot.exchange/",
     protocols: {
-      camelot: {
-        name: "Camelot",
+      camelotV3: {
+        name: "Camelot 3",
         category: DefiCategory.AMM,
         chains: [ChainName.GRAVITY, ChainName.ARBITRUM, ChainName.RARI],
         adapters: ["UniswapV3Adapter"],
