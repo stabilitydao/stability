@@ -715,7 +715,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // Boost aggregator
   convex: {
     name: "Convex",
-    img: "Convex.svg",
+    img: "Convex.png",
     website: "https://www.convexfinance.com",
     protocols: {
       convex: {
@@ -1034,7 +1034,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   bidofinance: {
     name: "Bido Finance",
-    img: "Bidofinance.svg",
+    img: "Bido.svg",
     website: "https://app.bido.finance/",
     protocols: {
       bidofinance: {
@@ -1122,7 +1122,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   desyn: {
     name: "DeSyn",
-    img: "Desynliquidstrategy.png",
+    img: "Desynliquidstrategy.svg",
     website: "https://www.desyn.io/",
     protocols: {
       desynliquidstrategy: {
