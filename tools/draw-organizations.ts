@@ -68,7 +68,6 @@ async function main() {
   let x = xPadding;
   let y = 200;
   const w = organizationBlockSize - 2 * organizationBlockPadding;
-  const organizationBlockStatusPadding = 6;
   for (const orgId in integrations) {
     const organization = integrations[orgId];
     try {
