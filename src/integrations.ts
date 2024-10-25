@@ -377,7 +377,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   baseswap: {
     name: "BaseSwap",
-    img: "BaseSwap.svg",
+    img: "BaseSwap.png",
     website: "https://baseswap.fi",
     protocols: {
       baseswap: {
@@ -392,7 +392,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   agni: {
     name: "Agni",
-    img: "agni.avif",
+    img: "agni.png",
     website: "https://agni.finance/",
     protocols: {
       agni: {
@@ -437,7 +437,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // ALM
   gamma: {
     name: "Gamma",
-    img: "Gamma.svg",
+    img: "Gamma.png",
     website: "https://gamma.xyz",
     protocols: {
       gamma: {
@@ -524,7 +524,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   steer: {
     name: "Steer",
-    img: "Steer.svg",
+    img: "Steer.png",
     website: "https://steer.finance",
     protocols: {
       steer: {
@@ -561,7 +561,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   charm: {
     name: "Charm",
-    img: "Charm.svg",
+    img: "Charm.png",
     website: "https://www.charm.fi",
     protocols: {
       alphaVaults: {
@@ -585,7 +585,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   a51: {
     name: "A51",
-    img: "A51.svg",
+    img: "A51.png",
     website: "https://a51.finance",
     protocols: {
       a51: {
@@ -665,7 +665,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // Lending
   compound: {
     name: "Compound",
-    img: "Compound.svg",
+    img: "Compound.png",
     website: "https://compound.finance",
     protocols: {
       compoundV3: {
@@ -687,7 +687,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   aave: {
     name: "Aave",
-    img: "Aave.svg",
+    img: "Aave.png",
     website: "https://aave.com",
     protocols: {
       aaveV3: {
@@ -715,7 +715,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // Boost aggregator
   convex: {
     name: "Convex",
-    img: "Convex.svg",
+    img: "Convex.png",
     website: "https://www.convexfinance.com",
     protocols: {
       convex: {
@@ -730,7 +730,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   aura: {
     name: "Aura",
-    img: "aura.png",
+    img: "aura.svg",
     website: "https://aura.finance",
     protocols: {
       aura: {
@@ -1034,7 +1034,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   bidofinance: {
     name: "Bido Finance",
-    img: "Bidofinance.svg",
+    img: "Bido.svg",
     website: "https://app.bido.finance/",
     protocols: {
       bidofinance: {
@@ -1122,7 +1122,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   desyn: {
     name: "DeSyn",
-    img: "Desynliquidstrategy.png",
+    img: "Desynliquidstrategy.svg",
     website: "https://www.desyn.io/",
     protocols: {
       desynliquidstrategy: {
