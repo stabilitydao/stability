@@ -730,7 +730,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   aura: {
     name: "Aura",
-    img: "aura.svg",
+    img: "aura1.png",
     website: "https://aura.finance",
     protocols: {
       aura: {
