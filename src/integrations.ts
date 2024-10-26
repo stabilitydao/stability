@@ -23,14 +23,69 @@ export type DeFiProtocol = {
 };
 
 export const enum IntegrationStatus {
-  LIVE = "Live",
-  IN_USE = "In use",
-  BEING_DEPLOYED = "Being deployed",
-  DEVELOPMENT = "Development",
-  AWAITING = "Awaiting", // awaiting development
-  POSSIBLE = "Possible",
-  PROPOSED = "Proposed",
+  LIVE = "LIVE",
+  IN_USE = "IN_USE",
+  BEING_DEPLOYED = "BEING_DEPLOYED",
+  DEVELOPMENT = "DEVELOPMENT",
+  AWAITING = "AWAITING", // awaiting development
+  POSSIBLE = "POSSIBLE",
+  PROPOSED = "PROPOSED",
 }
+
+export type ProtocolStatusInfo = {
+  title: string;
+  description: string;
+  color: string;
+  bgColor: string;
+};
+
+export const protocolStatusInfo: {
+  [status in IntegrationStatus]: ProtocolStatusInfo;
+} = {
+  [IntegrationStatus.LIVE]: {
+    title: "Live",
+    description: "Organization is live",
+    color: "#4ade80", // green-400
+    bgColor: "#00521f",
+  },
+  [IntegrationStatus.IN_USE]: {
+    title: "In use",
+    description: "Organization is in use",
+    color: "#59f5ff",
+    bgColor: "#215d60",
+  },
+  [IntegrationStatus.BEING_DEPLOYED]: {
+    title: "Being deployed",
+    description: "Organization is being deployed",
+    color: "#a78bfa", // violet-400
+    bgColor: "#55009d",
+  },
+  [IntegrationStatus.DEVELOPMENT]: {
+    title: "Development",
+    description: "Organization is under development",
+    color: "#60a5fa", // blue-400
+    bgColor: "#1d3f6c",
+  },
+  [IntegrationStatus.AWAITING]: {
+    title: "Awaiting deployment",
+    description:
+      "We awaiting developer to be assigned to solve organization library issue",
+    color: "#fef08a", // yellow-200
+    bgColor: "#796e00",
+  },
+  [IntegrationStatus.POSSIBLE]: {
+    title: "Possible",
+    description: "We are analyzing to possibly implement the organization",
+    color: "#ff4646",
+    bgColor: "#7c0000",
+  },
+  [IntegrationStatus.PROPOSED]: {
+    title: "Proposed",
+    description: "The organization has been proposed for implementation",
+    color: "#eeeeee",
+    bgColor: "#2c2c2c",
+  },
+};
 
 export enum DefiCategory {
   AMM = "AMM",

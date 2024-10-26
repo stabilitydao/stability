@@ -3,6 +3,11 @@ import * as fs from "node:fs";
 import axios from "axios";
 import { integrations } from "../src";
 import { version } from "../package.json";
+import {
+  protocolStatusInfo,
+  getIntegrationStatus,
+  IntegrationStatus,
+} from "../src/integrations";
 
 async function main() {
   console.log("== Draw organizations ==");
@@ -30,7 +35,9 @@ async function main() {
   const xPadding = 76;
 
   // download organization images
-  console.log(`Download ${Object.keys(integrations).length} organization images..`);
+  console.log(
+    `Download ${Object.keys(integrations).length} organization images..`,
+  );
   for (const orgId in integrations) {
     const organization = integrations[orgId];
     const p = `${tmpDir}/${organization.img}`;
@@ -43,7 +50,6 @@ async function main() {
 
     process.stdout.write(".");
   }
-  console.log();
 
   // Instantiate the canvas object
   let canvas = createCanvas(width, height);
@@ -57,23 +63,97 @@ async function main() {
   // title
   ctx.font = '30px "Sans"';
   ctx.fillStyle = "#ffffff";
-  ctx.fillText("DeFi Landscape Coverage", 460, 60);
+  ctx.fillText("DeFi Landscape", 460, 60);
 
   // library
   ctx.font = '20px "Sans"';
   ctx.fillStyle = "#ffffff";
   ctx.fillText(`📦 Stability Integration Library v${version}`, 90, 770);
 
+  // statuses
+  let i = 0;
+  let k = 100;
+  const paddingLeft = 190;
+  const statusBlockWidth = 300;
+  for (const protocolStatus of Object.keys(protocolStatusInfo)) {
+    ctx.fillStyle =
+      protocolStatusInfo[protocolStatus as IntegrationStatus].bgColor;
+    ctx.fillRect(paddingLeft + i * statusBlockWidth, k, 24, 24);
+    ctx.font = '18px "Arial"';
+    ctx.fillStyle =
+      protocolStatusInfo[protocolStatus as IntegrationStatus].color;
+    ctx.fillText(
+      protocolStatusInfo[protocolStatus as IntegrationStatus].title,
+      paddingLeft + i * statusBlockWidth + 30,
+      k + 18,
+    );
+
+    i++;
+    if (i > 2) {
+      i = 0;
+      k += 40;
+    }
+  }
+
   // put organization imgs
   let x = xPadding;
-  let y = 200;
+  let y = 270;
   const w = organizationBlockSize - 2 * organizationBlockPadding;
+  const organizationBlockStatusPadding = 6;
+
   for (const orgId in integrations) {
-    const organization = integrations[orgId];
+    const org = integrations[orgId];
+    const protocolsStatus = [];
+    let status;
+    for (const protocolId in org.protocols) {
+      const protocol = org.protocols[protocolId];
+      const protocolStatus = getIntegrationStatus(protocol);
+      protocolsStatus.push(protocolStatus);
+    }
+
+    const integrationStatusValues = [
+      IntegrationStatus.LIVE,
+      IntegrationStatus.IN_USE,
+      IntegrationStatus.BEING_DEPLOYED,
+      IntegrationStatus.DEVELOPMENT,
+      IntegrationStatus.AWAITING,
+      IntegrationStatus.POSSIBLE,
+      IntegrationStatus.PROPOSED,
+    ];
+
+    for (const _status of integrationStatusValues) {
+      if (protocolsStatus.includes(_status)) {
+        status = _status;
+        break;
+      }
+    }
+
     try {
+      // status
+      if (status) {
+        ctx.fillStyle = protocolStatusInfo[status].bgColor;
+        if (status == IntegrationStatus.PROPOSED) {
+          ctx.fillStyle = bgColor;
+        }
+      } else {
+        console.warn(`Couldn't find a valid status for organization: ${orgId}`);
+      }
+      ctx.fillRect(
+        x + organizationBlockStatusPadding,
+        y + organizationBlockStatusPadding,
+        organizationBlockSize - organizationBlockStatusPadding * 2,
+        organizationBlockSize - organizationBlockStatusPadding * 2,
+      );
+
       // image
-      const image = await loadImage(`${tmpDir}/${organization.img}`);
-      ctx.drawImage(image, x + organizationBlockPadding, y + organizationBlockPadding, w, w);
+      const image = await loadImage(`${tmpDir}/${org.img}`);
+      ctx.drawImage(
+        image,
+        x + organizationBlockPadding,
+        y + organizationBlockPadding,
+        w,
+        w,
+      );
 
       x += organizationBlockSize;
 
@@ -90,7 +170,9 @@ async function main() {
   // Write the image to file
   const buffer = canvas.toBuffer("image/png");
   fs.writeFileSync(filename, buffer);
-  console.log(`Image of organizations collection generated and saved to ${filename}`);
+  console.log(
+    `Image of organizations collection generated and saved to ${filename}`,
+  );
 
   // draw covers
   for (const orgId in integrations) {
