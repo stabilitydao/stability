@@ -67,7 +67,7 @@ export const protocolStatusInfo: {
     bgColor: "#1d3f6c",
   },
   [IntegrationStatus.AWAITING]: {
-    title: "Awaiting deployment",
+    title: "Awaiting development",
     description:
       "We awaiting developer to be assigned to solve organization library issue",
     color: "#fef08a", // yellow-200

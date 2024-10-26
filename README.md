@@ -197,7 +197,7 @@ import { tokenlist } from "@stabilitydao/stability";
 yarn overview
 yarn overview-full
 yarn draw-chains
-yarn draw-organizations
+yarn draw-defi
 yarn contests-maker
 yarn test
 yarn coverage
