@@ -23,7 +23,7 @@ async function main() {
   }
 
   // save to
-  const filename = "./organizations.png";
+  const filename = "./integrations.png";
 
   // Dimensions for the image
   const width = 1200;
@@ -63,7 +63,7 @@ async function main() {
   // title
   ctx.font = '30px "Sans"';
   ctx.fillStyle = "#ffffff";
-  ctx.fillText("Integrations Landscape", 460, 60);
+  ctx.fillText("Integrations", 460, 60);
 
   // library
   ctx.font = '20px "Sans"';

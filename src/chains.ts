@@ -94,7 +94,7 @@ export const enum ChainName {
   XPLA = "Xpla",
   BEVM = "BEVM",
   DYMENSION = "Dymension",
-  HELA= "Hela",
+  HELA = "Hela",
 }
 
 export const chains: { [chainId: string]: Chain } = {
@@ -525,7 +525,7 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 8668,
     status: ChainStatus.NOT_SUPPORTED,
     img: "hela.png",
-  }
+  },
 };
 
 export const chainStatusInfo: { [status in ChainStatus]: ChainStatusInfo } = {
