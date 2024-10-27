@@ -191,11 +191,9 @@ async function main() {
     ctx.fillRect(0, 0, coverWidth, coverHeight);
 
     // organization name
-    ctx.font = 'bold 90px "Sans"';
+    ctx.font = 'bold 95px "Sans"';
     ctx.fillStyle = "#ffffff";
-    ctx.fillText(organization.name, 100, 830);
-    ctx.font = '40px "Sans"';
-    ctx.fillText(`Organization ID: ${orgId}`, 100, 900);
+    ctx.fillText(organization.name, 100, 880);
 
     // image
     const image = await loadImage(`${tmpDir}/${organization.img}`);
