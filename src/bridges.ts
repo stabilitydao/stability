@@ -17,6 +17,7 @@ export const enum BridgeName {
   // official, native multi
   SUPERBRIDGE = "Superbridge",
   BRIDGG = "Brid.gg",
+  HELA = "HeLa Bridge",
 
   // official, native
   ARBITRUM = "Arbitrum",
@@ -376,6 +377,17 @@ export const bridges: Bridge[] = [
       ChainName.ARBITRUM,
       ChainName.BLAST,
       ChainName.SCROLL,
+    ],
+  },
+  {
+    name: BridgeName.HELA,
+    dapp: "https://bridge.helachain.com/",
+    img: `chains/${chains["8668"].img}`,
+    chains: [
+      ChainName.ETHEREUM,
+      ChainName.BSC,
+      ChainName.POLYGON,
+      ChainName.HELA,
     ],
   },
 ];

@@ -1193,6 +1193,20 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     github: "Meta-DesynLab",
     defiLlama: "desyn-liquid-strategy",
   },
+  cytoswap: {
+    name: "Cytoswap",
+    img: "Cytoswap.svg",
+    website: "https://cytoswap.com/",
+    protocols: {
+      cytoswap: {
+        name: "Cytoswap",
+        category: DefiCategory.AMM,
+        chains: [ChainName.HELA],
+      },
+    },
+    github: "Meta-DesynLab",
+    defiLlama: "cytoswap",
+  },
 };
 
 export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
