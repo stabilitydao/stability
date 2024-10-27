@@ -22,7 +22,7 @@
     "overview-full": "ts-node tools/overview-full.ts",
     "postbuild": "shx cp src/*.tokenlist.json out/",
     "draw-chains": "ts-node tools/draw-chains.ts",
-    "draw-defi": "ts-node tools/draw-defi.ts",
+    "draw-integrations": "ts-node tools/draw-integrations.ts",
     "issue": "ts-node tools/issue.ts",
     "contests-maker": "ts-node tools/contests-maker.ts"
   },
