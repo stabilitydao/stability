@@ -23,14 +23,68 @@ export type DeFiProtocol = {
 };
 
 export const enum IntegrationStatus {
-  LIVE = "Live",
-  IN_USE = "In use",
-  BEING_DEPLOYED = "Being deployed",
-  DEVELOPMENT = "Development",
-  AWAITING = "Awaiting", // awaiting development
-  POSSIBLE = "Possible",
-  PROPOSED = "Proposed",
+  LIVE = "LIVE",
+  IN_USE = "IN_USE",
+  BEING_DEPLOYED = "BEING_DEPLOYED",
+  DEVELOPMENT = "DEVELOPMENT",
+  AWAITING = "AWAITING", // awaiting development
+  POSSIBLE = "POSSIBLE",
+  PROPOSED = "PROPOSED",
 }
+
+export type ProtocolStatusInfo = {
+  title: string;
+  description: string;
+  color: string;
+  bgColor: string;
+};
+
+export const protocolStatusInfo: {
+  [status in IntegrationStatus]: ProtocolStatusInfo;
+} = {
+  [IntegrationStatus.LIVE]: {
+    title: "Live",
+    description: "Integration is live",
+    color: "#4ade80", // green-400
+    bgColor: "#00521f",
+  },
+  [IntegrationStatus.IN_USE]: {
+    title: "In use",
+    description: "Protocol in use by other integration",
+    color: "#59f5ff",
+    bgColor: "#215d60",
+  },
+  [IntegrationStatus.BEING_DEPLOYED]: {
+    title: "Being deployed",
+    description: "Integration is being deployed",
+    color: "#a78bfa", // violet-400
+    bgColor: "#55009d",
+  },
+  [IntegrationStatus.DEVELOPMENT]: {
+    title: "Development",
+    description: "Integration is under development",
+    color: "#60a5fa", // blue-400
+    bgColor: "#1d3f6c",
+  },
+  [IntegrationStatus.AWAITING]: {
+    title: "Awaiting development",
+    description: "We awaiting developer to solve integration issue",
+    color: "#fef08a", // yellow-200
+    bgColor: "#796e00",
+  },
+  [IntegrationStatus.POSSIBLE]: {
+    title: "Possible",
+    description: "Protocols for integration are live at supported chain",
+    color: "#ff4646",
+    bgColor: "#7c0000",
+  },
+  [IntegrationStatus.PROPOSED]: {
+    title: "Proposed",
+    description: "There are proposed strategies to integrate protocol",
+    color: "#eeeeee",
+    bgColor: "#2c2c2c",
+  },
+};
 
 export enum DefiCategory {
   AMM = "AMM",
@@ -730,7 +784,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   aura: {
     name: "Aura",
-    img: "aura.svg",
+    img: "aura1.png",
     website: "https://aura.finance",
     protocols: {
       aura: {
@@ -1138,6 +1192,20 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     },
     github: "Meta-DesynLab",
     defiLlama: "desyn-liquid-strategy",
+  },
+  cytoswap: {
+    name: "Cytoswap",
+    img: "Cytoswap.svg",
+    website: "https://cytoswap.com/",
+    protocols: {
+      cytoswap: {
+        name: "Cytoswap",
+        category: DefiCategory.AMM,
+        chains: [ChainName.HELA],
+      },
+    },
+    github: "Meta-DesynLab",
+    defiLlama: "cytoswap",
   },
 };
 
