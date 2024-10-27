@@ -44,44 +44,44 @@ export const protocolStatusInfo: {
 } = {
   [IntegrationStatus.LIVE]: {
     title: "Live",
-    description: "Organization is live",
+    description: "Integration is live",
     color: "#4ade80", // green-400
     bgColor: "#00521f",
   },
   [IntegrationStatus.IN_USE]: {
     title: "In use",
-    description: "Organization is in use",
+    description: "Protocol in use by other integration",
     color: "#59f5ff",
     bgColor: "#215d60",
   },
   [IntegrationStatus.BEING_DEPLOYED]: {
     title: "Being deployed",
-    description: "Organization is being deployed",
+    description: "Integration is being deployed",
     color: "#a78bfa", // violet-400
     bgColor: "#55009d",
   },
   [IntegrationStatus.DEVELOPMENT]: {
     title: "Development",
-    description: "Organization is under development",
+    description: "Integration is under development",
     color: "#60a5fa", // blue-400
     bgColor: "#1d3f6c",
   },
   [IntegrationStatus.AWAITING]: {
     title: "Awaiting development",
     description:
-      "We awaiting developer to be assigned to solve organization library issue",
+      "We awaiting developer to solve integration issue",
     color: "#fef08a", // yellow-200
     bgColor: "#796e00",
   },
   [IntegrationStatus.POSSIBLE]: {
     title: "Possible",
-    description: "We are analyzing to possibly implement the organization",
+    description: "Protocols for integration are live at supported chain",
     color: "#ff4646",
     bgColor: "#7c0000",
   },
   [IntegrationStatus.PROPOSED]: {
     title: "Proposed",
-    description: "The organization has been proposed for implementation",
+    description: "There are proposed strategies to integrate protocol",
     color: "#eeeeee",
     bgColor: "#2c2c2c",
   },

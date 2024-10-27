@@ -10,7 +10,7 @@ import {
 } from "../src/integrations";
 
 async function main() {
-  console.log("== Draw organizations ==");
+  console.log("== Draw integrations ==");
 
   // check tmp dirs
   const tmpDir = "./temp";
@@ -63,7 +63,7 @@ async function main() {
   // title
   ctx.font = '30px "Sans"';
   ctx.fillStyle = "#ffffff";
-  ctx.fillText("DeFi Landscape", 460, 60);
+  ctx.fillText("Integrations Landscape", 460, 60);
 
   // library
   ctx.font = '20px "Sans"';
