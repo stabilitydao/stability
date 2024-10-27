@@ -68,8 +68,7 @@ export const protocolStatusInfo: {
   },
   [IntegrationStatus.AWAITING]: {
     title: "Awaiting development",
-    description:
-      "We awaiting developer to solve integration issue",
+    description: "We awaiting developer to solve integration issue",
     color: "#fef08a", // yellow-200
     bgColor: "#796e00",
   },
