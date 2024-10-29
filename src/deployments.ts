@@ -52,6 +52,7 @@ export const deployments: { [chainId: string]: Deployment } = {
       strategyLogic: "0x8f59BB791Da8fb1E2FedbDeAc576F0f622479059",
       zap: "0x240d026C11A97591118A534133fEeFEd59B90fc5",
     },
-    subgraph: "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-subgraph/0.0.5/gn",
+    subgraph:
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-subgraph/0.0.5/gn",
   },
 };
