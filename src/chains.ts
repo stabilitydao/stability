@@ -94,6 +94,7 @@ export const enum ChainName {
   XPLA = "Xpla",
   BEVM = "BEVM",
   DYMENSION = "Dymension",
+  HELA = "Hela",
 }
 
 export const chains: { [chainId: string]: Chain } = {
@@ -465,7 +466,7 @@ export const chains: { [chainId: string]: Chain } = {
   "111188": {
     name: ChainName.REAL,
     chainId: 111188,
-    status: ChainStatus.CHAINLIB_DEVELOPMENT,
+    status: ChainStatus.AWAITING_DEPLOYMENT,
     img: "real.png",
     multisig: "0x7B4388F4bD3A439E34a554EF67513112Bcd77Fba",
     chainLibGithubId: 173,
@@ -518,6 +519,12 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 2046399126,
     status: ChainStatus.NOT_SUPPORTED,
     img: "skale-europa.png",
+  },
+  "8668": {
+    name: ChainName.HELA,
+    chainId: 8668,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: "hela.png",
   },
 };
 

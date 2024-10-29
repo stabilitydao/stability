@@ -23,14 +23,68 @@ export type DeFiProtocol = {
 };
 
 export const enum IntegrationStatus {
-  LIVE = "Live",
-  IN_USE = "In use",
-  BEING_DEPLOYED = "Being deployed",
-  DEVELOPMENT = "Development",
-  AWAITING = "Awaiting", // awaiting development
-  POSSIBLE = "Possible",
-  PROPOSED = "Proposed",
+  LIVE = "LIVE",
+  IN_USE = "IN_USE",
+  BEING_DEPLOYED = "BEING_DEPLOYED",
+  DEVELOPMENT = "DEVELOPMENT",
+  AWAITING = "AWAITING", // awaiting development
+  POSSIBLE = "POSSIBLE",
+  PROPOSED = "PROPOSED",
 }
+
+export type ProtocolStatusInfo = {
+  title: string;
+  description: string;
+  color: string;
+  bgColor: string;
+};
+
+export const protocolStatusInfo: {
+  [status in IntegrationStatus]: ProtocolStatusInfo;
+} = {
+  [IntegrationStatus.LIVE]: {
+    title: "Live",
+    description: "Integration is live",
+    color: "#4ade80", // green-400
+    bgColor: "#00521f",
+  },
+  [IntegrationStatus.IN_USE]: {
+    title: "In use",
+    description: "Protocol in use by other integration",
+    color: "#59f5ff",
+    bgColor: "#215d60",
+  },
+  [IntegrationStatus.BEING_DEPLOYED]: {
+    title: "Being deployed",
+    description: "Integration is being deployed",
+    color: "#a78bfa", // violet-400
+    bgColor: "#55009d",
+  },
+  [IntegrationStatus.DEVELOPMENT]: {
+    title: "Development",
+    description: "Integration is under development",
+    color: "#60a5fa", // blue-400
+    bgColor: "#1d3f6c",
+  },
+  [IntegrationStatus.AWAITING]: {
+    title: "Awaiting development",
+    description: "We awaiting developer to solve integration issue",
+    color: "#fef08a", // yellow-200
+    bgColor: "#796e00",
+  },
+  [IntegrationStatus.POSSIBLE]: {
+    title: "Possible",
+    description: "Protocols for integration are live at supported chain",
+    color: "#ff4646",
+    bgColor: "#7c0000",
+  },
+  [IntegrationStatus.PROPOSED]: {
+    title: "Proposed",
+    description: "There are proposed strategies to integrate protocol",
+    color: "#eeeeee",
+    bgColor: "#2c2c2c",
+  },
+};
 
 export enum DefiCategory {
   AMM = "AMM",
@@ -201,9 +255,24 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         adapters: ["UniswapV3Adapter"],
         strategies: [StrategyShortId.CUMF, StrategyShortId.GUMF],
       },
+      uniswapV2: {
+        name: "Uniswap V2",
+        category: DefiCategory.AMM,
+        chains: [
+          ChainName.ETHEREUM,
+          ChainName.BASE,
+          ChainName.ARBITRUM,
+          ChainName.POLYGON,
+          ChainName.OPTIMISM,
+          ChainName.BSC,
+          ChainName.AVALANCHE,
+          ChainName.CELO,
+          ChainName.ZORA,
+        ],
+      },
     },
     defiLlama: "uniswap",
-    github: "Uniswap,,",
+    github: "Uniswap",
   },
   quickswap: {
     name: "QuickSwap",
@@ -362,7 +431,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   baseswap: {
     name: "BaseSwap",
-    img: "BaseSwap.svg",
+    img: "BaseSwap.png",
     website: "https://baseswap.fi",
     protocols: {
       baseswap: {
@@ -377,7 +446,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   agni: {
     name: "Agni",
-    img: "agni.avif",
+    img: "agni.png",
     website: "https://agni.finance/",
     protocols: {
       agni: {
@@ -422,7 +491,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // ALM
   gamma: {
     name: "Gamma",
-    img: "Gamma.svg",
+    img: "Gamma.png",
     website: "https://gamma.xyz",
     protocols: {
       gamma: {
@@ -509,7 +578,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   steer: {
     name: "Steer",
-    img: "Steer.svg",
+    img: "Steer.png",
     website: "https://steer.finance",
     protocols: {
       steer: {
@@ -546,7 +615,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   charm: {
     name: "Charm",
-    img: "Charm.svg",
+    img: "Charm.png",
     website: "https://www.charm.fi",
     protocols: {
       alphaVaults: {
@@ -570,7 +639,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   a51: {
     name: "A51",
-    img: "A51.svg",
+    img: "A51.png",
     website: "https://a51.finance",
     protocols: {
       a51: {
@@ -650,7 +719,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // Lending
   compound: {
     name: "Compound",
-    img: "Compound.svg",
+    img: "Compound.png",
     website: "https://compound.finance",
     protocols: {
       compoundV3: {
@@ -672,7 +741,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   aave: {
     name: "Aave",
-    img: "Aave.svg",
+    img: "Aave.png",
     website: "https://aave.com",
     protocols: {
       aaveV3: {
@@ -700,7 +769,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   // Boost aggregator
   convex: {
     name: "Convex",
-    img: "Convex.svg",
+    img: "Convex.png",
     website: "https://www.convexfinance.com",
     protocols: {
       convex: {
@@ -715,7 +784,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   aura: {
     name: "Aura",
-    img: "aura.png",
+    img: "aura1.png",
     website: "https://aura.finance",
     protocols: {
       aura: {
@@ -848,7 +917,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   dezswap: {
     name: "Dezswap",
-    img: "dezswap.png",
+    img: "dezswap.svg",
     website: "https://dezswap.io/",
     protocols: {
       dezswap: {
@@ -860,6 +929,283 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     },
     github: "dezswap",
     defiLlama: "dezswap",
+  },
+  clearpool: {
+    name: "Clearpool",
+    img: "Clearpool.png",
+    website: "https://clearpool.finance/",
+    protocols: {
+      clearpool: {
+        name: "Clearpool",
+        category: DefiCategory.LENDING,
+        chains: [
+          ChainName.FLARE,
+          ChainName.ETHEREUM,
+          ChainName.OPTIMISM,
+          ChainName.MANTLE,
+          ChainName.BASE,
+          ChainName.POLYGON_ZKEVM,
+          ChainName.POLYGON,
+          ChainName.AVALANCHE,
+          ChainName.ARBITRUM,
+        ],
+      },
+    },
+    github: "clearpool-finance",
+    defiLlama: "clearpool",
+  },
+  mintswap: {
+    name: "MintSwap",
+    img: "Mintswap.svg",
+    website: "https://www.mintswap.finance/",
+    protocols: {
+      mintswapfinance: {
+        name: "MintSwap Finance",
+        category: DefiCategory.AMM,
+        chains: [ChainName.MINT],
+        adapters: ["UniswapV3Adapter"],
+      },
+    },
+    github: "MintSwapFinance",
+    defiLlama: "mintswap-finance",
+  },
+  kiloex: {
+    name: "KiloEx",
+    img: "Kiloex.svg",
+    website: "https://www.kiloex.io/",
+    protocols: {
+      kiloex: {
+        name: "KiloEx",
+        category: DefiCategory.DEX_AGG,
+        chains: [
+          ChainName.OPBNB,
+          ChainName.BSC,
+          ChainName.MANTA,
+          ChainName.TAIKO,
+        ],
+        //todo BSqared
+      },
+    },
+    github: "KiloExPerp",
+    defiLlama: "kiloex",
+  },
+  dymension: {
+    name: "Dymension DEX",
+    img: "Dymensiondex.svg",
+    website: "https://dymension.xyz/",
+    protocols: {
+      dymensiondex: {
+        name: "Dymension DEX",
+        category: DefiCategory.DEX_AGG,
+        chains: [ChainName.DYMENSION],
+      },
+    },
+    github: "dymensionxyz",
+    defiLlama: "dymension-dex",
+  },
+  camelot: {
+    name: "Camelot",
+    img: "Camelot.svg",
+    website: "https://camelot.exchange/",
+    protocols: {
+      camelotV3: {
+        name: "Camelot 3",
+        category: DefiCategory.AMM,
+        chains: [ChainName.GRAVITY, ChainName.ARBITRUM, ChainName.RARI],
+        //todo ApeChain, Xai, Sanko, Reya Network
+        adapters: ["UniswapV3Adapter"],
+      },
+    },
+    github: "camelotlabs",
+    defiLlama: "camelot",
+  },
+  bouncebit: {
+    name: "BounceBit",
+    img: "Bouncebit.svg",
+    website: "https://bouncebit.io/",
+    protocols: {
+      bouncebitcedefi: {
+        name: "BounceBit CeDeFi",
+        category: DefiCategory.DEX_AGG,
+        chains: [ChainName.BOUNCEBIT, ChainName.BSC, ChainName.ETHEREUM],
+      },
+      bouncebitpremium: {
+        name: "BounceBit Premium",
+        category: DefiCategory.YIELD_AGG,
+        chains: [ChainName.BOUNCEBIT, ChainName.BSC, ChainName.ETHEREUM],
+      },
+      bouncebiteasy: {
+        name: "BounceBit Easy",
+        category: DefiCategory.YIELD_AGG,
+        chains: [ChainName.BOUNCEBIT, ChainName.BSC, ChainName.ETHEREUM],
+      },
+    },
+    github: "BounceBit-Labs",
+    defiLlama: "bouncebit-cedefi",
+  },
+  cyberswap: {
+    name: "CyberSwap",
+    img: "Cyberswap.svg",
+    website: "https://cyberswap.cc/",
+    protocols: {
+      cyberswap: {
+        name: "CyberSwap",
+        category: DefiCategory.DEX_AGG,
+        chains: [ChainName.CYBER],
+      },
+    },
+    github: "Cyberswap-DEX",
+    defiLlama: "cyberswap",
+  },
+  deepr: {
+    name: "Deepr",
+    img: "Deepr.png",
+    website: "https://www.deepr.finance/",
+    protocols: {
+      deeprfinance: {
+        name: "Deepr Finance",
+        category: DefiCategory.LENDING,
+        chains: [ChainName.IOTA],
+        //todo ShimmerEVM
+      },
+    },
+    github: "Deepr-Finance",
+    defiLlama: "deepr-finance",
+  },
+  nitron: {
+    name: "Nitron",
+    img: "Nitron.svg",
+    website: "https://app.dem.exchange/nitron",
+    protocols: {
+      nitron: {
+        name: "Nitron",
+        category: DefiCategory.DEX_AGG,
+        chains: [ChainName.CARBON],
+      },
+    },
+    github: "switcheo",
+    defiLlama: "nitron",
+  },
+  bidofinance: {
+    name: "Bido Finance",
+    img: "Bido.svg",
+    website: "https://app.bido.finance/",
+    protocols: {
+      bidofinance: {
+        name: "Bido Finance",
+        category: DefiCategory.YIELD_AGG,
+        chains: [ChainName.BEVM],
+      },
+    },
+    github: "Bidohub",
+    defiLlama: "bido-finance",
+  },
+  zircuit: {
+    name: "Zircuit",
+    img: "Zircuitstaking.svg",
+    website: "https://www.zircuit.com/",
+    protocols: {
+      zircuitstaking: {
+        name: "Zircuit Staking",
+        category: DefiCategory.REWARDING,
+        chains: [ChainName.ETHEREUM, ChainName.ZIRCUIT],
+      },
+    },
+    defiLlama: "zircuit-staking",
+  },
+  avalonlabs: {
+    name: "Avalon Labs",
+    img: "Avalonlabs.svg",
+    website: "https://www.avalonfinance.xyz/",
+    protocols: {
+      avalonfinance: {
+        name: "Avalon Finance",
+        category: DefiCategory.LENDING,
+        chains: [
+          ChainName.BITLAYER,
+          ChainName.CORE,
+          ChainName.BSC,
+          ChainName.MERLIN,
+          ChainName.BOB,
+          ChainName.ARBITRUM,
+          ChainName.BASE,
+          ChainName.ETHEREUM,
+          ChainName.SCROLL,
+        ],
+      },
+    },
+    defiLlama: "avalon-finance",
+  },
+  iziswap: {
+    name: "iZiSwap",
+    img: "Iziswap.svg",
+    website: "https://izumi.finance/",
+    protocols: {
+      iziswap: {
+        name: "iZiSwap",
+        category: DefiCategory.AMM,
+        chains: [
+          ChainName.LINEA,
+          ChainName.ZETA,
+          ChainName.SCROLL,
+          ChainName.TAIKO,
+          ChainName.ZKSYNC,
+          ChainName.MODE,
+          ChainName.GRAVITY,
+          ChainName.BOB,
+          ChainName.MANTA,
+          ChainName.BSC,
+          ChainName.KROMA,
+          ChainName.BASE,
+          ChainName.MANTLE,
+          ChainName.X_LAYER,
+          ChainName.ZKLINK,
+          ChainName.ZKFAIR,
+          ChainName.CORE,
+          ChainName.ARBITRUM,
+          ChainName.BLAST,
+          ChainName.AURORA,
+          ChainName.POLYGON,
+          ChainName.ETHEREUM,
+        ],
+        //todo Ultron, OntologyEVM, Meter, Cronos
+      },
+    },
+    github: "IzumiFinance",
+    defiLlama: "iziswap",
+  },
+  desyn: {
+    name: "DeSyn",
+    img: "Desynliquidstrategy.svg",
+    website: "https://www.desyn.io/",
+    protocols: {
+      desynliquidstrategy: {
+        name: "DeSyn Liquid Strategy",
+        category: DefiCategory.YIELD_AGG,
+        chains: [
+          ChainName.BITLAYER,
+          ChainName.MODE,
+          ChainName.ZKLINK,
+          ChainName.CORE,
+        ],
+      },
+    },
+    github: "Meta-DesynLab",
+    defiLlama: "desyn-liquid-strategy",
+  },
+  cytoswap: {
+    name: "Cytoswap",
+    img: "Cytoswap.svg",
+    website: "https://cytoswap.com/",
+    protocols: {
+      cytoswap: {
+        name: "Cytoswap",
+        category: DefiCategory.AMM,
+        chains: [ChainName.HELA],
+      },
+    },
+    github: "Meta-DesynLab",
+    defiLlama: "cytoswap",
   },
 };
 

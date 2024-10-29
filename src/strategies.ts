@@ -9,6 +9,7 @@ export type Strategy = {
   color: string;
   bgColor: string;
   baseStrategies: BaseStrategy[];
+  protocols: `${string}:${string}`[]; //<orgranizationSlug>:<protocolSlug>
   sourceCode?: string;
   ammAdapter?: string;
   description?: string;
@@ -92,6 +93,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     bgColor: "#000000",
     sourceCode: "QuickSwapStaticMerklFarmStrategy.sol",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING],
+    protocols: [`quickswap:quickswapV3`, "angle:merkl"],
     ammAdapter: "Algebra",
   },
   [StrategyShortId.DQMF]: {
@@ -103,6 +105,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     bgColor: "#000000",
     sourceCode: "DefiEdgeQuickSwapMerklFarmStrategy.sol",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING],
+    protocols: [`defiEdge:defiEdge`, `quickswap:quickswapV3`, "angle:merkl"],
     ammAdapter: "Algebra",
   },
   [StrategyShortId.IQMF]: {
@@ -114,6 +117,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     bgColor: "#000000",
     sourceCode: "IchiQuickSwapMerklFarmStrategy.sol",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING],
+    protocols: [`ichi:ichi`, `quickswap:quickswapV3`, "angle:merkl"],
     ammAdapter: "Algebra",
   },
   [StrategyShortId.GQMF]: {
@@ -125,6 +129,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     bgColor: "#140414",
     sourceCode: "GammaQuickSwapMerklFarmStrategy.sol",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING],
+    protocols: [`gamma:gamma`, `quickswap:quickswapV3`, "angle:merkl"],
     ammAdapter: "Algebra",
   },
   [StrategyShortId.IRMF]: {
@@ -136,6 +141,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     bgColor: "#000000",
     sourceCode: "IchiRetroMerklFarmStrategy.sol",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING],
+    protocols: [`ichi:ichi`, `retro:retro`, "angle:merkl"],
     ammAdapter: "UniswapV3",
   },
   [StrategyShortId.GRMF]: {
@@ -147,6 +153,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     bgColor: "#000000",
     sourceCode: "GammaRetroMerklFarmStrategy.sol",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING],
+    protocols: [`gamma:gamma`, `retro:retro`, "angle:merkl"],
     ammAdapter: "UniswapV3",
   },
   [StrategyShortId.CF]: {
@@ -157,6 +164,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     color: "#00d395",
     sourceCode: "CompoundFarmStrategy.sol",
     baseStrategies: [BaseStrategy.FARMING],
+    protocols: [`compound:compoundV3`],
     bgColor: "#000000",
   },
   [StrategyShortId.CCF]: {
@@ -168,6 +176,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     bgColor: "#000000",
     sourceCode: "CurveConvexFarmStrategy.sol",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
+    protocols: [`curve:stableSwapNg`, `convex:convex`],
     ammAdapter: "Curve",
   },
   [StrategyShortId.Y]: {
@@ -179,6 +188,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     bgColor: "#000000",
     sourceCode: "YearnStrategy.sol",
     baseStrategies: [BaseStrategy.ERC4626],
+    protocols: [`yearn:yearnV3`],
   },
   [StrategyShortId.SQMF]: {
     id: "Steer QuickSwap Merkl Farm",
@@ -189,6 +199,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     bgColor: "#000000",
     sourceCode: "SteerQuickSwapMerklFarmStrategy.sol",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING],
+    protocols: [`steer:steer`, `quickswap:quickswapV3`, "angle:merkl"],
     ammAdapter: "Algebra",
   },
   [StrategyShortId.GAF]: {
@@ -199,6 +210,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     color: "#f2fea6",
     bgColor: "#2e005f",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
+    protocols: [`gyroscope:eclp`, `aura:aura`],
     ammAdapter: "Gyroscope",
   },
   [StrategyShortId.RSBMF]: {
@@ -209,6 +221,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     color: "#ff0000",
     bgColor: "#420060",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING],
+    protocols: [`retro:retro`, "angle:merkl"],
     ammAdapter: "UniswapV3",
   },
   [StrategyShortId.DRBMF]: {
@@ -219,6 +232,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     color: "#ff0000",
     bgColor: "#420060",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING],
+    protocols: [`defiEdge:defiEdge`, `retro:retro`, "angle:merkl"],
     ammAdapter: "UniswapV3",
   },
   [StrategyShortId.IRBMF]: {
@@ -229,6 +243,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     color: "#e1d1ff",
     bgColor: "#420060",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING],
+    protocols: [`ichi:ichi`, `retro:retro`, "angle:merkl"],
     ammAdapter: "UniswapV3",
   },
   [StrategyShortId.AS1BLS]: {
@@ -239,6 +254,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     color: "#07a658",
     bgColor: "#1a024d",
     baseStrategies: [BaseStrategy.LEVERAGED_LENDING],
+    protocols: [`aave:aaveV3`, `stader:stader`, "oneInch:oneInch"],
   },
   [StrategyShortId.GUMF]: {
     id: "Gamma UniswapV3 Merkl Farm",
@@ -250,6 +266,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     ammAdapter: "UniswapV3",
     sourceCode: "GammaUniswapV3MerklFarmStrategy.sol",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING],
+    protocols: [`gamma:gamma`, `uniswap:uniswapV3`, "angle:merkl"],
   },
   [StrategyShortId.CUMF]: {
     id: "Charm UniswapV3 Merkl Farm",
@@ -260,6 +277,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     bgColor: "#000000",
     ammAdapter: "UniswapV3",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING],
+    protocols: [`charm:alphaVaults`, `uniswap:uniswapV3`, "angle:merkl"],
   },
   [StrategyShortId.CBMF]: {
     id: "Charm BaseSwap Merkl Farm",
@@ -270,6 +288,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     bgColor: "#000000",
     ammAdapter: "UniswapV3",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING],
+    protocols: [`charm:alphaVaults`, `baseswap:baseswap`, "angle:merkl"],
   },
   [StrategyShortId.ABMF]: {
     id: "A51 BaseSwap Merkl Farm",
@@ -280,6 +299,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     bgColor: "#000000",
     ammAdapter: "UniswapV3",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING],
+    protocols: [`a51:a51`, `baseswap:baseswap`, "angle:merkl"],
   },
   [StrategyShortId.BSMF]: {
     id: "Beefy Sushi Merkl Farm",
@@ -290,16 +310,18 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     bgColor: "#21243a",
     ammAdapter: "UniswapV3",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.MERKL, BaseStrategy.FARMING],
+    protocols: [`beefy:clm`, `sushi:v3Amm`, "angle:merkl"],
   },
   [StrategyShortId.TPF]: {
     id: "Trident Pearl Farm",
     shortId: StrategyShortId.TPF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.DEPLOYMENT,
     contractGithubId: 172,
     color: "#ffe300",
     bgColor: "#004e67",
     ammAdapter: "UniswapV3",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
+    protocols: [`pearl:trident`, `pearl:pearlV2`],
     description: "Earn Pearl LP rewards by Trident ALM",
   },
   [StrategyShortId.IPF]: {
@@ -311,6 +333,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     bgColor: "#004e67",
     ammAdapter: "UniswapV3",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
+    protocols: [`ichi:ichi`, `pearl:pearlV2`],
     description: "Earn Pearl LP rewards by Ichi",
   },
   [StrategyShortId.SL]: {
@@ -321,6 +344,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     color: "#ffbc0f",
     bgColor: "#000000",
     baseStrategies: [BaseStrategy.LEVERAGED_LENDING],
+    protocols: [`pearl:stack`],
     description:
       "Manage leveraged Stack CDP position with yield-bearing collateral asset. Use Swapper.",
   },
@@ -332,6 +356,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     color: "#ffbc0f",
     bgColor: "#d60d1d",
     baseStrategies: [],
+    protocols: [`pearl:stack`],
     description: "Stake $MORE on Stack",
   },
 };
