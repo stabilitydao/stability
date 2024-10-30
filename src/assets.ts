@@ -23,7 +23,10 @@ export const assets: Asset[] = [
         "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
         "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
       ],
-      "42420": ["0x2B7C1342Cc64add10B2a79C8f9767d2667DE64B2", "0xb771d6975D16b3176732dfE3D44f278445b36F08"],
+      "42420": [
+        "0x2B7C1342Cc64add10B2a79C8f9767d2667DE64B2",
+        "0xb771d6975D16b3176732dfE3D44f278445b36F08",
+      ],
     },
     symbol: "USDC",
     description:
@@ -36,11 +39,8 @@ export const assets: Asset[] = [
       "137": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
       "8453": "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2",
       "1": ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
-      "42161": [
-        "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
-      ],
+      "42161": ["0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9"],
       "42420": ["0x04f868C5b3F0A100a207c7e9312946cC2c48a7a3"],
-
     },
     symbol: "USDT",
     description:
@@ -54,9 +54,7 @@ export const assets: Asset[] = [
       "8453": "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
       "111188": "0x75d0cBF342060b14c2fC756fd6E717dFeb5B1B70",
       "1": ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
-      "42161": [
-        "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
-      ],
+      "42161": ["0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1"],
     },
     symbol: "DAI",
     description:
