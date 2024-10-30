@@ -23,6 +23,7 @@ export const assets: Asset[] = [
         "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
         "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
       ],
+      "42420": ["0x2B7C1342Cc64add10B2a79C8f9767d2667DE64B2", "0xb771d6975D16b3176732dfE3D44f278445b36F08"],
     },
     symbol: "USDC",
     description:
@@ -38,6 +39,8 @@ export const assets: Asset[] = [
       "42161": [
         "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
       ],
+      "42420": ["0x04f868C5b3F0A100a207c7e9312946cC2c48a7a3"],
+
     },
     symbol: "USDT",
     description:
@@ -77,6 +80,7 @@ export const assets: Asset[] = [
       "8453": "0x4200000000000000000000000000000000000006",
       "1": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
       "42161": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "42420": ["0xbe231A8492487aAe6096278A97050FAe6B9d5BEc"],
     },
     symbol: "WETH",
     description: "WETH is an ERC-20 token that represents 1 Ether (ETH)",
@@ -88,6 +92,7 @@ export const assets: Asset[] = [
       "137": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
       "1": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
       "42161": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+      "42420": ["0xDBDc8c7B96286899aB624F6a59dd0250DD4Ce9bC"],
     },
     symbol: "WBTC",
     description:
