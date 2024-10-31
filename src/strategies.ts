@@ -438,14 +438,8 @@ export const getStrategyProtocols = (
       ) {
         const _protocol = integrations[orgName].protocols[protocolName];
         r.push(_protocol);
-      } else {
-        console.error(
-          "Couldn't find protocol/organization on integrations: " + protocol,
-        );
       }
     }
-  } else {
-    console.error("Strategy shortId doesn't exist");
   }
 
   return r;
