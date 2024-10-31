@@ -41,4 +41,18 @@ export const deployments: { [chainId: string]: Deployment } = {
     subgraph:
       "https://gateway-arbitrum.network.thegraph.com/api/[api-key]/subgraphs/id/FRK5vEJXX9w5Pt3nqeqGRX5s7k29AWCb7aXTfDwT6S8j",
   },
+  "111188": {
+    core: {
+      platform: "0xB7838d447deece2a9A5794De0f342B47d0c1B9DC",
+      factory: "0x47331996c42DEF8BD9808888bEeeC945b3424D25",
+      priceReader: "0x6C07D2f01F7640Cb24048a54A85aDeCae12c2408",
+      swapper: "0xba2C4A1FD42118b48f68305Ba14977FCf82f6C20",
+      hardWorker: "0x7512d16f913472642A4DBAB40ECfE13080DA0DEa",
+      vaultManager: "0x7146efaab12A083b9826c66162062c21eC70fe3c",
+      strategyLogic: "0x8f59BB791Da8fb1E2FedbDeAc576F0f622479059",
+      zap: "0x240d026C11A97591118A534133fEeFEd59B90fc5",
+    },
+    subgraph:
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-subgraph/0.0.5/gn",
+  },
 };
