@@ -1,6 +1,9 @@
 import {
+  assets,
   baseStrategyContracts,
   ChainName,
+  chains,
+  ChainStatus,
   getStrategyProtocols,
   integrations,
   strategies,
@@ -12,6 +15,7 @@ import {
 console.log("== Issue helper ==");
 console.log("");
 
+// strategy issue for stability-contracts repo
 for (const shortId of Object.keys(strategies)) {
   const strategy = strategies[shortId as StrategyShortId];
   if (strategy.contractGithubId === "is-being-created") {
@@ -82,6 +86,36 @@ for (const shortId of Object.keys(strategies)) {
     }
 
     console.log("");
+    console.log("-----------------------------------------------");
+  }
+}
+
+// assets issue for stability repo
+for (const chainId in chains) {
+  const chain = chains[chainId];
+  const chainAssets = assets.filter((asset) =>
+    Object.keys(asset.addresses).includes(chainId),
+  );
+  if (chainAssets.length === 0 && chain.status !== ChainStatus.NOT_SUPPORTED) {
+    console.log(`------------------ Assets issue for ${chain.name}`);
+
+    console.log(
+      `Title: 🪙 Add blue chip assets for ${chain.name} [${chainId}]`,
+    );
+    console.log(`
+Need to add blue chip assets for blockchain ${chain.name} to this integration library.
+
+We usually consider the following as such assets: 
+
+* top stables: USDC, USDT, DAI
+* wrapped native coin 
+* top crypto: bridged WBTC and WETH of available
+
+## Task list
+
+* [ ] add assets to \`stability.tokenlist.json\`
+* [ ] add addresses to \`assets.ts\`
+    `);
     console.log("-----------------------------------------------");
   }
 }
