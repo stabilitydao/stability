@@ -401,30 +401,19 @@ export const bridges: Bridge[] = [
     name: BridgeName.THUNDERCORE,
     dapp: "https://bridge.thundercore.com/",
     img: `chains/${chains["108"].img}`,
-    chains: [
-      ChainName.ETHEREUM,
-      ChainName.BSC,
-      ChainName.THUNDERCORE,
-    ],
+    chains: [ChainName.ETHEREUM, ChainName.BSC, ChainName.THUNDERCORE],
   },
   {
     name: BridgeName.BITTORRENT,
     dapp: "https://bttc.bittorrent.com/bridge/",
     img: `chains/${chains["199"].img}`,
-    chains: [
-      ChainName.BITTORRENT,
-      ChainName.BSC,
-      ChainName.ETHEREUM,
-    ],
+    chains: [ChainName.BITTORRENT, ChainName.BSC, ChainName.ETHEREUM],
   },
   {
     name: BridgeName.KROMA,
     dapp: "https://kcu.kroma.network/?dialog=bridgeTransfer",
     img: `chains/${chains["255"].img}`,
-    chains: [
-      ChainName.KROMA,
-      ChainName.ETHEREUM,
-    ],
+    chains: [ChainName.KROMA, ChainName.ETHEREUM],
   },
   {
     name: BridgeName.ROLLUX,
