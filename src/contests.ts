@@ -100,20 +100,25 @@ export const contests: { [contestId: string]: YieldContest } = {
         },
       },
     ],
+    img: "y2.png",
+    integration: {
+      intract: "6729f7115811e83272cd3613",
+    },
+    xpMultiplier: 20,
   },
   y3: {
     // 21 Nov 2024 - 04 Dec 2024
     name: "Yield Contest #3",
     start: 1732147200, // Thu, 21 Nov 2024 00:00:00 GMT
     end: 1733356799, // Wed, 04 Dec 2024 23:59:59 GMT
-    minEarn: 1,
+    minEarn: 0.2,
     rewards: [
       {
         type: RewardType.POINTS,
         winners: 100,
         winnerReward: 200,
       },
-      // 200 USDT
+      /*// 200 USDT
       {
         type: RewardType.ERC20,
         winners: 20,
@@ -122,7 +127,7 @@ export const contests: { [contestId: string]: YieldContest } = {
           chain: ChainName.POLYGON,
           address: "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
         },
-      },
+      },*/
       // VaultManager
       {
         type: RewardType.NFT,
@@ -145,7 +150,7 @@ export const contests: { [contestId: string]: YieldContest } = {
     name: "Yield Contest #4",
     start: 1733356800, // Thu, 05 Dec 2024 00:00:00 GMT
     end: 1734566399, // Wed, 18 Dec 2024 23:59:59 GMT
-    minEarn: 1,
+    minEarn: 0.5,
     rewards: [
       {
         type: RewardType.POINTS,
@@ -153,7 +158,7 @@ export const contests: { [contestId: string]: YieldContest } = {
         winnerReward: 200,
       },
       // 200 USDT
-      {
+      /*{
         type: RewardType.ERC20,
         winners: 20,
         winnerReward: 10,
@@ -161,7 +166,7 @@ export const contests: { [contestId: string]: YieldContest } = {
           chain: ChainName.POLYGON,
           address: "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
         },
-      },
+      },*/
       // StrategyLogic
       {
         type: RewardType.NFT,
