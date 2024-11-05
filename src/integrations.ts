@@ -130,8 +130,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.METIS,
           ChainName.SCROLL,
         ],
-        coreContracts: ["PriceReader"],
         adapters: ["ChainLinkAdapter"],
+        coreContracts: ["PriceReader"],
       },
       ccip: {
         name: "CCIP",
@@ -225,8 +225,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.KLAYTN,
           ChainName.AURORA,
         ],
-        coreContracts: ["Zap"],
         strategies: [StrategyShortId.AS1BLS],
+        coreContracts: ["Zap"],
       },
     },
     defiLlama: "1inch-network",
@@ -252,8 +252,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.CELO,
           ChainName.BLAST,
         ],
-        adapters: ["UniswapV3Adapter"],
         strategies: [StrategyShortId.CUMF, StrategyShortId.GUMF],
+        adapters: ["UniswapV3Adapter"],
       },
       uniswapV2: {
         name: "Uniswap V2",
@@ -403,8 +403,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         strategies: [StrategyShortId.BSMF],
       },
     },
-    github: "sushiswap",
     defiLlama: "sushi",
+    github: "sushiswap",
   },
   gyroscope: {
     name: "Gyroscope",
@@ -485,8 +485,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         strategies: [StrategyShortId.SL, StrategyShortId.SS],
       },
     },
-    github: "Pearl-Finance",
     defiLlama: "pearl-v2",
+    github: "Pearl-Finance",
   },
   // ALM
   gamma: {
@@ -713,8 +713,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         strategies: [StrategyShortId.BSMF],
       },
     },
-    github: "beefyfinance",
     defiLlama: "beefy",
+    github: "beefyfinance",
   },
   // Lending
   compound: {
@@ -876,8 +876,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         intermediaryStrategies: [StrategyShortId.Y],
       },
     },
-    github: "stargate-protocol",
     defiLlama: "stargate",
+    github: "stargate-protocol",
   },
   // Liquid staking
   lido: {
@@ -892,8 +892,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         strategies: [StrategyShortId.Y],
       },
     },
-    github: "lidofinance",
     defiLlama: "lido",
+    github: "lidofinance",
   },
   stader: {
     name: "Stader Labs",
@@ -912,8 +912,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         strategies: [StrategyShortId.AS1BLS],
       },
     },
-    github: "stader-labs",
     defiLlama: "stader",
+    github: "stader-labs",
   },
   dezswap: {
     name: "Dezswap",
@@ -927,8 +927,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         adapters: ["UniswapV3Adapter"],
       },
     },
-    github: "dezswap",
     defiLlama: "dezswap",
+    github: "dezswap",
   },
   clearpool: {
     name: "Clearpool",
@@ -951,8 +951,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         ],
       },
     },
-    github: "clearpool-finance",
     defiLlama: "clearpool",
+    github: "clearpool-finance",
   },
   mintswap: {
     name: "MintSwap",
@@ -966,8 +966,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         adapters: ["UniswapV3Adapter"],
       },
     },
-    github: "MintSwapFinance",
     defiLlama: "mintswap-finance",
+    github: "MintSwapFinance",
   },
   kiloex: {
     name: "KiloEx",
@@ -986,8 +986,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         //todo BSqared
       },
     },
-    github: "KiloExPerp",
     defiLlama: "kiloex",
+    github: "KiloExPerp",
   },
   dymension: {
     name: "Dymension DEX",
@@ -1000,8 +1000,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         chains: [ChainName.DYMENSION],
       },
     },
-    github: "dymensionxyz",
     defiLlama: "dymension-dex",
+    github: "dymensionxyz",
   },
   camelot: {
     name: "Camelot",
@@ -1016,8 +1016,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         adapters: ["UniswapV3Adapter"],
       },
     },
-    github: "camelotlabs",
     defiLlama: "camelot",
+    github: "camelotlabs",
   },
   bouncebit: {
     name: "BounceBit",
@@ -1040,8 +1040,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         chains: [ChainName.BOUNCEBIT, ChainName.BSC, ChainName.ETHEREUM],
       },
     },
-    github: "BounceBit-Labs",
     defiLlama: "bouncebit-cedefi",
+    github: "BounceBit-Labs",
   },
   cyberswap: {
     name: "CyberSwap",
@@ -1054,8 +1054,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         chains: [ChainName.CYBER],
       },
     },
-    github: "Cyberswap-DEX",
     defiLlama: "cyberswap",
+    github: "Cyberswap-DEX",
   },
   deepr: {
     name: "Deepr",
@@ -1069,8 +1069,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         //todo ShimmerEVM
       },
     },
-    github: "Deepr-Finance",
     defiLlama: "deepr-finance",
+    github: "Deepr-Finance",
   },
   nitron: {
     name: "Nitron",
@@ -1083,8 +1083,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         chains: [ChainName.CARBON],
       },
     },
-    github: "switcheo",
     defiLlama: "nitron",
+    github: "switcheo",
   },
   bidofinance: {
     name: "Bido Finance",
@@ -1097,8 +1097,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         chains: [ChainName.BEVM],
       },
     },
-    github: "Bidohub",
     defiLlama: "bido-finance",
+    github: "Bidohub",
   },
   zircuit: {
     name: "Zircuit",
@@ -1171,8 +1171,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         //todo Ultron, OntologyEVM, Meter, Cronos
       },
     },
-    github: "IzumiFinance",
     defiLlama: "iziswap",
+    github: "IzumiFinance",
   },
   desyn: {
     name: "DeSyn",
@@ -1190,8 +1190,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         ],
       },
     },
-    github: "Meta-DesynLab",
     defiLlama: "desyn-liquid-strategy",
+    github: "Meta-DesynLab",
   },
   cytoswap: {
     name: "Cytoswap",
@@ -1204,8 +1204,46 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         chains: [ChainName.HELA],
       },
     },
-    github: "Meta-DesynLab",
     defiLlama: "cytoswap",
+  },
+  dia: {
+    name: "DIA",
+    img: "Diadata.svg",
+    website: "https://www.diadata.org/",
+    protocols: {
+      diadata: {
+        name: "Dia Data",
+        category: DefiCategory.ORACLE,
+        chains: [
+          ChainName.ARBITRUM,
+          ChainName.AURORA,
+          ChainName.AVALANCHE,
+          ChainName.BASE,
+          ChainName.BEVM,
+          ChainName.CELO,
+          ChainName.ETHEREUM,
+          ChainName.EVMOS,
+          ChainName.FANTOM,
+          ChainName.FUSE,
+          ChainName.LINEA,
+          ChainName.METIS,
+          ChainName.MOONBEAM,
+          ChainName.MOONRIVER,
+          ChainName.ZKSYNC,
+          ChainName.TELOS,
+          ChainName.OPTIMISM,
+          ChainName.POLYGON,
+          ChainName.POLYGON_ZKEVM,
+          ChainName.GNOSIS,
+          ChainName.BSC,
+          ChainName.BOBA,
+          ChainName.ASTAR_ZKEVM,
+        ],
+        adapters: ["DiaAdapter"],
+      },
+    },
+    defiLlama: "dia",
+    github: "diadata-org",
   },
 };
 

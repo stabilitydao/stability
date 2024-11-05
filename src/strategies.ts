@@ -426,16 +426,22 @@ export const getStrategyProtocols = (
   shortId: StrategyShortId,
 ): DeFiProtocol[] => {
   const r: DeFiProtocol[] = [];
-  for (const orgSlug of Object.keys(integrations)) {
-    const org = integrations[orgSlug];
-    for (const protocolSlug of Object.keys(org.protocols)) {
-      const protocol = org.protocols[protocolSlug];
-      if (protocol.strategies?.includes(shortId)) {
-        protocol.organization = orgSlug;
-        r.push(protocol);
+
+  if (strategies[shortId]) {
+    for (const protocol of strategies[shortId].protocols) {
+      const orgName = protocol.split(":")[0];
+      const protocolName = protocol.split(":")[1];
+
+      if (
+        integrations[orgName] &&
+        integrations[orgName].protocols[protocolName]
+      ) {
+        const _protocol = integrations[orgName].protocols[protocolName];
+        r.push(_protocol);
       }
     }
   }
+
   return r;
 };
 
