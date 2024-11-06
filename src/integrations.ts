@@ -1,5 +1,5 @@
-import {strategies, StrategyShortId, StrategyState} from "./strategies";
-import {ChainName, chains, getSupportedChainNames} from "./chains";
+import { strategies, StrategyShortId, StrategyState } from "./strategies";
+import { ChainName, chains, getSupportedChainNames } from "./chains";
 
 export type DeFiOrganization = {
   name: string;
