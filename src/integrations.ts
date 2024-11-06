@@ -1,5 +1,5 @@
-import { strategies, StrategyShortId, StrategyState } from "./strategies";
-import { ChainName, chains, getSupportedChainNames } from "./chains";
+import {strategies, StrategyShortId, StrategyState} from "./strategies";
+import {ChainName, chains, getSupportedChainNames} from "./chains";
 
 export type DeFiOrganization = {
   name: string;
@@ -157,6 +157,45 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     },
     defiLlama: "chainlink",
     github: "smartcontractkit",
+  },
+  dia: {
+    name: "DIA",
+    img: "Diadata.svg",
+    website: "https://www.diadata.org/",
+    protocols: {
+      diadata: {
+        name: "Dia Data",
+        category: DefiCategory.ORACLE,
+        chains: [
+          ChainName.ARBITRUM,
+          ChainName.AURORA,
+          ChainName.AVALANCHE,
+          ChainName.BASE,
+          ChainName.BEVM,
+          ChainName.CELO,
+          ChainName.ETHEREUM,
+          ChainName.EVMOS,
+          ChainName.FANTOM,
+          ChainName.FUSE,
+          ChainName.LINEA,
+          ChainName.METIS,
+          ChainName.MOONBEAM,
+          ChainName.MOONRIVER,
+          ChainName.ZKSYNC,
+          ChainName.TELOS,
+          ChainName.OPTIMISM,
+          ChainName.POLYGON,
+          ChainName.POLYGON_ZKEVM,
+          ChainName.GNOSIS,
+          ChainName.BSC,
+          ChainName.BOBA,
+          ChainName.ASTAR_ZKEVM,
+        ],
+        adapters: ["DiaAdapter"],
+      },
+    },
+    defiLlama: "dia",
+    github: "diadata-org",
   },
   // Rewarding
   angle: {
@@ -766,6 +805,35 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     defiLlama: "aave",
     github: "aave",
   },
+  // leveraged lending
+  impermax: {
+    name: "Impermax",
+    img: "Impermax.svg",
+    website: "https://www.impermax.finance/",
+    protocols: {
+      impermax: {
+        name: "Impermax",
+        category: DefiCategory.LENDING,
+        chains: [
+          ChainName.ETHEREUM,
+          ChainName.BASE,
+          ChainName.OPTIMISM,
+          ChainName.POLYGON,
+          ChainName.ARBITRUM,
+          ChainName.AVALANCHE,
+          ChainName.SCROLL,
+          ChainName.FANTOM,
+          ChainName.MOONRIVER,
+          ChainName.ZKSYNC,
+          ChainName.MANTLE,
+          ChainName.REAL,
+          // canto
+        ],
+      },
+    },
+    defiLlama: "impermax-finance",
+    github: "Impermax-Finance",
+  },
   // Boost aggregator
   convex: {
     name: "Convex",
@@ -1205,45 +1273,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       },
     },
     defiLlama: "cytoswap",
-  },
-  dia: {
-    name: "DIA",
-    img: "Diadata.svg",
-    website: "https://www.diadata.org/",
-    protocols: {
-      diadata: {
-        name: "Dia Data",
-        category: DefiCategory.ORACLE,
-        chains: [
-          ChainName.ARBITRUM,
-          ChainName.AURORA,
-          ChainName.AVALANCHE,
-          ChainName.BASE,
-          ChainName.BEVM,
-          ChainName.CELO,
-          ChainName.ETHEREUM,
-          ChainName.EVMOS,
-          ChainName.FANTOM,
-          ChainName.FUSE,
-          ChainName.LINEA,
-          ChainName.METIS,
-          ChainName.MOONBEAM,
-          ChainName.MOONRIVER,
-          ChainName.ZKSYNC,
-          ChainName.TELOS,
-          ChainName.OPTIMISM,
-          ChainName.POLYGON,
-          ChainName.POLYGON_ZKEVM,
-          ChainName.GNOSIS,
-          ChainName.BSC,
-          ChainName.BOBA,
-          ChainName.ASTAR_ZKEVM,
-        ],
-        adapters: ["DiaAdapter"],
-      },
-    },
-    defiLlama: "dia",
-    github: "diadata-org",
   },
 };
 
