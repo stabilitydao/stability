@@ -40,6 +40,8 @@ export const enum StrategyShortId {
   IPF = "IPF",
   SL = "SL",
   SS = "SS",
+  PF = "PF",
+  IPLF = "IPLF",
 }
 
 export enum StrategyState {
@@ -346,7 +348,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     baseStrategies: [BaseStrategy.LEVERAGED_LENDING],
     protocols: [`pearl:stack`],
     description:
-      "Manage leveraged Stack CDP position with yield-bearing collateral asset. Use Swapper.",
+      "Manage leveraged Stack CDP position with yield-bearing collateral asset..",
   },
   [StrategyShortId.SS]: {
     id: "Stack Staking",
@@ -358,6 +360,34 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     baseStrategies: [],
     protocols: [`pearl:stack`],
     description: "Stake $MORE on Stack",
+  },
+  [StrategyShortId.PF]: {
+    id: "Pearl Farm",
+    shortId: StrategyShortId.PF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 180,
+    color: "#274BC4",
+    bgColor: "#0e1c48",
+    ammAdapter: "Solidly",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
+    protocols: [`pearl:pearlV2`],
+    description: "Earn Pearl LP rewards on stable and volatile AMMs",
+  },
+  [StrategyShortId.IPLF]: {
+    id: "Impermax Pearl Leverage Farm",
+    shortId: StrategyShortId.IPLF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 181,
+    color: "#19A29B",
+    bgColor: "#000000",
+    ammAdapter: "Solidly",
+    baseStrategies: [
+      BaseStrategy.LEVERAGED_LENDING,
+      BaseStrategy.LP,
+      BaseStrategy.FARMING,
+    ],
+    protocols: [`impermax:impermax`, `pearl:pearlV2`],
+    description: "Earn IBEX by leveraged lending position of Pearl LP",
   },
 };
 
@@ -437,6 +467,7 @@ export const getStrategyProtocols = (
         integrations[orgName].protocols[protocolName]
       ) {
         const _protocol = integrations[orgName].protocols[protocolName];
+        _protocol.organization = orgName;
         r.push(_protocol);
       }
     }
