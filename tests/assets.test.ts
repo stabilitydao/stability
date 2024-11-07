@@ -22,12 +22,6 @@ describe("testing assets", () => {
           (token) => token.address.toLowerCase() === address.toLowerCase(),
         );
 
-        if (!matchingToken) {
-          console.log(`Missing token for address: ${address}`);
-          throw new Error(
-            `Token with address ${address} is missing in tokenlist.`,
-          );
-        }
         expect(matchingToken).toBeDefined();
       }
     }
@@ -62,15 +56,6 @@ describe("testing assets", () => {
         if (addressFound) {
           break;
         }
-      }
-
-      if (!addressFound) {
-        console.log(
-          `Missing token address: ${token.address} for token: ${token.symbol}`,
-        );
-        throw new Error(
-          `Token address ${token.address} for ${token.symbol} is missing in assets.`,
-        );
       }
 
       expect(addressFound).toBe(true);
