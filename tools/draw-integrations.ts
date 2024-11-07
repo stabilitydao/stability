@@ -43,7 +43,7 @@ async function main() {
     const p = `${tmpDir}/${organization.img}`;
     if (!fs.existsSync(p)) {
       await downloadFile(
-        `https://raw.githubusercontent.com/stabilitydao/.github/renzo-dev/assets/${organization.img}`,
+        `https://raw.githubusercontent.com/stabilitydao/.github/main/assets/${organization.img}`,
         p,
       );
     }
