@@ -17,9 +17,10 @@ export const enum BridgeName {
   BITTORRENT = "BitTorrent Bridge",
   KROMA = "Kroma Bridge",
   ROLLUX = "Rollux Bridge",
-  //todo WEMIX = "Block Producer Network(BPN)", | Native bridge suspended/maintenance? wemix classic/multichain bridge?
-  //todo HEDERA = "??", | No native bridge
-  //todo DOGECHAIN = "Dogechain Bridge", | Native bridge only support transf of doge from dogecoin chain -> dogechain chain
+  //todo
+  // WEMIX = "Block Producer Network(BPN)", | Native bridge suspended/maintenance? wemix classic/multichain bridge?
+  // HEDERA = "??", | No native bridge
+  // DOGECHAIN = "Dogechain Bridge", | Native bridge only support transf of doge from dogecoin chain -> dogechain chain
 
   // official, native multi
   SUPERBRIDGE = "Superbridge",
