@@ -6,7 +6,7 @@ export type DeFiOrganization = {
   img: string;
   website: string;
   protocols: { [protocolId: string]: DeFiProtocol };
-  defiLlama: string;
+  defiLlama?: string;
   github?: string;
 };
 
@@ -194,7 +194,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         adapters: ["DiaAdapter"],
       },
     },
-    defiLlama: "dia",
     github: "diadata-org",
   },
   // Rewarding
