@@ -228,6 +228,16 @@ export const assets: Asset[] = [
     website: "https://www.optimism.io/",
     color: "#ff0000",
   },
+  {
+    addresses: {
+      "56": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+    },
+    symbol: "WBNB",
+    description:
+      "WBNB is an ERC-20 token that allows BNB to be used in Ethereum-compatible applications, such as smart contracts and DeFi platforms. wBNB enables interoperability between BNB and other ERC-20 supported networks.",
+    website: "https://www.bnbchain.org/",
+    color: "#ffea00",
+  },
 ];
 
 export const getAsset = (
