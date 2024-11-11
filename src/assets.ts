@@ -142,7 +142,7 @@ export const assets: Asset[] = [
     addresses: {
       "137": "0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD",
       "8453": "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452",
-      "534352": "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452",
+      "534352": "0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32",
     },
     symbol: "wstETH",
     description: "wstETH is a wrapped version of stETH.",
