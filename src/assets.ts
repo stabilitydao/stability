@@ -27,6 +27,7 @@ export const assets: Asset[] = [
       "42420": "0x2B7C1342Cc64add10B2a79C8f9767d2667DE64B2",
       "43114": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
       "111188": "0xc518A88c67CECA8B3f24c4562CB71deeB2AF86B7",
+      "534352": "0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4",
     },
     symbol: "USDC",
     description:
@@ -44,6 +45,7 @@ export const assets: Asset[] = [
       "42161": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
       "42420": "0x26E490d30e73c36800788DC6d6315946C4BbEa24",
       "43114": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
+      "534352": "0xf55BEC9cafDbE8730f096Aa55dad6D22d44099Df",
     },
     symbol: "USDT",
     description:
@@ -61,6 +63,7 @@ export const assets: Asset[] = [
       "42161": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
       "43114": "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
       "111188": "0x75d0cBF342060b14c2fC756fd6E717dFeb5B1B70",
+      "534352": "0xcA77eB3fEFe3725Dc33bccB54eDEFc3D9f764f97",
     },
     symbol: "DAI",
     description:
@@ -88,6 +91,8 @@ export const assets: Asset[] = [
       "42161": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
       "42420": "0xbe231A8492487aAe6096278A97050FAe6B9d5BEc",
       "43114": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
+      "81457": "0x4300000000000000000000000000000000000004",
+      "534352": "0x5300000000000000000000000000000000000004",
     },
     symbol: "WETH",
     description: "WETH is an ERC-20 token that represents 1 Ether (ETH)",
@@ -103,6 +108,8 @@ export const assets: Asset[] = [
       "42161": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
       "42420": "0xDBDc8c7B96286899aB624F6a59dd0250DD4Ce9bC",
       "43114": "0x152b9d0FdC40C096757F570A51E494bd4b943E50",
+      "81457": "0xF7bc58b8D8f97ADC129cfC4c9f45Ce3C0E1D2692",
+      "534352": "0x3C1BCa5a656e69edCD0D4E36BEbb3FcDAcA60Cf1",
     },
     symbol: "WBTC",
     description:
@@ -135,6 +142,7 @@ export const assets: Asset[] = [
     addresses: {
       "137": "0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD",
       "8453": "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452",
+      "534352": "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452",
     },
     symbol: "wstETH",
     description: "wstETH is a wrapped version of stETH.",
@@ -257,6 +265,36 @@ export const assets: Asset[] = [
       "It is an ERC-20 token used for compatibility with decentralized finance (DeFi) platforms that require ERC-20 tokens. wAVAX allows AVAX to be used across multiple networks, enabling interoperability and broader DeFi participation.",
     website: "https://www.avax.network/",
     color: "#ff0026",
+  },
+  {
+    addresses: {
+      "81457": "0xb1a5700fA2358173Fe465e6eA4Ff52E36e88E2ad",
+    },
+    symbol: "BLAST",
+    description:
+      "Native token of Blast. It's mainly used for paying transaction fees, participating in network governance, staking to secure the network or earn rewards, and interacting with decentralized applications (dApps) on the Blast network.",
+    website: "https://blast.io/es",
+    color: "#FCFC03",
+  },
+  {
+    addresses: {
+      "81457": "0x4300000000000000000000000000000000000003",
+    },
+    symbol: "USDB",
+    description:
+      "USDB is a stablecoin pegged to the value of the US dollar, issued within the Blast ecosystem.",
+    website: "https://blast.io/es",
+    color: "#FCFC03",
+  },
+  {
+    addresses: {
+      "534352": "0xd29687c813D741E2F938F4aC377128810E217b1b",
+    },
+    symbol: "SCR",
+    description:
+      "It's the native token of the Scroll network, a Layer-2 solution for Ethereum based on zk-rollups. It is used for transaction fees, network governance, and staking to secure the network.",
+    website: "https://scroll.io/",
+    color: "#c8a981",
   },
 ];
 
