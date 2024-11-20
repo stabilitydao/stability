@@ -329,7 +329,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.IPF]: {
     id: "Ichi Pearl Farm",
     shortId: StrategyShortId.IPF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.DEVELOPMENT,
     contractGithubId: 174,
     color: "#599bff",
     bgColor: "#004e67",
