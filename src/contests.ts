@@ -144,6 +144,7 @@ export const contests: { [contestId: string]: YieldContest } = {
         },
       },*/
     ],
+    img: "y3.png",
   },
   y4: {
     // 05 Dec 2024 - 18 Dec 2024
