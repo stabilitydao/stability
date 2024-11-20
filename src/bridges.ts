@@ -13,6 +13,14 @@ export const enum BridgeName {
   STARGATE = "Stargate",
   SATELLITE = "Satellite",
   ORBITER = "Orbiter",
+  THUNDERCORE = "ThunderCore Bridge",
+  BITTORRENT = "BitTorrent Bridge",
+  KROMA = "Kroma Bridge",
+  ROLLUX = "Rollux Bridge",
+  //todo
+  // WEMIX = "Block Producer Network(BPN)", | Native bridge suspended/maintenance? wemix classic/multichain bridge?
+  // HEDERA = "??", | No native bridge
+  // DOGECHAIN = "Dogechain Bridge", | Native bridge only support transf of doge from dogecoin chain -> dogechain chain
 
   // official, native multi
   SUPERBRIDGE = "Superbridge",
@@ -388,6 +396,35 @@ export const bridges: Bridge[] = [
       ChainName.BSC,
       ChainName.POLYGON,
       ChainName.HELA,
+    ],
+  },
+  {
+    name: BridgeName.THUNDERCORE,
+    dapp: "https://bridge.thundercore.com/",
+    img: `chains/${chains["108"].img}`,
+    chains: [ChainName.ETHEREUM, ChainName.BSC, ChainName.THUNDERCORE],
+  },
+  {
+    name: BridgeName.BITTORRENT,
+    dapp: "https://bttc.bittorrent.com/bridge/",
+    img: `chains/${chains["199"].img}`,
+    chains: [ChainName.BITTORRENT, ChainName.BSC, ChainName.ETHEREUM],
+  },
+  {
+    name: BridgeName.KROMA,
+    dapp: "https://kcu.kroma.network/?dialog=bridgeTransfer",
+    img: `chains/${chains["255"].img}`,
+    chains: [ChainName.KROMA, ChainName.ETHEREUM],
+  },
+  {
+    name: BridgeName.ROLLUX,
+    dapp: "https://bridge.rollux.com/",
+    img: `chains/${chains["570"].img}`,
+    chains: [
+      ChainName.ROLLUX,
+      ChainName.ETHEREUM,
+      ChainName.BSC,
+      ChainName.POLYGON,
     ],
   },
 ];

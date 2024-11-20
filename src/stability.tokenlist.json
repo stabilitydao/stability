@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2024-11-03T18:30:00+00:00",
+  "timestamp": "2024-11-10T23:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 5,
+    "minor": 6,
     "patch": 0
   },
   "tags": {
@@ -70,6 +70,114 @@
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/eth.jpg",
       "tags": ["wNative"]
+    },
+    {
+      "chainId": 10,
+      "address": "0x4200000000000000000000000000000000000042",
+      "symbol": "OP",
+      "name": "Optimism",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/chains/optimism.svg",
+      "tags": ["wNative"]
+    },
+    {
+      "chainId": 10,
+      "address": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdc.jpg",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 10,
+      "address": "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58",
+      "symbol": "USDT",
+      "name": "Tether USD",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdt.jpg",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 10,
+      "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+      "symbol": "DAI",
+      "name": "Dai Stablecoin",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/dai.jpg",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 10,
+      "address": "0x4200000000000000000000000000000000000006",
+      "symbol": "WETH",
+      "name": "Wrapped Ether",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/eth.jpg",
+      "tags": ["bridged"]
+    },
+    {
+      "chainId": 10,
+      "address": "0x68f180fcCe6836688e9084f035309E29Bf0A2095",
+      "symbol": "WBTC",
+      "name": "Wrapped BTC",
+      "decimals": 8,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/btc.jpg",
+      "tags": ["bridged"]
+    },
+    {
+      "chainId": 56,
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "symbol": "WBNB",
+      "name": "Wrapped BNB",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/chains/bsc.svg",
+      "tags": ["wNative"]
+    },
+    {
+      "chainId": 56,
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdc.jpg",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 56,
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "symbol": "USDT",
+      "name": "Tether USD",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdt.jpg",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 56,
+      "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+      "symbol": "DAI",
+      "name": "Dai Token",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/dai.jpg",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 56,
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "symbol": "ETH",
+      "name": "Ethereum Token",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/eth.jpg",
+      "tags": ["bridged"]
+    },
+    {
+      "chainId": 56,
+      "address": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
+      "symbol": "WBTC",
+      "name": "Wrapped BTC",
+      "decimals": 8,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/btc.jpg",
+      "tags": ["bridged"]
     },
     {
       "chainId": 137,
@@ -169,6 +277,78 @@
       "tags": ["bridged"]
     },
     {
+      "chainId": 8453,
+      "address": "0x4200000000000000000000000000000000000006",
+      "symbol": "WETH",
+      "name": "Wrapped Ether",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/eth.jpg",
+      "tags": ["wNative"]
+    },
+    {
+      "chainId": 8453,
+      "address": "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452",
+      "symbol": "wstETH",
+      "name": "Wrapped liquid staked Ether 2.0",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/wsteth.jpg",
+      "tags": ["lst", "bridged"]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+      "symbol": "cbETH",
+      "name": "Coinbase Wrapped Staked ETH",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/network/ethereum/0xBe9895146f7AF43049ca1c1AE358B0541Ea49704.jpg",
+      "tags": ["lst"]
+    },
+    {
+      "chainId": 8453,
+      "address": "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2",
+      "symbol": "USDT",
+      "name": "Tether USD",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdt.jpg",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdc.jpg",
+      "tags": ["stablecoin"]
+    },
+    {
+      "chainId": 8453,
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "symbol": "USDbC",
+      "name": "USD Base Coin",
+      "decimals": 6,
+      "logoURI": "https://basescan.org/token/images/usdbc_ofc_32.png",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x417Ac0e078398C154EdFadD9Ef675d30Be60Af93",
+      "symbol": "crvUSD",
+      "name": "Curve.Fi USD Stablecoin",
+      "decimals": 18,
+      "logoURI": "https://polygonscan.com/token/images/crvusd_32.png",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 8453,
+      "address": "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+      "symbol": "DAI",
+      "name": "Dai Stablecoin",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/dai.jpg",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
       "chainId": 42161,
       "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
       "symbol": "USDC",
@@ -259,76 +439,95 @@
       "tags": ["bridged"]
     },
     {
-      "chainId": 8453,
-      "address": "0x4200000000000000000000000000000000000006",
-      "symbol": "WETH",
-      "name": "Wrapped Ether",
+      "chainId": 43114,
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "symbol": "WAVAX",
+      "name": "Wrapped AVAX",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/eth.jpg",
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/chains/avalanche.png",
       "tags": ["wNative"]
     },
     {
-      "chainId": 8453,
-      "address": "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452",
-      "symbol": "wstETH",
-      "name": "Wrapped liquid staked Ether 2.0",
-      "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/wsteth.jpg",
-      "tags": ["lst", "bridged"]
+      "chainId": 43114,
+      "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdc.jpg",
+      "tags": ["stablecoin", "bridged"]
     },
     {
-      "chainId": 8453,
-      "address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
-      "symbol": "cbETH",
-      "name": "Coinbase Wrapped Staked ETH",
-      "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/network/ethereum/0xBe9895146f7AF43049ca1c1AE358B0541Ea49704.jpg",
-      "tags": ["lst"]
-    },
-    {
-      "chainId": 8453,
-      "address": "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2",
-      "symbol": "USDT",
-      "name": "Tether USD",
+      "chainId": 43114,
+      "address": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
+      "symbol": "USDt",
+      "name": "TetherToken",
       "decimals": 6,
       "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdt.jpg",
       "tags": ["stablecoin", "bridged"]
     },
     {
-      "chainId": 8453,
-      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-      "symbol": "USDC",
-      "name": "USD Coin",
-      "decimals": 6,
-      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdc.jpg",
-      "tags": ["stablecoin"]
-    },
-    {
-      "chainId": 8453,
-      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
-      "symbol": "USDbC",
-      "name": "USD Base Coin",
-      "decimals": 6,
-      "logoURI": "https://basescan.org/token/images/usdbc_ofc_32.png",
-      "tags": ["stablecoin", "bridged"]
-    },
-    {
-      "chainId": 8453,
-      "address": "0x417Ac0e078398C154EdFadD9Ef675d30Be60Af93",
-      "symbol": "crvUSD",
-      "name": "Curve.Fi USD Stablecoin",
-      "decimals": 18,
-      "logoURI": "https://polygonscan.com/token/images/crvusd_32.png",
-      "tags": ["stablecoin", "bridged"]
-    },
-    {
-      "chainId": 8453,
-      "address": "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
-      "symbol": "DAI",
+      "chainId": 43114,
+      "address": "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
+      "symbol": "DAI.e",
       "name": "Dai Stablecoin",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/dai.jpg",
       "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 43114,
+      "address": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
+      "symbol": "WETH.e",
+      "name": "Wrapped Ether",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/eth.jpg",
+      "tags": ["bridged"]
+    },
+    {
+      "chainId": 43114,
+      "address": "0x152b9d0FdC40C096757F570A51E494bd4b943E50",
+      "symbol": "BTC.b",
+      "name": "Bitcoin",
+      "decimals": 8,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/btc.jpg",
+      "tags": ["bridged"]
+    },
+
+    {
+      "chainId": 81457,
+      "address": "0xb1a5700fA2358173Fe465e6eA4Ff52E36e88E2ad",
+      "symbol": "BLAST",
+      "name": "Blast",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/chains/blast.png",
+      "tags": ["wNative"]
+    },
+    {
+      "chainId": 81457,
+      "address": "0x4300000000000000000000000000000000000003",
+      "symbol": "USDB",
+      "name": "USDB",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/5eddba5bb84aace6806db5b07170c04d9af892f3/assets/Blast.svg",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 81457,
+      "address": "0x4300000000000000000000000000000000000004",
+      "symbol": "WETH",
+      "name": "Wrapped Ether",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/eth.jpg",
+      "tags": ["bridged"]
+    },
+    {
+      "chainId": 81457,
+      "address": "0xF7bc58b8D8f97ADC129cfC4c9f45Ce3C0E1D2692",
+      "symbol": "WBTC",
+      "name": "Wrapped BTC",
+      "decimals": 8,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/btc.jpg",
+      "tags": ["bridged"]
     },
     {
       "chainId": 111188,
@@ -423,6 +622,69 @@
       "decimals": 6,
       "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdc.jpg",
       "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 534352,
+      "address": "0xd29687c813D741E2F938F4aC377128810E217b1b",
+      "symbol": "SCR",
+      "name": "Scroll",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/chains/scroll.svg",
+      "tags": ["wNative"]
+    },
+    {
+      "chainId": 534352,
+      "address": "0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4",
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdc.jpg",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 534352,
+      "address": "0xf55BEC9cafDbE8730f096Aa55dad6D22d44099Df",
+      "symbol": "USDT",
+      "name": "Tether USD",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdt.jpg",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 534352,
+      "address": "0xcA77eB3fEFe3725Dc33bccB54eDEFc3D9f764f97",
+      "symbol": "DAI",
+      "name": "Dai Stablecoin",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/dai.jpg",
+      "tags": ["stablecoin", "bridged"]
+    },
+    {
+      "chainId": 534352,
+      "address": "0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32",
+      "symbol": "wstETH",
+      "name": "Wrapped liquid staked Ether 2.0 (PoS)",
+      "decimals": 18,
+      "logoURI": "https://polygonscan.com/token/images/wsteth_32.png",
+      "tags": ["bridged"]
+    },
+    {
+      "chainId": 534352,
+      "address": "0x5300000000000000000000000000000000000004",
+      "symbol": "WETH",
+      "name": "Wrapped Ether",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/eth.jpg",
+      "tags": ["bridged"]
+    },
+    {
+      "chainId": 534352,
+      "address": "0x3C1BCa5a656e69edCD0D4E36BEbb3FcDAcA60Cf1",
+      "symbol": "WBTC",
+      "name": "Wrapped BTC",
+      "decimals": 8,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/btc.jpg",
+      "tags": ["bridged"]
     }
   ]
 }

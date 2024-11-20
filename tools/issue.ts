@@ -12,7 +12,7 @@ import {
   strategyStateDescription,
 } from "../src";
 
-console.log("== Issue helper ==");
+console.log("== Issue generator ==");
 console.log("");
 
 // strategy issue for stability-contracts repo
@@ -97,13 +97,19 @@ for (const chainId in chains) {
     Object.keys(asset.addresses).includes(chainId),
   );
   if (chainAssets.length === 0 && chain.status !== ChainStatus.NOT_SUPPORTED) {
+    const img = `https://raw.githubusercontent.com/stabilitydao/.github/main/chains/${chain.img}`;
+
     console.log(`------------------ Assets issue for ${chain.name}`);
 
     console.log(
       `Title: 🪙 Add blue chip assets for ${chain.name} [${chainId}]`,
     );
     console.log(`
-Need to add blue chip assets for blockchain ${chain.name} to this integration library.
+Need to add blue chip assets for the ${chain.name} blockchain to this integration library.
+
+<div>
+<img align="right" src="${img}" width="80px" height="80px" />
+</div>
 
 We usually consider the following as such assets: 
 
@@ -114,7 +120,7 @@ We usually consider the following as such assets:
 ## Task list
 
 * [ ] add assets to \`stability.tokenlist.json\`
-* [ ] add addresses to \`assets.ts\`
+* [ ] add addresses and info (if necessary) to \`assets.ts\`
     `);
     console.log("-----------------------------------------------");
   }
