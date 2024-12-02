@@ -1099,6 +1099,33 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     },
     defiLlama: "avalon-finance",
   },
+  silo: {
+    name: "Silo",
+    img: "silo.png",
+    website: "https://www.silo.finance",
+    protocols: {
+      siloV1: {
+        name: "Silo V1",
+        category: DefiCategory.LENDING,
+        chains: [
+          ChainName.ARBITRUM,
+          ChainName.OPTIMISM,
+          ChainName.ETHEREUM,
+          // sonic?
+        ],
+      },
+      siloV2: {
+        name: "Silo V2",
+        category: DefiCategory.LENDING,
+        chains: [
+          ChainName.ARBITRUM,
+          // sonic?
+        ],
+      },
+    },
+    defiLlama: "silo-finance",
+    github: "silo-finance",
+  },
   // leveraged lending
   impermax: {
     name: "Impermax",
