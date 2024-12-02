@@ -753,6 +753,24 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     defiLlama: "wigoswap",
     github: "wigoswap",
   },
+  gravity: {
+    name: "Gravity",
+    img: "gravity.png",
+    website: "https://gravityfinance.io",
+    protocols: {
+      gravity: {
+        name: "Gravity",
+        category: DefiCategory.AMM,
+        chains: [
+          ChainName.POLYGON,
+          ChainName.POLYGON_ZKEVM,
+          // sonic
+        ],
+      },
+    },
+    defiLlama: "gravity-finance",
+    github: "inthenextversion",
+  },
   // ALM
   gamma: {
     name: "Gamma",
@@ -1195,7 +1213,12 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       yearnV3: {
         name: "Yearn V3",
         category: DefiCategory.ERC4626,
-        chains: [ChainName.ETHEREUM, ChainName.ARBITRUM, ChainName.POLYGON],
+        chains: [
+          ChainName.ETHEREUM,
+          ChainName.ARBITRUM,
+          ChainName.POLYGON,
+          // sonic
+        ],
         strategies: [StrategyShortId.Y],
       },
     },
