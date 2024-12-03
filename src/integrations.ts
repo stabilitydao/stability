@@ -771,6 +771,21 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     defiLlama: "gravity-finance",
     github: "inthenextversion",
   },
+  shadow: {
+    name: "Shadow",
+    img: "shadow.png",
+    website: "https://www.shadowdex.fi/",
+    protocols: {
+      shadow: {
+        name: "Shadow Exchange",
+        category: DefiCategory.AMM,
+        chains: [
+          // sonic
+        ],
+        adapters: ["UniswapV3Adapter"],
+      },
+    },
+  },
   // ALM
   gamma: {
     name: "Gamma",
