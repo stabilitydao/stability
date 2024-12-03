@@ -786,6 +786,23 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       },
     },
   },
+  swapx: {
+    name: "SwapX",
+    img: "swapx.png",
+    website: "https://swapx.fi/",
+    protocols: {
+      swapx: {
+        name: "SwapX",
+        category: DefiCategory.AMM,
+        chains: [
+          // sonic
+        ],
+        adapters: [
+          // "AlgebraAdapter", ?
+        ],
+      },
+    },
+  },
   // ALM
   gamma: {
     name: "Gamma",
