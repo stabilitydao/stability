@@ -755,7 +755,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   gravity: {
     name: "Gravity",
-    img: "gravity.png",
+    img: "gravityfinance.png",
     website: "https://gravityfinance.io",
     protocols: {
       gravity: {
@@ -1143,6 +1143,20 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     },
     defiLlama: "silo-finance",
     github: "silo-finance",
+  },
+  vicuna: {
+    name: "Vicuna",
+    website: "https://vicunafinance.com/",
+    img: "vicuna.png",
+    protocols: {
+      vicuna: {
+        name: "Vicuna",
+        category: DefiCategory.LENDING,
+        chains: [
+          // sonic
+        ],
+      }
+    },
   },
   // leveraged lending
   impermax: {
