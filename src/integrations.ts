@@ -604,7 +604,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Dymension DEX",
         category: DefiCategory.AMM,
         chains: [
-          ChainName.DYMENSION
+          ChainName.DYMENSION,
           // mande
           // nim
         ],
@@ -1187,7 +1187,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         chains: [
           // sonic
         ],
-      }
+      },
     },
   },
   // leveraged lending
