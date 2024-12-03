@@ -830,6 +830,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.GNOSIS,
           ChainName.METIS,
           ChainName.BLAST,
+          // sonic
         ],
         strategies: [StrategyShortId.GQMF, StrategyShortId.GRMF],
       },
@@ -1141,6 +1142,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.MODE,
           ChainName.TAIKO,
           ChainName.ZETA,
+          // sonic
           // b^2
           // iotex
           // kaia
@@ -1218,6 +1220,21 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     },
     defiLlama: "impermax-finance",
     github: "Impermax-Finance",
+  },
+  mach: {
+    name: "Mach Finance",
+    website: "https://www.machfi.xyz/",
+    img: "mach.png",
+    protocols: {
+      mach: {
+        name: "Mach Finance",
+        category: DefiCategory.LENDING,
+        chains: [
+          // sonic
+        ],
+      },
+    },
+    github: "Mach-Finance",
   },
   // Boost aggregator
   convex: {
