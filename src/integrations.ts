@@ -836,9 +836,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       ramses: {
         name: "Ramses Exchange",
         category: DefiCategory.AMM,
-        chains: [
-          ChainName.ARBITRUM,
-        ],
+        chains: [ChainName.ARBITRUM],
       },
     },
     github: "RamsesExchange",
