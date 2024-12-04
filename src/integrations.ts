@@ -835,6 +835,20 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     },
     defiLlama: "equalizer",
   },
+  metropolis: {
+    name: "Metropolis",
+    website: "https://metropolis.exchange",
+    img: "metropolis.png",
+    protocols: {
+      metropolis: {
+        name: "Metropolis",
+        category: DefiCategory.AMM,
+        chains: [
+          // sonic
+        ],
+      },
+    },
+  },
   // ALM
   gamma: {
     name: "Gamma",
