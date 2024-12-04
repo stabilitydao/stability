@@ -828,6 +828,20 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       },
     },
   },
+  ramses: {
+    name: "Ramses",
+    website: "https://www.ramses.exchange",
+    img: "ramses.png",
+    protocols: {
+      ramses: {
+        name: "Ramses Exchange",
+        category: DefiCategory.AMM,
+        chains: [ChainName.ARBITRUM],
+      },
+    },
+    github: "RamsesExchange",
+    defiLlama: "ramses-exchange",
+  },
   // ALM
   gamma: {
     name: "Gamma",
