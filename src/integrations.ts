@@ -129,6 +129,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.ZKSYNC,
           ChainName.METIS,
           ChainName.SCROLL,
+          ChainName.SONIC,
         ],
         adapters: ["ChainLinkAdapter"],
         coreContracts: ["PriceReader"],
@@ -406,6 +407,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.OPTIMISM,
           ChainName.X_LAYER,
           ChainName.FRAXTAL,
+          ChainName.SONIC,
         ],
         strategies: [StrategyShortId.CCF],
         adapters: ["CurveAdapter"],
@@ -724,7 +726,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         chains: [
           ChainName.FANTOM,
           ChainName.OPTIMISM,
-          // SONIC
+          ChainName.SONIC,
         ],
         adapters: [
           // stable pools
@@ -745,7 +747,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         category: DefiCategory.AMM,
         chains: [
           ChainName.FANTOM,
-          // SONIC
+          ChainName.SONIC,
         ],
         adapters: ["UniswapV3Adapter"],
       },
@@ -764,7 +766,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         chains: [
           ChainName.POLYGON,
           ChainName.POLYGON_ZKEVM,
-          // sonic
+          ChainName.SONIC,
         ],
       },
     },
@@ -780,7 +782,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Shadow Exchange",
         category: DefiCategory.AMM,
         chains: [
-          // sonic
+          ChainName.SONIC,
         ],
         adapters: ["UniswapV3Adapter"],
       },
@@ -795,7 +797,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "SwapX",
         category: DefiCategory.AMM,
         chains: [
-          // sonic
+          ChainName.SONIC,
         ],
         adapters: [
           // "AlgebraAdapter", ?
@@ -812,7 +814,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "SuperSonic",
         category: DefiCategory.AMM,
         chains: [
-          // sonic
+          ChainName.SONIC,
         ],
       },
     },
@@ -828,7 +830,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         chains: [
           ChainName.FANTOM,
           ChainName.BASE,
-          // sonic
+          ChainName.SONIC,
         ],
         adapters: ["UniswapV3Adapter"],
       },
@@ -844,7 +846,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Metropolis",
         category: DefiCategory.AMM,
         chains: [
-          // sonic
+          ChainName.SONIC,
         ],
       },
     },
@@ -876,7 +878,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.GNOSIS,
           ChainName.METIS,
           ChainName.BLAST,
-          // sonic
+          ChainName.SONIC,
         ],
         strategies: [StrategyShortId.GQMF, StrategyShortId.GRMF],
       },
@@ -927,6 +929,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.CELO,
           ChainName.SKALE_EUROPA,
           ChainName.REAL,
+          ChainName.SONIC,
         ],
         strategies: [
           StrategyShortId.IQMF,
@@ -968,6 +971,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.EVMOS,
           ChainName.MODE,
           ChainName.TELOS,
+          ChainName.SONIC,
         ],
         strategies: [StrategyShortId.SQMF],
       },
@@ -1188,7 +1192,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.MODE,
           ChainName.TAIKO,
           ChainName.ZETA,
-          // sonic
+          ChainName.SONIC,
           // b^2
           // iotex
           // kaia
@@ -1209,7 +1213,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.ARBITRUM,
           ChainName.OPTIMISM,
           ChainName.ETHEREUM,
-          // sonic?
+          ChainName.SONIC,
         ],
       },
       siloV2: {
@@ -1233,7 +1237,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Vicuna",
         category: DefiCategory.LENDING,
         chains: [
-          // sonic
+          ChainName.SONIC,
         ],
       },
     },
@@ -1262,7 +1266,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Lever",
         category: DefiCategory.LENDING,
         chains: [
-          // sonic
+          ChainName.SONIC,
         ],
       },
     },
@@ -1307,7 +1311,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Mach Finance",
         category: DefiCategory.LENDING,
         chains: [
-          // sonic
+          ChainName.SONIC,
         ],
       },
     },
@@ -1357,7 +1361,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.ETHEREUM,
           ChainName.ARBITRUM,
           ChainName.POLYGON,
-          // sonic
+          ChainName.SONIC,
         ],
         strategies: [StrategyShortId.Y],
       },

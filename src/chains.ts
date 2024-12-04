@@ -96,6 +96,7 @@ export const enum ChainName {
   DYMENSION = "Dymension",
   HELA = "Hela",
   ASSET_CHAIN = "Asset Chain",
+  SONIC = "Sonic",
 }
 
 export const chains: { [chainId: string]: Chain } = {
@@ -169,6 +170,12 @@ export const chains: { [chainId: string]: Chain } = {
     status: ChainStatus.SUPPORTED,
     img: "polygon.svg",
     multisig: "0x36780E69D38c8b175761c6C5F8eD42E61ee490E9",
+  },
+  "146": {
+    name: ChainName.SONIC,
+    chainId: 146,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: "sonic.png",
   },
   "169": {
     name: ChainName.MANTA,
