@@ -817,6 +817,24 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       },
     },
   },
+  equalizer: {
+    name: "Equalizer",
+    website: "https://equalizer.exchange",
+    img: "equalizer.png",
+    protocols: {
+      equalizer: {
+        name: "Equalizer",
+        category: DefiCategory.AMM,
+        chains: [
+          ChainName.FANTOM,
+          ChainName.BASE,
+          // sonic
+        ],
+        adapters: ["UniswapV3Adapter"],
+      },
+    },
+    defiLlama: "equalizer",
+  },
   // ALM
   gamma: {
     name: "Gamma",
@@ -1495,7 +1513,7 @@ export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
       ? IntegrationStatus.LIVE
       : IntegrationStatus.PROPOSED;
   }
-  if (p.adapters && p.adapters.length > 0) {
+  if (p.adapters && p.adapters.length > 0 && p.category !== DefiCategory.AMM) {
     return isSupportedNetwork
       ? IntegrationStatus.LIVE
       : IntegrationStatus.PROPOSED;
