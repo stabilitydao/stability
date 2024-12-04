@@ -151,12 +151,12 @@ export const contests: { [contestId: string]: YieldContest } = {
     name: "Yield Contest #4",
     start: 1733356800, // Thu, 05 Dec 2024 00:00:00 GMT
     end: 1734566399, // Wed, 18 Dec 2024 23:59:59 GMT
-    minEarn: 0.1,
+    minEarn: 0.05,
     rewards: [
       {
         type: RewardType.POINTS,
         winners: 50,
-        winnerReward: 150,
+        winnerReward: 130,
       },
       // 200 USDT
       /*{
@@ -190,8 +190,14 @@ export const contests: { [contestId: string]: YieldContest } = {
     name: "Yield Contest #5",
     start: 1734566400, // Thu, 19 Dec 2024 00:00:00 GMT
     end: 1735775999, // Wed, 01 Jan 2025 23:59:59 GMT
-    minEarn: "TBA",
-    rewards: "TBA",
+    minEarn: 0.1,
+    rewards: [
+      {
+        type: RewardType.POINTS,
+        winners: 50,
+        winnerReward: 200,
+      },
+    ],
   },
   y6: {
     // 02 Jan 2025 - 15 Jan 2025
