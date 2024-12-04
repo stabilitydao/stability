@@ -1192,6 +1192,37 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       },
     },
   },
+  zerolend: {
+    name: "ZeroLend",
+    website: "https://zerolend.xyz/",
+    img: "zerolend.png",
+    protocols: {
+      zerolend: {
+        name: "ZeroLend",
+        category: DefiCategory.LENDING,
+        chains: [
+          ChainName.ETHEREUM,
+          ChainName.BASE,
+          ChainName.LINEA,
+          ChainName.BLAST,
+          ChainName.ZIRCUIT,
+          ChainName.X_LAYER,
+          ChainName.ZKSYNC,
+          ChainName.MANTA,
+          // berachain bartio
+        ],
+      },
+      lever: {
+        name: "Lever",
+        category: DefiCategory.LENDING,
+        chains: [
+          // sonic
+        ],
+      },
+    },
+    github: "zerolend",
+    defiLlama: "zerolend",
+  },
   // leveraged lending
   impermax: {
     name: "Impermax",
