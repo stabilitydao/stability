@@ -803,6 +803,52 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       },
     },
   },
+  supersonic: {
+    name: "SuperSonic",
+    website: "https://www.supersonic.trade",
+    img: "supersonic.png",
+    protocols: {
+      supersonic: {
+        name: "SuperSonic",
+        category: DefiCategory.AMM,
+        chains: [
+          // sonic
+        ],
+      },
+    },
+  },
+  equalizer: {
+    name: "Equalizer",
+    website: "https://equalizer.exchange",
+    img: "equalizer.png",
+    protocols: {
+      equalizer: {
+        name: "Equalizer",
+        category: DefiCategory.AMM,
+        chains: [
+          ChainName.FANTOM,
+          ChainName.BASE,
+          // sonic
+        ],
+        adapters: ["UniswapV3Adapter"],
+      },
+    },
+    defiLlama: "equalizer",
+  },
+  metropolis: {
+    name: "Metropolis",
+    website: "https://metropolis.exchange",
+    img: "metropolis.png",
+    protocols: {
+      metropolis: {
+        name: "Metropolis",
+        category: DefiCategory.AMM,
+        chains: [
+          // sonic
+        ],
+      },
+    },
+  },
   // ALM
   gamma: {
     name: "Gamma",
@@ -830,6 +876,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.GNOSIS,
           ChainName.METIS,
           ChainName.BLAST,
+          // sonic
         ],
         strategies: [StrategyShortId.GQMF, StrategyShortId.GRMF],
       },
@@ -1141,6 +1188,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.MODE,
           ChainName.TAIKO,
           ChainName.ZETA,
+          // sonic
           // b^2
           // iotex
           // kaia
@@ -1190,6 +1238,37 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       },
     },
   },
+  zerolend: {
+    name: "ZeroLend",
+    website: "https://zerolend.xyz/",
+    img: "zerolend.png",
+    protocols: {
+      zerolend: {
+        name: "ZeroLend",
+        category: DefiCategory.LENDING,
+        chains: [
+          ChainName.ETHEREUM,
+          ChainName.BASE,
+          ChainName.LINEA,
+          ChainName.BLAST,
+          ChainName.ZIRCUIT,
+          ChainName.X_LAYER,
+          ChainName.ZKSYNC,
+          ChainName.MANTA,
+          // berachain bartio
+        ],
+      },
+      lever: {
+        name: "Lever",
+        category: DefiCategory.LENDING,
+        chains: [
+          // sonic
+        ],
+      },
+    },
+    github: "zerolend",
+    defiLlama: "zerolend",
+  },
   // leveraged lending
   impermax: {
     name: "Impermax",
@@ -1218,6 +1297,21 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     },
     defiLlama: "impermax-finance",
     github: "Impermax-Finance",
+  },
+  mach: {
+    name: "Mach Finance",
+    website: "https://www.machfi.xyz/",
+    img: "mach.png",
+    protocols: {
+      mach: {
+        name: "Mach Finance",
+        category: DefiCategory.LENDING,
+        chains: [
+          // sonic
+        ],
+      },
+    },
+    github: "Mach-Finance",
   },
   // Boost aggregator
   convex: {
@@ -1433,7 +1527,7 @@ export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
       ? IntegrationStatus.LIVE
       : IntegrationStatus.PROPOSED;
   }
-  if (p.adapters && p.adapters.length > 0) {
+  if (p.adapters && p.adapters.length > 0 && p.category !== DefiCategory.AMM) {
     return isSupportedNetwork
       ? IntegrationStatus.LIVE
       : IntegrationStatus.PROPOSED;
