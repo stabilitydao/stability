@@ -1,4 +1,4 @@
-// Types of ApiService v4.0.0 from 21.10.2024
+// Types of ApiService v4.3.3 from 26.11.2024
 
 //#region ===== Main reply            | GET /                                    =====
 
@@ -11,7 +11,6 @@ export interface ApiMainReply {
   vaults: Vaults;
   underlyings: Underlyings;
   assetPrices: AssetPrices;
-  leaderboard: User[]; // deprecated since v3.3.0
   leaderboards: Leaderboards;
   error?: string;
 }
@@ -82,6 +81,7 @@ export type Vault = {
   strategy?: `0x${string}`;
   underlying?: `0x${string}`;
   underlyingSymbol?: string;
+  underlyingDecimals?: number;
   lastHardWork?: number;
   status?: string;
   strategySpecific?: string;
@@ -93,12 +93,33 @@ export type Vault = {
   assetsAmounts?: string[];
   assetsPricesOnCreation?: string[];
   assetsPricesLast?: string[];
+  income?: {
+    aprLatest: string;
+    apr24h: string;
+    aprWeek: string;
+    // aprLifetime: string;
+  };
+  vsHold?: {
+    aprLatest: string;
+    aprAssetsLatest: string[];
+    apr24h: string;
+    aprAssets24h: string[];
+    aprWeek: string;
+    aprAssetsWeek: string[];
+    aprLifetime: string;
+    aprAssetsLifetime: string[];
+    lifetime: string;
+    lifetimeAssets: string[];
+  };
+  // deprecated since 4.3.0
   apr?: {
     incomeLatest: string;
     income24h: string;
     incomeWeek: string;
     vsHoldLifetime: string;
     vsHoldAssetsLifetime: string[];
+    vsHoldLatest: string;
+    vsHoldAssetsLatest: string[];
   };
   created?: number;
   hardWorkOnDeposit?: boolean;
@@ -226,6 +247,7 @@ export interface PlatformDataFull extends PlatformDataPartial {
 //#region ===== Swap by agg           | GET /swap/:chainId/:src/:dst/:amountIn   =====
 
 export type ApiAggSwapData = {
+  agg: string;
   src: string;
   dst: string;
   amountIn: string;
@@ -326,7 +348,8 @@ export interface ApiVerifyIntractReply {
   data: {
     // required, whether success or error
     result: true | false; // bool, the user has done the task.
-    value: number; // earned USD
+    metric: number; // earned USD
+    metricDataType: "DOUBLE";
   };
 }
 

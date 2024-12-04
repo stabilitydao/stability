@@ -37,9 +37,6 @@ describe("testing assets", () => {
 
     for (const token of _tokenlist) {
       if (addressesToSkip.includes(token.address.toLowerCase())) {
-        console.log(
-          `Skipping token with address: ${token.address} and symbol: ${token.symbol}`,
-        );
         continue;
       }
 
