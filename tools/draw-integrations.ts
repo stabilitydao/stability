@@ -30,7 +30,7 @@ async function main() {
   const height = 800;
 
   // Organization blocks positioning
-  const organizationBlockSize = 86;
+  const organizationBlockSize = 80;
   const organizationBlockPadding = 20;
   const xPadding = 76;
 
