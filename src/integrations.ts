@@ -803,6 +803,20 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       },
     },
   },
+  supersonic: {
+    name: "SuperSonic",
+    website: "https://www.supersonic.trade",
+    img: "supersonic.png",
+    protocols: {
+      supersonic: {
+        name: "SuperSonic",
+        category: DefiCategory.AMM,
+        chains: [
+          // sonic
+        ],
+      },
+    },
+  },
   // ALM
   gamma: {
     name: "Gamma",
