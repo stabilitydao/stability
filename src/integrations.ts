@@ -723,11 +723,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       beethovenx: {
         name: "Beethoven X",
         category: DefiCategory.AMM,
-        chains: [
-          ChainName.FANTOM,
-          ChainName.OPTIMISM,
-          ChainName.SONIC,
-        ],
+        chains: [ChainName.FANTOM, ChainName.OPTIMISM, ChainName.SONIC],
         adapters: [
           // stable pools
           // weighted pools
@@ -745,10 +741,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       wigoswap: {
         name: "WigoSwap",
         category: DefiCategory.AMM,
-        chains: [
-          ChainName.FANTOM,
-          ChainName.SONIC,
-        ],
+        chains: [ChainName.FANTOM, ChainName.SONIC],
         adapters: ["UniswapV3Adapter"],
       },
     },
@@ -763,11 +756,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       gravity: {
         name: "Gravity",
         category: DefiCategory.AMM,
-        chains: [
-          ChainName.POLYGON,
-          ChainName.POLYGON_ZKEVM,
-          ChainName.SONIC,
-        ],
+        chains: [ChainName.POLYGON, ChainName.POLYGON_ZKEVM, ChainName.SONIC],
       },
     },
     defiLlama: "gravity-finance",
@@ -781,9 +770,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       shadow: {
         name: "Shadow Exchange",
         category: DefiCategory.AMM,
-        chains: [
-          ChainName.SONIC,
-        ],
+        chains: [ChainName.SONIC],
         adapters: ["UniswapV3Adapter"],
       },
     },
@@ -796,9 +783,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       swapx: {
         name: "SwapX",
         category: DefiCategory.AMM,
-        chains: [
-          ChainName.SONIC,
-        ],
+        chains: [ChainName.SONIC],
         adapters: [
           // "AlgebraAdapter", ?
         ],
@@ -813,9 +798,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       supersonic: {
         name: "SuperSonic",
         category: DefiCategory.AMM,
-        chains: [
-          ChainName.SONIC,
-        ],
+        chains: [ChainName.SONIC],
       },
     },
   },
@@ -827,11 +810,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       equalizer: {
         name: "Equalizer",
         category: DefiCategory.AMM,
-        chains: [
-          ChainName.FANTOM,
-          ChainName.BASE,
-          ChainName.SONIC,
-        ],
+        chains: [ChainName.FANTOM, ChainName.BASE, ChainName.SONIC],
         adapters: ["UniswapV3Adapter"],
       },
     },
@@ -845,9 +824,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       metropolis: {
         name: "Metropolis",
         category: DefiCategory.AMM,
-        chains: [
-          ChainName.SONIC,
-        ],
+        chains: [ChainName.SONIC],
       },
     },
   },
@@ -1236,9 +1213,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       vicuna: {
         name: "Vicuna",
         category: DefiCategory.LENDING,
-        chains: [
-          ChainName.SONIC,
-        ],
+        chains: [ChainName.SONIC],
       },
     },
   },
@@ -1265,9 +1240,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       lever: {
         name: "Lever",
         category: DefiCategory.LENDING,
-        chains: [
-          ChainName.SONIC,
-        ],
+        chains: [ChainName.SONIC],
       },
     },
     github: "zerolend",
@@ -1310,9 +1283,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       mach: {
         name: "Mach Finance",
         category: DefiCategory.LENDING,
-        chains: [
-          ChainName.SONIC,
-        ],
+        chains: [ChainName.SONIC],
       },
     },
     github: "Mach-Finance",
