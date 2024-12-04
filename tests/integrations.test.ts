@@ -1,12 +1,13 @@
-import { getChainProtocols, getIntegrationStatus } from "../src";
 import {
   ChainName,
+  DefiCategory,
+  DeFiProtocol,
+  getChainProtocols,
+  getIntegrationStatus,
+  IntegrationStatus,
   strategies,
   StrategyShortId,
   StrategyState,
-  DefiCategory,
-  DeFiProtocol,
-  IntegrationStatus,
 } from "../src";
 
 describe("testing integrations", () => {
@@ -23,6 +24,8 @@ describe("testing integrations", () => {
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.LIVE);
     protocol.coreContracts = undefined;
     protocol.adapters = ["TestAdapter"];
+    expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.POSSIBLE);
+    protocol.category = DefiCategory.ORACLE;
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.LIVE);
 
     protocol.chains = [ChainName.EVMOS];
