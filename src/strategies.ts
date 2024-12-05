@@ -42,6 +42,8 @@ export const enum StrategyShortId {
   SS = "SS",
   PF = "PF",
   IPLF = "IPLF",
+  IRF = "IRF",
+  // A = "A", avalon
 }
 
 export enum StrategyState {
@@ -389,6 +391,18 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     protocols: [`impermax:impermax`, `pearl:pearlV2`],
     description: "Earn IBEX by leveraged lending position of Pearl LP",
   },
+  [StrategyShortId.IRF]: {
+    id: "Ichi Ramses Farm",
+    shortId: StrategyShortId.IRF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 187,
+    color: "#9d9d9d",
+    bgColor: "#000000",
+    ammAdapter: "UniswapV3",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
+    protocols: ["ichi:ichi", "ramses:ramses"],
+    description: "Earn Ramses LP rewards by Ichi",
+  },
 };
 
 export const getMerklStrategies = (): string[] => {
@@ -468,6 +482,9 @@ export const getStrategyProtocols = (
       ) {
         const _protocol = integrations[orgName].protocols[protocolName];
         _protocol.organization = orgName;
+        if (!_protocol.img) {
+          _protocol.img = integrations[orgName].img
+        }
         r.push(_protocol);
       }
     }
