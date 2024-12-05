@@ -32,7 +32,7 @@ nodes.
 
 ```typescript
 import axios from "axios";
-import {type ApiMainReply, seeds} from "@stabilitydao/stability";
+import { type ApiMainReply, seeds } from "@stabilitydao/stability";
 
 const response = await axios.get(seeds[0]);
 const apiReply = response.data as ApiMainReply;
@@ -77,7 +77,7 @@ currently in development or awaiting development.
 Core contracts deployment addresses and subgraph API endpoints.
 
 ```typescript
-import {deployments} from "@stabilitydao/stability";
+import { deployments } from "@stabilitydao/stability";
 
 console.log("Platform address on Polygon", deployments["137"].core.platform);
 ```
@@ -162,7 +162,7 @@ repo [`assets/` folder](https://github.com/stabilitydao/.github/tree/main/assets
 Third-party addresses.
 
 ```typescript
-import {almFactories} from "@stabilitydao/stability";
+import { almFactories } from "@stabilitydao/stability";
 ```
 
 ### 🪙 Assets
@@ -189,7 +189,7 @@ Asset addresses, description, website, color.
 ### 📜 Tokenlist
 
 ```typescript
-import {tokenlist} from "@stabilitydao/stability";
+import { tokenlist } from "@stabilitydao/stability";
 ```
 
 ### 🌉 Bridges
@@ -250,7 +250,7 @@ yarn prettier . --write
 ```
 
 | Branch        | Description                            |
-|---------------|----------------------------------------|
+| ------------- | -------------------------------------- |
 | main          | Production. Accepts only PRs from dev. |
 | dev           | Accumulator of changes for the release |
 | developer-dev | Developer's changes                    |
