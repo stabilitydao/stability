@@ -14,6 +14,7 @@
 This is library for integrating Stability Platform into Node.js applications.
 
 ![](chains.png)
+![](integrations.png)
 
 ## 🔌 Usage
 
@@ -25,11 +26,13 @@ yarn add @stabilitydao/stability
 
 ### 📡 API
 
-Up-to-date and pre-processed data for integrations with Stability can be obtained in a single API response, which is always available at any working node of the private p2p network Stability. This library contains addresses of seed nodes.
+Up-to-date and pre-processed data for integrations with Stability can be obtained in a single API response, which is
+always available at any working node of the private p2p network Stability. This library contains addresses of seed
+nodes.
 
 ```typescript
 import axios from "axios";
-import { type ApiMainReply, seeds } from "@stabilitydao/stability";
+import {type ApiMainReply, seeds} from "@stabilitydao/stability";
 
 const response = await axios.get(seeds[0]);
 const apiReply = response.data as ApiMainReply;
@@ -37,7 +40,11 @@ const apiReply = response.data as ApiMainReply;
 
 ### 💲 Strategies
 
-Comprehensive information about platform strategies for managing DeFi assets. Includes developed strategies and those currently in development or awaiting development.
+Comprehensive information about platform strategies for managing DeFi assets. Includes developed strategies and those
+currently in development or awaiting development.
+
+<details>
+<summary>what is included</summary>
 
 #### Types
 
@@ -63,14 +70,20 @@ Comprehensive information about platform strategies for managing DeFi assets. In
 - `getStrategyProtocols(shortId: StrategyShortId): DeFiProtocol[]`
 - `getChainStrategies(chainName: ChainName): Strategy[]`
 
+</details>
+
 ### #️⃣ Deployments
 
 Core contracts deployment addresses and subgraph API endpoints.
 
 ```typescript
-import { deployments } from "@stabilitydao/stability";
+import {deployments} from "@stabilitydao/stability";
+
 console.log("Platform address on Polygon", deployments["137"].core.platform);
 ```
+
+<details>
+<summary>what is included</summary>
 
 #### Types
 
@@ -80,9 +93,16 @@ console.log("Platform address on Polygon", deployments["137"].core.platform);
 
 - `deployments: {[chainId:string]:Deployment}`
 
+</details>
+
 ### ⛓️ Chains
 
-Blockchains known to the platform and their integration statuses. Each chain has link to image in [stabilitydao/.github](https://github.com/stabilitydao/.github) repo [`chains/` folder](https://github.com/stabilitydao/.github/tree/main/chains).
+Blockchains known to the platform and their integration statuses. Each chain has link to image
+in [stabilitydao/.github](https://github.com/stabilitydao/.github)
+repo [`chains/` folder](https://github.com/stabilitydao/.github/tree/main/chains).
+
+<details>
+<summary>what is included</summary>
 
 #### Types
 
@@ -105,9 +125,16 @@ Blockchains known to the platform and their integration statuses. Each chain has
 - `getChainsTotals(): {[status in ChainStatus]: number}`
 - `getChainByName(chainName: ChainName): Chain`
 
+</details>
+
 ### 🌐 Integrations
 
-DeFi organizations, protocols, their integration statuses, usage and other information. Each organization has link to image in [stabilitydao/.github](https://github.com/stabilitydao/.github) repo [`assets/` folder](https://github.com/stabilitydao/.github/tree/main/assets).
+DeFi organizations, protocols, their integration statuses, usage and other information. Each organization has link to
+image in [stabilitydao/.github](https://github.com/stabilitydao/.github)
+repo [`assets/` folder](https://github.com/stabilitydao/.github/tree/main/assets).
+
+<details>
+<summary>what is included</summary>
 
 #### Types
 
@@ -128,17 +155,22 @@ DeFi organizations, protocols, their integration statuses, usage and other infor
 - `getIntegrationStatus(p: DeFiProtocol): IntegrationStatus`
 - `getChainProtocols(chainId: string): DeFiProtocol[]`
 
+</details>
+
 ### 📌 Addresses
 
 Third-party addresses.
 
 ```typescript
-import { almFactories } from "@stabilitydao/stability";
+import {almFactories} from "@stabilitydao/stability";
 ```
 
 ### 🪙 Assets
 
 Asset addresses, description, website, color.
+
+<details>
+<summary>what is included</summary>
 
 #### Types
 
@@ -152,13 +184,18 @@ Asset addresses, description, website, color.
 
 - `getAsset(chainId: string, tokenAddress: 0x${string}): Asset|undefined`
 
+</details>
+
 ### 📜 Tokenlist
 
 ```typescript
-import { tokenlist } from "@stabilitydao/stability";
+import {tokenlist} from "@stabilitydao/stability";
 ```
 
 ### 🌉 Bridges
+
+<details>
+<summary>what is included</summary>
 
 #### Types
 
@@ -176,7 +213,12 @@ import { tokenlist } from "@stabilitydao/stability";
 
 - `getChainBridges(chainName: ChainName): Bridge[]`
 
+</details>
+
 ### 🏆 Contests
+
+<details>
+<summary>what is included</summary>
 
 #### Types
 
@@ -191,6 +233,8 @@ import { tokenlist } from "@stabilitydao/stability";
 
 - `enum RewardType`
 
+</details>
+
 ## 👷 Develop
 
 ```shell
@@ -204,3 +248,9 @@ yarn coverage
 yarn prettier . --check
 yarn prettier . --write
 ```
+
+| Branch        | Description                            |
+|---------------|----------------------------------------|
+| main          | Production. Accepts only PRs from dev. |
+| dev           | Accumulator of changes for the release |
+| developer-dev | Developer's changes                    |
