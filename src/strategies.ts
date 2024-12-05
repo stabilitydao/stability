@@ -483,7 +483,7 @@ export const getStrategyProtocols = (
         const _protocol = integrations[orgName].protocols[protocolName];
         _protocol.organization = orgName;
         if (!_protocol.img) {
-          _protocol.img = integrations[orgName].img
+          _protocol.img = integrations[orgName].img;
         }
         r.push(_protocol);
       }
