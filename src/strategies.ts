@@ -43,7 +43,7 @@ export const enum StrategyShortId {
   PF = "PF",
   IPLF = "IPLF",
   IRF = "IRF",
-  // A = "A", avalon
+  S = "S",
 }
 
 export enum StrategyState {
@@ -402,6 +402,17 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
     protocols: ["ichi:ichi", "ramses:ramses"],
     description: "Earn Ramses LP rewards by Ichi",
+  },
+  [StrategyShortId.S]: {
+    id: "Silo",
+    shortId: StrategyShortId.S,
+    state: StrategyState.AWAITING,
+    contractGithubId: 193,
+    color: "#9d9d9d",
+    bgColor: "#000000",
+    baseStrategies: [BaseStrategy.ERC4626],
+    protocols: ["silo:siloV2"],
+    description: "Lend asset on Silo V2",
   },
 };
 

@@ -1200,20 +1200,12 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       siloV1: {
         name: "Silo V1",
         category: DefiCategory.LENDING,
-        chains: [
-          ChainName.ARBITRUM,
-          ChainName.OPTIMISM,
-          ChainName.ETHEREUM,
-          ChainName.SONIC,
-        ],
+        chains: [ChainName.ARBITRUM, ChainName.OPTIMISM, ChainName.ETHEREUM],
       },
       siloV2: {
         name: "Silo V2",
         category: DefiCategory.LENDING,
-        chains: [
-          ChainName.ARBITRUM,
-          // sonic?
-        ],
+        chains: [ChainName.ARBITRUM, ChainName.SONIC],
       },
     },
     defiLlama: "silo-finance",
