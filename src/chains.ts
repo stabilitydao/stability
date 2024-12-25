@@ -174,8 +174,9 @@ export const chains: { [chainId: string]: Chain } = {
   "146": {
     name: ChainName.SONIC,
     chainId: 146,
-    status: ChainStatus.NOT_SUPPORTED,
+    status: ChainStatus.SUPPORTED,
     img: "sonic.png",
+    multisig: "0xF564EBaC1182578398E94868bea1AbA6ba339652",
   },
   "169": {
     name: ChainName.MANTA,

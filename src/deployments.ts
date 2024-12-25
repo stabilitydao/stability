@@ -55,4 +55,18 @@ export const deployments: { [chainId: string]: Deployment } = {
     subgraph:
       "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-subgraph/0.0.13/gn",
   },
+  "146": {
+    core: {
+      platform: "0x4Aca671A420eEB58ecafE83700686a2AD06b20D8",
+      factory: "0xc184a3ecca684f2621c903a7943d85fa42f56671",
+      priceReader: "0x422025182dd83a610bfa8b20550dcccdf94dc549",
+      swapper: "0xe52fcf607a8328106723804de1ef65da512771be",
+      hardWorker: "0x635b1f7dd7d0172533ba9fe5cfe2d83d9848f701",
+      vaultManager: "0x589a504f2ee9d054b483c700fa814863d639381e",
+      strategyLogic: "0xe0e71b484bb20e37d18ab51fb60c32dec778478a",
+      zap: "0x029dfd1a79e0ad9305d773fb8f3c01d8ef9b913d",
+    },
+    subgraph:
+      "https://gateway.thegraph.com/api/[api-key]/subgraphs/id/CGkgsqaECPXXvgLySMMyzXTQh3v1zqqGTa1uRf5AbpZx",
+  },
 };

@@ -44,6 +44,8 @@ export const enum StrategyShortId {
   IPLF = "IPLF",
   IRF = "IRF",
   S = "S",
+  BSF = "BSF",
+  BWF = "BWF",
 }
 
 export enum StrategyState {
@@ -413,6 +415,30 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     baseStrategies: [BaseStrategy.ERC4626],
     protocols: ["silo:siloV2"],
     description: "Lend asset on Silo V2",
+  },
+  [StrategyShortId.BSF]: {
+    id: "Beets Stable Farm",
+    shortId: StrategyShortId.BSF,
+    state: StrategyState.LIVE,
+    contractGithubId: 195,
+    color: "#ff0000",
+    bgColor: "#003300",
+    ammAdapter: "BalancerComposableStable",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
+    protocols: ["beethovenx:beethovenx"],
+    description: "Earn Beets stable pool LP fees and gauge rewards",
+  },
+  [StrategyShortId.BWF]: {
+    id: "BeethovenX Weighted Farm",
+    shortId: StrategyShortId.BWF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 196,
+    color: "#ff0000",
+    bgColor: "#000033",
+    ammAdapter: "BalancerWeighted",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
+    protocols: ["beethovenx:beethovenx"],
+    description: "Earn Beethoven X weighted pool LP fees and gauge rewards",
   },
 };
 

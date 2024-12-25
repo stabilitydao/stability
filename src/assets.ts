@@ -28,6 +28,7 @@ export const assets: Asset[] = [
       "43114": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
       "111188": "0xc518A88c67CECA8B3f24c4562CB71deeB2AF86B7",
       "534352": "0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4",
+      "146": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
     },
     symbol: "USDC",
     description:
@@ -93,6 +94,7 @@ export const assets: Asset[] = [
       "43114": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
       "81457": "0x4300000000000000000000000000000000000004",
       "534352": "0x5300000000000000000000000000000000000004",
+      "146": "0x309C92261178fA0CF748A855e90Ae73FDb79EBc7",
     },
     symbol: "WETH",
     description: "WETH is an ERC-20 token that represents 1 Ether (ETH)",
@@ -295,6 +297,24 @@ export const assets: Asset[] = [
       "It's the native token of the Scroll network, a Layer-2 solution for Ethereum based on zk-rollups. It is used for transaction fees, network governance, and staking to secure the network.",
     website: "https://scroll.io/",
     color: "#c8a981",
+  },
+  {
+    addresses: {
+      "146": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+    },
+    symbol: "wS",
+    description: "Wrapped native Sonic coin",
+    website: "https://www.soniclabs.com/",
+    color: "#fec160",
+  },
+  {
+    addresses: {
+      "146": "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+    },
+    symbol: "stS",
+    description: "Beets liquid staked Sonic",
+    website: "https://beets.fi/",
+    color: "#f50000",
   },
 ];
 
