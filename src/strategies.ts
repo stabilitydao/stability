@@ -46,6 +46,7 @@ export const enum StrategyShortId {
   S = "S",
   BSF = "BSF",
   BWF = "BWF",
+  EF = "EF",
 }
 
 export enum StrategyState {
@@ -422,14 +423,14 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     state: StrategyState.LIVE,
     contractGithubId: 195,
     color: "#ff0000",
-    bgColor: "#003300",
+    bgColor: "#001700",
     ammAdapter: "BalancerComposableStable",
     baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
     protocols: ["beethovenx:beethovenx"],
     description: "Earn Beets stable pool LP fees and gauge rewards",
   },
   [StrategyShortId.BWF]: {
-    id: "BeethovenX Weighted Farm",
+    id: "Beets Weighted Farm",
     shortId: StrategyShortId.BWF,
     state: StrategyState.AWAITING,
     contractGithubId: 196,
@@ -439,6 +440,18 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
     protocols: ["beethovenx:beethovenx"],
     description: "Earn Beethoven X weighted pool LP fees and gauge rewards",
+  },
+  [StrategyShortId.EF]: {
+    id: "Equalizer Farm",
+    shortId: StrategyShortId.EF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 199,
+    color: "#20c9e7",
+    bgColor: "#000000",
+    ammAdapter: "Solidly",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
+    protocols: ["equalizer:equalizer"],
+    description: "Earn Equalizer gauge rewards by classic LPs",
   },
 };
 

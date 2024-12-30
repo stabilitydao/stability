@@ -316,6 +316,15 @@ export const assets: Asset[] = [
     website: "https://beets.fi/",
     color: "#f50000",
   },
+  {
+    addresses: {
+      "146": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+    },
+    symbol: "scUSD",
+    description: "A scalable yield bearing meta-stablecoin on Sonic",
+    website: "https://rings.money/",
+    color: "#8484db",
+  },
 ];
 
 export const getAsset = (
