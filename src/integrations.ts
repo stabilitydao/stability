@@ -811,7 +811,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Equalizer",
         category: DefiCategory.AMM,
         chains: [ChainName.FANTOM, ChainName.BASE, ChainName.SONIC],
-        adapters: ["UniswapV3Adapter"],
+        adapters: ["UniswapV3Adapter", "SolidlyAdapter"],
       },
     },
     defiLlama: "equalizer",

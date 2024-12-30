@@ -721,6 +721,15 @@
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/sts.png",
       "tags": ["lst"]
+    },
+    {
+      "chainId": 146,
+      "address": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+      "symbol": "scUSD",
+      "name": "Sonic USD",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/scUSD.png",
+      "tags": ["stablecoin"]
     }
   ]
 }
