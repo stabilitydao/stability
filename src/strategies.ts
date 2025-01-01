@@ -444,7 +444,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.EF]: {
     id: "Equalizer Farm",
     shortId: StrategyShortId.EF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.DEVELOPMENT,
     contractGithubId: 199,
     color: "#20c9e7",
     bgColor: "#000000",
