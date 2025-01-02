@@ -432,7 +432,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.BWF]: {
     id: "Beets Weighted Farm",
     shortId: StrategyShortId.BWF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.DEVELOPMENT,
     contractGithubId: 196,
     color: "#ff0000",
     bgColor: "#000033",
@@ -444,7 +444,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.EF]: {
     id: "Equalizer Farm",
     shortId: StrategyShortId.EF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.LIVE,
     contractGithubId: 199,
     color: "#20c9e7",
     bgColor: "#000000",

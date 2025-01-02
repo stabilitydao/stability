@@ -94,7 +94,7 @@ export const assets: Asset[] = [
       "43114": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
       "81457": "0x4300000000000000000000000000000000000004",
       "534352": "0x5300000000000000000000000000000000000004",
-      "146": "0x309C92261178fA0CF748A855e90Ae73FDb79EBc7",
+      "146": "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b",
     },
     symbol: "WETH",
     description: "WETH is an ERC-20 token that represents 1 Ether (ETH)",
