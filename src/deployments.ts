@@ -67,6 +67,7 @@ export const deployments: { [chainId: string]: Deployment } = {
       zap: "0x029dfd1a79e0ad9305d773fb8f3c01d8ef9b913d",
     },
     subgraph:
-      "https://gateway.thegraph.com/api/[api-key]/subgraphs/id/CGkgsqaECPXXvgLySMMyzXTQh3v1zqqGTa1uRf5AbpZx",
+      //"https://gateway.thegraph.com/api/[api-key]/subgraphs/id/CGkgsqaECPXXvgLySMMyzXTQh3v1zqqGTa1uRf5AbpZx",
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.16/gn",
   },
 };
