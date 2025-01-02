@@ -725,9 +725,10 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         category: DefiCategory.AMM,
         chains: [ChainName.FANTOM, ChainName.OPTIMISM, ChainName.SONIC],
         adapters: [
-          // stable pools
-          // weighted pools
+          "BalancerComposableStableAdapter",
+          "BalancerWeightedAdapter",
         ],
+        strategies: [StrategyShortId.BSF, StrategyShortId.BWF],
       },
     },
     defiLlama: "beethoven-x",
@@ -765,7 +766,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   shadow: {
     name: "Shadow",
     img: "shadow.png",
-    website: "https://www.shadowdex.fi/",
+    website: "https://www.shadow.so/",
     protocols: {
       shadow: {
         name: "Shadow Exchange",
@@ -812,6 +813,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         category: DefiCategory.AMM,
         chains: [ChainName.FANTOM, ChainName.BASE, ChainName.SONIC],
         adapters: ["UniswapV3Adapter", "SolidlyAdapter"],
+        strategies: [StrategyShortId.EF],
       },
     },
     defiLlama: "equalizer",
