@@ -330,7 +330,8 @@ export const assets: Asset[] = [
       "146": "0x9fDbC3f8Abc05Fa8f3Ad3C17D2F806c1230c4564",
     },
     symbol: "GOGLZ",
-    description: "$GOGLZ is a meme coin with a playful message: \"The future is bright, and for your safety, goggles must stay on at all times.\"",
+    description:
+      '$GOGLZ is a meme coin with a playful message: "The future is bright, and for your safety, goggles must stay on at all times."',
     website: "https://www.goglz.io/",
     color: "#ff9433",
   },
