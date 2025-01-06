@@ -231,12 +231,22 @@ export const assets: Asset[] = [
   },
   {
     addresses: {
+      "146": "0x7AD5935EA295c4E743e4f2f5B4CDA951f41223c2",
       "111188": "0x6B2e0fACD2F2A8f407aC591067Ac06b5d29247E4",
     },
     symbol: "SACRA",
     description: "Dark Fantasy on-chain RPG",
     website: "https://sacra.game",
     color: "#ff0000",
+  },
+  {
+    addresses: {
+      "146": "0xfC0dd337b92Baa949bC5D25FD9A99Cb3b6873204",
+    },
+    symbol: "SACRA_GEM_1",
+    description: "Sonic GEMs wrapped for Sacra: Dark Fantasy on-chain RPG",
+    website: "https://sacra.game",
+    color: "#7e0000",
   },
   {
     addresses: {
