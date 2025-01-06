@@ -69,6 +69,7 @@ export const deployments: { [chainId: string]: Deployment } = {
     subgraph:
       //"https://gateway.thegraph.com/api/[api-key]/subgraphs/id/CGkgsqaECPXXvgLySMMyzXTQh3v1zqqGTa1uRf5AbpZx",
       //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.16/gn",
-      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.17/gn",
+      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.17/gn",
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.18/gn",
   },
 };
