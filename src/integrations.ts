@@ -1531,6 +1531,9 @@ export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
       if (strategies[strategy]?.state == StrategyState.PROPOSAL) {
         return IntegrationStatus.AWAITING;
       }
+      if (strategies[strategy]?.state == StrategyState.AWAITING) {
+        return IntegrationStatus.AWAITING;
+      }
     }
   }
   if (p.intermediaryStrategies) {
