@@ -47,6 +47,8 @@ export const enum StrategyShortId {
   BSF = "BSF",
   BWF = "BWF",
   EF = "EF",
+  ISF = "ISF",
+  SF = "SF",
 }
 
 export enum StrategyState {
@@ -432,7 +434,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.BWF]: {
     id: "Beets Weighted Farm",
     shortId: StrategyShortId.BWF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.LIVE,
     contractGithubId: 196,
     color: "#ff0000",
     bgColor: "#000033",
@@ -452,6 +454,30 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
     protocols: ["equalizer:equalizer"],
     description: "Earn Equalizer gauge rewards by classic LPs",
+  },
+  [StrategyShortId.ISF]: {
+    id: "Ichi SwapX Farm",
+    shortId: StrategyShortId.ISF,
+    state: StrategyState.AWAITING,
+    contractGithubId: "is-being-created",
+    color: "#599bff",
+    bgColor: "#142614",
+    ammAdapter: "AlgebraV4",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
+    protocols: ["swapx:swapx"],
+    description: "Earn SwapX farm rewards by Ichi ALM",
+  },
+  [StrategyShortId.SF]: {
+    id: "SwapX Farm",
+    shortId: StrategyShortId.SF,
+    state: StrategyState.AWAITING,
+    contractGithubId: "is-being-created",
+    color: "#7dff7e",
+    bgColor: "#000000",
+    ammAdapter: "Solidly",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
+    protocols: ["swapx:swapx"],
+    description: "Earn SwapX farm rewards by classic LPs",
   },
 };
 

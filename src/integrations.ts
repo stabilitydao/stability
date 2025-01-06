@@ -786,8 +786,10 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         category: DefiCategory.AMM,
         chains: [ChainName.SONIC],
         adapters: [
-          // "AlgebraAdapter", ?
+          "SolidlyAdapter",
+          // "AlgebraV3Adapter",
         ],
+        strategies: [StrategyShortId.ISF, StrategyShortId.SF],
       },
     },
   },
