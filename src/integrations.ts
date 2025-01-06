@@ -786,8 +786,10 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         category: DefiCategory.AMM,
         chains: [ChainName.SONIC],
         adapters: [
-          // "AlgebraAdapter", ?
+          "SolidlyAdapter",
+          // "AlgebraV3Adapter",
         ],
+        strategies: [StrategyShortId.ISF, StrategyShortId.SF],
       },
     },
   },
@@ -1527,6 +1529,9 @@ export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
         return IntegrationStatus.DEVELOPMENT;
       }
       if (strategies[strategy]?.state == StrategyState.PROPOSAL) {
+        return IntegrationStatus.AWAITING;
+      }
+      if (strategies[strategy]?.state == StrategyState.AWAITING) {
         return IntegrationStatus.AWAITING;
       }
     }

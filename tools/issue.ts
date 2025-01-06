@@ -20,7 +20,8 @@ for (const shortId of Object.keys(strategies)) {
   const strategy = strategies[shortId as StrategyShortId];
   if (strategy.contractGithubId === "is-being-created") {
     console.log(
-      `------------------ Need to create or update issue for strategy ${strategy.shortId}`,
+      `------ Need to create issue for strategy ${strategy.shortId}
+------ https://github.com/stabilitydao/stability-contracts/issues/new`,
     );
     console.log(`Title: 📜 [${StrategyState.AWAITING}] ${strategy.id}`);
     console.log(`# ${strategy.shortId} | ${strategy.id}`);
@@ -84,7 +85,12 @@ for (const shortId of Object.keys(strategies)) {
     } else {
       console.log("Not used");
     }
-
+    console.log("");
+    console.log("## Guide");
+    console.log("");
+    console.log(
+      "**[Strategy Developer's Guide V4](https://github.com/stabilitydao/stability-contracts/blob/main/src/strategies/README.md)**",
+    );
     console.log("");
     console.log("-----------------------------------------------");
   }
