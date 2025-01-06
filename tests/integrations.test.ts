@@ -43,6 +43,8 @@ describe("testing integrations", () => {
     );
     strategies[StrategyShortId.IQMF].state = StrategyState.DEVELOPMENT;
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.DEVELOPMENT);
+    strategies[StrategyShortId.IQMF].state = StrategyState.AWAITING;
+    expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.AWAITING);
     strategies[StrategyShortId.IQMF].state = StrategyState.PROPOSAL;
     expect(getIntegrationStatus(protocol)).toBe(IntegrationStatus.AWAITING);
     protocol.strategies = undefined;
