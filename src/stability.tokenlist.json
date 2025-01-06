@@ -739,6 +739,22 @@
       "decimals": 18,
       "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x9fdbc3f8abc05fa8f3ad3c17d2f806c1230c4564.png",
       "tags": []
+    },
+    {
+      "chainId": 146,
+      "address": "0x7AD5935EA295c4E743e4f2f5B4CDA951f41223c2",
+      "symbol": "SACRA",
+      "name": "Sacra token",
+      "decimals": 18,
+      "logoURI": "https://www.pearl.exchange/tokens/SACRA.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0xfC0dd337b92Baa949bC5D25FD9A99Cb3b6873204",
+      "symbol": "SACRA_GEM_1",
+      "name": "Sacra Gem 1",
+      "decimals": 18,
+      "logoURI": "https://www.pearl.exchange/tokens/SACRA.png"
     }
   ]
 }
