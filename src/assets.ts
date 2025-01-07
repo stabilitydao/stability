@@ -364,6 +364,16 @@ export const assets: Asset[] = [
     website: "https://www.moonbay.space/",
     color: "#7fd6c6",
   },
+  {
+    addresses: {
+      "146": "0xddF26B42C1d903De8962d3F79a74a501420d5F19",
+    },
+    symbol: "EQUAL",
+    description:
+      "Equalizer Exchange is the fastest liquidity hub providing optimized trading and earning opportunities.",
+    website: "https://equalizer.exchange/",
+    color: "#19b4e3",
+  },
 ];
 
 export const getAsset = (
