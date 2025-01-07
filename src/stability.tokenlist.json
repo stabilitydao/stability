@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-01-06T00:00:00+00:00",
+  "timestamp": "2025-01-07T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 8,
+    "minor": 9,
     "patch": 0
   },
   "tags": {
@@ -755,6 +755,14 @@
       "name": "Sacra Gem 1",
       "decimals": 18,
       "logoURI": "https://www.pearl.exchange/tokens/SACRA.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x05e31a691405d06708A355C029599c12d5da8b28",
+      "symbol": "fSONIC",
+      "name": "FantomSonicInu",
+      "decimals": 18,
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x05e31a691405d06708a355c029599c12d5da8b28.png"
     }
   ]
 }
