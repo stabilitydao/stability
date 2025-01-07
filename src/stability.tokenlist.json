@@ -5,7 +5,7 @@
   "timestamp": "2025-01-07T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 9,
+    "minor": 10,
     "patch": 0
   },
   "tags": {
@@ -763,6 +763,14 @@
       "name": "FantomSonicInu",
       "decimals": 18,
       "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x05e31a691405d06708a355c029599c12d5da8b28.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x486B6Fa0419b33a0c7A6e4698c231D7E2f2D5299",
+      "symbol": "MOON",
+      "name": "Moon Bay",
+      "decimals": 18,
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x486b6fa0419b33a0c7a6e4698c231d7e2f2d5299.png"
     }
   ]
 }
