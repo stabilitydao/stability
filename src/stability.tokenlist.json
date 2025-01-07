@@ -771,6 +771,14 @@
       "name": "Moon Bay",
       "decimals": 18,
       "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x486b6fa0419b33a0c7a6e4698c231d7e2f2d5299.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0xddF26B42C1d903De8962d3F79a74a501420d5F19",
+      "symbol": "EQUAL",
+      "name": "Equalizer on Sonic",
+      "decimals": 18,
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0xddf26b42c1d903de8962d3f79a74a501420d5f19.png"
     }
   ]
 }
