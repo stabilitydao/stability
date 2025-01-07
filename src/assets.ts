@@ -345,6 +345,15 @@ export const assets: Asset[] = [
     website: "https://www.goglz.io/",
     color: "#ff9433",
   },
+  {
+    addresses: {
+      "146": "0x05e31a691405d06708A355C029599c12d5da8b28",
+    },
+    symbol: "fSONIC",
+    description: "$fSONIC meme coin. Joins the Race—Need for speed?",
+    website: "https://fsonic.pro/",
+    color: "#868686",
+  },
 ];
 
 export const getAsset = (
