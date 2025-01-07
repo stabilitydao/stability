@@ -354,6 +354,16 @@ export const assets: Asset[] = [
     website: "https://fsonic.pro/",
     color: "#868686",
   },
+  {
+    addresses: {
+      "146": "0x486B6Fa0419b33a0c7A6e4698c231D7E2f2D5299",
+    },
+    symbol: "MOON",
+    description:
+      "MoonBay is an innovative crypto project built on the Sonic Network, with a strong, engaged community at its core. The $MOON token serves as both a meme coin and the central community token within the MoonBay ecosystem. Focused on staying ahead of trends, MoonBay actively integrates cutting-edge developments in DeFi, NFTs, GameFi, and more. With its dynamic approach, MoonBay aims to provide value, entertainment, and growth opportunities for its community, making it a hub for innovation and engagement in the crypto space.",
+    website: "https://www.moonbay.space/",
+    color: "#7fd6c6",
+  },
 ];
 
 export const getAsset = (
