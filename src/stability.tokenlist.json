@@ -754,7 +754,7 @@
       "symbol": "SACRA_GEM_1",
       "name": "Sacra Gem 1",
       "decimals": 18,
-      "logoURI": "https://www.pearl.exchange/tokens/SACRA.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/sacragem.png"
     },
     {
       "chainId": 146,
