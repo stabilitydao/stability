@@ -458,7 +458,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.ISF]: {
     id: "Ichi SwapX Farm",
     shortId: StrategyShortId.ISF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.LIVE,
     contractGithubId: 201,
     color: "#599bff",
     bgColor: "#142614",
