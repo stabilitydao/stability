@@ -374,6 +374,16 @@ export const assets: Asset[] = [
     website: "https://equalizer.exchange/",
     color: "#19b4e3",
   },
+  {
+    addresses: {
+      "146": "0xA04BC7140c26fc9BB1F36B1A604C7A5a88fb0E70",
+    },
+    symbol: "SWPx",
+    description:
+      "Equalizer Exchange is the fastest liquidity hub providing optimized trading and earning opportunities.",
+    website: "https://swapx.fi/",
+    color: "#3f6743",
+  },
 ];
 
 export const getAsset = (
