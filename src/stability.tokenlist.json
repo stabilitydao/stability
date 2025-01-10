@@ -825,7 +825,7 @@
       "address": "0xd6a69EBFa44f78cEe454A2Df2C77751A42f8f38c",
       "symbol": "auUSDC",
       "name": "Aurum Sonic USDC",
-      "decimals": 18,
+      "decimals": 6,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/auUSDC.jpg"
     },
     {

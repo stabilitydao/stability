@@ -49,6 +49,8 @@ export const enum StrategyShortId {
   EF = "EF",
   ISF = "ISF",
   SF = "SF",
+  IEF = "IEF",
+  GEF = "GEF",
 }
 
 export enum StrategyState {
@@ -470,7 +472,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.SF]: {
     id: "SwapX Farm",
     shortId: StrategyShortId.SF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.LIVE,
     contractGithubId: 202,
     color: "#7dff7e",
     bgColor: "#000000",
@@ -478,6 +480,30 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
     protocols: ["swapx:swapx"],
     description: "Earn SwapX farm rewards by classic LPs",
+  },
+  [StrategyShortId.IEF]: {
+    id: "Ichi Equalizer Farm",
+    shortId: StrategyShortId.IEF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 206,
+    color: "#257bff",
+    bgColor: "#061416",
+    ammAdapter: "UniswapV3",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
+    protocols: ["ichi:ichi", "equalizer:equalizer"],
+    description: "Earn Equalizer farm rewards by Ichi ALM",
+  },
+  [StrategyShortId.GEF]: {
+    id: "Gamma Equalizer Farm",
+    shortId: StrategyShortId.GEF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 207,
+    color: "#ff0000",
+    bgColor: "#061416",
+    ammAdapter: "UniswapV3",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
+    protocols: ["gamma:gamma", "equalizer:equalizer"],
+    description: "Earn Equalizer farm rewards by Gamma ALM",
   },
 };
 
