@@ -470,7 +470,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.SF]: {
     id: "SwapX Farm",
     shortId: StrategyShortId.SF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.DEVELOPMENT,
     contractGithubId: 202,
     color: "#7dff7e",
     bgColor: "#000000",
