@@ -434,6 +434,16 @@ export const assets: Asset[] = [
     website: "https://aurumfi.io/",
     color: "#19b4e3",
   },
+  {
+    addresses: {
+      "146": "0xE51EE9868C1f0d6cd968A8B8C8376Dc2991BFE44",
+    },
+    symbol: "BRUSH",
+    description:
+      "BRUSH is the deflationary token of Estfor Kingdom and Paintswap.",
+    website: "https://paintswap.io/",
+    color: "#b000e9",
+  },
 ];
 
 export const getAsset = (
