@@ -384,6 +384,26 @@ export const assets: Asset[] = [
     website: "https://swapx.fi/",
     color: "#3f6743",
   },
+  {
+    addresses: {
+      "146": "0x6881B80ea7C858E4aEEf63893e18a8A36f3682f3",
+    },
+    symbol: "NAVI",
+    description:
+      "Effortless trading, continuous liquidity. Across Crypto, Forex, and beyond.",
+    website: "https://www.navigator.exchange/",
+    color: "#90fb75",
+  },
+  {
+    addresses: {
+      "146": "0x7A08Bf5304094CA4C7b4132Ef62b5EDc4a3478B7",
+    },
+    symbol: "ECO",
+    description:
+      "Harnessing the power of Sonic DeFi to reward holders and give back to the planet; community token by Blockchain Ecologist 🌱",
+    website: "https://fantom.eco/",
+    color: "#5c0451",
+  },
 ];
 
 export const getAsset = (
