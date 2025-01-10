@@ -827,6 +827,14 @@
       "name": "Aurum Sonic USDC",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/auUSDC.jpg"
+    },
+    {
+      "chainId": 146,
+      "address": "0xE51EE9868C1f0d6cd968A8B8C8376Dc2991BFE44",
+      "symbol": "BRUSH",
+      "name": "PaintSwap",
+      "decimals": 18,
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0xe51ee9868c1f0d6cd968a8b8c8376dc2991bfe44.png"
     }
   ]
 }
