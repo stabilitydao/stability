@@ -787,6 +787,22 @@
       "name": "SwapX",
       "decimals": 18,
       "logoURI": "https://swapx.fi/assets/swpx-28556910.svg"
+    },
+    {
+      "chainId": 146,
+      "address": "0x6881B80ea7C858E4aEEf63893e18a8A36f3682f3",
+      "symbol": "NAVI",
+      "name": "NAVI",
+      "decimals": 18,
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x6881b80ea7c858e4aeef63893e18a8a36f3682f3.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x7A08Bf5304094CA4C7b4132Ef62b5EDc4a3478B7",
+      "symbol": "ECO",
+      "name": "SonicEco",
+      "decimals": 18,
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x7a08bf5304094ca4c7b4132ef62b5edc4a3478b7.png"
     }
   ]
 }
