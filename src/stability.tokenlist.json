@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-01-07T00:00:00+00:00",
+  "timestamp": "2025-01-10T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 10,
+    "minor": 11,
     "patch": 0
   },
   "tags": {
@@ -803,6 +803,30 @@
       "name": "SonicEco",
       "decimals": 18,
       "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x7a08bf5304094ca4c7b4132ef62b5edc4a3478b7.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x4EEC869d847A6d13b0F6D1733C5DEC0d1E741B4f",
+      "symbol": "INDI",
+      "name": "Indi",
+      "decimals": 18,
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x4eec869d847a6d13b0f6d1733c5dec0d1e741b4f.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x7F144F8691CbA3d2EfD8e5bcf042f9303EE31a46",
+      "symbol": "AUR",
+      "name": "Aurum",
+      "decimals": 18,
+      "logoURI": "https://swapx.fi/assets/aurum-615ce5ce.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0xd6a69EBFa44f78cEe454A2Df2C77751A42f8f38c",
+      "symbol": "auUSDC",
+      "name": "Aurum Sonic USDC",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/auUSDC.jpg"
     }
   ]
 }

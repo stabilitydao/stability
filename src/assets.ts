@@ -404,6 +404,36 @@ export const assets: Asset[] = [
     website: "https://fantom.eco/",
     color: "#5c0451",
   },
+  {
+    addresses: {
+      "146": "0x4EEC869d847A6d13b0F6D1733C5DEC0d1E741B4f",
+    },
+    symbol: "INDI",
+    description:
+      "A Sonic meme named after Michael Kong's cat. Michael is the CEO of Sonic.",
+    website: "https://www.indisonic.xyz/",
+    color: "#fe9a4c",
+  },
+  {
+    addresses: {
+      "146": "0x7F144F8691CbA3d2EfD8e5bcf042f9303EE31a46",
+    },
+    symbol: "AUR",
+    description:
+      "Aurum is a decentralised money market protocol where users can participate as suppliers or borrowers.",
+    website: "https://aurumfi.io/",
+    color: "#a7856a",
+  },
+  {
+    addresses: {
+      "146": "0xd6a69EBFa44f78cEe454A2Df2C77751A42f8f38c",
+    },
+    symbol: "auUSDC",
+    description:
+      "Yield-bearing rebase receipt token of collateral supplied to Aurum protocol.",
+    website: "https://aurumfi.io/",
+    color: "#19b4e3",
+  },
 ];
 
 export const getAsset = (
