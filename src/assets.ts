@@ -444,6 +444,16 @@ export const assets: Asset[] = [
     website: "https://paintswap.io/",
     color: "#b000e9",
   },
+  {
+    addresses: {
+      "146": "0x56192E94434c4fd3278b4Fa53039293fB00DE3DB",
+    },
+    symbol: "TYSG",
+    description:
+      "Thank You Sonic God - more than a meme. A movement - a tribute to the creator & shaper of ve(3,3) - memeFi on #Sonic.",
+    website: "https://thankyousonicgod.com/",
+    color: "#6b5c65",
+  },
 ];
 
 export const getAsset = (

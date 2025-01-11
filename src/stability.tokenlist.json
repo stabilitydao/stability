@@ -835,6 +835,14 @@
       "name": "PaintSwap",
       "decimals": 18,
       "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0xe51ee9868c1f0d6cd968a8b8c8376dc2991bfe44.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x56192E94434c4fd3278b4Fa53039293fB00DE3DB",
+      "symbol": "TYSG",
+      "name": "ThankYouSonicGod",
+      "decimals": 18,
+      "logoURI": "https://swapx.fi/assets/tysg-165ebf2e.png"
     }
   ]
 }
