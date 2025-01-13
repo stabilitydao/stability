@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-01-13T00:00:00+00:00",
+  "timestamp": "2025-01-13T12:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 12,
+    "minor": 13,
     "patch": 0
   },
   "tags": {
@@ -859,6 +859,22 @@
       "name": "Sonic ETH",
       "decimals": 18,
       "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x3bce5cb273f0f148010bbea2470e7b5df84c7812.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0xf26B3Fd147619Df61D4c1D0a9F7200B31A73FAfa",
+      "symbol": "Missor",
+      "name": "Missor",
+      "decimals": 18,
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0xf26b3fd147619df61d4c1d0a9f7200b31a73fafa.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x7F883dA3B0d77978075f7C9c03E1B9F461CA1B8d",
+      "symbol": "WOOF",
+      "name": "Muttski",
+      "decimals": 9,
+      "logoURI": "https://swapx.fi/assets/woof-3e0c77a8.png"
     }
   ]
 }
