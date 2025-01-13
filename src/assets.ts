@@ -473,6 +473,26 @@ export const assets: Asset[] = [
     website: "https://atoll.money/",
     color: "#e2e2e2",
   },
+  {
+    addresses: {
+      "146": "0xf26B3Fd147619Df61D4c1D0a9F7200B31A73FAfa",
+    },
+    symbol: "Missor",
+    description:
+      "Online 12 hours a day. Still miss everything. Aped the wrong ticker, missed the real one. Two token launch, ape the wrong one. You're a $MISSOR.",
+    website: "https://missor.art/",
+    color: "#fb89b4",
+  },
+  {
+    addresses: {
+      "146": "0x7F883dA3B0d77978075f7C9c03E1B9F461CA1B8d",
+    },
+    symbol: "WOOF",
+    description:
+      "Muttski, a go-to companion for every trader. A memecoin powered by utility and community engagement, Muttski offers a range of practical tools to enhance your trading experience. From the user-friendly MuttskiBot simplifying token trading and tools to simplify DeFi in Muttski's DeFi Suite. With a revenue-sharing model, Muttski holders benefit by simply staying invested.",
+    website: "https://www.muttski.io/",
+    color: "#2c80fa",
+  },
 ];
 
 export const getAsset = (
