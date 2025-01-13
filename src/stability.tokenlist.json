@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-01-10T00:00:00+00:00",
+  "timestamp": "2025-01-13T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 11,
+    "minor": 12,
     "patch": 0
   },
   "tags": {
@@ -850,7 +850,7 @@
       "symbol": "atETH",
       "name": "Atoll ETH",
       "decimals": 18,
-      "logoURI": "https://swapx.fi/assets/ate th-8f480cac.png"
+      "logoURI": "https://swapx.fi/assets/ateth-8f480cac.png"
     },
     {
       "chainId": 146,
