@@ -337,6 +337,15 @@ export const assets: Asset[] = [
   },
   {
     addresses: {
+      "146": "0x3bcE5CB273F0F148010BbEa2470e7b5df84C7812",
+    },
+    symbol: "scETH",
+    description: "A scalable yield bearing meta-stablecoin on Sonic",
+    website: "https://rings.money/",
+    color: "#8484db",
+  },
+  {
+    addresses: {
       "146": "0x9fDbC3f8Abc05Fa8f3Ad3C17D2F806c1230c4564",
     },
     symbol: "GOGLZ",
@@ -453,6 +462,16 @@ export const assets: Asset[] = [
       "Thank You Sonic God - more than a meme. A movement - a tribute to the creator & shaper of ve(3,3) - memeFi on #Sonic.",
     website: "https://thankyousonicgod.com/",
     color: "#6b5c65",
+  },
+  {
+    addresses: {
+      "146": "0x284D81e48fBc782Aa9186a03a226690aEA5cBe0E",
+    },
+    symbol: "atETH",
+    description:
+      "atETH is a full-collateralized token pegging with ETH. It utilizes AMO (Algorithmic Market Operations) to control its pegging for the Atoll ecosystem and earn yields from the fluctuating market. (Same with other assets like atS).",
+    website: "https://atoll.money/",
+    color: "#e2e2e2",
   },
 ];
 
