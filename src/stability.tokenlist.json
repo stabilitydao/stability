@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-01-13T12:00:00+00:00",
+  "timestamp": "2025-01-14T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 13,
+    "minor": 14,
     "patch": 0
   },
   "tags": {
@@ -875,6 +875,46 @@
       "name": "Muttski",
       "decimals": 9,
       "logoURI": "https://swapx.fi/assets/woof-3e0c77a8.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x0a54364631Ea37813a63edb3bBa1C46f8d8304B2",
+      "symbol": "DONKS",
+      "name": "Sonic Donks",
+      "decimals": 18,
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x0a54364631ea37813a63edb3bba1c46f8d8304b2.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x41211648C51AcB9A5F39A93C657e894A0bdB88e4",
+      "symbol": "TAILS",
+      "name": "Tails on Sonic",
+      "decimals": 18,
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x41211648c51acb9a5f39a93c657e894a0bdb88e4.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x17Af1Df44444AB9091622e4Aa66dB5BB34E51aD5",
+      "symbol": "THC",
+      "name": "Tin Hat Cat",
+      "decimals": 18,
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x17af1df44444ab9091622e4aa66db5bb34e51ad5.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0xBC0d0650412EF353D672c0Bbd12eFFF90591B251",
+      "symbol": "FS",
+      "name": "FutureStarter",
+      "decimals": 18,
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0xbc0d0650412ef353d672c0bbd12efff90591b251.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x50Bc6e1DfF8039A4b967c1BF507ba5eA13fa18B6",
+      "symbol": "sDOG",
+      "name": "sDOG",
+      "decimals": 18,
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x50bc6e1dff8039a4b967c1bf507ba5ea13fa18b6.png"
     }
   ]
 }

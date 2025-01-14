@@ -493,6 +493,56 @@ export const assets: Asset[] = [
     website: "https://www.muttski.io/",
     color: "#2c80fa",
   },
+  {
+    addresses: {
+      "146": "0x0a54364631Ea37813a63edb3bBa1C46f8d8304B2",
+    },
+    symbol: "DONKS",
+    description:
+      "$DONKS is an 80s-styled token built on the Sonic blockchain with a mission to support real-world donkey rescue and adoption initiatives. Combining a nostalgic retro vibe with a heartfelt cause, $DONKS empowers holders to contribute to saving and adopting donkeys globally while embracing the fun and community spirit of the project.",
+    website: "https://linktr.ee/SonicDonks",
+    color: "#21eff0",
+  },
+  {
+    addresses: {
+      "146": "0x41211648C51AcB9A5F39A93C657e894A0bdB88e4",
+    },
+    symbol: "TAILS",
+    description:
+      "TAILS on Sonic is a memecoin hub for AI, gaming and token tooling!",
+    website: "https://linktr.ee/TailsOnSonic",
+    color: "#e18103",
+  },
+  {
+    addresses: {
+      "146": "0x17Af1Df44444AB9091622e4Aa66dB5BB34E51aD5",
+    },
+    symbol: "THC",
+    description:
+      "TinHatCat is THE Memecoin of Fantom $FTM, Stoners and Conspiracy Theorists around the world. Ticker is $THC",
+    website: "https://www.tinhatcat.com/",
+    color: "#447db7",
+  },
+  {
+    addresses: {
+      "146": "0xBC0d0650412EF353D672c0Bbd12eFFF90591B251",
+    },
+    symbol: "FS",
+    description:
+      "FantomStarter is a multi-chain decentralized Initial Dex Offering (IDO) platform that hosts presales for upcoming blockchain projects.",
+    website: "https://futurestarter.xyz/projects",
+    color: "#8145e8",
+  },
+  {
+    addresses: {
+      "146": "0x50Bc6e1DfF8039A4b967c1BF507ba5eA13fa18B6",
+    },
+    symbol: "sDOG",
+    description:
+      "LET EM HANG 🐺❄️💥",
+    website: "https://www.sdog.io/",
+    color: "#e0e0e0",
+  },
 ];
 
 export const getAsset = (
