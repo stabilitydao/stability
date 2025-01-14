@@ -538,8 +538,7 @@ export const assets: Asset[] = [
       "146": "0x50Bc6e1DfF8039A4b967c1BF507ba5eA13fa18B6",
     },
     symbol: "sDOG",
-    description:
-      "LET EM HANG 🐺❄️💥",
+    description: "LET EM HANG 🐺❄️💥",
     website: "https://www.sdog.io/",
     color: "#e0e0e0",
   },
