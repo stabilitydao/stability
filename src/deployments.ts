@@ -9,6 +9,9 @@ export type Deployment = {
     strategyLogic: `0x${string}`;
     zap: `0x${string}`;
   };
+  periphery: {
+    frontend: `0x${string}`;
+  };
   subgraph: string;
 };
 
@@ -24,8 +27,33 @@ export const deployments: { [chainId: string]: Deployment } = {
       strategyLogic: "0xD16b60E39284190D9201f0eaD42c4674C310e905",
       zap: "0xEA3fABD8cC14705d7E66D1833a547D31882aEA9b",
     },
+    periphery: {
+      frontend: "0xa9f5593e6a809a24fb41d1d854a577a8bf507e28",
+    },
     subgraph:
       "https://gateway-arbitrum.network.thegraph.com/api/[api-key]/subgraphs/id/7WgM7jRzoW7yiJCE8DMEwCxtN3KLisYrVVShuAL2Kz4N",
+  },
+  "146": {
+    core: {
+      platform: "0x4Aca671A420eEB58ecafE83700686a2AD06b20D8",
+      factory: "0xc184a3ecca684f2621c903a7943d85fa42f56671",
+      priceReader: "0x422025182dd83a610bfa8b20550dcccdf94dc549",
+      swapper: "0xe52fcf607a8328106723804de1ef65da512771be",
+      hardWorker: "0x635b1f7dd7d0172533ba9fe5cfe2d83d9848f701",
+      vaultManager: "0x589a504f2ee9d054b483c700fa814863d639381e",
+      strategyLogic: "0xe0e71b484bb20e37d18ab51fb60c32dec778478a",
+      zap: "0x029dfd1a79e0ad9305d773fb8f3c01d8ef9b913d",
+    },
+    periphery: {
+      frontend: "0x15487495cce9210795f9C2E0e1A7238E336dFc32",
+    },
+    subgraph:
+      //"https://gateway.thegraph.com/api/[api-key]/subgraphs/id/CGkgsqaECPXXvgLySMMyzXTQh3v1zqqGTa1uRf5AbpZx",
+      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.16/gn",
+      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.17/gn",
+      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.18/gn",
+      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.19/gn",
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.20/gn",
   },
   "8453": {
     core: {
@@ -37,6 +65,9 @@ export const deployments: { [chainId: string]: Deployment } = {
       vaultManager: "0x2ba8C6A519CEDB6d1C35cEb14E8642625E91F77C",
       strategyLogic: "0xbe491A023eA61B4b027ed0f2f2400748113797b1",
       zap: "0x00700766b0cA613D719A01eea6234eeE77592e15",
+    },
+    periphery: {
+      frontend: "0x995c3bdee2830c7f96d4caa0c36f7b7b8ec60127",
     },
     subgraph:
       "https://gateway-arbitrum.network.thegraph.com/api/[api-key]/subgraphs/id/FRK5vEJXX9w5Pt3nqeqGRX5s7k29AWCb7aXTfDwT6S8j",
@@ -52,25 +83,10 @@ export const deployments: { [chainId: string]: Deployment } = {
       strategyLogic: "0x8f59BB791Da8fb1E2FedbDeAc576F0f622479059",
       zap: "0x240d026C11A97591118A534133fEeFEd59B90fc5",
     },
-    subgraph:
-      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-subgraph/0.0.13/gn",
-  },
-  "146": {
-    core: {
-      platform: "0x4Aca671A420eEB58ecafE83700686a2AD06b20D8",
-      factory: "0xc184a3ecca684f2621c903a7943d85fa42f56671",
-      priceReader: "0x422025182dd83a610bfa8b20550dcccdf94dc549",
-      swapper: "0xe52fcf607a8328106723804de1ef65da512771be",
-      hardWorker: "0x635b1f7dd7d0172533ba9fe5cfe2d83d9848f701",
-      vaultManager: "0x589a504f2ee9d054b483c700fa814863d639381e",
-      strategyLogic: "0xe0e71b484bb20e37d18ab51fb60c32dec778478a",
-      zap: "0x029dfd1a79e0ad9305d773fb8f3c01d8ef9b913d",
+    periphery: {
+      frontend: "0xfd1361E0565b01B85d3c1511FEf7545D6A84d93a",
     },
     subgraph:
-      //"https://gateway.thegraph.com/api/[api-key]/subgraphs/id/CGkgsqaECPXXvgLySMMyzXTQh3v1zqqGTa1uRf5AbpZx",
-      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.16/gn",
-      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.17/gn",
-      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.18/gn",
-      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.19/gn",
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-subgraph/0.0.13/gn",
   },
 };
