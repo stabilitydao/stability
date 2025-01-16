@@ -11,7 +11,7 @@ export type Deployment = {
   };
   periphery: {
     frontend: `0x${string}`;
-  },
+  };
   subgraph: string;
 };
 
@@ -48,11 +48,11 @@ export const deployments: { [chainId: string]: Deployment } = {
       frontend: "0x15487495cce9210795f9C2E0e1A7238E336dFc32",
     },
     subgraph:
-    //"https://gateway.thegraph.com/api/[api-key]/subgraphs/id/CGkgsqaECPXXvgLySMMyzXTQh3v1zqqGTa1uRf5AbpZx",
-    //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.16/gn",
-    //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.17/gn",
-    //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.18/gn",
-    //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.19/gn",
+      //"https://gateway.thegraph.com/api/[api-key]/subgraphs/id/CGkgsqaECPXXvgLySMMyzXTQh3v1zqqGTa1uRf5AbpZx",
+      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.16/gn",
+      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.17/gn",
+      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.18/gn",
+      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.19/gn",
       "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.20/gn",
   },
   "8453": {
