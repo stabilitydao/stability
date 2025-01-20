@@ -13,7 +13,9 @@ import {
   seeds,
   ChainStatus,
   InteractionType,
-  chainStatusInfo, assetOracles, vaultOracles
+  chainStatusInfo,
+  assetOracles,
+  vaultOracles,
 } from "../src";
 
 describe("index", () => {
