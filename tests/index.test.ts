@@ -14,6 +14,8 @@ import {
   ChainStatus,
   InteractionType,
   chainStatusInfo,
+  assetOracles,
+  vaultOracles,
 } from "../src";
 
 describe("index", () => {
@@ -57,5 +59,9 @@ describe("index", () => {
   });
   test("api", () => {
     expect(InteractionType.SYNC).toEqual("SYNC");
+  });
+  test("oracles", () => {
+    expect(Object.keys(assetOracles).length).toBeGreaterThan(0);
+    expect(Object.keys(vaultOracles).length).toBeGreaterThan(0);
   });
 });
