@@ -2,11 +2,11 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-01-14T00:00:00+00:00",
+  "timestamp": "2025-01-21T00:00:00+00:00",
   "version": {
     "major": 1,
     "minor": 14,
-    "patch": 0
+    "patch": 1
   },
   "tags": {
     "stablecoin": {
@@ -786,7 +786,7 @@
       "symbol": "SWPx",
       "name": "SwapX",
       "decimals": 18,
-      "logoURI": "https://swapx.fi/assets/swpx-28556910.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/swpx.svg"
     },
     {
       "chainId": 146,
