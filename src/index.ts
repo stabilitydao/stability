@@ -45,6 +45,7 @@ import { assets, Asset, getAsset } from "./assets";
 import { seeds } from "./seeds";
 import { bridges, Bridge, BridgeName, getChainBridges } from "./bridges";
 import { contests, YieldContest, Reward, RewardType } from "./contests";
+import { AssetOracle, assetOracles, vaultOracles } from "./oracles";
 
 export {
   deployments,
@@ -95,4 +96,7 @@ export {
   YieldContest,
   Reward,
   RewardType,
+  AssetOracle,
+  assetOracles,
+  vaultOracles,
 };

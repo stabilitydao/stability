@@ -235,6 +235,22 @@ import { tokenlist } from "@stabilitydao/stability";
 
 </details>
 
+### Oracles
+
+<details>
+<summary>what is included</summary>
+
+#### Types
+
+- `AssetOracle`
+
+#### Constants
+
+- `assetOracles: {[chainId: string]: { [assetAddress: `0x${string}`]: AssetOracle }; }`
+- `vaultOracles: {[chainId: string]: { [vaultAddress: `0x${string}`]: `0x${string}` }; }`
+
+</details>
+
 ## 👷 Develop
 
 ```shell
