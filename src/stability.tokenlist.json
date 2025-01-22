@@ -2,11 +2,11 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-01-22T00:00:00+00:00",
+  "timestamp": "2025-01-23T00:00:00+00:00",
   "version": {
     "major": 1,
     "minor": 14,
-    "patch": 2
+    "patch": 3
   },
   "tags": {
     "stablecoin": {
@@ -818,7 +818,7 @@
       "symbol": "AUR",
       "name": "Aurum",
       "decimals": 18,
-      "logoURI": "https://swapx.fi/assets/aurum-615ce5ce.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/aurum.png"
     },
     {
       "chainId": 146,
@@ -842,7 +842,7 @@
       "symbol": "TYSG",
       "name": "ThankYouSonicGod",
       "decimals": 18,
-      "logoURI": "https://swapx.fi/assets/tysg-165ebf2e.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/tysg.png"
     },
     {
       "chainId": 146,
@@ -850,7 +850,7 @@
       "symbol": "atETH",
       "name": "Atoll ETH",
       "decimals": 18,
-      "logoURI": "https://swapx.fi/assets/ateth-8f480cac.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/ateth.png"
     },
     {
       "chainId": 146,
@@ -874,7 +874,7 @@
       "symbol": "WOOF",
       "name": "Muttski",
       "decimals": 9,
-      "logoURI": "https://swapx.fi/assets/woof-3e0c77a8.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/woof.png"
     },
     {
       "chainId": 146,
