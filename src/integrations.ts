@@ -1210,6 +1210,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Silo V2",
         category: DefiCategory.LENDING,
         chains: [ChainName.ARBITRUM, ChainName.SONIC],
+        strategies: [StrategyShortId.SiF],
       },
     },
     defiLlama: "silo-finance",

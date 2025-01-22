@@ -2,11 +2,11 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-01-21T00:00:00+00:00",
+  "timestamp": "2025-01-22T00:00:00+00:00",
   "version": {
     "major": 1,
     "minor": 14,
-    "patch": 1
+    "patch": 2
   },
   "tags": {
     "stablecoin": {
@@ -692,7 +692,7 @@
       "symbol": "wS",
       "name": "Wrapped Sonic",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/ws.png",
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/ws.svg",
       "tags": ["wNative"]
     },
     {
