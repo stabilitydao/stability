@@ -512,7 +512,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     id: "ALM Shadow Farm",
     shortId: StrategyShortId.ASF,
     state: StrategyState.AWAITING,
-    contractGithubId: "is-being-created",
+    contractGithubId: 213,
     color: "#411fa8",
     bgColor: "#000000",
     ammAdapter: "UniswapV3",
