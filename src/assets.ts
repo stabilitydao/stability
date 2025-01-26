@@ -552,6 +552,25 @@ export const assets: Asset[] = [
     website: "https://www.originprotocol.com/",
     color: "#1a82ff",
   },
+  {
+    addresses: {
+      "146": "0x3333b97138D4b086720b5aE8A7844b1345a33333",
+    },
+    symbol: "SHADOW",
+    description:
+      "A Sonic-native concentrated liquidity exchange. The ultimate trading hub on Sonic.",
+    website: "https://www.shadow.so/",
+    color: "#fe9f1c",
+  },
+  {
+    addresses: {
+      "146": "0x9A08cD5691E009cC72E2A4d8e7F2e6EE14E96d6d",
+    },
+    symbol: "sGEM1",
+    description: "Our Sonic GEM wrapper for Season 1.",
+    website: "https://stability.farm",
+    color: "#e20000",
+  },
 ];
 
 export const getAsset = (

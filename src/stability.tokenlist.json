@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-01-26T00:00:00+00:00",
+  "timestamp": "2025-01-27T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 15,
+    "minor": 16,
     "patch": 0
   },
   "tags": {
@@ -923,6 +923,22 @@
       "name": "Origin Sonic",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/os.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x3333b97138D4b086720b5aE8A7844b1345a33333",
+      "symbol": "SHADOW",
+      "name": "Shadow",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/assets/shadow.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x9A08cD5691E009cC72E2A4d8e7F2e6EE14E96d6d",
+      "symbol": "sGEM1",
+      "name": "Stability Gem Season 1",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/sGEM1.png"
     }
   ]
 }
