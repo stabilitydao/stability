@@ -51,6 +51,7 @@ export const enum StrategyShortId {
   SF = "SF",
   IEF = "IEF",
   GEF = "GEF",
+  ASF = "ASF",
 }
 
 export enum StrategyState {
@@ -69,6 +70,7 @@ export enum BaseStrategy {
   MERKL = "Merkl",
   ERC4626 = "ERC4626",
   LEVERAGED_LENDING = "Leveraged Lending",
+  ALM = "ALM",
 }
 
 export const strategyStateDescription: { [state in StrategyState]: string } = {
@@ -91,7 +93,8 @@ export const baseStrategyContracts: { [baseStrategy in BaseStrategy]: string } =
     [BaseStrategy.FARMING]: "FarmingStrategyBase",
     [BaseStrategy.MERKL]: "MerklStrategyBase",
     [BaseStrategy.ERC4626]: "ERC4626StrategyBase",
-    [BaseStrategy.LEVERAGED_LENDING]: "LeveragedLending",
+    [BaseStrategy.LEVERAGED_LENDING]: "LeveragedLendingStrategyBase",
+    [BaseStrategy.ALM]: "ALMStrategyBase",
   };
 
 export const strategies: { [shortId in StrategyShortId]: Strategy } = {
@@ -504,6 +507,18 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
     protocols: ["gamma:gamma", "equalizer:equalizer"],
     description: "Earn Equalizer farm rewards by Gamma ALM",
+  },
+  [StrategyShortId.ASF]: {
+    id: "ALM Shadow Farm",
+    shortId: StrategyShortId.ASF,
+    state: StrategyState.AWAITING,
+    contractGithubId: "is-being-created",
+    color: "#411fa8",
+    bgColor: "#000000",
+    ammAdapter: "UniswapV3",
+    baseStrategies: [BaseStrategy.ALM, BaseStrategy.FARMING],
+    protocols: ["shadow:shadow"],
+    description: "Earn Shadow gauge rewards by Stability ALM",
   },
 };
 
