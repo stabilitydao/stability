@@ -219,6 +219,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.LINEA,
           ChainName.BLAST,
           ChainName.IMMUTABLE_ZKEVM,
+          ChainName.SONIC,
         ],
         strategies: [
           StrategyShortId.QSMF,
@@ -309,6 +310,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.AVALANCHE,
           ChainName.CELO,
           ChainName.BLAST,
+          ChainName.SONIC,
         ],
         strategies: [StrategyShortId.CUMF, StrategyShortId.GUMF],
         adapters: ["UniswapV3Adapter"],
@@ -1343,7 +1345,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.ETHEREUM,
           ChainName.ARBITRUM,
           ChainName.POLYGON,
-          ChainName.SONIC,
         ],
         strategies: [StrategyShortId.Y],
       },
