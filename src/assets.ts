@@ -542,6 +542,15 @@ export const assets: Asset[] = [
     website: "https://www.sdog.io/",
     color: "#e0e0e0",
   },
+  {
+    addresses: {
+      "146": "0xb1e25689D55734FD3ffFc939c4C3Eb52DFf8A794",
+    },
+    symbol: "OS",
+    description: "Hypersonic liquid staking. Permissionless Money Lego. Ideal for stacking yield. Rebasing token.",
+    website: "https://www.originprotocol.com/",
+    color: "#1a82ff",
+  },
 ];
 
 export const getAsset = (
