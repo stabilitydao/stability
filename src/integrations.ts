@@ -1341,11 +1341,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       yearnV3: {
         name: "Yearn V3",
         category: DefiCategory.ERC4626,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.ARBITRUM,
-          ChainName.POLYGON,
-        ],
+        chains: [ChainName.ETHEREUM, ChainName.ARBITRUM, ChainName.POLYGON],
         strategies: [StrategyShortId.Y],
       },
     },
