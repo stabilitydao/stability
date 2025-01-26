@@ -1,4 +1,4 @@
-// Types of ApiService v4.3.3 from 26.11.2024
+// Types of ApiService v4.6.0 from 26.01.2025
 
 //#region ===== Main reply            | GET /                                    =====
 
@@ -12,6 +12,7 @@ export interface ApiMainReply {
   underlyings: Underlyings;
   assetPrices: AssetPrices;
   leaderboards: Leaderboards;
+  rewards: Rewards;
   error?: string;
 }
 
@@ -92,6 +93,7 @@ export type Vault = {
   assets?: `0x${string}`[];
   assetsAmounts?: string[];
   assetsPricesOnCreation?: string[];
+  sharePriceLast?: string;
   assetsPricesLast?: string[];
   income?: {
     aprLatest: string;
@@ -190,7 +192,7 @@ export type Platform = {
   buildingPermitToken: string;
 };
 
-export type Leaderboards = { [id: string]: User[] };
+export type Leaderboards = { [contestId: string]: User[] };
 
 export type User = {
   address: `0x${string}`;
@@ -200,6 +202,10 @@ export type User = {
   points?: number;
   name?: string;
   img?: string;
+};
+
+export type Rewards = {
+  gemsAprMultiplier: number;
 };
 
 //#endregion
@@ -316,6 +322,17 @@ export interface ApiContestsReply {
   time: number;
   hash: string;
   data: Leaderboards;
+  gemsRewards: { [contestId: string]: ContestGemsRewards };
+}
+
+export interface ContestGemsRewards {
+  merkleRoot: string;
+  gemsWinners: {
+    address: `0x${string}`;
+    gems: number;
+    gemsRaw: string;
+  }[];
+  proofs: string[][];
 }
 
 //#endregion
@@ -324,6 +341,7 @@ export interface ApiContestsReply {
 
 export interface ApiContestReply {
   leaderboard: User[];
+  gemsRewards?: ContestGemsRewards;
 }
 
 //#endregion
@@ -351,6 +369,19 @@ export interface ApiVerifyIntractReply {
     metric: number; // earned USD
     metricDataType: "DOUBLE";
   };
+}
+
+//#endregion
+
+//#region ===== Rewards for user      | GET /rewards/user/:userAddress           =====
+
+export interface UserRewards {
+  gemsEarned: {
+    contestId: string;
+    gems: number;
+    gemsRaw: string;
+    proofs: string[];
+  }[];
 }
 
 //#endregion
