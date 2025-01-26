@@ -15,7 +15,7 @@ export type Deployment = {
   tokenomics: {
     merkleDistributor?: `0x${string}`;
     gem1?: `0x${string}`;
-  },
+  };
   subgraph: string;
 };
 
