@@ -219,6 +219,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.LINEA,
           ChainName.BLAST,
           ChainName.IMMUTABLE_ZKEVM,
+          ChainName.SONIC,
         ],
         strategies: [
           StrategyShortId.QSMF,
@@ -309,6 +310,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.AVALANCHE,
           ChainName.CELO,
           ChainName.BLAST,
+          ChainName.SONIC,
         ],
         strategies: [StrategyShortId.CUMF, StrategyShortId.GUMF],
         adapters: ["UniswapV3Adapter"],
@@ -1339,12 +1341,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       yearnV3: {
         name: "Yearn V3",
         category: DefiCategory.ERC4626,
-        chains: [
-          ChainName.ETHEREUM,
-          ChainName.ARBITRUM,
-          ChainName.POLYGON,
-          ChainName.SONIC,
-        ],
+        chains: [ChainName.ETHEREUM, ChainName.ARBITRUM, ChainName.POLYGON],
         strategies: [StrategyShortId.Y],
       },
     },

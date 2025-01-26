@@ -12,6 +12,10 @@ export type Deployment = {
   periphery: {
     frontend: `0x${string}`;
   };
+  tokenomics: {
+    merkleDistributor?: `0x${string}`;
+    gem1?: `0x${string}`;
+  };
   subgraph: string;
 };
 
@@ -30,6 +34,7 @@ export const deployments: { [chainId: string]: Deployment } = {
     periphery: {
       frontend: "0xa9f5593e6a809a24fb41d1d854a577a8bf507e28",
     },
+    tokenomics: {},
     subgraph:
       "https://gateway-arbitrum.network.thegraph.com/api/[api-key]/subgraphs/id/7WgM7jRzoW7yiJCE8DMEwCxtN3KLisYrVVShuAL2Kz4N",
   },
@@ -47,14 +52,11 @@ export const deployments: { [chainId: string]: Deployment } = {
     periphery: {
       frontend: "0x15487495cce9210795f9C2E0e1A7238E336dFc32",
     },
+    tokenomics: {
+      merkleDistributor: "0x0391aBDCFaB86947d93f9dd032955733B639416b",
+      gem1: "0x9A08cD5691E009cC72E2A4d8e7F2e6EE14E96d6d",
+    },
     subgraph:
-      //"https://gateway.thegraph.com/api/[api-key]/subgraphs/id/CGkgsqaECPXXvgLySMMyzXTQh3v1zqqGTa1uRf5AbpZx",
-      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.16/gn",
-      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.17/gn",
-      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.18/gn",
-      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.19/gn",
-      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.20/gn",
-      //"https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.21/gn",
       "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.23/gn",
   },
   "8453": {
@@ -71,6 +73,7 @@ export const deployments: { [chainId: string]: Deployment } = {
     periphery: {
       frontend: "0x995c3bdee2830c7f96d4caa0c36f7b7b8ec60127",
     },
+    tokenomics: {},
     subgraph:
       "https://gateway-arbitrum.network.thegraph.com/api/[api-key]/subgraphs/id/FRK5vEJXX9w5Pt3nqeqGRX5s7k29AWCb7aXTfDwT6S8j",
   },
@@ -88,6 +91,7 @@ export const deployments: { [chainId: string]: Deployment } = {
     periphery: {
       frontend: "0xfd1361E0565b01B85d3c1511FEf7545D6A84d93a",
     },
+    tokenomics: {},
     subgraph:
       "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-subgraph/0.0.13/gn",
   },
