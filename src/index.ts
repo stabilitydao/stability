@@ -22,7 +22,7 @@ import {
   baseStrategyContracts,
   getStrategyProtocols,
   getChainStrategies,
-  getALMStrategies
+  getALMStrategies,
 } from "./strategies";
 import {
   integrations,

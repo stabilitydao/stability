@@ -533,9 +533,13 @@ export const getMerklStrategies = (): string[] => {
 
 export const getALMStrategies = (): string[] => {
   return Object.keys(strategies)
-    .filter(shortId => strategies[shortId as StrategyShortId].baseStrategies.includes(BaseStrategy.ALM))
-    .map(shortId => strategies[shortId as StrategyShortId].id)
-}
+    .filter((shortId) =>
+      strategies[shortId as StrategyShortId].baseStrategies.includes(
+        BaseStrategy.ALM,
+      ),
+    )
+    .map((shortId) => strategies[shortId as StrategyShortId].id);
+};
 
 export const getStrategyShortId = (
   strategyId: string,

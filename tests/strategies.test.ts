@@ -1,12 +1,14 @@
 import {
   baseStrategyContracts,
-  ChainName, getALMStrategies,
+  ChainName,
+  getALMStrategies,
   getChainStrategies,
   getMerklStrategies,
   getStrategiesTotals,
   getStrategyProtocols,
-  getStrategyShortId, strategies,
-  StrategyShortId
+  getStrategyShortId,
+  strategies,
+  StrategyShortId,
 } from "../src";
 import { BaseStrategy } from "../src/strategies";
 
@@ -41,6 +43,8 @@ describe("testing strategies", () => {
   test("get alm strategies", () => {
     const almStrategies = getALMStrategies();
     expect(almStrategies.length).toBeGreaterThan(0);
-    expect(almStrategies.includes(strategies[StrategyShortId.ASF].id)).toEqual(true)
+    expect(almStrategies.includes(strategies[StrategyShortId.ASF].id)).toEqual(
+      true,
+    );
   });
 });
