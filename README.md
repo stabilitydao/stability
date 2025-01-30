@@ -65,6 +65,7 @@ currently in development or awaiting development.
 #### Methods
 
 - `getMerklStrategies()`
+- `getALMStrategies()`
 - `getStrategyShortId(id: string): StrategyShortId|undefined`
 - `getStrategiesTotals(): {[state in StrategyState]: number}`
 - `getStrategyProtocols(shortId: StrategyShortId): DeFiProtocol[]`
