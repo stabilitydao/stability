@@ -22,6 +22,7 @@ import {
   baseStrategyContracts,
   getStrategyProtocols,
   getChainStrategies,
+  getALMStrategies,
 } from "./strategies";
 import {
   integrations,
@@ -99,4 +100,5 @@ export {
   AssetOracle,
   assetOracles,
   vaultOracles,
+  getALMStrategies,
 };

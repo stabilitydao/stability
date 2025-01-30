@@ -511,7 +511,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.ASF]: {
     id: "ALM Shadow Farm",
     shortId: StrategyShortId.ASF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.LIVE,
     contractGithubId: 213,
     color: "#411fa8",
     bgColor: "#000000",
@@ -529,6 +529,16 @@ export const getMerklStrategies = (): string[] => {
     const strategy = strategies[shortId] as Strategy;
     return strategy.id;
   });
+};
+
+export const getALMStrategies = (): string[] => {
+  return Object.keys(strategies)
+    .filter((shortId) =>
+      strategies[shortId as StrategyShortId].baseStrategies.includes(
+        BaseStrategy.ALM,
+      ),
+    )
+    .map((shortId) => strategies[shortId as StrategyShortId].id);
 };
 
 export const getStrategyShortId = (
