@@ -52,7 +52,7 @@ export const deployments: { [chainId: string]: Deployment } = {
     },
     periphery: {
       frontend: "0x15487495cce9210795f9C2E0e1A7238E336dFc32",
-      rebalanceHelper: "0xF95C1E9fb9c7d357CAF969B741a2354630f7aEcD",
+      rebalanceHelper: "0xe1780b7a01f7eA75C371775cd4D26FeB4e4bb690",
     },
     tokenomics: {
       merkleDistributor: "0x0391aBDCFaB86947d93f9dd032955733B639416b",
