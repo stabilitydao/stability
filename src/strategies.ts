@@ -52,6 +52,8 @@ export const enum StrategyShortId {
   IEF = "IEF",
   GEF = "GEF",
   ASF = "ASF",
+  Si = "Si",
+  SiL = "SiL",
 }
 
 export enum StrategyState {
@@ -416,11 +418,11 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.SiF]: {
     id: "Silo Farm",
     shortId: StrategyShortId.SiF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.LIVE,
     contractGithubId: 193,
     color: "#9d9d9d",
     bgColor: "#000000",
-    baseStrategies: [BaseStrategy.ERC4626],
+    baseStrategies: [BaseStrategy.FARMING],
     protocols: ["silo:siloV2"],
     description: "Lend asset on Silo V2 and earn incentives",
   },
@@ -519,6 +521,28 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     baseStrategies: [BaseStrategy.ALM, BaseStrategy.FARMING],
     protocols: ["shadow:shadow"],
     description: "Earn Shadow gauge rewards by Stability ALM",
+  },
+  [StrategyShortId.Si]: {
+    id: "Silo",
+    shortId: StrategyShortId.Si,
+    state: StrategyState.DEVELOPMENT,
+    contractGithubId: 218,
+    color: "#e7e7e7",
+    bgColor: "#000000",
+    baseStrategies: [],
+    protocols: ["silo:siloV2"],
+    description: "Lend asset on Silo V2",
+  },
+  [StrategyShortId.SiL]: {
+    id: "Silo Leverage",
+    shortId: StrategyShortId.SiL,
+    state: StrategyState.DEVELOPMENT,
+    contractGithubId: 222,
+    color: "#ff0000",
+    bgColor: "#190031",
+    baseStrategies: [BaseStrategy.LEVERAGED_LENDING],
+    protocols: ["silo:siloV2"],
+    description: "Leverage lending on Silo V2",
   },
 };
 

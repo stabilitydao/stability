@@ -23,7 +23,7 @@ for (const shortId of Object.keys(strategies)) {
       `------ Need to create issue for strategy ${strategy.shortId}
 ------ https://github.com/stabilitydao/stability-contracts/issues/new`,
     );
-    console.log(`Title: 📜 [${StrategyState.AWAITING}] ${strategy.id}`);
+    console.log(`Title: 📜 [${strategy.state}] ${strategy.id}`);
     console.log(`# ${strategy.shortId} | ${strategy.id}`);
     console.log("");
     console.log("<div>");
@@ -39,9 +39,9 @@ for (const shortId of Object.keys(strategies)) {
     }
     console.log("</div>");
     console.log("");
-    console.log(`## Status: ${StrategyState.AWAITING}`);
+    console.log(`## Status: ${strategy.state}`);
     console.log(``);
-    console.log(`*${strategyStateDescription[StrategyState.AWAITING]}*`);
+    console.log(`*${strategyStateDescription[strategy.state]}*`);
     console.log("");
     console.log(`## Chains`);
     console.log("");
