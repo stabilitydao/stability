@@ -50,6 +50,10 @@ export enum RewardType {
   POINTS = "Points",
   // Sonic Gems Season 1
   GEMS1 = "Gems1",
+  // Sonic Gems Season 2
+  GEMS2 = "Gems2",
+  // Sonic Gems Season 3
+  GEMS3 = "Gems3",
 }
 
 export const contests: { [contestId: string]: YieldContest } = {
@@ -235,11 +239,6 @@ export const contests: { [contestId: string]: YieldContest } = {
     minEarn: 1,
     rewards: [
       {
-        type: RewardType.POINTS,
-        winners: 50,
-        winnerReward: 400,
-      },
-      {
         type: RewardType.GEMS1,
         winners: 0,
         winnerReward: 0,
@@ -254,11 +253,6 @@ export const contests: { [contestId: string]: YieldContest } = {
     end: 1743033599, // Wed, 26 Mar 2025 23:59:59 GMT
     minEarn: 2,
     rewards: [
-      {
-        type: RewardType.POINTS,
-        winners: 50,
-        winnerReward: 400,
-      },
       {
         type: RewardType.GEMS1,
         winners: 0,
@@ -275,11 +269,6 @@ export const contests: { [contestId: string]: YieldContest } = {
     minEarn: 2,
     rewards: [
       {
-        type: RewardType.POINTS,
-        winners: 50,
-        winnerReward: 400,
-      },
-      {
         type: RewardType.GEMS1,
         winners: 0,
         winnerReward: 0,
@@ -294,11 +283,6 @@ export const contests: { [contestId: string]: YieldContest } = {
     end: 1745452799, // Wed, 23 Apr 2025 23:59:59 GMT
     minEarn: 2.5,
     rewards: [
-      {
-        type: RewardType.POINTS,
-        winners: 50,
-        winnerReward: 400,
-      },
       {
         type: RewardType.GEMS1,
         winners: 0,
@@ -315,11 +299,6 @@ export const contests: { [contestId: string]: YieldContest } = {
     minEarn: 2.5,
     rewards: [
       {
-        type: RewardType.POINTS,
-        winners: 50,
-        winnerReward: 400,
-      },
-      {
         type: RewardType.GEMS1,
         winners: 0,
         winnerReward: 0,
@@ -334,11 +313,6 @@ export const contests: { [contestId: string]: YieldContest } = {
     end: 1747871999, // Wed, 21 May 2025 23:59:59 GMT
     minEarn: 2.5,
     rewards: [
-      {
-        type: RewardType.POINTS,
-        winners: 50,
-        winnerReward: 400,
-      },
       {
         type: RewardType.GEMS1,
         winners: 0,
@@ -355,11 +329,6 @@ export const contests: { [contestId: string]: YieldContest } = {
     minEarn: 2.5,
     rewards: [
       {
-        type: RewardType.POINTS,
-        winners: 50,
-        winnerReward: 400,
-      },
-      {
         type: RewardType.GEMS1,
         winners: 0,
         winnerReward: 0,
@@ -374,11 +343,6 @@ export const contests: { [contestId: string]: YieldContest } = {
     end: 1750291199, // Wed, 18 Jun 2025 23:59:59 GMT
     minEarn: 5,
     rewards: [
-      {
-        type: RewardType.POINTS,
-        winners: 50,
-        winnerReward: 400,
-      },
       {
         type: RewardType.GEMS1,
         winners: 0,
@@ -499,4 +463,35 @@ export const contests: { [contestId: string]: YieldContest } = {
     minEarn: "TBA",
     rewards: "TBA",
   },
+};
+
+export const getContestReward = (
+  contest: YieldContest,
+  rewardType: RewardType,
+): Reward | undefined => {
+  if (Array.isArray(contest.rewards)) {
+    for (const reward of contest.rewards) {
+      if (reward.type === rewardType) {
+        return reward;
+      }
+    }
+  }
+  return undefined;
+};
+
+export const getContestGemsReward = (
+  contest: YieldContest,
+): Reward | undefined => {
+  if (Array.isArray(contest.rewards)) {
+    for (const reward of contest.rewards) {
+      if (
+        [RewardType.GEMS1, RewardType.GEMS2, RewardType.GEMS3].includes(
+          reward.type,
+        )
+      ) {
+        return reward;
+      }
+    }
+  }
+  return undefined;
 };
