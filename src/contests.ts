@@ -465,24 +465,33 @@ export const contests: { [contestId: string]: YieldContest } = {
   },
 };
 
-export const getContestReward = (contest: YieldContest, rewardType: RewardType): Reward|undefined => {
+export const getContestReward = (
+  contest: YieldContest,
+  rewardType: RewardType,
+): Reward | undefined => {
   if (Array.isArray(contest.rewards)) {
     for (const reward of contest.rewards) {
       if (reward.type === rewardType) {
-        return reward
+        return reward;
       }
     }
   }
-  return undefined
-}
+  return undefined;
+};
 
-export const getContestGemsReward = (contest: YieldContest): Reward|undefined => {
+export const getContestGemsReward = (
+  contest: YieldContest,
+): Reward | undefined => {
   if (Array.isArray(contest.rewards)) {
     for (const reward of contest.rewards) {
-      if ([RewardType.GEMS1, RewardType.GEMS2, RewardType.GEMS3].includes(reward.type)) {
-        return reward
+      if (
+        [RewardType.GEMS1, RewardType.GEMS2, RewardType.GEMS3].includes(
+          reward.type,
+        )
+      ) {
+        return reward;
       }
     }
   }
-  return undefined
-}
+  return undefined;
+};

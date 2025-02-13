@@ -45,7 +45,14 @@ import { almFactories } from "./addresses";
 import { assets, Asset, getAsset } from "./assets";
 import { seeds } from "./seeds";
 import { bridges, Bridge, BridgeName, getChainBridges } from "./bridges";
-import { contests, YieldContest, Reward, RewardType, getContestGemsReward, getContestReward } from "./contests";
+import {
+  contests,
+  YieldContest,
+  Reward,
+  RewardType,
+  getContestGemsReward,
+  getContestReward,
+} from "./contests";
 import { AssetOracle, assetOracles, vaultOracles } from "./oracles";
 
 export {

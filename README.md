@@ -234,6 +234,11 @@ import { tokenlist } from "@stabilitydao/stability";
 
 - `enum RewardType`
 
+#### Methods
+
+- `getContestReward = (contest: YieldContest, rewardType: RewardType): Reward | undefined`
+- `getContestGemsReward = (contest: YieldContest): Reward | undefined`
+
 </details>
 
 ### Oracles
