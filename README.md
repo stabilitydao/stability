@@ -286,7 +286,7 @@ yarn prettier . --write
 ### Commit/PR prefix
 
 | Changes           | Prefix |
-|-------------------|--------|
+| ----------------- | ------ |
 | Assets, tokenlist | 🪙     |
 |                   |        |
 |                   |        |
