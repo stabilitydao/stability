@@ -286,9 +286,12 @@ yarn prettier . --write
 
 ### Commit/PR prefix
 
-| Changes           | Prefix |
-| ----------------- | ------ |
-| Assets, tokenlist | 🪙     |
-| Collector         | 📦     |
-|                   |        |
-|                   |        |
+| Changes            | Prefix |
+| ------------------ | ------ |
+| Collector          | 📦     |
+| Assets, tokenlist  | 🪙     |
+| Sync state, etc    | ♻️️    |
+| Content generators | 🎇     |
+| Bridge             | 🌉     |
+| Prettier           | #️⃣     |
+| Docs               | 📙     |
