@@ -536,7 +536,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.SiL]: {
     id: "Silo Leverage",
     shortId: StrategyShortId.SiL,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.LIVE,
     contractGithubId: 222,
     color: "#ff0000",
     bgColor: "#190031",
