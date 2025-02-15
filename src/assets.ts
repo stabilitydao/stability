@@ -1,9 +1,21 @@
+import { tokenlist } from "./index";
+
 export type Asset = {
   addresses: { [chainId: string]: `0x${string}` | `0x${string}`[] };
   symbol: string;
   description: string;
   website: string;
   color: string;
+};
+
+export type TokenData = {
+  address: `0x${string}`;
+  name: string;
+  symbol: string;
+  chainId: number;
+  decimals: number;
+  logoURI: string;
+  tags?: string[];
 };
 
 export const assets: Asset[] = [
@@ -591,6 +603,44 @@ export const getAsset = (
           return asset;
         }
       }
+    }
+  }
+  return undefined;
+};
+
+/**
+ * Function to get token data from token list
+ *
+ * @example
+ *
+ * ```
+ * getTokenData("0x2791bca1f2de4661ed88a30c99a7a9449aa84174")
+ * ```
+ *
+ * @param address - Token address
+ *
+ * @returns {Object} Token Information
+ * @property {`0x${string}`} address - Token contract address
+ * @property {number} chainId - ID of the blockchain network (e.g., 137 for Polygon)
+ * @property {number} decimals - Number of decimals the token uses
+ * @property {string} name - Full name of the token (e.g., "Dai Stablecoin").
+ * @property {string} symbol - Token ticker symbol (e.g., "DAI").
+ * @property {string} logoURI - URL of the token's logo image.
+ * @property {string[]} tags - Array of tags related to the token (e.g., ["stablecoin", "DeFi"]).
+ *
+ **/
+export const getTokenData = (address: `0x${string}`): TokenData | undefined => {
+  for (const token of tokenlist.tokens) {
+    if (token.address.toLowerCase() === address.toLowerCase()) {
+      return {
+        address: token.address.toLowerCase() as `0x${string}`,
+        chainId: token.chainId,
+        decimals: token.decimals,
+        name: token.name,
+        symbol: token.symbol,
+        logoURI: token.logoURI,
+        tags: token?.tags,
+      };
     }
   }
   return undefined;

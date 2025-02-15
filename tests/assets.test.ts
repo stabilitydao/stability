@@ -1,5 +1,6 @@
 import { getAsset, assets } from "../src";
 import { tokenlist } from "../src";
+import { getTokenData } from "../src";
 
 describe("testing assets", () => {
   test("getAsset", () => {
@@ -57,5 +58,11 @@ describe("testing assets", () => {
 
       expect(addressFound).toBe(true);
     }
+  });
+  test("getTokenData", () => {
+    let tokenData = getTokenData("0x7ceb23fd6bc0add59e62ac25578270cff1b9f619");
+    expect(tokenData?.symbol).toEqual("WETH");
+    tokenData = getTokenData("0x00eb23fd6bc0add59e62ac25578270cff1b9f619");
+    expect(tokenData).toEqual(undefined);
   });
 });
