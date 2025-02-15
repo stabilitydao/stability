@@ -42,7 +42,14 @@ import {
 } from "./api.types";
 import tokenlist from "./stability.tokenlist.json";
 import { almFactories } from "./addresses";
-import { assets, Asset, TokenData, getAsset, getTokenData } from "./assets";
+import {
+  assets,
+  Asset,
+  TokenData,
+  getAsset,
+  getTokenData,
+  sonicWhitelistedAssets,
+} from "./assets";
 import { seeds } from "./seeds";
 import { bridges, Bridge, BridgeName, getChainBridges } from "./bridges";
 import {
@@ -112,4 +119,5 @@ export {
   getContestGemsReward,
   getTokenData,
   TokenData,
+  sonicWhitelistedAssets,
 };

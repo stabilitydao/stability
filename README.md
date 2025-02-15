@@ -181,6 +181,7 @@ Asset addresses, description, website, color.
 #### Constants
 
 - `assets: Asset[]`
+- `sonicWhitelistedAssets: { [addrLc: 0x${string}]: number; }`
 
 #### Methods
 
@@ -288,6 +289,6 @@ yarn prettier . --write
 | Changes           | Prefix |
 | ----------------- | ------ |
 | Assets, tokenlist | 🪙     |
-|                   |        |
+| Collector         | 📦     |
 |                   |        |
 |                   |        |
