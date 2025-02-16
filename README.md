@@ -260,6 +260,21 @@ import { tokenlist } from "@stabilitydao/stability";
 
 </details>
 
+### 🚦 Risk
+
+<details>
+<summary>what is included</summary>
+
+#### Types
+
+- `IlDetails`
+
+#### Methods
+
+- `getIL = (strategyShortId: StrategyShortId, specific: string, assets: 0x${string}[]): IlDetails | undefined`
+
+</details>
+
 ## 👷 Develop
 
 ### How to
@@ -293,5 +308,6 @@ yarn prettier . --write
 | Sync state, etc    | ♻️️    |
 | Content generators | 🎇     |
 | Bridge             | 🌉     |
+| Risk               | 🚦     |
 | Prettier           | #️⃣     |
 | Docs               | 📙     |
