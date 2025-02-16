@@ -61,6 +61,7 @@ import {
   getContestReward,
 } from "./contests";
 import { AssetOracle, assetOracles, vaultOracles } from "./oracles";
+import { IlDetails, getIL } from "./risk";
 
 export {
   deployments,
@@ -120,4 +121,6 @@ export {
   getTokenData,
   TokenData,
   sonicWhitelistedAssets,
+  getIL,
+  IlDetails,
 };
