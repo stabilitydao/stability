@@ -176,14 +176,17 @@ Asset addresses, description, website, color.
 #### Types
 
 - `Asset`
+- `TokenData`
 
 #### Constants
 
 - `assets: Asset[]`
+- `sonicWhitelistedAssets: { [addrLc: 0x${string}]: number; }`
 
 #### Methods
 
 - `getAsset(chainId: string, tokenAddress: 0x${string}): Asset|undefined`
+- `getTokenData(address: 0x${string}): TokenData|undefined`
 
 </details>
 
@@ -252,12 +255,29 @@ import { tokenlist } from "@stabilitydao/stability";
 
 #### Constants
 
-- `assetOracles: {[chainId: string]: { [assetAddress: `0x${string}`]: AssetOracle }; }`
-- `vaultOracles: {[chainId: string]: { [vaultAddress: `0x${string}`]: `0x${string}` }; }`
+- `assetOracles: {[chainId: string]: { [assetAddress: 0x${string}]: AssetOracle }; }`
+- `vaultOracles: {[chainId: string]: { [vaultAddress: 0x${string}]: 0x${string} }; }`
+
+</details>
+
+### 🚦 Risk
+
+<details>
+<summary>what is included</summary>
+
+#### Types
+
+- `IlDetails`
+
+#### Methods
+
+- `getIL = (strategyShortId: StrategyShortId, specific: string, assets: 0x${string}[]): IlDetails | undefined`
 
 </details>
 
 ## 👷 Develop
+
+### How to
 
 ```shell
 yarn overview
@@ -271,8 +291,23 @@ yarn prettier . --check
 yarn prettier . --write
 ```
 
+### Branch structure
+
 | Branch        | Description                            |
 | ------------- | -------------------------------------- |
 | main          | Production. Accepts only PRs from dev. |
 | dev           | Accumulator of changes for the release |
 | developer-dev | Developer's changes                    |
+
+### Commit/PR prefix
+
+| Changes            | Prefix |
+| ------------------ | ------ |
+| Collector          | 📦     |
+| Assets, tokenlist  | 🪙     |
+| Sync state, etc    | ♻️️    |
+| Content generators | 🎇     |
+| Bridge             | 🌉     |
+| Risk               | 🚦     |
+| Prettier           | #️⃣     |
+| Docs               | 📙     |

@@ -17,6 +17,7 @@ export const enum BridgeName {
   BITTORRENT = "BitTorrent Bridge",
   KROMA = "Kroma Bridge",
   ROLLUX = "Rollux Bridge",
+  RHINO = "Rhino",
   //todo
   // WEMIX = "Block Producer Network(BPN)", | Native bridge suspended/maintenance? wemix classic/multichain bridge?
   // HEDERA = "??", | No native bridge
@@ -38,6 +39,7 @@ export const enum BridgeName {
   MODE = "Mode App",
   MANTLE = "Mantle Bridge",
   REAL = "Re.al Bridge",
+  SONIC = "Sonic Gateway",
 }
 
 export const bridges: Bridge[] = [
@@ -201,6 +203,38 @@ export const bridges: Bridge[] = [
       ChainName.BITLAYER,
       ChainName.ZKLINK,
       // alienxchain
+    ],
+  },
+  {
+    name: BridgeName.RHINO,
+    dapp: "https://app.rhino.fi/",
+    img: "assets/rhino.webp",
+    chains: [
+      ChainName.ETHEREUM,
+      ChainName.SONIC,
+      ChainName.BASE,
+      ChainName.ARBITRUM,
+      ChainName.BSC,
+      ChainName.POLYGON,
+      ChainName.AVALANCHE,
+      // berachain
+      ChainName.LINEA,
+      ChainName.MANTA,
+      ChainName.MANTLE,
+      ChainName.MODE,
+      ChainName.OPTIMISM,
+      ChainName.SCROLL,
+      // soneium
+      // story
+      ChainName.TAIKO,
+      ChainName.POLYGON_ZKEVM,
+      ChainName.ZKSYNC,
+      // abstract
+      ChainName.BLAST,
+      // ink
+      ChainName.OPBNB,
+      // plume
+      // unichain
     ],
   },
 
@@ -426,6 +460,12 @@ export const bridges: Bridge[] = [
       ChainName.BSC,
       ChainName.POLYGON,
     ],
+  },
+  {
+    name: BridgeName.SONIC,
+    dapp: "https://gateway.soniclabs.com/",
+    img: `chains/${chains["146"].img}`,
+    chains: [ChainName.SONIC, ChainName.ETHEREUM],
   },
 ];
 

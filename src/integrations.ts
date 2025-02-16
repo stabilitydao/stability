@@ -1212,7 +1212,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Silo V2",
         category: DefiCategory.LENDING,
         chains: [ChainName.ARBITRUM, ChainName.SONIC],
-        strategies: [StrategyShortId.SiF],
+        strategies: [StrategyShortId.SiF, StrategyShortId.SiL],
       },
     },
     defiLlama: "silo-finance",

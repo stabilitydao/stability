@@ -42,7 +42,14 @@ import {
 } from "./api.types";
 import tokenlist from "./stability.tokenlist.json";
 import { almFactories } from "./addresses";
-import { assets, Asset, getAsset } from "./assets";
+import {
+  assets,
+  Asset,
+  TokenData,
+  getAsset,
+  getTokenData,
+  sonicWhitelistedAssets,
+} from "./assets";
 import { seeds } from "./seeds";
 import { bridges, Bridge, BridgeName, getChainBridges } from "./bridges";
 import {
@@ -54,6 +61,7 @@ import {
   getContestReward,
 } from "./contests";
 import { AssetOracle, assetOracles, vaultOracles } from "./oracles";
+import { IlDetails, getIL } from "./risk";
 
 export {
   deployments,
@@ -110,4 +118,9 @@ export {
   getALMStrategies,
   getContestReward,
   getContestGemsReward,
+  getTokenData,
+  TokenData,
+  sonicWhitelistedAssets,
+  getIL,
+  IlDetails,
 };
