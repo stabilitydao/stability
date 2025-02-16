@@ -59,7 +59,7 @@ export const deployments: { [chainId: string]: Deployment } = {
       gem1: "0x9A08cD5691E009cC72E2A4d8e7F2e6EE14E96d6d",
     },
     subgraph:
-      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.23/gn",
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.25/gn",
   },
   "8453": {
     core: {
