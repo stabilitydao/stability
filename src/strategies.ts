@@ -54,6 +54,7 @@ export const enum StrategyShortId {
   ASF = "ASF",
   Si = "Si",
   SiL = "SiL",
+  SiAL = "SiAL",
 }
 
 export enum StrategyState {
@@ -543,6 +544,17 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     baseStrategies: [BaseStrategy.LEVERAGED_LENDING],
     protocols: ["silo:siloV2"],
     description: "Leverage lending on Silo V2",
+  },
+  [StrategyShortId.SiAL]: {
+    id: "Silo Advanced Leverage",
+    shortId: StrategyShortId.SiAL,
+    state: StrategyState.LIVE,
+    contractGithubId: 229,
+    color: "#ff00ea",
+    bgColor: "#190031",
+    baseStrategies: [BaseStrategy.LEVERAGED_LENDING],
+    protocols: ["silo:siloV2"],
+    description: "Advanced leverage lending on Silo V2",
   },
 };
 

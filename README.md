@@ -304,6 +304,7 @@ yarn prettier . --write
 | Changes            | Prefix |
 | ------------------ | ------ |
 | Collector          | 📦     |
+| Strategies         | 💲     |
 | Assets, tokenlist  | 🪙     |
 | Sync state, etc    | ♻️️    |
 | Content generators | 🎇     |
