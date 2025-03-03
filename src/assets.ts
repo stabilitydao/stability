@@ -566,6 +566,16 @@ export const assets: Asset[] = [
   },
   {
     addresses: {
+      "146": "0x9F0dF7799f6FDAd409300080cfF680f5A23df4b1",
+    },
+    symbol: "wOS",
+    description:
+      "Hypersonic liquid staking. Permissionless Money Lego. Ideal for stacking yield. Rebasing token.",
+    website: "https://www.originprotocol.com/",
+    color: "#1a82ff",
+  },
+  {
+    addresses: {
       "146": "0x3333b97138D4b086720b5aE8A7844b1345a33333",
     },
     symbol: "SHADOW",
@@ -599,6 +609,7 @@ export const sonicWhitelistedAssets: {
   ["0xE5DA20F15420aD15DE0fa650600aFc998bbE3955".toLowerCase()]: 4,
   ["0xb1e25689D55734FD3ffFc939c4C3Eb52DFf8A794".toLowerCase()]: 4,
   ["0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38".toLowerCase()]: 4,
+  ["0x9F0dF7799f6FDAd409300080cfF680f5A23df4b1".toLowerCase()]: 4,
   // ONE, WETH: 2x (Boosted)
   ["0x50c42dEAcD8Fc9773493ED674b675bE577f2634b".toLowerCase()]: 2,
   // SolvBTC and SolvBTC.BBN: 2x (Boosted)
