@@ -947,6 +947,14 @@
       "name": "Wrapped Origin Sonic",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/os.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x78a76316F66224CBaCA6e70acB24D5ee5b2Bd2c7",
+      "symbol": "STBL",
+      "name": "Stability",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/stbl.png"
     }
   ]
 }
