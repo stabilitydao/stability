@@ -593,6 +593,15 @@ export const assets: Asset[] = [
     website: "https://stability.farm",
     color: "#e20000",
   },
+  {
+    addresses: {
+      "146": "0x78a76316F66224CBaCA6e70acB24D5ee5b2Bd2c7",
+    },
+    symbol: "STBL",
+    description: "AI-driven Asset Manager",
+    website: "https://stability.farm",
+    color: "#5b32f1",
+  },
 ];
 
 export const sonicWhitelistedAssets: {
