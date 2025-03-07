@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-01-27T00:00:00+00:00",
+  "timestamp": "2025-03-07T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 16,
+    "minor": 17,
     "patch": 0
   },
   "tags": {
