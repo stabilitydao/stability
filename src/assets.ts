@@ -602,6 +602,24 @@ export const assets: Asset[] = [
     website: "https://stability.farm",
     color: "#5b32f1",
   },
+  {
+    addresses: {
+      "146": "0xEdF8b632b537d5993Adb5e2E15882CD791c284cB",
+    },
+    symbol: "fBOMB",
+    description: "fBOMB is a deflationary multi-chain token backed by MCLB Treasury.",
+    website: "https://mclb.org/fBomb",
+    color: "#0063fa",
+  },
+  {
+    addresses: {
+      "146": "0xf26Ff70573ddc8a90Bd7865AF8d7d70B8Ff019bC",
+    },
+    symbol: "EGGS",
+    description: "Eggs Finance is a DeFi protocol on the Sonic blockchain that utilizes $S and $EGGS to create a stable and potentially increasing value mechanism.",
+    website: "https://eggs.finance/",
+    color: "#fc9c04",
+  },
 ];
 
 export const sonicWhitelistedAssets: {
