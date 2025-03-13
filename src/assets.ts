@@ -622,6 +622,46 @@ export const assets: Asset[] = [
     website: "https://eggs.finance/",
     color: "#fc9c04",
   },
+  {
+    addresses: {
+      "146": "0x80Eede496655FB9047dd39d9f418d5483ED600df",
+    },
+    symbol: "frxUSD",
+    description:
+      "Frax USD (frxUSD) is a fiat-redeemable, fully-collateralized stablecoin issued by the Frax Finance Protocol.",
+    website: "https://frax.com/",
+    color: "#0c0a0a",
+  },
+  {
+    addresses: {
+      "146": "0x5Bff88cA1442c2496f7E475E9e7786383Bc070c0",
+    },
+    symbol: "sfrxUSD",
+    description:
+      "Staked Frax USD (sfrxUSD) is the yielding stablecoin implemented as an ERC4626 token.",
+    website: "https://frax.com/",
+    color: "#0c0a0a",
+  },
+  {
+    addresses: {
+      "146": "0x9fb76f7ce5FCeAA2C42887ff441D46095E494206",
+    },
+    symbol: "wstkscUSD",
+    description:
+      "Wrapped staked scalable yield bearing meta-stablecoin on Sonic",
+    website: "https://rings.money/",
+    color: "#8484db",
+  },
+  {
+    addresses: {
+      "146": "0xE8a41c62BB4d5863C6eadC96792cFE90A1f37C47",
+    },
+    symbol: "wstkscETH",
+    description:
+      "Wrapped staked scalable yield bearing meta-stablecoin on Sonic",
+    website: "https://rings.money/",
+    color: "#8484db",
+  },
 ];
 
 export const sonicWhitelistedAssets: {
