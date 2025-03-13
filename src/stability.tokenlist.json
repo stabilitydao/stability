@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-03-07T00:00:00+00:00",
+  "timestamp": "2025-03-13T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 17,
+    "minor": 18,
     "patch": 0
   },
   "tags": {
@@ -971,6 +971,38 @@
       "name": "Eggs",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/eggs.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x80Eede496655FB9047dd39d9f418d5483ED600df",
+      "symbol": "frxUSD",
+      "name": "Frax USD",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/frxusd.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x5Bff88cA1442c2496f7E475E9e7786383Bc070c0",
+      "symbol": "sfrxUSD",
+      "name": "Staked Frax USD",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/sfrxusd.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x9fb76f7ce5FCeAA2C42887ff441D46095E494206",
+      "symbol": "wstkscUSD",
+      "name": "Wrapped stkscUSD",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wstkscUSD.svg"
+    },
+    {
+      "chainId": 146,
+      "address": "0xE8a41c62BB4d5863C6eadC96792cFE90A1f37C47",
+      "symbol": "wstkscETH",
+      "name": "Wrapped stkscETH",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wstkscETH.svg"
     }
   ]
 }
