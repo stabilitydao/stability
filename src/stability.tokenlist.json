@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-03-13T00:00:00+00:00",
+  "timestamp": "2025-03-14T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 18,
+    "minor": 19,
     "patch": 0
   },
   "tags": {
@@ -1003,6 +1003,14 @@
       "name": "Wrapped stkscETH",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wstkscETH.svg"
+    },
+    {
+      "chainId": 146,
+      "address": "0xfA85Fe5A8F5560e9039C04f2b0a90dE1415aBD70",
+      "symbol": "wanS",
+      "name": "Wrapped anS",
+      "decimals": 18,
+      "logoURI": "https://sonicscan.org/token/images/wans_64.svg"
     }
   ]
 }

@@ -662,6 +662,16 @@ export const assets: Asset[] = [
     website: "https://rings.money/",
     color: "#8484db",
   },
+  {
+    addresses: {
+      "146": "0xfA85Fe5A8F5560e9039C04f2b0a90dE1415aBD70",
+    },
+    symbol: "wanS",
+    description:
+      "Angles protocol is part of a transformative DeFi ecosystem designed to enhance economic opportunities on the Sonic Network.",
+    website: "http://angles.fi/",
+    color: "#eb563a",
+  },
 ];
 
 export const sonicWhitelistedAssets: {
