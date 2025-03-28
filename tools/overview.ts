@@ -33,7 +33,7 @@ console.log(
   `Deployments: ${Object.keys(deployments).length} (${getSupportedChainNames().join(", ")})`,
 );
 console.log(
-  `Strategies: ${Object.keys(strategies).length}. Live: ${strategiesTotal.LIVE}, deploying: ${strategiesTotal.DEPLOYMENT}, development: ${strategiesTotal.DEVELOPMENT}, awaiting: ${strategiesTotal.AWAITING}, blocked: ${strategiesTotal.BLOCKED}, possible: ${strategiesTotal.POSSIBLE}, proposal: ${strategiesTotal.PROPOSAL}.`,
+  `Strategies: ${Object.keys(strategies).length}. Live: ${strategiesTotal.LIVE}, deploying: ${strategiesTotal.DEPLOYMENT}, development: ${strategiesTotal.DEVELOPMENT}, awaiting: ${strategiesTotal.AWAITING}, blocked: ${strategiesTotal.BLOCKED}, possible: ${strategiesTotal.POSSIBLE}, proposal: ${strategiesTotal.PROPOSAL}, cancelled: ${strategiesTotal.CANCELLED}.`,
 );
 console.log(
   `Chains: ${Object.keys(chains).length}. ChainLib: ${networkTotal.AWAITING_DEPLOYMENT + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.AWAITING_DEVELOPER} awaiting dev. ${networkTotal.AWAITING_ISSUE_CREATION} awaiting creation. Multisigs: ${multisigsTotal}. Bridges: ${bridges.length}.`,
