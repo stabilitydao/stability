@@ -58,6 +58,7 @@ export const enum StrategyShortId {
 }
 
 export enum StrategyState {
+  CANCELLED = "CANCELLED",
   PROPOSAL = "PROPOSAL",
   POSSIBLE = "POSSIBLE",
   BLOCKED = "BLOCKED",
@@ -77,6 +78,7 @@ export enum BaseStrategy {
 }
 
 export const strategyStateDescription: { [state in StrategyState]: string } = {
+  [StrategyState.CANCELLED]: "Development cancelled",
   [StrategyState.PROPOSAL]:
     "The strategy described in free form is proposed for development",
   [StrategyState.POSSIBLE]:
@@ -222,7 +224,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.GAF]: {
     id: "Gyroscope Aura Farm",
     shortId: StrategyShortId.GAF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.CANCELLED,
     contractGithubId: 121,
     color: "#f2fea6",
     bgColor: "#2e005f",
@@ -255,7 +257,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.IRBMF]: {
     id: "Ichi Retro Boosted Merkl Farm",
     shortId: StrategyShortId.IRBMF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.CANCELLED,
     contractGithubId: 91,
     color: "#e1d1ff",
     bgColor: "#420060",
@@ -266,7 +268,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.AS1BLS]: {
     id: "Aave Stader 1inch Balancer",
     shortId: StrategyShortId.AS1BLS,
-    state: StrategyState.AWAITING,
+    state: StrategyState.CANCELLED,
     contractGithubId: 127,
     color: "#07a658",
     bgColor: "#1a024d",
@@ -288,7 +290,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.CUMF]: {
     id: "Charm UniswapV3 Merkl Farm",
     shortId: StrategyShortId.CUMF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.CANCELLED,
     contractGithubId: 144,
     color: "#ff2299",
     bgColor: "#000000",
@@ -299,7 +301,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.CBMF]: {
     id: "Charm BaseSwap Merkl Farm",
     shortId: StrategyShortId.CBMF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.CANCELLED,
     contractGithubId: 148,
     color: "#2238ff",
     bgColor: "#000000",
@@ -310,7 +312,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.ABMF]: {
     id: "A51 BaseSwap Merkl Farm",
     shortId: StrategyShortId.ABMF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.CANCELLED,
     contractGithubId: 147,
     color: "#e74c3c",
     bgColor: "#000000",
@@ -321,7 +323,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.BSMF]: {
     id: "Beefy Sushi Merkl Farm",
     shortId: StrategyShortId.BSMF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.CANCELLED,
     contractGithubId: 166,
     color: "#ffffff",
     bgColor: "#21243a",
@@ -344,7 +346,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.IPF]: {
     id: "Ichi Pearl Farm",
     shortId: StrategyShortId.IPF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.CANCELLED,
     contractGithubId: 174,
     color: "#599bff",
     bgColor: "#004e67",
@@ -356,7 +358,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.SL]: {
     id: "Stack Leverage",
     shortId: StrategyShortId.SL,
-    state: StrategyState.AWAITING,
+    state: StrategyState.CANCELLED,
     contractGithubId: 175,
     color: "#ffbc0f",
     bgColor: "#000000",
@@ -368,7 +370,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.SS]: {
     id: "Stack Staking",
     shortId: StrategyShortId.SS,
-    state: StrategyState.AWAITING,
+    state: StrategyState.CANCELLED,
     contractGithubId: 176,
     color: "#ffbc0f",
     bgColor: "#d60d1d",
@@ -379,7 +381,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.PF]: {
     id: "Pearl Farm",
     shortId: StrategyShortId.PF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.CANCELLED,
     contractGithubId: 180,
     color: "#274BC4",
     bgColor: "#0e1c48",
@@ -391,7 +393,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.IPLF]: {
     id: "Impermax Pearl Leverage Farm",
     shortId: StrategyShortId.IPLF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.CANCELLED,
     contractGithubId: 181,
     color: "#19A29B",
     bgColor: "#000000",
@@ -407,7 +409,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.IRF]: {
     id: "Ichi Ramses Farm",
     shortId: StrategyShortId.IRF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.CANCELLED,
     contractGithubId: 187,
     color: "#9d9d9d",
     bgColor: "#000000",
@@ -502,7 +504,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.GEF]: {
     id: "Gamma Equalizer Farm",
     shortId: StrategyShortId.GEF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.DEPLOYMENT,
     contractGithubId: 207,
     color: "#ff0000",
     bgColor: "#061416",
@@ -591,6 +593,11 @@ export const getStrategyShortId = (
 export const getStrategiesTotals = (): { [state in StrategyState]: number } => {
   const ids = Object.keys(strategies);
   return {
+    [StrategyState.CANCELLED]: ids.filter(
+      (strategyShortId) =>
+        strategies[strategyShortId as StrategyShortId].state ==
+        StrategyState.CANCELLED,
+    ).length,
     [StrategyState.PROPOSAL]: ids.filter(
       (strategyShortId) =>
         strategies[strategyShortId as StrategyShortId].state ==
