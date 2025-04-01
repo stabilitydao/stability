@@ -672,6 +672,16 @@ export const assets: Asset[] = [
     website: "http://angles.fi/",
     color: "#eb563a",
   },
+  {
+    addresses: {
+      "146": "0x930441Aa7Ab17654dF5663781CA0C02CC17e6643",
+    },
+    symbol: "PT-aSonUSDC-14AUG2025",
+    description:
+      "Pendle principal token for stS",
+    website: "https://app.pendle.finance/trade/markets/0x3aef1d372d0a7a7e482f465bc14a42d78f920392/swap?view=pt&chain=sonic",
+    color: "#ec4e41",
+  },
 ];
 
 export const sonicWhitelistedAssets: {
