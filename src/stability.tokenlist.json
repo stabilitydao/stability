@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-03-14T00:00:00+00:00",
+  "timestamp": "2025-04-02T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 19,
+    "minor": 20,
     "patch": 0
   },
   "tags": {
@@ -1011,6 +1011,14 @@
       "name": "Wrapped anS",
       "decimals": 18,
       "logoURI": "https://sonicscan.org/token/images/wans_64.svg"
+    },
+    {
+      "chainId": 146,
+      "address": "0x930441Aa7Ab17654dF5663781CA0C02CC17e6643",
+      "symbol": "PT-aSonUSDC-14AUG2025",
+      "name": "PT Aave Sonic USDC 14AUG2025",
+      "decimals": 6,
+      "logoURI": "https://storage.googleapis.com/prod-pendle-bucket-a/images/uploads/1bb28886-399a-484f-ac3d-19263a36ab73.svg"
     }
   ]
 }
