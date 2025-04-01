@@ -677,10 +677,45 @@ export const assets: Asset[] = [
       "146": "0x930441Aa7Ab17654dF5663781CA0C02CC17e6643",
     },
     symbol: "PT-aSonUSDC-14AUG2025",
+    description: "Pendle principal token for Aave USDC aToken",
+    website: "https://app.pendle.finance",
+    color: "#3b9eef",
+  },
+  {
+    addresses: {
+      "146": "0x420df605D062F8611EFb3F203BF258159b8FfFdE",
+    },
+    symbol: "PT-stS-29MAY2025",
     description: "Pendle principal token for stS",
-    website:
-      "https://app.pendle.finance/trade/markets/0x3aef1d372d0a7a7e482f465bc14a42d78f920392/swap?view=pt&chain=sonic",
+    website: "https://app.pendle.finance",
     color: "#ec4e41",
+  },
+  {
+    addresses: {
+      "146": "0xBe27993204Ec64238F71A527B4c4D5F4949034C3",
+    },
+    symbol: "PT-wstkscUSD-29MAY2025",
+    description: "Pendle principal token for wstkscUSD",
+    website: "https://app.pendle.finance",
+    color: "#026dd5",
+  },
+  {
+    addresses: {
+      "146": "0xa2161E75EDf50d70544e6588788A5732A3105c00",
+    },
+    symbol: "PT-wstkscETH-29MAY2025",
+    description: "Pendle principal token for wstkscETH",
+    website: "https://app.pendle.finance",
+    color: "#1187ff",
+  },
+  {
+    addresses: {
+      "146": "0x46eb02b9F47634c4fab3110CC7ADc1C6311DfAC1",
+    },
+    symbol: "PT-wOS-29MAY2025",
+    description: "Pendle principal token for wOS",
+    website: "https://app.pendle.finance",
+    color: "#1a82ff",
   },
 ];
 
