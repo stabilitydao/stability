@@ -777,6 +777,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         category: DefiCategory.AMM,
         chains: [ChainName.SONIC],
         adapters: ["UniswapV3Adapter"],
+        strategies: [StrategyShortId.ASF, StrategyShortId.ShF],
       },
     },
   },
@@ -1231,7 +1232,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Vicuna",
         category: DefiCategory.LENDING,
         chains: [ChainName.SONIC],
-        strategies: [StrategyShortId.VMF],
+        strategies: [StrategyShortId.VMF, StrategyShortId.V],
       },
     },
   },
@@ -1263,6 +1264,29 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     },
     github: "zerolend",
     defiLlama: "zerolend",
+  },
+  euler: {
+    name: "Euler",
+    img: "euler.svg",
+    website: "https://euler.finance/",
+    protocols: {
+      eulerV2: {
+        name: "Euler V2",
+        category: DefiCategory.LENDING,
+        chains: [
+          ChainName.ETHEREUM,
+          ChainName.BASE,
+          // swellchain
+          ChainName.SONIC,
+          ChainName.BOB,
+          // berachain
+          ChainName.AVALANCHE,
+        ],
+        strategies: [StrategyShortId.EMF],
+      },
+    },
+    defiLlama: "euler",
+    github: "euler-xyz",
   },
   // leveraged lending
   impermax: {

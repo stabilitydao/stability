@@ -59,6 +59,9 @@ export const enum StrategyShortId {
   MMF = "MMF",
   VMF = "VMF",
   AMF = "AMF",
+  ShF = "ShF",
+  EMF = "EMF",
+  V = "V",
 }
 
 export enum StrategyState {
@@ -576,7 +579,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.MMF]: {
     id: "Mach Merkl Farm",
     shortId: StrategyShortId.MMF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.CANCELLED,
     contractGithubId: 240,
     color: "#e38039",
     bgColor: "#212121",
@@ -587,7 +590,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.VMF]: {
     id: "Vicuna Merkl Farm",
     shortId: StrategyShortId.VMF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.CANCELLED,
     contractGithubId: 241,
     color: "#e7c397",
     bgColor: "#212121",
@@ -605,6 +608,40 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     baseStrategies: [BaseStrategy.FARMING],
     protocols: ["aave:aaveV3"],
     description: "Lend asset on Aave V3 and earn Merit rewards",
+  },
+  [StrategyShortId.ShF]: {
+    id: "Shadow Farm",
+    shortId: StrategyShortId.ShF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 250,
+    color: "#f1a441",
+    bgColor: "#000000",
+    ammAdapter: "Solidly",
+    baseStrategies: [BaseStrategy.LP, BaseStrategy.FARMING],
+    protocols: ["shadow:shadow"],
+    description: "Earn Shadow farm rewards by classic LPs",
+  },
+  [StrategyShortId.EMF]: {
+    id: "Euler Merkl Farm",
+    shortId: StrategyShortId.EMF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 251,
+    color: "#186d66",
+    bgColor: "#000000",
+    baseStrategies: [BaseStrategy.FARMING, BaseStrategy.MERKL],
+    protocols: ["euler:eulerV2", "angle:merkl"],
+    description: "Lend asset on Euler and earn Merkl rewards",
+  },
+  [StrategyShortId.V]: {
+    id: "Vicuna",
+    shortId: StrategyShortId.V,
+    state: StrategyState.AWAITING,
+    contractGithubId: 252,
+    color: "#e7c397",
+    bgColor: "#000000",
+    baseStrategies: [],
+    protocols: ["vicuna:vicuna"],
+    description: "Lend asset on Vicuna",
   },
 };
 
