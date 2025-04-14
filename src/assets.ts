@@ -119,6 +119,7 @@ export const assets: Asset[] = [
       "10": "0x68f180fcCe6836688e9084f035309E29Bf0A2095",
       "56": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
       "137": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+      "146": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
       "42161": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
       "42420": "0xDBDc8c7B96286899aB624F6a59dd0250DD4Ce9bC",
       "43114": "0x152b9d0FdC40C096757F570A51E494bd4b943E50",
@@ -716,6 +717,51 @@ export const assets: Asset[] = [
     description: "Pendle principal token for wOS",
     website: "https://app.pendle.finance",
     color: "#1a82ff",
+  },
+  {
+    addresses: {
+      "146": "0x322e1d5384aa4ED66AeCa770B95686271de61dc3",
+    },
+    symbol: "bUSDC.e-20",
+    description: "Silo Finance Borrowable USDC.e Deposit, SiloId: 20",
+    website: "https://v2.silo.finance/",
+    color: "#2775ca",
+  },
+  {
+    addresses: {
+      "146": "0x871A101Dcf22fE4fE37be7B654098c801CBA1c88",
+    },
+    symbol: "beS",
+    description: "Beefy Sonic",
+    website: "https://beefy.finance/",
+    color: "#fec160",
+  },
+  {
+    addresses: {
+      "146": "0xBb30e76d9Bb2CC9631F7fC5Eb8e87B5Aff32bFbd",
+    },
+    symbol: "scBTC",
+    description: "Sonic BTC",
+    website: "https://rings.money/",
+    color: "#9974e0",
+  },
+  {
+    addresses: {
+      "146": "0x05F0c7Ca7B90e3786603108D42cA8DFd28d72075",
+    },
+    symbol: "GEMSx",
+    description: "SwapX GEMS",
+    website: "https://swapx.fi/",
+    color: "#46ff68",
+  },
+  {
+    addresses: {
+      "146": "0xddddd1b4a383dcB89938bC8b8964Cad3C632Fad0",
+    },
+    symbol: "MYRD",
+    description: "Myrd Token",
+    website: "https://sacra.game/",
+    color: "#223f92",
   },
 ];
 

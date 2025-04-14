@@ -2,7 +2,7 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-04-02T00:00:00+00:00",
+  "timestamp": "2025-04-14T00:00:00+00:00",
   "version": {
     "major": 1,
     "minor": 20,
@@ -1051,6 +1051,56 @@
       "name": "PT Wrapped OS 29MAY2025",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT_wOS.svg"
+    },
+    {
+      "chainId": 146,
+      "address": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
+      "symbol": "WBTC",
+      "name": "Wrapped BTC",
+      "decimals": 8,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/btc.jpg",
+      "tags": ["bridged"]
+    },
+    {
+      "chainId": 146,
+      "address": "0x322e1d5384aa4ED66AeCa770B95686271de61dc3",
+      "symbol": "bUSDC.e-20",
+      "name": "Silo Finance Borrowable USDC.e Deposit, SiloId: 20",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdc.jpg",
+      "tags": ["stable"]
+    },
+    {
+      "chainId": 146,
+      "address": "0x871A101Dcf22fE4fE37be7B654098c801CBA1c88",
+      "symbol": "beS",
+      "name": "Beefy Sonic",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/ws.svg"
+    },
+    {
+      "chainId": 146,
+      "address": "0xBb30e76d9Bb2CC9631F7fC5Eb8e87B5Aff32bFbd",
+      "symbol": "scBTC",
+      "name": "Sonic BTC",
+      "decimals": 8,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/scbtc.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x05F0c7Ca7B90e3786603108D42cA8DFd28d72075",
+      "symbol": "GEMSx",
+      "name": "SwapX GEMS",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/gemsx.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0xddddd1b4a383dcB89938bC8b8964Cad3C632Fad0",
+      "symbol": "MYRD",
+      "name": "Myrd Token",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/myrd.png"
     }
   ]
 }
