@@ -763,6 +763,15 @@ export const assets: Asset[] = [
     website: "https://sacra.game/",
     color: "#223f92",
   },
+  {
+    addresses: {
+      "146": "0x578Ee1ca3a8E1b54554Da1Bf7C583506C4CD11c6",
+    },
+    symbol: "aSonUSDC",
+    description: "Aave supplied USDC",
+    website: "https://aave.com/",
+    color: "#154080",
+  },
 ];
 
 export const sonicWhitelistedAssets: {
