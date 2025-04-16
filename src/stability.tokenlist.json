@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-04-14T00:00:00+00:00",
+  "timestamp": "2025-04-16T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 20,
+    "minor": 21,
     "patch": 0
   },
   "tags": {
@@ -1101,6 +1101,14 @@
       "name": "Myrd Token",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/myrd.png"
+    },
+    {
+      "chainId": 146,
+      "address": "0x578Ee1ca3a8E1b54554Da1Bf7C583506C4CD11c6",
+      "symbol": "aSonUSDC",
+      "name": "Aave Sonic USDC",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/assets/Aave.png"
     }
   ]
 }
