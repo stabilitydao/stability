@@ -2,28 +2,64 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-04-16T00:00:00+00:00",
+  "timestamp": "2025-05-07T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 21,
+    "minor": 22,
     "patch": 0
   },
   "tags": {
     "stablecoin": {
       "name": "Stablecoin",
-      "description": "Tokens that are fixed to an external asset, e.g. the US dollar"
+      "description": "USD stablecoin protocol"
     },
     "bridged": {
       "name": "Bridged",
       "description": "Tokens that are bridged to current chain from another"
     },
     "lst": {
-      "name": "Liquid Staking",
+      "name": "Liquid staking",
       "description": "Liquid staking token"
     },
     "wNative": {
       "name": "Wrapped native coin",
       "description": "WETH9 or similar contract for wrapping native coin to ERC20 token"
+    },
+    "erc4626": {
+      "name": "ERC-4626",
+      "description": "Yield-bearing single asset vault"
+    },
+    "rebase": {
+      "name": "Rebase token",
+      "description": "Token amount changes in wallet"
+    },
+    "gem": {
+      "name": "Gem wrapper",
+      "description": "Wrapper token of Sonic GEM airdrop"
+    },
+    "pt": {
+      "name": "Pendle PT",
+      "description": "Pendle Principal Token"
+    },
+    "eth": {
+      "name": "ETH",
+      "description": "Ether peg or Ether LST/wrapper"
+    },
+    "s": {
+      "name": "S",
+      "description": "Sonic $S peg or $S LST/wrapper"
+    },
+    "btc": {
+      "name": "BTC",
+      "description": "BTC peg or BTC wrapper"
+    },
+    "usd": {
+      "name": "USD",
+      "description": "USD peg or USD staked wrapper"
+    },
+    "meme": {
+      "name": "Meme",
+      "description": "Meme coin"
     }
   },
   "tokens": [
@@ -69,7 +105,7 @@
       "name": "Wrapped ETH",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/eth.jpg",
-      "tags": ["wNative"]
+      "tags": ["wNative", "eth"]
     },
     {
       "chainId": 10,
@@ -693,7 +729,7 @@
       "name": "Wrapped Sonic",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/ws.svg",
-      "tags": ["wNative"]
+      "tags": ["wNative", "s"]
     },
     {
       "chainId": 146,
@@ -702,7 +738,7 @@
       "name": "Wrapped Ether",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/eth.jpg",
-      "tags": ["bridged"]
+      "tags": ["bridged", "eth"]
     },
     {
       "chainId": 146,
@@ -711,7 +747,7 @@
       "name": "USD Coin",
       "decimals": 6,
       "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdc.jpg",
-      "tags": ["stablecoin", "bridged"]
+      "tags": ["stablecoin", "bridged", "usd"]
     },
     {
       "chainId": 146,
@@ -720,7 +756,7 @@
       "name": "Beets Staked Sonic",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/sts.png",
-      "tags": ["lst"]
+      "tags": ["lst", "s"]
     },
     {
       "chainId": 146,
@@ -729,7 +765,7 @@
       "name": "Sonic USD",
       "decimals": 6,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/scUSD.png",
-      "tags": ["stablecoin"]
+      "tags": ["stablecoin", "usd"]
     },
     {
       "chainId": 146,
@@ -738,7 +774,7 @@
       "name": "GOGGLES",
       "decimals": 18,
       "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x9fdbc3f8abc05fa8f3ad3c17d2f806c1230c4564.png",
-      "tags": []
+      "tags": ["meme"]
     },
     {
       "chainId": 146,
@@ -754,7 +790,8 @@
       "symbol": "SACRA_GEM_1",
       "name": "Sacra Gem 1",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/sacragem.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/sacragem.png",
+      "tags": ["gem"]
     },
     {
       "chainId": 146,
@@ -762,7 +799,8 @@
       "symbol": "fSONIC",
       "name": "FantomSonicInu",
       "decimals": 18,
-      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x05e31a691405d06708a355c029599c12d5da8b28.png"
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x05e31a691405d06708a355c029599c12d5da8b28.png",
+      "tags": ["meme"]
     },
     {
       "chainId": 146,
@@ -770,7 +808,8 @@
       "symbol": "MOON",
       "name": "Moon Bay",
       "decimals": 18,
-      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x486b6fa0419b33a0c7a6e4698c231d7e2f2d5299.png"
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x486b6fa0419b33a0c7a6e4698c231d7e2f2d5299.png",
+      "tags": ["meme"]
     },
     {
       "chainId": 146,
@@ -802,7 +841,8 @@
       "symbol": "ECO",
       "name": "SonicEco",
       "decimals": 18,
-      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x7a08bf5304094ca4c7b4132ef62b5edc4a3478b7.png"
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x7a08bf5304094ca4c7b4132ef62b5edc4a3478b7.png",
+      "tags": ["meme"]
     },
     {
       "chainId": 146,
@@ -810,7 +850,8 @@
       "symbol": "INDI",
       "name": "Indi",
       "decimals": 18,
-      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x4eec869d847a6d13b0f6d1733c5dec0d1e741b4f.png"
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x4eec869d847a6d13b0f6d1733c5dec0d1e741b4f.png",
+      "tags": ["meme"]
     },
     {
       "chainId": 146,
@@ -826,7 +867,8 @@
       "symbol": "auUSDC",
       "name": "Aurum Sonic USDC",
       "decimals": 6,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/auUSDC.jpg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/auUSDC.jpg",
+      "tags": ["rebase", "usd"]
     },
     {
       "chainId": 146,
@@ -842,7 +884,8 @@
       "symbol": "TYSG",
       "name": "ThankYouSonicGod",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/tysg.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/tysg.png",
+      "tags": ["meme"]
     },
     {
       "chainId": 146,
@@ -850,7 +893,8 @@
       "symbol": "atETH",
       "name": "Atoll ETH",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/ateth.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/ateth.png",
+      "tags": ["eth"]
     },
     {
       "chainId": 146,
@@ -858,7 +902,8 @@
       "symbol": "scETH",
       "name": "Sonic ETH",
       "decimals": 18,
-      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x3bce5cb273f0f148010bbea2470e7b5df84c7812.png"
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x3bce5cb273f0f148010bbea2470e7b5df84c7812.png",
+      "tags": ["eth"]
     },
     {
       "chainId": 146,
@@ -866,7 +911,8 @@
       "symbol": "Missor",
       "name": "Missor",
       "decimals": 18,
-      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0xf26b3fd147619df61d4c1d0a9f7200b31a73fafa.png"
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0xf26b3fd147619df61d4c1d0a9f7200b31a73fafa.png",
+      "tags": ["meme"]
     },
     {
       "chainId": 146,
@@ -882,7 +928,8 @@
       "symbol": "DONKS",
       "name": "Sonic Donks",
       "decimals": 18,
-      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x0a54364631ea37813a63edb3bba1c46f8d8304b2.png"
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x0a54364631ea37813a63edb3bba1c46f8d8304b2.png",
+      "tags": ["meme"]
     },
     {
       "chainId": 146,
@@ -890,7 +937,8 @@
       "symbol": "TAILS",
       "name": "Tails on Sonic",
       "decimals": 18,
-      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x41211648c51acb9a5f39a93c657e894a0bdb88e4.png"
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x41211648c51acb9a5f39a93c657e894a0bdb88e4.png",
+      "tags": ["meme"]
     },
     {
       "chainId": 146,
@@ -898,7 +946,8 @@
       "symbol": "THC",
       "name": "Tin Hat Cat",
       "decimals": 18,
-      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x17af1df44444ab9091622e4aa66db5bb34e51ad5.png"
+      "logoURI": "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/sonic/tokens/128x128/0x17af1df44444ab9091622e4aa66db5bb34e51ad5.png",
+      "tags": ["meme"]
     },
     {
       "chainId": 146,
@@ -922,7 +971,8 @@
       "symbol": "OS",
       "name": "Origin Sonic",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/os.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/os.png",
+      "tags": ["rebase", "s"]
     },
     {
       "chainId": 146,
@@ -938,7 +988,8 @@
       "symbol": "sGEM1",
       "name": "Stability Gem Season 1",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/sGEM1.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/sGEM1.png",
+      "tags": ["gem"]
     },
     {
       "chainId": 146,
@@ -946,7 +997,8 @@
       "symbol": "wOS",
       "name": "Wrapped Origin Sonic",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/os.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/os.png",
+      "tags": ["s"]
     },
     {
       "chainId": 146,
@@ -978,7 +1030,8 @@
       "symbol": "frxUSD",
       "name": "Frax USD",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/frxusd.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/frxusd.png",
+      "tags": ["stablecoin", "usd"]
     },
     {
       "chainId": 146,
@@ -986,7 +1039,8 @@
       "symbol": "sfrxUSD",
       "name": "Staked Frax USD",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/sfrxusd.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/sfrxusd.png",
+      "tags": ["usd"]
     },
     {
       "chainId": 146,
@@ -994,7 +1048,8 @@
       "symbol": "wstkscUSD",
       "name": "Wrapped stkscUSD",
       "decimals": 6,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wstkscUSD.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wstkscUSD.svg",
+      "tags": ["usd"]
     },
     {
       "chainId": 146,
@@ -1002,7 +1057,8 @@
       "symbol": "wstkscETH",
       "name": "Wrapped stkscETH",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wstkscETH.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wstkscETH.svg",
+      "tags": ["eth"]
     },
     {
       "chainId": 146,
@@ -1010,7 +1066,8 @@
       "symbol": "wanS",
       "name": "Wrapped anS",
       "decimals": 18,
-      "logoURI": "https://sonicscan.org/token/images/wans_64.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wans.svg",
+      "tags": ["s"]
     },
     {
       "chainId": 146,
@@ -1018,7 +1075,8 @@
       "symbol": "PT-aSonUSDC-14AUG2025",
       "name": "PT Aave Sonic USDC 14AUG2025",
       "decimals": 6,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT-aUSDC.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT-aUSDC.svg",
+      "tags": ["pt"]
     },
     {
       "chainId": 146,
@@ -1026,7 +1084,8 @@
       "symbol": "PT-wstkscUSD-29MAY2025",
       "name": "PT Wrapped stkscUSD 29MAY2025",
       "decimals": 6,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT_wstkscUSD.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT_wstkscUSD.svg",
+      "tags": ["pt"]
     },
     {
       "chainId": 146,
@@ -1034,7 +1093,8 @@
       "symbol": "PT-stS-29MAY2025",
       "name": "PT Beets Staked Sonic 29MAY2025",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT_stS.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT_stS.svg",
+      "tags": ["pt"]
     },
     {
       "chainId": 146,
@@ -1042,7 +1102,8 @@
       "symbol": "PT-wstkscETH-29MAY2025",
       "name": "PT Wrapped stkscETH 29MAY2025",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT_wstkscETH.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT_wstkscETH.svg",
+      "tags": ["pt"]
     },
     {
       "chainId": 146,
@@ -1050,7 +1111,8 @@
       "symbol": "PT-wOS-29MAY2025",
       "name": "PT Wrapped OS 29MAY2025",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT_wOS.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT_wOS.svg",
+      "tags": ["pt"]
     },
     {
       "chainId": 146,
@@ -1059,7 +1121,7 @@
       "name": "Wrapped BTC",
       "decimals": 8,
       "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/btc.jpg",
-      "tags": ["bridged"]
+      "tags": ["bridged", "btc"]
     },
     {
       "chainId": 146,
@@ -1068,15 +1130,7 @@
       "name": "Silo Finance Borrowable USDC.e Deposit, SiloId: 20",
       "decimals": 6,
       "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdc.jpg",
-      "tags": ["stable"]
-    },
-    {
-      "chainId": 146,
-      "address": "0x871A101Dcf22fE4fE37be7B654098c801CBA1c88",
-      "symbol": "beS",
-      "name": "Beefy Sonic",
-      "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/ws.svg"
+      "tags": ["erc4626", "usd"]
     },
     {
       "chainId": 146,
@@ -1084,7 +1138,8 @@
       "symbol": "scBTC",
       "name": "Sonic BTC",
       "decimals": 8,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/scbtc.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/scbtc.png",
+      "tags": ["btc"]
     },
     {
       "chainId": 146,
@@ -1092,7 +1147,8 @@
       "symbol": "GEMSx",
       "name": "SwapX GEMS",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/gemsx.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/gemsx.png",
+      "tags": ["gem"]
     },
     {
       "chainId": 146,
@@ -1108,7 +1164,8 @@
       "symbol": "aSonUSDC",
       "name": "Aave Sonic USDC",
       "decimals": 6,
-      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/assets/Aave.png"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/assets/Aave.png",
+      "tags": ["rebase", "usd"]
     }
   ]
 }
