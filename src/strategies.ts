@@ -61,7 +61,7 @@ export const enum StrategyShortId {
   AMF = "AMF",
   ShF = "ShF",
   EMF = "EMF",
-  V = "V",
+  A = "A",
 }
 
 export enum StrategyState {
@@ -242,7 +242,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.RSBMF]: {
     id: "Retro Static Boosted Merkl Farm",
     shortId: StrategyShortId.RSBMF,
-    state: StrategyState.BLOCKED,
+    state: StrategyState.CANCELLED,
     contractGithubId: 122,
     color: "#ff0000",
     bgColor: "#420060",
@@ -253,7 +253,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.DRBMF]: {
     id: "DefiEdge Retro Boosted Merkl Farm",
     shortId: StrategyShortId.DRBMF,
-    state: StrategyState.BLOCKED,
+    state: StrategyState.CANCELLED,
     contractGithubId: 98,
     color: "#ff0000",
     bgColor: "#420060",
@@ -535,7 +535,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.Si]: {
     id: "Silo",
     shortId: StrategyShortId.Si,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.LIVE,
     contractGithubId: 218,
     color: "#e7e7e7",
     bgColor: "#000000",
@@ -632,16 +632,16 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     protocols: ["euler:eulerV2", "angle:merkl"],
     description: "Lend asset on Euler and earn Merkl rewards",
   },
-  [StrategyShortId.V]: {
-    id: "Vicuna",
-    shortId: StrategyShortId.V,
+  [StrategyShortId.A]: {
+    id: "Aave",
+    shortId: StrategyShortId.A,
     state: StrategyState.AWAITING,
     contractGithubId: 252,
     color: "#e7c397",
     bgColor: "#000000",
     baseStrategies: [],
-    protocols: ["vicuna:vicuna"],
-    description: "Lend asset on Vicuna",
+    protocols: ["aave:aaveV3"],
+    description: "Lend asset on Aave V3 based lending markets",
   },
 };
 

@@ -110,7 +110,7 @@ export const assets: Asset[] = [
     },
     symbol: "WETH",
     description: "WETH is an ERC-20 token that represents 1 Ether (ETH)",
-    website: "https://weth.io/",
+    website: "https://ethereum.org",
     color: "#6372a2",
   },
   {
@@ -726,15 +726,6 @@ export const assets: Asset[] = [
     description: "Silo Finance Borrowable USDC.e Deposit, SiloId: 20",
     website: "https://v2.silo.finance/",
     color: "#2775ca",
-  },
-  {
-    addresses: {
-      "146": "0x871A101Dcf22fE4fE37be7B654098c801CBA1c88",
-    },
-    symbol: "beS",
-    description: "Beefy Sonic",
-    website: "https://beefy.finance/",
-    color: "#fec160",
   },
   {
     addresses: {
