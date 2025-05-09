@@ -65,7 +65,7 @@ export const deployments: { [chainId: string]: Deployment } = {
       revenueRouter: "0x23b8cc22c4c82545f4b451b11e2f17747a730810",
     },
     subgraph:
-      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.33/gn",
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.34/gn",
   },
   "8453": {
     core: {
