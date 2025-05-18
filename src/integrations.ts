@@ -1217,7 +1217,12 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Silo V2",
         category: DefiCategory.LENDING,
         chains: [ChainName.ARBITRUM, ChainName.SONIC],
-        strategies: [StrategyShortId.SiF, StrategyShortId.SiL],
+        strategies: [
+          StrategyShortId.SiF,
+          StrategyShortId.SiL,
+          StrategyShortId.Si,
+          StrategyShortId.SiMF,
+        ],
       },
     },
     defiLlama: "silo-finance",
@@ -1300,7 +1305,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           // berachain
           ChainName.AVALANCHE,
         ],
-        strategies: [StrategyShortId.EMF],
+        strategies: [StrategyShortId.EMF, StrategyShortId.E],
       },
     },
     defiLlama: "euler",
