@@ -89,7 +89,7 @@ for (const shortId of Object.keys(strategies)) {
     console.log("## Guide");
     console.log("");
     console.log(
-      "**[Strategy Developer's Guide V4](https://github.com/stabilitydao/stability-contracts/blob/main/src/strategies/README.md)**",
+      "**[Strategy Developer's Guide V4](https://github.com/stabilitydao/stability-contracts/blob/main/guides/Strategy.md)**",
     );
     console.log("");
     console.log("-----------------------------------------------");

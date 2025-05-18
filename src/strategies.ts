@@ -62,6 +62,8 @@ export const enum StrategyShortId {
   ShF = "ShF",
   EMF = "EMF",
   A = "A",
+  E = "E",
+  SiMF = "SiMF",
 }
 
 export enum StrategyState {
@@ -568,7 +570,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.M]: {
     id: "Mach",
     shortId: StrategyShortId.M,
-    state: StrategyState.AWAITING,
+    state: StrategyState.CANCELLED,
     contractGithubId: 239,
     color: "#e38039",
     bgColor: "#000000",
@@ -601,7 +603,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.AMF]: {
     id: "Aave Merit Farm",
     shortId: StrategyShortId.AMF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.DEVELOPMENT,
     contractGithubId: 242,
     color: "#ffffff",
     bgColor: "#2d1d39",
@@ -612,7 +614,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.ShF]: {
     id: "Shadow Farm",
     shortId: StrategyShortId.ShF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.DEVELOPMENT,
     contractGithubId: 250,
     color: "#f1a441",
     bgColor: "#000000",
@@ -624,7 +626,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.EMF]: {
     id: "Euler Merkl Farm",
     shortId: StrategyShortId.EMF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.DEVELOPMENT,
     contractGithubId: 251,
     color: "#186d66",
     bgColor: "#000000",
@@ -635,13 +637,35 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.A]: {
     id: "Aave",
     shortId: StrategyShortId.A,
-    state: StrategyState.AWAITING,
+    state: StrategyState.DEVELOPMENT,
     contractGithubId: 252,
     color: "#e7c397",
     bgColor: "#000000",
     baseStrategies: [],
     protocols: ["aave:aaveV3"],
     description: "Lend asset on Aave V3 based lending markets",
+  },
+  [StrategyShortId.E]: {
+    id: "Euler",
+    shortId: StrategyShortId.E,
+    state: StrategyState.AWAITING,
+    contractGithubId: 287,
+    color: "#ff7829",
+    bgColor: "#000000",
+    baseStrategies: [],
+    protocols: ["euler:eulerV2"],
+    description: "Lend asset on Euler",
+  },
+  [StrategyShortId.SiMF]: {
+    id: "Silo Managed Farm",
+    shortId: StrategyShortId.SiMF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 289,
+    color: "#cccccc",
+    bgColor: "#3a1454",
+    baseStrategies: [BaseStrategy.FARMING],
+    protocols: ["silo:siloV2"],
+    description: "Supply asset to Silo V2 managed vault and earn farm rewards",
   },
 };
 
