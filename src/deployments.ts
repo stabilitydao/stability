@@ -22,6 +22,7 @@ export type Deployment = {
     revenueRouter?: `0x${string}`;
   };
   subgraph: string;
+  ammAdapters?: {[id: string]: `0x${string}`};
 };
 
 export const deployments: { [chainId: string]: Deployment } = {
@@ -68,6 +69,15 @@ export const deployments: { [chainId: string]: Deployment } = {
     },
     subgraph:
       "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.35/gn",
+    ammAdapters: {
+      Solidly: "0xe3374041f173ffcb0026a82c6eef94409f713cf9",
+      AlgebraV4: "0xcb2dfcaec4F1a4c61c5D09100482109574E6b8C7",
+      UniswapV3: "0xAf95468B1a624605bbFb862B0FB6e9C73Ad847b8",
+      ERC4626: "0xB7192f4b8f741E21b9022D2F8Fd19Ca8c94E7774",
+      BalancerV3Stable: "0xcd85425fF6C07cF09Ca6Ac8F683E8164F27C143c",
+      BalancerWeighted: "0x7D6641cf68E5169c11d91266D3E410130dE70B9E",
+      Pendle: "0x9fcE12c813fC2280A800e8683b918de121B2437B",
+    },
   },
   "8453": {
     core: {

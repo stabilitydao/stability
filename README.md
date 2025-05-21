@@ -302,7 +302,7 @@ yarn prettier . --write
 ### Commit/PR prefix
 
 | Changes            | Prefix |
-| ------------------ | ------ |
+|--------------------| ------ |
 | Collector          | 📦     |
 | Strategies         | 💲     |
 | Assets, tokenlist  | 🪙     |
@@ -312,3 +312,7 @@ yarn prettier . --write
 | Risk               | 🚦     |
 | Prettier           | #️⃣     |
 | Docs               | 📙     |
+| Adapters           | 🔌     |
+| AI                 | 🤖     |
+| Chains             | ⛓️     |
+| API                | 📡     |
