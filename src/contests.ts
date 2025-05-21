@@ -332,7 +332,7 @@ export const contests: { [contestId: string]: YieldContest } = {
         type: RewardType.GEMS1,
         winners: 0,
         winnerReward: 0,
-        totalReward: 900000,
+        totalReward: 400000,
       },
     ],
   },
@@ -342,14 +342,7 @@ export const contests: { [contestId: string]: YieldContest } = {
     start: 1749081600, // Thu, 05 Jun 2025 00:00:00 GMT
     end: 1750291199, // Wed, 18 Jun 2025 23:59:59 GMT
     minEarn: 5,
-    rewards: [
-      {
-        type: RewardType.GEMS1,
-        winners: 0,
-        winnerReward: 0,
-        totalReward: 1000000,
-      },
-    ],
+    rewards: [],
   },
   y18: {
     // 19 Jun 2025 - 02 Jul 2025
