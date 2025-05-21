@@ -22,7 +22,7 @@ export type Deployment = {
     revenueRouter?: `0x${string}`;
   };
   subgraph: string;
-  ammAdapters?: {[id: string]: `0x${string}`};
+  ammAdapters?: { [id: string]: `0x${string}` };
 };
 
 export const deployments: { [chainId: string]: Deployment } = {

@@ -302,7 +302,7 @@ yarn prettier . --write
 ### Commit/PR prefix
 
 | Changes            | Prefix |
-|--------------------| ------ |
+| ------------------ | ------ |
 | Collector          | 📦     |
 | Strategies         | 💲     |
 | Assets, tokenlist  | 🪙     |
