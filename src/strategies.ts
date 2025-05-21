@@ -637,7 +637,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.A]: {
     id: "Aave",
     shortId: StrategyShortId.A,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.LIVE,
     contractGithubId: 252,
     color: "#e7c397",
     bgColor: "#000000",
@@ -648,7 +648,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.E]: {
     id: "Euler",
     shortId: StrategyShortId.E,
-    state: StrategyState.AWAITING,
+    state: StrategyState.LIVE,
     contractGithubId: 287,
     color: "#ff7829",
     bgColor: "#000000",
@@ -659,7 +659,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.SiMF]: {
     id: "Silo Managed Farm",
     shortId: StrategyShortId.SiMF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.DEVELOPMENT,
     contractGithubId: 289,
     color: "#cccccc",
     bgColor: "#3a1454",

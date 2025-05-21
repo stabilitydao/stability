@@ -8,6 +8,7 @@ export type Deployment = {
     vaultManager: `0x${string}`;
     strategyLogic: `0x${string}`;
     zap: `0x${string}`;
+    metaVaultFactory?: `0x${string}`;
   };
   periphery: {
     frontend: `0x${string}`;
@@ -52,6 +53,7 @@ export const deployments: { [chainId: string]: Deployment } = {
       vaultManager: "0x589a504f2ee9d054b483c700fa814863d639381e",
       strategyLogic: "0xe0e71b484bb20e37d18ab51fb60c32dec778478a",
       zap: "0x029dfd1a79e0ad9305d773fb8f3c01d8ef9b913d",
+      metaVaultFactory: "0xa190302880acF9deCC4447363640f589000EF601",
     },
     periphery: {
       frontend: "0x15487495cce9210795f9C2E0e1A7238E336dFc32",
@@ -65,7 +67,7 @@ export const deployments: { [chainId: string]: Deployment } = {
       revenueRouter: "0x23b8cc22c4c82545f4b451b11e2f17747a730810",
     },
     subgraph:
-      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.34/gn",
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.35/gn",
   },
   "8453": {
     core: {
