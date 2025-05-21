@@ -312,3 +312,7 @@ yarn prettier . --write
 | Risk               | 🚦     |
 | Prettier           | #️⃣     |
 | Docs               | 📙     |
+| Adapters           | 🔌     |
+| AI                 | 🤖     |
+| Chains             | ⛓️     |
+| API                | 📡     |
