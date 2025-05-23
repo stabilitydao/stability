@@ -93,7 +93,7 @@ async function main() {
       }
 
       // text-name
-      const maxWidth = coverWidth * 0.9;
+      const maxWidth = coverWidth * 0.8;
       let lines: string[] = [];
       ctx.fillStyle = "#96a1fa";
       let fontSize = 50;
@@ -124,7 +124,7 @@ async function main() {
         lines = [name];
       }
 
-      // adjust font size to not exceed 90% of the width
+      // adjust font size to not exceed 80% of the width
       let fits = false;
       let singleLine = lines.length === 1;
       while (!fits) {
@@ -192,7 +192,7 @@ async function main() {
       let symbolFontSize = 80;
       ctx.font = `bold ${symbolFontSize}px "Sans"`;
       ctx.fillStyle = "#ffffff";
-      const maxSymbolWidth = coverWidth * 0.9;
+      const maxSymbolWidth = coverWidth * 0.8;
       while (
         ctx.measureText(symbol).width > maxSymbolWidth &&
         symbolFontSize > 20
