@@ -1,6 +1,6 @@
 {
   "name": "@stabilitydao/stability",
-  "version": "0.35.1",
+  "version": "0.36.0",
   "description": "Stability Integration Library",
   "main": "out/index.js",
   "types": "out/index.d.ts",
@@ -23,6 +23,7 @@
     "postbuild": "shx cp src/*.tokenlist.json out/",
     "draw-chains": "ts-node tools/draw-chains.ts",
     "draw-integrations": "ts-node tools/draw-integrations.ts",
+    "draw-vaults": "ts-node tools/draw-vaults.ts",
     "issue": "ts-node tools/issue.ts",
     "contests-maker": "ts-node tools/contests-maker.ts"
   },
