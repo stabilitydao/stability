@@ -763,6 +763,34 @@ export const assets: Asset[] = [
     website: "https://aave.com/",
     color: "#154080",
   },
+  {
+    addresses: {
+      "146": "0x77d8F09053c28FaF1E00Df6511b23125d438616f",
+    },
+    symbol: "PT-Silo-20-USDC.e-17JUL2025",
+    description: "Pendle principal token for Silo V2 market 20",
+    website: "https://app.pendle.finance",
+    color: "#1a82ff",
+  },
+  {
+    addresses: {
+      "146": "0x9731842eD581816913933c01De142C7EE412A8c8",
+    },
+    symbol: "PT-Silo-46-scUSD-14AUG2025",
+    description: "Pendle principal token for Silo V2 market 46",
+    website: "https://app.pendle.finance",
+    color: "#1a82ff",
+  },
+  {
+    addresses: {
+      "146": "0x871A101Dcf22fE4fE37be7B654098c801CBA1c88",
+    },
+    symbol: "beS",
+    description:
+      "Beefy is a Decentralized, Multichain Yield Optimizer that allows its users to earn compound interest on their crypto holdings. Beefy earns you the highest APYs with safety and efficiency in mind.",
+    website: "https://beefy.com/",
+    color: "#171928",
+  },
 ];
 
 export const sonicWhitelistedAssets: {

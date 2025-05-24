@@ -1166,6 +1166,33 @@
       "decimals": 6,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/assets/Aave.png",
       "tags": ["rebase", "usd"]
+    },
+    {
+      "chainId": 146,
+      "address": "0x9731842eD581816913933c01De142C7EE412A8c8",
+      "symbol": "PT-Silo-46-scUSD-14AUG2025",
+      "name": "PT Silo scUSD 14AUG2025",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT_Silo_46_scUSD_14aug2025.svg",
+      "tags": ["pt"]
+    },
+    {
+      "chainId": 146,
+      "address": "0x77d8F09053c28FaF1E00Df6511b23125d438616f",
+      "symbol": "PT-Silo-20-USDC.e-17JUL2025",
+      "name": "PT Silo USDC.e 17JUL2025",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT_Silo_20_USDCe_17jul2025.svg",
+      "tags": ["pt"]
+    },
+    {
+      "chainId": 146,
+      "address": "0x871A101Dcf22fE4fE37be7B654098c801CBA1c88",
+      "symbol": "beS",
+      "name": "Beefy Sonic",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/bes.png",
+      "tags": []
     }
   ]
 }
