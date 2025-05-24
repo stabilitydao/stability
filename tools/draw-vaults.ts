@@ -93,7 +93,7 @@ async function main() {
       }
 
       // text-name
-      const maxWidth = coverWidth * 0.8;
+      const maxWidth = coverWidth * 0.7;
       let lines: string[] = [];
       ctx.fillStyle = "#96a1fa";
       let fontSize = 50;
@@ -210,18 +210,61 @@ async function main() {
         ctx.fillStyle = "#f4ebf5";
         const assetAddress = vault.assets[i];
 
+        // Buscar el token correspondiente en tokenlist
         const token = tokenlist.tokens.find(
-          (t) =>
-            t.address.toLowerCase() === assetAddress.toLowerCase() &&
-            String(t.chainId) === String(chainId),
+          (t) => t.address.toLowerCase() === assetAddress.toLowerCase(),
         );
+        const assetLogoUrl = token ? token.logoURI : "";
+        const assetLogoLocalPath = `${logoCacheDir}/${assetAddress}.png`;
+        let assetLogoPathToUse = assetLogoLocalPath;
+        if (assetLogoUrl && !fs.existsSync(assetLogoLocalPath)) {
+          const res = await fetch(assetLogoUrl);
+          if (res.ok) {
+            const arrayBuffer = await res.arrayBuffer();
+            fs.writeFileSync(assetLogoLocalPath, Buffer.from(arrayBuffer));
+          } else {
+            assetLogoPathToUse = assetLogoUrl; // fallback to url
+          }
+        }
+
         const assetName = token ? token.name : assetAddress;
         const assetTextWidth = ctx.measureText(assetName).width;
-        const assetX = (coverWidth - assetTextWidth) / 2;
-        ctx.fillText(assetName, assetX, assetsLength > 1 ? 790 + i * 50 : 825);
+        const logoSize = assetsLength > 1 ? 35 : 47;
+        let logoImg: any = null;
+        try {
+          if (assetLogoUrl) {
+            logoImg = await loadImage(assetLogoPathToUse);
+          }
+        } catch (e) {
+          logoImg = null;
+        }
+
+        // calculate X position for logo + text centered
+        const totalWidth = (logoImg ? logoSize + 12 : 0) + assetTextWidth;
+        const startX = (coverWidth - totalWidth) / 2;
+        const y = assetsLength > 1 ? 790 + i * 50 : 825;
+
+        // draw logo if exists
+        if (logoImg) {
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(
+            startX + logoSize / 2,
+            y - logoSize / 2 + 8,
+            logoSize / 2,
+            0,
+            2 * Math.PI,
+          );
+          ctx.closePath();
+          ctx.clip();
+          ctx.drawImage(logoImg, startX, y - logoSize + 8, logoSize, logoSize);
+          ctx.restore();
+        }
+        // draw asset name
+        ctx.fillText(assetName, startX + (logoImg ? logoSize + 12 : 0), y);
       }
 
-      // text-strategy (rounded rectangle and centered text) ---
+      // text-strategy (rounded rectangle and centered text)
       ctx.font = 'bold 35px "Sans"';
       const strategyWidth = ctx.measureText(strategyId).width;
       const rectWidth = strategyWidth + 48;
