@@ -1,6 +1,6 @@
 import { createCanvas, loadImage } from "canvas";
 import * as fs from "node:fs";
-import { strategies } from "../src/strategies";
+import { strategies, getStrategyProtocols } from "../src/strategies";
 import tokenlist from "../src/stability.tokenlist.json";
 
 async function main() {
@@ -8,13 +8,13 @@ async function main() {
 
   // check tmp dirs
   const tmpDir = "./temp";
-  const logoCacheDir = `${tmpDir}/vaultImages`;
+  const imagesCacheDir = `${tmpDir}/cachedVaultsImages`;
   const coversDir = `${tmpDir}/covers`;
   if (!fs.existsSync(tmpDir)) {
     fs.mkdirSync(tmpDir);
   }
-  if (!fs.existsSync(logoCacheDir)) {
-    fs.mkdirSync(logoCacheDir);
+  if (!fs.existsSync(imagesCacheDir)) {
+    fs.mkdirSync(imagesCacheDir);
   }
   if (!fs.existsSync(coversDir)) {
     fs.mkdirSync(coversDir);
@@ -95,7 +95,7 @@ async function main() {
       // text-name
       const maxWidth = coverWidth * 0.7;
       let lines: string[] = [];
-      ctx.fillStyle = "#96a1fa";
+      ctx.fillStyle = "#612FFB";
       let fontSize = 50;
       const maxFontSize = 70;
       ctx.font = `${fontSize}px "Sans"`;
@@ -124,7 +124,7 @@ async function main() {
         lines = [name];
       }
 
-      // adjust font size to not exceed 80% of the width
+      // adjust font size to not exceed 70% of the width
       let fits = false;
       let singleLine = lines.length === 1;
       while (!fits) {
@@ -167,7 +167,7 @@ async function main() {
       try {
         const imageFileName =
           `${symbol || name}`.replace(/[^a-zA-Z0-9_-]/g, "_") + ".png";
-        const localImagePath = `${logoCacheDir}/${imageFileName}`;
+        const localImagePath = `${imagesCacheDir}/${imageFileName}`;
         let imagePathToUse = localImagePath;
         if (!fs.existsSync(localImagePath)) {
           // download the image and save it locally
@@ -183,16 +183,16 @@ async function main() {
         const imageWidth = 400;
         const imageHeight = 400;
         const x = (coverWidth - imageWidth) / 2;
-        ctx.drawImage(image, x, 225, imageWidth, imageHeight);
+        ctx.drawImage(image, x, 210, imageWidth, imageHeight);
       } catch (e) {
         console.warn(`Could not load logo for vault ${name} (${logoUrl})`);
       }
 
       // text-symbol
-      let symbolFontSize = 80;
+      let symbolFontSize = 70;
       ctx.font = `bold ${symbolFontSize}px "Sans"`;
       ctx.fillStyle = "#ffffff";
-      const maxSymbolWidth = coverWidth * 0.8;
+      const maxSymbolWidth = coverWidth * 0.7;
       while (
         ctx.measureText(symbol).width > maxSymbolWidth &&
         symbolFontSize > 20
@@ -202,7 +202,7 @@ async function main() {
       }
       const symbolWidth = ctx.measureText(symbol).width;
       const xSymbol = (coverWidth - symbolWidth) / 2;
-      ctx.fillText(symbol, xSymbol, 730);
+      ctx.fillText(symbol, xSymbol, 700);
 
       // text-assets
       for (let i = 0; i < assetsLength; i++) {
@@ -210,12 +210,12 @@ async function main() {
         ctx.fillStyle = "#f4ebf5";
         const assetAddress = vault.assets[i];
 
-        // Buscar el token correspondiente en tokenlist
+        // search for the token in tokenlist
         const token = tokenlist.tokens.find(
           (t) => t.address.toLowerCase() === assetAddress.toLowerCase(),
         );
         const assetLogoUrl = token ? token.logoURI : "";
-        const assetLogoLocalPath = `${logoCacheDir}/${assetAddress}.png`;
+        const assetLogoLocalPath = `${imagesCacheDir}/${assetAddress}.png`;
         let assetLogoPathToUse = assetLogoLocalPath;
         if (assetLogoUrl && !fs.existsSync(assetLogoLocalPath)) {
           const res = await fetch(assetLogoUrl);
@@ -242,7 +242,7 @@ async function main() {
         // calculate X position for logo + text centered
         const totalWidth = (logoImg ? logoSize + 12 : 0) + assetTextWidth;
         const startX = (coverWidth - totalWidth) / 2;
-        const y = assetsLength > 1 ? 790 + i * 50 : 825;
+        const y = assetsLength > 1 ? 750 + i * 50 : 785;
 
         // draw logo if exists
         if (logoImg) {
@@ -265,15 +265,15 @@ async function main() {
       }
 
       // text-strategy (rounded rectangle and centered text)
-      ctx.font = 'bold 35px "Sans"';
+      ctx.font = 'bold 30px "Sans"';
       const strategyWidth = ctx.measureText(strategyId).width;
       const rectWidth = strategyWidth + 48;
       const xStrategyRect = (coverWidth - rectWidth) / 2;
-      const yStrategyRect = 920 - 44 / 2 - 14; // 44 es font size, 14 es padding
-      const strategyRectHeight = 44 + 28;
+      const yStrategyRect = 835;
+      const strategyRectHeight = 130;
       const strategyRectRadius = 18;
 
-      // background rectangle
+      // bg- strategy background rectangle
       ctx.save();
       ctx.beginPath();
       ctx.moveTo(xStrategyRect + strategyRectRadius, yStrategyRect);
@@ -318,12 +318,70 @@ async function main() {
       ctx.fill();
       ctx.restore();
 
-      // strategy name
-      ctx.font = 'bold 35px "Sans"';
+      // text-strategy
+      ctx.font = 'bold 30px "Sans"';
       ctx.fillStyle = colorStrategy;
       ctx.textBaseline = "middle";
-      ctx.fillText(strategyId, (coverWidth - strategyWidth) / 2, 920);
+      ctx.fillText(strategyId, (coverWidth - strategyWidth) / 2, 865);
       ctx.textBaseline = "alphabetic";
+
+      // image-strategy images
+      let protocolImgs: any[] = [];
+      const protocols = getStrategyProtocols(strategyShortId);
+      for (const proto of protocols) {
+        if (proto.img) {
+          const protoImgUrl = `https://raw.githubusercontent.com/stabilitydao/.github/main/assets/${proto.img}`;
+          const protoImgLocalPath = `${imagesCacheDir}/${proto.img}`;
+          let protoImgPathToUse = protoImgLocalPath;
+          if (!fs.existsSync(protoImgLocalPath)) {
+            const res = await fetch(protoImgUrl);
+            if (res.ok) {
+              const arrayBuffer = await res.arrayBuffer();
+              fs.writeFileSync(protoImgLocalPath, Buffer.from(arrayBuffer));
+            } else {
+              protoImgPathToUse = protoImgUrl;
+            }
+          }
+          try {
+            const protoImg = await loadImage(protoImgPathToUse);
+            protocolImgs.push(protoImg);
+          } catch (e) {
+            console.warn(
+              `Could not load protocol image for ${proto.name} (${protoImgUrl})`,
+            );
+          }
+        }
+      }
+
+      // draw protocol images centered below the name
+      if (protocolImgs.length > 0) {
+        const protoImgSize = 48;
+        const totalWidth =
+          protocolImgs.length * protoImgSize + (protocolImgs.length - 1) * 16;
+        const startX = (coverWidth - totalWidth) / 2;
+        const y = 900;
+        for (let i = 0; i < protocolImgs.length; i++) {
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(
+            startX + i * (protoImgSize + 16) + protoImgSize / 2,
+            y + protoImgSize / 2,
+            protoImgSize / 2,
+            0,
+            2 * Math.PI,
+          );
+          ctx.closePath();
+          ctx.clip();
+          ctx.drawImage(
+            protocolImgs[i],
+            startX + i * (protoImgSize + 16),
+            y,
+            protoImgSize,
+            protoImgSize,
+          );
+          ctx.restore();
+        }
+      }
 
       // write the image to file
       const buffer = canvas.toBuffer("image/png");
@@ -332,6 +390,7 @@ async function main() {
         buffer,
       );
       processedVaults++;
+
       // progress bar
       const percent = Math.round((processedVaults / totalVaults) * 100);
       process.stdout.clearLine(0);
@@ -343,7 +402,7 @@ async function main() {
   }
   process.stdout.write("\n");
 
-  console.log(`Vaults images cached on ${logoCacheDir}`);
+  console.log(`Vaults images cached on ${imagesCacheDir}`);
   console.log(`Covers of vaults generated and saved to ${coversDir}`);
 }
 
