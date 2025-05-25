@@ -96,35 +96,45 @@ async function main() {
       const maxWidth = coverWidth * 0.7;
       let lines: string[] = [];
       ctx.fillStyle = "#612FFB";
-      let fontSize = 50;
-      const maxFontSize = 70;
+      let fontSize = 100;
       ctx.font = `${fontSize}px "Sans"`;
-      if (ctx.measureText(name).width > maxWidth) {
-        const words = name.split(" ");
 
-        // search for the best split point to balance the length of the lines
-        let bestDiff = Infinity;
-        let bestSplit = 1;
-        for (let i = 1; i < words.length; i++) {
-          const line1 = words.slice(0, i).join(" ");
-          const line2 = words.slice(i).join(" ");
-          const diff = Math.abs(
-            ctx.measureText(line1).width - ctx.measureText(line2).width,
-          );
-          if (diff < bestDiff) {
-            bestDiff = diff;
-            bestSplit = i;
-          }
-        }
-        lines = [
-          words.slice(0, bestSplit).join(" "),
-          words.slice(bestSplit).join(" "),
-        ];
-      } else {
+      // first we try with one line at max size
+      if (ctx.measureText(name).width <= maxWidth) {
         lines = [name];
+      } else {
+        // if it doesn't fit, we reduce the size untill it fits properly
+        while (fontSize > 55 && ctx.measureText(name).width > maxWidth) {
+          fontSize -= 2;
+          ctx.font = `${fontSize}px "Sans"`;
+        }
+
+        // if it still doesn't fit we divide text in two lines
+        if (ctx.measureText(name).width > maxWidth) {
+          const words = name.split(" ");
+          let bestDiff = Infinity;
+          let bestSplit = 1;
+          for (let i = 1; i < words.length; i++) {
+            const line1 = words.slice(0, i).join(" ");
+            const line2 = words.slice(i).join(" ");
+            const diff = Math.abs(
+              ctx.measureText(line1).width - ctx.measureText(line2).width,
+            );
+            if (diff < bestDiff) {
+              bestDiff = diff;
+              bestSplit = i;
+            }
+          }
+          lines = [
+            words.slice(0, bestSplit).join(" "),
+            words.slice(bestSplit).join(" "),
+          ];
+        } else {
+          lines = [name];
+        }
       }
 
-      // adjust font size to not exceed 70% of the width
+      // adjust font size to not exceed maxWidth
       let fits = false;
       let singleLine = lines.length === 1;
       while (!fits) {
@@ -139,26 +149,31 @@ async function main() {
         }
       }
 
-      // if single line and text is much shorter than 70% of the width, increase the font size until a maximum
+      // if is much shorter than 70% of the width (maxWidth), increase the font size until a maximum
       if (singleLine) {
+        while (fontSize < 90 && ctx.measureText(lines[0]).width < maxWidth) {
+          fontSize += 2;
+          ctx.font = `${fontSize}px "Sans"`;
+        }
+      } else {
         while (
-          fontSize < maxFontSize &&
-          ctx.measureText(lines[0]).width < maxWidth * 0.7
+          fontSize < 75 &&
+          lines.every((line) => ctx.measureText(line).width < maxWidth)
         ) {
           fontSize += 2;
           ctx.font = `${fontSize}px "Sans"`;
         }
       }
       ctx.font = `${fontSize}px "Sans"`;
-      const nameStartY = singleLine ? 115 : 100;
-      const nameLineSpacing = singleLine ? 0 : 58;
+      const nameStartY = singleLine ? 115 : 105;
+      const nameLineSpacing = singleLine ? 0 : 65;
       lines.forEach((line, i) => {
         const lineWidth = ctx.measureText(line).width;
         const xLine = (coverWidth - lineWidth) / 2;
 
         // if single line, center it between where two lines would be
         const y = singleLine
-          ? nameStartY + 29
+          ? nameStartY + 20
           : nameStartY + i * nameLineSpacing;
         ctx.fillText(line, xLine, y);
       });
