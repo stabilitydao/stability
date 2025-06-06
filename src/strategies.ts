@@ -659,7 +659,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.SiMF]: {
     id: "Silo Managed Farm",
     shortId: StrategyShortId.SiMF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.LIVE,
     contractGithubId: 289,
     color: "#cccccc",
     bgColor: "#3a1454",
