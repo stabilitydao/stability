@@ -316,3 +316,4 @@ yarn prettier . --write
 | AI                 | 🤖     |
 | Chains             | ⛓️     |
 | API                | 📡     |
+| Contests           | 🏆     |
