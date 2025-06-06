@@ -23,6 +23,12 @@ export type Deployment = {
   };
   subgraph: string;
   ammAdapters?: { [id: string]: `0x${string}` };
+  metaVaults?: {
+    address: `0x${string}`;
+    symbol: string;
+    wrapper: `0x${string}`;
+    primary?: boolean;
+  }[];
 };
 
 export const deployments: { [chainId: string]: Deployment } = {
@@ -78,6 +84,35 @@ export const deployments: { [chainId: string]: Deployment } = {
       BalancerWeighted: "0x7D6641cf68E5169c11d91266D3E410130dE70B9E",
       Pendle: "0x9fcE12c813fC2280A800e8683b918de121B2437B",
     },
+    metaVaults: [
+      {
+        address: "0x1111111199558661Bf7Ff27b4F1623dC6b91Aa3e",
+        symbol: "metaUSD",
+        wrapper: "0xAaAaaAAac311D0572Bffb4772fe985A750E88805",
+        primary: true,
+      },
+      {
+        address: "0x4444444420D9De54d69b3997b7D6A31d2BF63F32",
+        symbol: "metaS",
+        wrapper: "0xbbbbbbBBbd0aE69510cE374A86749f8276647B19",
+        primary: true,
+      },
+      {
+        address: "0x22222222780038f8817b3dE825a070225e6d9874",
+        symbol: "metaUSDC",
+        wrapper: "0xEEEEEEE6d95E55A468D32FeB5d6648754d10A967",
+      },
+      {
+        address: "0x33333333C480194b5B651987b7D00B20dDCbd287",
+        symbol: "metascUSD",
+        wrapper: "0xccccCCcca9FC69a2b32408730011EdB3205A93A1",
+      },
+      {
+        address: "0x555555554776B14B30597d1032E48f9e16db22A4",
+        symbol: "metawS",
+        wrapper: "0xffFFFFFf2fcBeFAe12F1372C56edC769BD411685",
+      },
+    ],
   },
   "8453": {
     core: {
