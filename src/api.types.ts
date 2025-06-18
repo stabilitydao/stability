@@ -33,7 +33,7 @@ export interface StabilityNetwork {
 }
 
 export type NodeState = {
-  hostname: string | 'private';
+  hostname: string | "private";
   seedNode: boolean;
   lifetime: number;
   about: string;
@@ -230,15 +230,17 @@ export type User = {
   points?: number;
   name?: string;
   img?: string;
-  metaVaults?: {[metaVaultAddr:string]: {
-    deposit: number;
-    earned: number;
-  }; };
+  metaVaults?: {
+    [metaVaultAddr: string]: {
+      deposit: number;
+      earned: number;
+    };
+  };
 };
 
 export type Rewards = {
   gemsAprMultiplier: number;
-  metaVaultAprMultiplier: {[metaVaultAddressLc: `0x${string}`]: number},
+  metaVaultAprMultiplier: { [metaVaultAddressLc: `0x${string}`]: number };
 };
 
 //#endregion
@@ -259,8 +261,8 @@ export interface ApiPostBody {
 }
 
 export enum InteractionType {
-  SYNC = 'SYNC',
-  DATA_DELIVERY = 'DATA_DELIVERY',
+  SYNC = "SYNC",
+  DATA_DELIVERY = "DATA_DELIVERY",
 }
 
 export interface ApiPostReply {
@@ -405,7 +407,7 @@ export interface ApiVerifyIntractReply {
     // required, whether success or error
     result: true | false; // bool, the user has done the task.
     metric: number; // earned USD
-    metricDataType: 'DOUBLE';
+    metricDataType: "DOUBLE";
   };
 }
 
