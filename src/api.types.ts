@@ -1,4 +1,4 @@
-// Types of ApiService v4.6.0 from 26.01.2025
+// Types of ApiService v4.7.7 from 18.06.2025
 
 //#region ===== Main reply            | GET /                                    =====
 
@@ -9,9 +9,11 @@ export interface ApiMainReply {
   network: StabilityNetwork;
   platforms: Platforms;
   vaults: Vaults;
+  metaVaults: MetaVaults;
   underlyings: Underlyings;
   assetPrices: AssetPrices;
   leaderboards: Leaderboards;
+  prices: Prices;
   rewards: Rewards;
   error?: string;
 }
@@ -71,6 +73,12 @@ export type Vaults = {
   };
 };
 
+export type MetaVaults = {
+  [chainId: number]: {
+    [addrLowerCase: string]: MetaVault;
+  };
+};
+
 export type Vault = {
   address: string;
   name: string;
@@ -79,6 +87,7 @@ export type Vault = {
   strategyShortId: string;
   sharePrice: string;
   tvl: string;
+  isLeverageStrategy: boolean;
   strategy?: `0x${string}`;
   underlying?: `0x${string}`;
   underlyingSymbol?: string;
@@ -112,16 +121,6 @@ export type Vault = {
     aprAssetsLifetime: string[];
     lifetime: string;
     lifetimeAssets: string[];
-  };
-  // deprecated since 4.3.0
-  apr?: {
-    incomeLatest: string;
-    income24h: string;
-    incomeWeek: string;
-    vsHoldLifetime: string;
-    vsHoldAssetsLifetime: string[];
-    vsHoldLatest: string;
-    vsHoldAssetsLatest: string[];
   };
   created?: number;
   hardWorkOnDeposit?: boolean;
@@ -159,7 +158,37 @@ export type Vault = {
     withdraw: number;
     rebalance: number;
   };
+  leverageLending?: {
+    ltv: number;
+    maxLtv: number;
+    leverage: number;
+    supplyApr: number;
+    borrowApr: number;
+    targetLeveragePercent: number;
+  };
   risk?: Risk;
+};
+
+type VaultProportions = {
+  [address: `0x${string}`]: {
+    currentProportion: string;
+    targetProportion: string;
+  };
+};
+
+export type MetaVault = {
+  address: string;
+  name: string;
+  symbol: string;
+  decimals: number;
+  sharePrice?: string;
+  tvl: string;
+  APR?: string;
+  merklAPR?: string;
+  assets: `0x${string}`[];
+  vaults: `0x${string}`[];
+  vaultProportions: VaultProportions;
+  deposited?: string;
 };
 
 export type Risk = {
@@ -171,6 +200,13 @@ export type Risk = {
 export type AssetPrices = {
   [chainId: number]: {
     [addr: string]: AssetPriceUsd;
+  };
+};
+
+export type Prices = {
+  [symbol: string]: {
+    price: string;
+    priceChange: number;
   };
 };
 
@@ -202,10 +238,17 @@ export type User = {
   points?: number;
   name?: string;
   img?: string;
+  metaVaults?: {
+    [metaVaultAddr: string]: {
+      deposit: number;
+      earned: number;
+    };
+  };
 };
 
 export type Rewards = {
   gemsAprMultiplier: number;
+  metaVaultAprMultiplier: { [metaVaultAddressLc: `0x${string}`]: number };
 };
 
 //#endregion
@@ -333,6 +376,11 @@ export interface ContestGemsRewards {
     gemsRaw: string;
   }[];
   proofs: string[][];
+  merkleDistributorState?: {
+    [chainId: string]: {
+      totalAmount: string;
+    };
+  };
 }
 
 //#endregion
@@ -382,6 +430,111 @@ export interface UserRewards {
     gemsRaw: string;
     proofs: string[];
   }[];
+}
+
+//#endregion
+
+//#region ===== Silo rewards for user | GET /rewards/silo-points/:account        =====
+export interface SiloRewardsReply {
+  account: string;
+  stabilitySiloPoints: number;
+  siloPoints: number;
+}
+
+//#endregion
+
+//#region ===== Swapper               | GET /swapper                             =====
+
+export type Pair = {
+  chainId: string;
+  dexId: string;
+  url: string;
+  pairAddress: `0x${string}`;
+  baseToken: {
+    address: `0x${string}`;
+    name: string;
+    symbol: string;
+  };
+  quoteToken: {
+    address: `0x${string}`;
+    name: string;
+    symbol: string;
+  };
+  priceNative: string;
+  priceUsd: string;
+  txns: {
+    m5: {
+      buys: number;
+      sells: number;
+    };
+    h1: {
+      buys: number;
+      sells: number;
+    };
+    h6: {
+      buys: number;
+      sells: number;
+    };
+    h24: {
+      buys: number;
+      sells: number;
+    };
+  };
+  volume: {
+    m5: number;
+    h1: number;
+    h6: number;
+    h24: number;
+  };
+  priceChange: {
+    h1: number;
+    h6: number;
+    h24: number;
+  };
+  liquidity: {
+    usd: number;
+    base: number;
+    quote: number;
+  };
+  fdv: number;
+  marketCap: number;
+  info: {
+    imageUrl: string;
+    header: string;
+    openGraph: string;
+    websites: {
+      label: string;
+      url: string;
+    }[];
+    socials: {
+      type: string;
+      url: string;
+    }[];
+  };
+};
+
+export type Pool = {
+  ammAdapter: `0x${string}`;
+  id: `0x${string}`;
+  tokenIn: `0x${string}`;
+  tokenOut: `0x${string}`;
+  pool?: `0x${string}`;
+  assetAdded?: boolean;
+};
+
+export type DexScreener = {
+  schemaVersion: string;
+  pairs: Pair[] | null;
+  pair: Pair | null;
+};
+
+export interface DexPool extends Pool {
+  dexScreener: DexScreener;
+}
+
+export interface SwapperReply {
+  pools: DexPool[];
+  bcPools: DexPool[];
 }
 
 //#endregion
