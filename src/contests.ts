@@ -490,6 +490,16 @@ export const getContestReward = (
   return undefined;
 };
 
+export const getContestRewards = (
+  contest: YieldContest,
+  rewardType: RewardType,
+): Reward[] => {
+  if (Array.isArray(contest.rewards)) {
+    return contest.rewards.filter((reward) => reward.type === rewardType);
+  }
+  return [];
+};
+
 export const getContestGemsReward = (
   contest: YieldContest,
 ): Reward | undefined => {
