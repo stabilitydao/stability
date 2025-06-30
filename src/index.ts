@@ -59,6 +59,7 @@ import {
   RewardType,
   getContestGemsReward,
   getContestReward,
+  getContestRewards,
 } from "./contests";
 import { AssetOracle, assetOracles, vaultOracles } from "./oracles";
 import { IlDetails, getIL } from "./risk";
@@ -117,6 +118,7 @@ export {
   vaultOracles,
   getALMStrategies,
   getContestReward,
+  getContestRewards,
   getContestGemsReward,
   getTokenData,
   TokenData,
