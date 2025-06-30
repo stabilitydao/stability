@@ -2,6 +2,7 @@ import {
   contests,
   getContestGemsReward,
   getContestReward,
+  getContestRewards,
   Reward,
   RewardType,
   YieldContest,
@@ -34,5 +35,17 @@ describe("testing contests", () => {
     const c1 = contests["y1"];
     const und = getContestGemsReward(c1);
     expect(und).toEqual(undefined);
+  });
+  test("getContestRewards", () => {
+    const c17: YieldContest = contests["y17"];
+    const rGT1 = getContestRewards(c17, RewardType.GEMS1_TARGETED);
+    expect(rGT1.reduce((acc, r) => acc + (r.totalReward ?? 0), 0)).toEqual(
+      1500000,
+    );
+    expect(rGT1.length).toEqual(2);
+    const c7 = contests["y7"];
+    const rG = getContestRewards(c7, RewardType.GEMS1);
+    expect(rG.length).toEqual(1);
+    expect(rG[0].totalReward).toEqual(900000);
   });
 });
