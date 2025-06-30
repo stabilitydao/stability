@@ -47,5 +47,9 @@ describe("testing contests", () => {
     const rG = getContestRewards(c7, RewardType.GEMS1);
     expect(rG.length).toEqual(1);
     expect(rG[0].totalReward).toEqual(900000);
+    const c30 = contests["y30"];
+    const und = getContestRewards(c30, RewardType.GEMS1);
+    expect(und.length).toEqual(0);
+    expect(und).toEqual([]);
   });
 });
