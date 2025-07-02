@@ -1,6 +1,6 @@
 {
   "name": "@stabilitydao/stability",
-  "version": "0.37.5",
+  "version": "0.37.6",
   "description": "Stability Integration Library",
   "main": "out/index.js",
   "types": "out/index.d.ts",
@@ -13,7 +13,6 @@
   "repository": "https://github.com/stabilitydao/stability.git",
   "author": "stabilitydao",
   "license": "MIT",
-  "private": false,
   "scripts": {
     "build": "tsc",
     "test": "jest",
