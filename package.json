@@ -13,6 +13,7 @@
   "repository": "https://github.com/stabilitydao/stability.git",
   "author": "stabilitydao",
   "license": "MIT",
+  "private": false,
   "scripts": {
     "build": "tsc",
     "test": "jest",
