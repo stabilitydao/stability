@@ -675,7 +675,11 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     contractGithubId: 330,
     color: "#975aff",
     bgColor: "#17002c",
-    baseStrategies: [BaseStrategy.LEVERAGED_LENDING, BaseStrategy.FARMING, BaseStrategy.MERKL],
+    baseStrategies: [
+      BaseStrategy.LEVERAGED_LENDING,
+      BaseStrategy.FARMING,
+      BaseStrategy.MERKL,
+    ],
     protocols: ["silo:siloV2", "angle:merkl"],
     description: "Advanced leverage lending with Merkl farming on Silo V2",
   },
