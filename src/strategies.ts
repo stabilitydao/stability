@@ -64,6 +64,7 @@ export const enum StrategyShortId {
   A = "A",
   E = "E",
   SiMF = "SiMF",
+  SiALMF = "SiALMF",
 }
 
 export enum StrategyState {
@@ -603,7 +604,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.AMF]: {
     id: "Aave Merit Farm",
     shortId: StrategyShortId.AMF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.CANCELLED,
     contractGithubId: 242,
     color: "#ffffff",
     bgColor: "#2d1d39",
@@ -614,7 +615,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.ShF]: {
     id: "Shadow Farm",
     shortId: StrategyShortId.ShF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.CANCELLED,
     contractGithubId: 250,
     color: "#f1a441",
     bgColor: "#000000",
@@ -626,7 +627,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.EMF]: {
     id: "Euler Merkl Farm",
     shortId: StrategyShortId.EMF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.CANCELLED,
     contractGithubId: 251,
     color: "#186d66",
     bgColor: "#000000",
@@ -666,6 +667,21 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     baseStrategies: [BaseStrategy.FARMING],
     protocols: ["silo:siloV2"],
     description: "Supply asset to Silo V2 managed vault and earn farm rewards",
+  },
+  [StrategyShortId.SiALMF]: {
+    id: "Silo Advanced Leverage Merkl Farm",
+    shortId: StrategyShortId.SiALMF,
+    state: StrategyState.LIVE,
+    contractGithubId: 330,
+    color: "#975aff",
+    bgColor: "#17002c",
+    baseStrategies: [
+      BaseStrategy.LEVERAGED_LENDING,
+      BaseStrategy.FARMING,
+      BaseStrategy.MERKL,
+    ],
+    protocols: ["silo:siloV2", "angle:merkl"],
+    description: "Advanced leverage lending with Merkl farming on Silo V2",
   },
 };
 
