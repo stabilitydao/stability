@@ -65,6 +65,7 @@ export const enum StrategyShortId {
   E = "E",
   SiMF = "SiMF",
   SiALMF = "SiALMF",
+  C = "C",
 }
 
 export enum StrategyState {
@@ -682,6 +683,18 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     ],
     protocols: ["silo:siloV2", "angle:merkl"],
     description: "Advanced leverage lending with Merkl farming on Silo V2",
+  },
+  [StrategyShortId.C]: {
+    id: "Compound",
+    shortId: StrategyShortId.C,
+    state: StrategyState.DEVELOPMENT,
+    contractGithubId: 351,
+    color: "#c5d300",
+    sourceCode: "CompoundStrategy.sol",
+    baseStrategies: [],
+    protocols: [`compound:compoundV2`],
+    bgColor: "#000000",
+    description: "Lend asset on Compound V2",
   },
 };
 
