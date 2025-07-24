@@ -1,7 +1,6 @@
-// Types of ApiService v4.7.7 from 18.06.2025
+// Types of ApiService v4.7.9 from 21.07.2025
 
 //#region ===== Main reply            | GET /                                    =====
-
 export interface ApiMainReply {
   title: string;
   time: number;
@@ -30,6 +29,22 @@ export interface Total {
 export interface StabilityNetwork {
   status: string;
   nodes: { [machineId: string]: NodeState };
+  healthCheckReview: NetworkHealthReview;
+}
+
+export type NetworkStatus = {
+  primarySeedNodeWorking: boolean;
+  secondarySeedNodeWorking: boolean;
+  txSenderWorking: boolean;
+  txSenderHasBalance: boolean;
+  subgraphWorking: boolean;
+  dataReaderResponseUpToDate: boolean;
+};
+
+export interface NetworkHealthReview {
+  isOk: boolean;
+  checksPassed: number;
+  alerts: Partial<Record<keyof NetworkStatus, string>>;
 }
 
 export type NodeState = {
@@ -77,6 +92,27 @@ export type MetaVaults = {
   [chainId: number]: {
     [addrLowerCase: string]: MetaVault;
   };
+};
+
+export type MetaVaultSubgraphHistoricalEntry = {
+  timestamp: string;
+  APR: string;
+  tvl: string;
+  sharePrice: string;
+};
+
+export type GetMetaVaultChartQuery = {
+  // UNIX
+  fromTs: number;
+  // UNIX
+  toTs: number;
+};
+
+export type MetaVaultsCharts = {
+  [symbol: string]: Record<
+    number,
+    Omit<MetaVaultSubgraphHistoricalEntry, "timestamp">
+  >;
 };
 
 export type Vault = {
@@ -171,8 +207,8 @@ export type Vault = {
 
 type VaultProportions = {
   [address: `0x${string}`]: {
-    currentProportion: string;
-    targetProportion: string;
+    currentProportions: string;
+    targetProportions: string;
   };
 };
 
@@ -184,6 +220,8 @@ export type MetaVault = {
   sharePrice?: string;
   tvl: string;
   APR?: string;
+  APR24h?: string;
+  APRWeekly?: string;
   merklAPR?: string;
   assets: `0x${string}`[];
   vaults: `0x${string}`[];
@@ -263,6 +301,7 @@ export interface ApiPostBody {
     main: number;
     factory: number;
     contests: number;
+    charts: number;
   };
   state: NodeState;
   data?: PlatformDataPartial;
@@ -283,12 +322,14 @@ export interface PlatformDataPartial {
   main?: ApiMainReply;
   factory?: ApiFactoryReply;
   contests?: ApiContestsReply;
+  charts?: ApiChartsReply;
 }
 
 export interface PlatformDataFull extends PlatformDataPartial {
   main: ApiMainReply;
   factory: ApiFactoryReply;
   contests: ApiContestsReply;
+  charts: ApiChartsReply;
 }
 
 //#endregion
@@ -328,6 +369,14 @@ export interface ApiFactoryReply {
       farms: Farm[];
       toBuild: TBuildVariant[];
     };
+  };
+}
+
+export interface ApiChartsReply {
+  time: number;
+  hash: string;
+  data: {
+    metaVaults: MetaVaultsCharts;
   };
 }
 
