@@ -1090,6 +1090,12 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     img: "Compound.png",
     website: "https://compound.finance",
     protocols: {
+      compoundV2: {
+        name: "Compound 2",
+        category: DefiCategory.LENDING,
+        chains: [ChainName.ETHEREUM],
+        strategies: [StrategyShortId.C],
+      },
       compoundV3: {
         name: "Compound 3",
         category: DefiCategory.LENDING,
