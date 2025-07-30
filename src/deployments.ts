@@ -74,7 +74,7 @@ export const deployments: { [chainId: string]: Deployment } = {
       revenueRouter: "0x23b8cc22c4c82545f4b451b11e2f17747a730810",
     },
     subgraph:
-      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.54/gn",
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.55/gn",
     ammAdapters: {
       Solidly: "0xe3374041f173ffcb0026a82c6eef94409f713cf9",
       AlgebraV4: "0xcb2dfcaec4F1a4c61c5D09100482109574E6b8C7",
