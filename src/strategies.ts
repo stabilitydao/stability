@@ -13,6 +13,11 @@ export type Strategy = {
   sourceCode?: string;
   ammAdapter?: string;
   description?: string;
+  farmStruct?: {
+    addresses: string[];
+    nums: string[];
+    ticks: string[];
+  };
 };
 
 export const enum StrategyShortId {
@@ -612,6 +617,11 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     baseStrategies: [BaseStrategy.FARMING, BaseStrategy.MERKL],
     protocols: ["aave:aaveV3", "angle:merkl"],
     description: "Lend asset on Aave V3 and earn Merkl rewards",
+    farmStruct: {
+      addresses: ["aToken"],
+      nums: [],
+      ticks: [],
+    },
   },
   [StrategyShortId.ShF]: {
     id: "Shadow Farm",
@@ -683,6 +693,16 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     ],
     protocols: ["silo:siloV2", "angle:merkl"],
     description: "Advanced leverage lending with Merkl farming on Silo V2",
+    farmStruct: {
+      addresses: [
+        "Collateral Silo Vault",
+        "Borrow Silo Vault",
+        "FlashLoan Pool",
+        "SiloLens",
+      ],
+      nums: [],
+      ticks: [],
+    },
   },
   [StrategyShortId.C]: {
     id: "Compound",
