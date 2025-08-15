@@ -1265,6 +1265,23 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     defiLlama: "cyberswap",
     github: "Cyberswap-DEX",
   },
+  enclabs: {
+    name: "Enclabs",
+    img: "Enclabs.svg",
+    creationDate: 1738225563,
+    website: "https://www.enclabs.finance/",
+    protocols: {
+      enclabs: {
+        name: "Enclabs",
+        audits: [],
+        creationDate: 1738225563,
+        category: DefiCategory.LENDING,
+        chains: [ChainName.SONIC],
+      },
+    },
+    defiLlama: "enclabs",
+    github: "enclabs-io",
+  },
   demex: {
     name: "Demex",
     img: "Nitron.svg",
