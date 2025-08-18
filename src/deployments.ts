@@ -22,6 +22,13 @@ export type Deployment = {
     revenueRouter?: `0x${string}`;
   };
   subgraph: string;
+  ammAdapters?: { [id: string]: `0x${string}` };
+  metaVaults?: {
+    address: `0x${string}`;
+    symbol: string;
+    wrapper: `0x${string}`;
+    primary?: boolean;
+  }[];
 };
 
 export const deployments: { [chainId: string]: Deployment } = {
@@ -67,7 +74,45 @@ export const deployments: { [chainId: string]: Deployment } = {
       revenueRouter: "0x23b8cc22c4c82545f4b451b11e2f17747a730810",
     },
     subgraph:
-      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.35/gn",
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.55/gn",
+    ammAdapters: {
+      Solidly: "0xe3374041f173ffcb0026a82c6eef94409f713cf9",
+      AlgebraV4: "0xcb2dfcaec4F1a4c61c5D09100482109574E6b8C7",
+      UniswapV3: "0xAf95468B1a624605bbFb862B0FB6e9C73Ad847b8",
+      ERC4626: "0xB7192f4b8f741E21b9022D2F8Fd19Ca8c94E7774",
+      BalancerV3Stable: "0xcd85425fF6C07cF09Ca6Ac8F683E8164F27C143c",
+      BalancerWeighted: "0x7D6641cf68E5169c11d91266D3E410130dE70B9E",
+      Pendle: "0x9fcE12c813fC2280A800e8683b918de121B2437B",
+    },
+    metaVaults: [
+      {
+        address: "0x1111111199558661Bf7Ff27b4F1623dC6b91Aa3e",
+        symbol: "metaUSD",
+        wrapper: "0xAaAaaAAac311D0572Bffb4772fe985A750E88805",
+        primary: true,
+      },
+      {
+        address: "0x4444444420D9De54d69b3997b7D6A31d2BF63F32",
+        symbol: "metaS",
+        wrapper: "0xbbbbbbBBbd0aE69510cE374A86749f8276647B19",
+        primary: true,
+      },
+      {
+        address: "0x22222222780038f8817b3dE825a070225e6d9874",
+        symbol: "metaUSDC",
+        wrapper: "0xEEEEEEE6d95E55A468D32FeB5d6648754d10A967",
+      },
+      {
+        address: "0x33333333C480194b5B651987b7D00B20dDCbd287",
+        symbol: "metascUSD",
+        wrapper: "0xccccCCcca9FC69a2b32408730011EdB3205A93A1",
+      },
+      {
+        address: "0x555555554776B14B30597d1032E48f9e16db22A4",
+        symbol: "metawS",
+        wrapper: "0xffFFFFFf2fcBeFAe12F1372C56edC769BD411685",
+      },
+    ],
   },
   "8453": {
     core: {

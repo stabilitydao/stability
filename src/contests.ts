@@ -38,6 +38,7 @@ export interface Reward {
     address: `0x${string}`;
     tokenIds?: number[];
   };
+  targetVault?: string;
 }
 
 export enum RewardType {
@@ -50,6 +51,8 @@ export enum RewardType {
   POINTS = "Points",
   // Sonic Gems Season 1
   GEMS1 = "Gems1",
+  // Sonic Gems Season 1 targeted to specific vaults
+  GEMS1_TARGETED = "Gems1 Targeted",
   // Sonic Gems Season 2
   GEMS2 = "Gems2",
   // Sonic Gems Season 3
@@ -342,7 +345,22 @@ export const contests: { [contestId: string]: YieldContest } = {
     start: 1749081600, // Thu, 05 Jun 2025 00:00:00 GMT
     end: 1750291199, // Wed, 18 Jun 2025 23:59:59 GMT
     minEarn: 5,
-    rewards: [],
+    rewards: [
+      {
+        type: RewardType.GEMS1_TARGETED,
+        winners: 0,
+        winnerReward: 0,
+        totalReward: 750000,
+        targetVault: "metaUSD",
+      },
+      {
+        type: RewardType.GEMS1_TARGETED,
+        winners: 0,
+        winnerReward: 0,
+        totalReward: 750000,
+        targetVault: "metaS",
+      },
+    ],
   },
   y18: {
     // 19 Jun 2025 - 02 Jul 2025
@@ -470,6 +488,16 @@ export const getContestReward = (
     }
   }
   return undefined;
+};
+
+export const getContestRewards = (
+  contest: YieldContest,
+  rewardType: RewardType,
+): Reward[] => {
+  if (Array.isArray(contest.rewards)) {
+    return contest.rewards.filter((reward) => reward.type === rewardType);
+  }
+  return [];
 };
 
 export const getContestGemsReward = (

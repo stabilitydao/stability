@@ -763,6 +763,124 @@ export const assets: Asset[] = [
     website: "https://aave.com/",
     color: "#154080",
   },
+  {
+    addresses: {
+      "146": "0x77d8F09053c28FaF1E00Df6511b23125d438616f",
+    },
+    symbol: "PT-Silo-20-USDC.e-17JUL2025",
+    description: "Pendle principal token for Silo V2 market 20",
+    website: "https://app.pendle.finance",
+    color: "#1a82ff",
+  },
+  {
+    addresses: {
+      "146": "0x9731842eD581816913933c01De142C7EE412A8c8",
+    },
+    symbol: "PT-Silo-46-scUSD-14AUG2025",
+    description: "Pendle principal token for Silo V2 market 46",
+    website: "https://app.pendle.finance",
+    color: "#1a82ff",
+  },
+  {
+    addresses: {
+      "146": "0x871A101Dcf22fE4fE37be7B654098c801CBA1c88",
+    },
+    symbol: "beS",
+    description:
+      "Beefy is a Decentralized, Multichain Yield Optimizer that allows its users to earn compound interest on their crypto holdings. Beefy earns you the highest APYs with safety and efficiency in mind.",
+    website: "https://beefy.com/",
+    color: "#171928",
+  },
+  {
+    addresses: {
+      "146": "0x1111111199558661Bf7Ff27b4F1623dC6b91Aa3e",
+    },
+    symbol: "metaUSD",
+    description: "Stability MetaVault",
+    website: "https://stability.farm/",
+    color: "#4112e0",
+  },
+  {
+    addresses: {
+      "146": "0x4444444420D9De54d69b3997b7D6A31d2BF63F32",
+    },
+    symbol: "metaS",
+    description: "Stability MetaVault",
+    website: "https://stability.farm/",
+    color: "#4112e0",
+  },
+  {
+    addresses: {
+      "146": "0x22222222780038f8817b3dE825a070225e6d9874",
+    },
+    symbol: "metaUSDC",
+    description: "Stability MetaVault",
+    website: "https://stability.farm/",
+    color: "#4112e0",
+  },
+  {
+    addresses: {
+      "146": "0x33333333C480194b5B651987b7D00B20dDCbd287",
+    },
+    symbol: "metascUSD",
+    description: "Stability MetaVault",
+    website: "https://stability.farm/",
+    color: "#4112e0",
+  },
+  {
+    addresses: {
+      "146": "0x555555554776B14B30597d1032E48f9e16db22A4",
+    },
+    symbol: "metawS",
+    description: "Stability MetaVault",
+    website: "https://stability.farm/",
+    color: "#4112e0",
+  },
+  {
+    addresses: {
+      "146": "0xAaAaaAAac311D0572Bffb4772fe985A750E88805",
+    },
+    symbol: "wmetaUSD",
+    description: "Stability Wrapped MetaVault",
+    website: "https://stability.farm/",
+    color: "#3fc00d",
+  },
+  {
+    addresses: {
+      "146": "0xbbbbbbBBbd0aE69510cE374A86749f8276647B19",
+    },
+    symbol: "wmetaS",
+    description: "Stability Wrapped MetaVault",
+    website: "https://stability.farm/",
+    color: "#3fc00d",
+  },
+  {
+    addresses: {
+      "146": "0xEEEEEEE6d95E55A468D32FeB5d6648754d10A967",
+    },
+    symbol: "wUSDC",
+    description: "Stability Wrapped MetaVault",
+    website: "https://stability.farm/",
+    color: "#3fc00d",
+  },
+  {
+    addresses: {
+      "146": "0xccccCCcca9FC69a2b32408730011EdB3205A93A1",
+    },
+    symbol: "wscUSD",
+    description: "Stability Wrapped MetaVault",
+    website: "https://stability.farm/",
+    color: "#3fc00d",
+  },
+  {
+    addresses: {
+      "146": "0xffFFFFFf2fcBeFAe12F1372C56edC769BD411685",
+    },
+    symbol: "wwS",
+    description: "Stability Wrapped MetaVault",
+    website: "https://stability.farm/",
+    color: "#3fc00d",
+  },
 ];
 
 export const sonicWhitelistedAssets: {

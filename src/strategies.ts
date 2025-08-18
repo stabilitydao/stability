@@ -13,6 +13,11 @@ export type Strategy = {
   sourceCode?: string;
   ammAdapter?: string;
   description?: string;
+  farmStruct?: {
+    addresses: string[];
+    nums: string[];
+    ticks: string[];
+  };
 };
 
 export const enum StrategyShortId {
@@ -64,6 +69,8 @@ export const enum StrategyShortId {
   A = "A",
   E = "E",
   SiMF = "SiMF",
+  SiALMF = "SiALMF",
+  C = "C",
 }
 
 export enum StrategyState {
@@ -601,20 +608,25 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     description: "Lend asset on Vicuna and earn Merkl rewards",
   },
   [StrategyShortId.AMF]: {
-    id: "Aave Merit Farm",
+    id: "Aave Merkl Farm",
     shortId: StrategyShortId.AMF,
-    state: StrategyState.DEVELOPMENT,
-    contractGithubId: 242,
+    state: StrategyState.LIVE,
+    contractGithubId: 345,
     color: "#ffffff",
     bgColor: "#2d1d39",
-    baseStrategies: [BaseStrategy.FARMING],
-    protocols: ["aave:aaveV3"],
-    description: "Lend asset on Aave V3 and earn Merit rewards",
+    baseStrategies: [BaseStrategy.FARMING, BaseStrategy.MERKL],
+    protocols: ["aave:aaveV3", "angle:merkl"],
+    description: "Lend asset on Aave V3 and earn Merkl rewards",
+    farmStruct: {
+      addresses: ["aToken"],
+      nums: [],
+      ticks: [],
+    },
   },
   [StrategyShortId.ShF]: {
     id: "Shadow Farm",
     shortId: StrategyShortId.ShF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.CANCELLED,
     contractGithubId: 250,
     color: "#f1a441",
     bgColor: "#000000",
@@ -626,7 +638,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.EMF]: {
     id: "Euler Merkl Farm",
     shortId: StrategyShortId.EMF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.CANCELLED,
     contractGithubId: 251,
     color: "#186d66",
     bgColor: "#000000",
@@ -659,13 +671,50 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.SiMF]: {
     id: "Silo Managed Farm",
     shortId: StrategyShortId.SiMF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.LIVE,
     contractGithubId: 289,
     color: "#cccccc",
     bgColor: "#3a1454",
     baseStrategies: [BaseStrategy.FARMING],
     protocols: ["silo:siloV2"],
     description: "Supply asset to Silo V2 managed vault and earn farm rewards",
+  },
+  [StrategyShortId.SiALMF]: {
+    id: "Silo Advanced Leverage Merkl Farm",
+    shortId: StrategyShortId.SiALMF,
+    state: StrategyState.LIVE,
+    contractGithubId: 330,
+    color: "#975aff",
+    bgColor: "#17002c",
+    baseStrategies: [
+      BaseStrategy.LEVERAGED_LENDING,
+      BaseStrategy.FARMING,
+      BaseStrategy.MERKL,
+    ],
+    protocols: ["silo:siloV2", "angle:merkl"],
+    description: "Advanced leverage lending with Merkl farming on Silo V2",
+    farmStruct: {
+      addresses: [
+        "Collateral Silo Vault",
+        "Borrow Silo Vault",
+        "FlashLoan Pool",
+        "SiloLens",
+      ],
+      nums: [],
+      ticks: [],
+    },
+  },
+  [StrategyShortId.C]: {
+    id: "Compound",
+    shortId: StrategyShortId.C,
+    state: StrategyState.DEVELOPMENT,
+    contractGithubId: 351,
+    color: "#c5d300",
+    sourceCode: "CompoundStrategy.sol",
+    baseStrategies: [],
+    protocols: [`compound:compoundV2`],
+    bgColor: "#000000",
+    description: "Lend asset on Compound V2",
   },
 };
 
