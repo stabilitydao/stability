@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug NestJS App (ts-node)",
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register"
+      ],
+      "args": ["${workspaceFolder}/tools/draw-integrations.ts"],
+      "cwd": "${workspaceFolder}",
+      "protocol": "inspector",
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"],
+      "autoAttachChildProcesses": true,
+      "outFiles": [],
+      "console": "integratedTerminal"
+    }
+  ]
+}

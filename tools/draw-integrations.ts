@@ -15,11 +15,15 @@ async function main() {
   // check tmp dirs
   const tmpDir = "./temp";
   const coversDir = "./temp/covers";
+  const integrationsDir = "./temp/covers/integrations";
   if (!fs.existsSync(tmpDir)) {
     fs.mkdirSync(tmpDir);
   }
   if (!fs.existsSync(coversDir)) {
     fs.mkdirSync(coversDir);
+  }
+  if (!fs.existsSync(integrationsDir)) {
+    fs.mkdirSync(integrationsDir);
   }
 
   // save to
@@ -176,32 +180,42 @@ async function main() {
 
   // draw covers
   for (const orgId in integrations) {
-    const organization = integrations[orgId];
-    // Dimensions for the image
-    const coverWidth = 1000;
-    const coverHeight = 1000;
+    try {
+      const organization = integrations[orgId];
+      // Dimensions for the image
+      const coverWidth = 1000;
+      const coverHeight = 1000;
 
-    // Instantiate the canvas object
-    canvas = createCanvas(coverWidth, coverHeight);
-    ctx = canvas.getContext("2d");
+      // Instantiate the canvas object
+      canvas = createCanvas(coverWidth, coverHeight);
+      ctx = canvas.getContext("2d");
 
-    // bg
-    // const bgColor = '#15003b'
-    ctx.fillStyle = bgColor;
-    ctx.fillRect(0, 0, coverWidth, coverHeight);
+      // bg
+      // const bgColor = '#15003b'
+      ctx.fillStyle = bgColor;
+      ctx.fillRect(0, 0, coverWidth, coverHeight);
 
-    // organization name
-    ctx.font = 'bold 95px "Sans"';
-    ctx.fillStyle = "#ffffff";
-    ctx.fillText(organization.name, 100, 880);
+      // organization name
+      ctx.font = 'bold 95px "Sans"';
+      ctx.fillStyle = "#ffffff";
+      ctx.fillText(organization.name, 100, 880);
 
-    // image
-    const image = await loadImage(`${tmpDir}/${organization.img}`);
-    ctx.drawImage(image, 250, 170, 500, 500);
+      // image
+      const imgPath = `${tmpDir}/${organization.img}`;
+      if (imgPath.endsWith(".svg")) {
+        await setSvgSize(imgPath).catch((error) => {
+          console.error(`Error setting SVG size for ${imgPath}:`, error);
+        });
+      }
+      const image = await loadImage(`${tmpDir}/${organization.img}`);
+      ctx.drawImage(image, 250, 170, 500, 500);
 
-    // Write the image to file
-    const buffer = canvas.toBuffer("image/png");
-    fs.writeFileSync(`${coversDir}/${orgId}.png`, buffer);
+      // Write the image to file
+      const buffer = canvas.toBuffer("image/png");
+      fs.writeFileSync(`${integrationsDir}/${orgId}.png`, buffer);
+    } catch (e) {
+      console.error(`Error while processing cover for ${orgId}:`, e);
+    }
   }
   console.log(`Covers of organizations generated and saved to ${coversDir}`);
 }
@@ -221,6 +235,32 @@ async function downloadFile(url: string, filepath: string) {
     });
   } catch {
     console.error(`Download ${url} failed`);
+  }
+}
+
+async function setSvgSize(
+  filePath: string,
+  width: number = 400,
+  height: number = 400,
+) {
+  let svg = await fs.promises.readFile(filePath, "utf8");
+
+  const hasWidth = /\bwidth\s*=/.test(svg);
+  const hasHeight = /\bheight\s*=/.test(svg);
+
+  if (!hasWidth || !hasHeight) {
+    svg = svg.replace(/<svg([^>]*)>/i, (_match, attrs) => {
+      let newAttrs = attrs;
+      if (!hasWidth) {
+        newAttrs += ` width="${width}"`;
+      }
+      if (!hasHeight) {
+        newAttrs += ` height="${height}"`;
+      }
+      return `<svg${newAttrs}>`;
+    });
+
+    await fs.promises.writeFile(filePath, svg, "utf8");
   }
 }
 

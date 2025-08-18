@@ -10,6 +10,7 @@ async function main() {
   const tmpDir = "./temp";
   const imagesCacheDir = `${tmpDir}/cachedVaultsImages`;
   const coversDir = `${tmpDir}/covers`;
+  const vaultsDir = `${tmpDir}/covers/vaults`;
   if (!fs.existsSync(tmpDir)) {
     fs.mkdirSync(tmpDir);
   }
@@ -18,6 +19,9 @@ async function main() {
   }
   if (!fs.existsSync(coversDir)) {
     fs.mkdirSync(coversDir);
+  }
+  if (!fs.existsSync(vaultsDir)) {
+    fs.mkdirSync(vaultsDir);
   }
 
   // fetch stability.farm API
@@ -400,10 +404,7 @@ async function main() {
 
       // write the image to file
       const buffer = canvas.toBuffer("image/png");
-      fs.writeFileSync(
-        `${coversDir}/${chainId}-${name.replace(/[^a-zA-Z0-9]/g, "_")}.png`,
-        buffer,
-      );
+      fs.writeFileSync(`${vaultsDir}/${vault.address}.png`, buffer);
       processedVaults++;
 
       // progress bar
