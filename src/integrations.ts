@@ -11,10 +11,10 @@ export type DeFiOrganization = {
   github?: string;
 };
 
-type Accident {
-  date: number // UNIX timestamp
-  url: string // link to the accident description
-}
+type Accident = {
+  date: number; // UNIX timestamp
+  url: string; // link to the accident description
+};
 
 export type DeFiProtocol = {
   name: string;
@@ -1414,10 +1414,12 @@ export const integrations: { [org: string]: DeFiOrganization } = {
             url: "https://github.com/balancer/balancer-v2-monorepo/blob/master/audits/trail-of-bits/2022-05-27.pdf",
           },
         ],
-        accidents: [{
-          date: 1677445200,
-          url: "https://www.sharkteam.org/report/analysis/20230228001A_en.pdf"
-        }],
+        accidents: [
+          {
+            date: 1677445200,
+            url: "https://www.sharkteam.org/report/analysis/20230228001A_en.pdf",
+          },
+        ],
         category: DefiCategory.AMM,
         chains: [ChainName.FANTOM, ChainName.OPTIMISM, ChainName.SONIC],
         adapters: [
@@ -2000,10 +2002,12 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Silo V2",
         category: DefiCategory.LENDING,
         creationDate: 1710307200,
-        accidents: [{
-          date: 1750798800,
-          url: "https://www.certora.com/blog/silo-incident-report-contract-exploit"
-        }],
+        accidents: [
+          {
+            date: 1750798800,
+            url: "https://www.certora.com/blog/silo-incident-report-contract-exploit",
+          },
+        ],
         audits: [
           {
             name: "Silo-Certora (SiloV2) Audit Report May 2025",
