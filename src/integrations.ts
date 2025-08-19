@@ -11,6 +11,11 @@ export type DeFiOrganization = {
   github?: string;
 };
 
+type Accident {
+  date: number // UNIX timestamp
+  url: string // link to the accident description
+}
+
 export type DeFiProtocol = {
   name: string;
   img?: string; // separate img for protocol
@@ -19,6 +24,7 @@ export type DeFiProtocol = {
     name: string;
     url: string;
   }[];
+  accidents?: Accident[];
   creationDate?: number; // UNIX timestamp
   category: DefiCategory;
   chains: ChainName[];
@@ -1273,6 +1279,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     protocols: {
       enclabs: {
         name: "Enclabs",
+        accidents: [],
         audits: [],
         creationDate: 1738225563,
         category: DefiCategory.LENDING,
@@ -1407,6 +1414,10 @@ export const integrations: { [org: string]: DeFiOrganization } = {
             url: "https://github.com/balancer/balancer-v2-monorepo/blob/master/audits/trail-of-bits/2022-05-27.pdf",
           },
         ],
+        accidents: [{
+          date: 1677445200,
+          url: "https://www.sharkteam.org/report/analysis/20230228001A_en.pdf"
+        }],
         category: DefiCategory.AMM,
         chains: [ChainName.FANTOM, ChainName.OPTIMISM, ChainName.SONIC],
         adapters: [
@@ -1470,6 +1481,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
             url: "https://code4rena.com/reports/2024-10-ramses-exchange",
           },
         ],
+        accidents: [],
         creationDate: 1709251200,
         category: DefiCategory.AMM,
         chains: [ChainName.SONIC],
@@ -1493,6 +1505,18 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           {
             name: "SwapXPSL_AuditReport_InterFi",
             url: "https://github.com/swapxco/swapx-presales-audit/blob/main/SwapXPSL_AuditReport_InterFi.pdf",
+          },
+          {
+            name: "Algebra Paladin_report",
+            url: "https://3468129680-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FKboRABceyMllFm7vMRLZ%2Fuploads%2FzOHbuUvv7J9tfSUwL2J7%2FAlgebra_Paladin_report.pdf?alt=media&token=6545c2b0-d58b-41c1-b16f-55bbb2649c53",
+          },
+          {
+            name: "Riley_Holterhus_Algebra_Integral",
+            url: "https://3468129680-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FKboRABceyMllFm7vMRLZ%2Fuploads%2FGnxb8BWEHoG0ZEA8pSzy%2FRiley_Holterhus_Algebra_Integral.pdf?alt=media&token=21953cd9-3bf2-45d8-b2fe-a51a5ed52a52",
+          },
+          {
+            name: "Farming_Plugin_report",
+            url: "https://3468129680-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FKboRABceyMllFm7vMRLZ%2Fuploads%2F0yHo7kH4GQd2b7Illfd2%2FFarming_Plugin_report_MixBytes.pdf?alt=media&token=4ffb005d-b003-43e3-a8b7-f4b4e86c8d92",
           },
         ],
         adapters: [
@@ -1828,42 +1852,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         creationDate: 1674787200,
         audits: [
           {
-            name: "01-11-2021_OpenZeppelin_AaveV3",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/01-11-2021_OpenZeppelin_AaveV3.pdf",
-          },
-          {
-            name: "02-05-2024_MixBytes_AaveV3.1",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/02-05-2024_MixBytes_AaveV3.1.pdf",
-          },
-          {
-            name: "02-06-2024-Cantina-contest-AaveV3.1",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/02-06-2024-Cantina-contest-AaveV3.1.pdf",
-          },
-          {
-            name: "03-2023_2023_Certora_AaveV3-0-2",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/03-2023_2023_Certora_AaveV3-0-2.pdf",
-          },
-          {
-            name: "07-01-2022_TrailOfBits_AaveV3",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/07-01-2022_TrailOfBits_AaveV3.pdf",
-          },
-          {
-            name: "09-12-2022_PeckShield_AaveV3-0-1",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/09-12-2022_PeckShield_AaveV3-0-1.pdf",
-          },
-          {
-            name: "11-09-2024_Certora_StataTokenV2",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/11-09-2024_Certora_StataTokenV2.pdf",
-          },
-          {
-            name: "14-01-2022_PeckShield_AaveV3",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/14-01-2022_PeckShield_AaveV3.pdf",
-          },
-          {
-            name: "19-04-2023_SigmaPrime_AaveV3-0-2",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/19-04-2023_SigmaPrime_AaveV3-0-2.pdf",
-          },
-          {
             name: "2024-09-10_Certora_Aave-v3.2_Stable_Rate_Removal",
             url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/2024-09-10_Certora_Aave-v3.2_Stable_Rate_Removal.pdf",
           },
@@ -1882,74 +1870,6 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           {
             name: "2024-09-30_Enigma_Aave-v3.2",
             url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/2024-09-30_Enigma_Aave-v3.2.pdf",
-          },
-          {
-            name: "2024-10-22_StErMi_Aave-v3.3",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/2024-10-22_StErMi_Aave-v3.3.md",
-          },
-          {
-            name: "2024-10-22_StErMi_Aave-v3.3",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/2024-10-22_StErMi_Aave-v3.3.pdf",
-          },
-          {
-            name: "2024-11-07_Certora_Aave-v3.3.0",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/2024-11-07_Certora_Aave-v3.3.0.pdf",
-          },
-          {
-            name: "2024-12-05_MixBytes_AaveStataToken(watoken)SecurityAuditReport",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/2024-12-05_MixBytes_AaveStataToken(watoken)SecurityAuditReport.pdf",
-          },
-          {
-            name: "2025-01-20_Certora_CollectorRev6",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/2025-01-20_Certora_CollectorRev6.pdf",
-          },
-          {
-            name: "2025-01-22_Sherlock_Aave-v3.3.0",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/2025-01-22_Sherlock_Aave-v3.3.0.pdf",
-          },
-          {
-            name: "2025-01-29_Oxorio_Aave-v3.3.0",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/2025-01-29_Oxorio_Aave-v3.3.0.pdf",
-          },
-          {
-            name: "2025-05-13_Enigma_Aave-v3.4",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/2025-05-13_Enigma_Aave-v3.4.pdf",
-          },
-          {
-            name: "2025-06-11_Certora_Aave-v3.4_AIP_Report",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/2025-06-11_Certora_Aave-v3.4_AIP_Report.pdf",
-          },
-          {
-            name: "2025-06-11_Certora_Aave-v3.4_Report",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/2025-06-11_Certora_Aave-v3.4_Report.pdf",
-          },
-          {
-            name: "2025-06-11_Stermi_Aave-v3.4_AIP_Report",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/2025-06-11_Stermi_Aave-v3.4_AIP_Report.md",
-          },
-          {
-            name: "2025-06-11_Stermi_Aave-v3.4_Report",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/2025-06-11_Stermi_Aave-v3.4_Report.md",
-          },
-          {
-            name: "2025-06-12_Blackthorn-v3.4_Report",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/2025-06-12_Blackthorn-v3.4_Report.pdf",
-          },
-          {
-            name: "23-12-2022_SigmaPrime_AaveV3-0-1",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/23-12-2022_SigmaPrime_AaveV3-0-1.pdf",
-          },
-          {
-            name: "27-01-2022_ABDK_AaveV3",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/27-01-2022_ABDK_AaveV3.pdf",
-          },
-          {
-            name: "27-01-2022_SigmaPrime_AaveV3",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/27-01-2022_SigmaPrime_AaveV3.pdf",
-          },
-          {
-            name: "30-04-2024_Certora_AaveV3.1",
-            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/30-04-2024_Certora_AaveV3.1.pdf",
           },
         ],
         chains: [
@@ -2080,6 +2000,10 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Silo V2",
         category: DefiCategory.LENDING,
         creationDate: 1710307200,
+        accidents: [{
+          date: 1750798800,
+          url: "https://www.certora.com/blog/silo-incident-report-contract-exploit"
+        }],
         audits: [
           {
             name: "Silo-Certora (SiloV2) Audit Report May 2025",
@@ -2175,6 +2099,17 @@ export const integrations: { [org: string]: DeFiOrganization } = {
       },
       stabilityMarket: {
         name: "Stability Market",
+        creationDate: 1739998800,
+        audits: [
+          {
+            name: "03-2023_2023_Certora_AaveV3-0-2",
+            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/03-2023_2023_Certora_AaveV3-0-2.pdf",
+          },
+          {
+            name: "19-04-2023_SigmaPrime_AaveV3-0-2",
+            url: "https://github.com/aave-dao/aave-v3-origin/blob/74412e2b6e0b1973fac6837b6a488f8eaaeac4b1/audits/19-04-2023_SigmaPrime_AaveV3-0-2.pdf",
+          },
+        ],
         category: DefiCategory.LENDING,
         chains: [ChainName.SONIC],
         strategies: [StrategyShortId.A],
