@@ -14,6 +14,7 @@ export type DeFiOrganization = {
 type Accident = {
   date: number; // UNIX timestamp
   url: string; // link to the accident description
+  name: string;
 };
 
 export type DeFiProtocol = {
@@ -1418,6 +1419,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           {
             date: 1677445200,
             url: "https://www.sharkteam.org/report/analysis/20230228001A_en.pdf",
+            name: "SwapXAttack: Permission Vulnerability And Price Manipulation",
           },
         ],
         category: DefiCategory.AMM,
@@ -2006,6 +2008,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           {
             date: 1750798800,
             url: "https://www.certora.com/blog/silo-incident-report-contract-exploit",
+            name: "Silo Leverage Contract Exploit",
           },
         ],
         audits: [
