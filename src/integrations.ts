@@ -11,6 +11,12 @@ export type DeFiOrganization = {
   github?: string;
 };
 
+type Accident = {
+  date: number; // UNIX timestamp
+  url: string; // link to the accident description
+  name: string;
+};
+
 export type DeFiProtocol = {
   name: string;
   img?: string; // separate img for protocol
@@ -19,6 +25,7 @@ export type DeFiProtocol = {
     name: string;
     url: string;
   }[];
+  accidents?: Accident[];
   creationDate?: number; // UNIX timestamp
   category: DefiCategory;
   chains: ChainName[];
@@ -1359,6 +1366,60 @@ export const integrations: { [org: string]: DeFiOrganization } = {
     protocols: {
       beethovenx: {
         name: "Beethoven X",
+        creationDate: 1631059200,
+        audits: [
+          {
+            name: "adbk-2022-05-27",
+            url: "https://github.com/balancer/balancer-v2-monorepo/blob/master/audits/abdk/2022-05-27.pdf",
+          },
+          {
+            name: "certora-2021-04-22",
+            url: "https://github.com/balancer/balancer-v2-monorepo/blob/master/audits/certora/2021-04-22.pdf",
+          },
+          {
+            name: "certora-2022-09-23",
+            url: "https://github.com/balancer/balancer-v2-monorepo/blob/master/audits/certora/2022-09-23.pdf",
+          },
+          {
+            name: "certora-2023-05-08",
+            url: "https://github.com/balancer/balancer-v2-monorepo/blob/master/audits/certora/2023-05-08.pdf",
+          },
+          {
+            name: "openzeppelin-2021-03-15",
+            url: "https://github.com/balancer/balancer-v2-monorepo/blob/master/audits/openzeppelin/2021-03-15.pdf",
+          },
+          {
+            name: "openzeppelin-2021-10-09",
+            url: "https://github.com/balancer/balancer-v2-monorepo/blob/master/audits/openzeppelin/2021-10-09.pdf",
+          },
+          {
+            name: "trail-of-bits-2021-04-02",
+            url: "https://github.com/balancer/balancer-v2-monorepo/blob/master/audits/trail-of-bits/2021-04-02.pdf",
+          },
+          {
+            name: "trail-of-bits-2021-10-08",
+            url: "https://github.com/balancer/balancer-v2-monorepo/blob/master/audits/trail-of-bits/2021-10-08.pdf",
+          },
+          {
+            name: "trail-of-bits-2022-05-27",
+            url: "https://github.com/balancer/balancer-v2-monorepo/blob/master/audits/trail-of-bits/2022-05-27.pdf",
+          },
+          {
+            name: "trail-of-bits-2022-09-02",
+            url: "https://github.com/balancer/balancer-v2-monorepo/blob/master/audits/trail-of-bits/2022-05-27.pdf",
+          },
+          {
+            name: "trail-of-bits-2022-10-25",
+            url: "https://github.com/balancer/balancer-v2-monorepo/blob/master/audits/trail-of-bits/2022-05-27.pdf",
+          },
+        ],
+        accidents: [
+          {
+            date: 1677445200,
+            url: "https://www.sharkteam.org/report/analysis/20230228001A_en.pdf",
+            name: "SwapXAttack: Permission Vulnerability And Price Manipulation",
+          },
+        ],
         category: DefiCategory.AMM,
         chains: [ChainName.FANTOM, ChainName.OPTIMISM, ChainName.SONIC],
         adapters: [
@@ -2008,6 +2069,13 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Silo V2",
         category: DefiCategory.LENDING,
         creationDate: 1710307200,
+        accidents: [
+          {
+            date: 1750798800,
+            url: "https://www.certora.com/blog/silo-incident-report-contract-exploit",
+            name: "Silo Leverage Contract Exploit",
+          },
+        ],
         audits: [
           {
             name: "Silo-Certora (SiloV2) Audit Report May 2025",
