@@ -10,6 +10,12 @@ export type Deployment = {
     zap: `0x${string}`;
     metaVaultFactory?: `0x${string}`;
   };
+  markets?: {
+    poolDataProvider: `0x${string}`;
+    poolAddresses: {
+      [market: string]: `0x${string}`;
+    };
+  };
   periphery: {
     frontend: `0x${string}`;
     rebalanceHelper?: `0x${string}`;
@@ -65,6 +71,16 @@ export const deployments: { [chainId: string]: Deployment } = {
     periphery: {
       frontend: "0x15487495cce9210795f9C2E0e1A7238E336dFc32",
       rebalanceHelper: "0x659119200de09F266f3256A70986713Ca1ee04D8",
+    },
+    markets: {
+      poolDataProvider: "0xAC2b7EADb55858700B8567aB5Ca7863101508304",
+      poolAddresses: {
+        main: "0x24835e3Da1B402f8037e3ce6dE4a701677fa1b54",
+        brunch: "0xC0512947845cCe3a32e58Efc3B4526Dd1D11F6af",
+        stableJack: "0x3E3aAB589Ba86fB8f40CEB69332bb44E9B1411D4",
+        stream: "0xCc31959682Ad726A9bcde9bbD41c89f36c03E743",
+        wMetaUSD: "0x5CC16D46fdf657651e4F4eeA4470DD215E4Af7bd",
+      },
     },
     tokenomics: {
       merkleDistributor: "0x0391aBDCFaB86947d93f9dd032955733B639416b",
