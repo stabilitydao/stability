@@ -1,4 +1,4 @@
-// Types of ApiService v4.7.9 from 21.07.2025
+// Types of ApiService v4.7.12 from 21.08.2025
 
 //#region ===== Main reply            | GET /                                    =====
 export interface ApiMainReply {
@@ -9,13 +9,17 @@ export interface ApiMainReply {
   platforms: Platforms;
   vaults: Vaults;
   metaVaults: MetaVaults;
+  revenueChart: RevenueChart;
   underlyings: Underlyings;
+  markets: MarketData;
   assetPrices: AssetPrices;
   leaderboards: Leaderboards;
   prices: Prices;
   rewards: Rewards;
   error?: string;
 }
+
+export type RevenueChart = Record<number, string>;
 
 export interface Total {
   tvl: number;
@@ -32,6 +36,12 @@ export interface StabilityNetwork {
   healthCheckReview: NetworkHealthReview;
 }
 
+export interface NetworkHealthReview {
+  isOk: boolean;
+  checksPassed: number;
+  alerts: Partial<Record<keyof NetworkStatus, string>>;
+}
+
 export type NetworkStatus = {
   primarySeedNodeWorking: boolean;
   secondarySeedNodeWorking: boolean;
@@ -40,12 +50,6 @@ export type NetworkStatus = {
   subgraphWorking: boolean;
   dataReaderResponseUpToDate: boolean;
 };
-
-export interface NetworkHealthReview {
-  isOk: boolean;
-  checksPassed: number;
-  alerts: Partial<Record<keyof NetworkStatus, string>>;
-}
 
 export type NodeState = {
   hostname: string | "private";
@@ -82,6 +86,25 @@ export type Underlying = {
   provider?: string;
 };
 
+export type Market = {
+  name: string;
+  supplyAPR: string;
+  borrowAPR: string;
+  supplyTVL: string;
+  borrowTVL: string;
+  price: string;
+  cap: string;
+  borrowCap: string;
+};
+
+export type MarketData = {
+  [chainId: number]: {
+    [market: string]: {
+      [asset: `0x${string}`]: Market;
+    };
+  };
+};
+
 export type Vaults = {
   [chainId: number]: {
     [addrLowerCase: string]: Vault;
@@ -94,18 +117,18 @@ export type MetaVaults = {
   };
 };
 
-export type MetaVaultSubgraphHistoricalEntry = {
-  timestamp: string;
-  APR: string;
-  tvl: string;
-  sharePrice: string;
-};
-
 export type GetMetaVaultChartQuery = {
   // UNIX
   fromTs: number;
   // UNIX
   toTs: number;
+};
+
+export type MetaVaultSubgraphHistoricalEntry = {
+  timestamp: string;
+  APR: string;
+  tvl: string;
+  sharePrice: string;
 };
 
 export type MetaVaultsCharts = {
@@ -129,11 +152,13 @@ export type Vault = {
   underlyingSymbol?: string;
   underlyingDecimals?: number;
   lastHardWork?: number;
+  merklApr?: number;
   status?: string;
   strategySpecific?: string;
   strategyDescription?: string;
   strategyVersion?: string;
   vaultType?: string;
+  type?: string;
   version?: string;
   assets?: `0x${string}`[];
   assetsAmounts?: string[];
@@ -161,6 +186,7 @@ export type Vault = {
   created?: number;
   hardWorkOnDeposit?: boolean;
   gasReserve?: string;
+  launchDate?: string;
   vaultManagerId?: number;
   pool?: {
     address: string;
@@ -212,20 +238,36 @@ type VaultProportions = {
   };
 };
 
+type VaultsData = {
+  proportions: {
+    current: string;
+    target: string;
+  };
+  address: string;
+  type: string;
+  strategy?: string;
+  protocols?: string[];
+  vaults?: VaultsData[];
+};
+
 export type MetaVault = {
   address: string;
   name: string;
   symbol: string;
   decimals: number;
   sharePrice?: string;
+  type?: string;
   tvl: string;
   APR?: string;
+  strategies?: string[];
+  protocols?: string[];
   APR24h?: string;
   APRWeekly?: string;
   merklAPR?: string;
   assets: `0x${string}`[];
   vaults: `0x${string}`[];
   vaultProportions: VaultProportions;
+  vaultsData?: VaultsData[];
   deposited?: string;
 };
 

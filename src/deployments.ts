@@ -79,7 +79,6 @@ export const deployments: { [chainId: string]: Deployment } = {
         brunch: "0xC0512947845cCe3a32e58Efc3B4526Dd1D11F6af",
         stableJack: "0x3E3aAB589Ba86fB8f40CEB69332bb44E9B1411D4",
         stream: "0xCc31959682Ad726A9bcde9bbD41c89f36c03E743",
-        wMetaUSD: "0x5CC16D46fdf657651e4F4eeA4470DD215E4Af7bd",
       },
     },
     tokenomics: {
