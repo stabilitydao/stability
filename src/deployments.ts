@@ -34,7 +34,7 @@ export type Deployment = {
     symbol: string;
     wrapper: `0x${string}`;
     primary?: boolean;
-    type?: string;
+    type: string;
   }[];
 };
 
