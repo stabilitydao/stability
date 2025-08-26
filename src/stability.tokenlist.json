@@ -1283,6 +1283,42 @@
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wmetawS.png",
       "tags": ["s"]
+    },
+    {
+      "chainId": 146,
+      "address": "0x451812019238785086cfac408d8a64f06898f6f5",
+      "symbol": "sbUSD",
+      "name": "Staked bUSD",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/sbUSD.svg",
+      "tags": ["usd"]
+    },
+    {
+      "chainId": 146,
+      "address": "0x6047828dc181963ba44974801ff68e538da5eaf9",
+      "symbol": "USDT",
+      "name": "Tether USD",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/USDT.png",
+      "tags": ["usd"]
+    },
+    {
+      "chainId": 146,
+      "address": "0xd2901d474b351bc6ee7b119f9c920863b0f781b2",
+      "symbol": "YT-scUSD",
+      "name": "SJ Yield Token scUSD",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/ytscUSDC.png",
+      "tags": ["usd"]
+    },
+    {
+      "chainId": 146,
+      "address": "0x6202b9f02e30e5e1c62cc01e4305450e5d83b926",
+      "symbol": "xUSD",
+      "name": "Staked Stream USD",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/xUSD.png",
+      "tags": ["usd"]
     }
   ]
 }
