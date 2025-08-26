@@ -881,6 +881,42 @@ export const assets: Asset[] = [
     website: "https://stability.farm/",
     color: "#3fc00d",
   },
+  {
+    addresses: {
+      "146": "0x451812019238785086cfac408d8a64f06898f6f5",
+    },
+    symbol: "sbUSD",
+    description: "Staked bUSD",
+    website: "https://stability.farm/",
+    color: "#FA7273",
+  },
+  {
+    addresses: {
+      "146": "0x6047828dc181963ba44974801ff68e538da5eaf9",
+    },
+    symbol: "USDT",
+    description: "Tether USD",
+    website: "https://stability.farm/",
+    color: "#009393",
+  },
+  {
+    addresses: {
+      "146": "0xd2901d474b351bc6ee7b119f9c920863b0f781b2",
+    },
+    symbol: "YT-scUSD",
+    description: "SJ Yield Token scUSD",
+    website: "https://stability.farm/",
+    color: "#A16CE2",
+  },
+  {
+    addresses: {
+      "146": "0x6202b9f02e30e5e1c62cc01e4305450e5d83b926",
+    },
+    symbol: "xUSD",
+    description: "Staked Stream USD",
+    website: "https://stability.farm/",
+    color: "#2775CA",
+  },
 ];
 
 export const sonicWhitelistedAssets: {
