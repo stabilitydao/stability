@@ -1274,7 +1274,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
   },
   enclabs: {
     name: "Enclabs",
-    img: "Enclabs.svg",
+    img: "enclabs.svg",
     creationDate: 1738225563,
     website: "https://www.enclabs.finance/",
     protocols: {
