@@ -63,7 +63,7 @@ import {
 } from "./contests";
 import { AssetOracle, assetOracles, vaultOracles } from "./oracles";
 import { IlDetails, getIL } from "./risk";
-import { status} from './status'
+import { status } from "./status";
 
 export {
   deployments,

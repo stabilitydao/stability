@@ -65,7 +65,7 @@ describe("index", () => {
     expect(Object.keys(assetOracles).length).toBeGreaterThan(0);
     expect(Object.keys(vaultOracles).length).toBeGreaterThan(0);
   });
-  test('status', () => {
-    expect(Object.keys(status).length).toBe(Object.entries(Checks).length)
-  })
+  test("status", () => {
+    expect(Object.keys(status).length).toBe(Object.entries(Checks).length);
+  });
 });
