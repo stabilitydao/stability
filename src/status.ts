@@ -1,5 +1,5 @@
 
-enum Checks {
+export enum Checks {
     SEED_NODES_SYNCED = 'seedNodesSynced',
     TX_SENDER_WORKING = 'txSenderWorking',
     TX_SENDER_BALANCE_INSUFFICIENT = 'txSenderBalanceInsufficient',
