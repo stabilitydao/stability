@@ -63,7 +63,7 @@ import {
 } from "./contests";
 import { AssetOracle, assetOracles, vaultOracles } from "./oracles";
 import { IlDetails, getIL } from "./risk";
-import { status } from "./status";
+import { Severity, status } from "./status";
 
 export {
   deployments,
@@ -108,6 +108,7 @@ export {
   seeds,
   bridges,
   status,
+  Severity,
   Bridge,
   BridgeName,
   getChainBridges,
