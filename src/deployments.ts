@@ -113,7 +113,7 @@ export const deployments: { [chainId: string]: Deployment } = {
         symbol: "metaS",
         type: "MetaVault",
         wrapper: "0xbbbbbbBBbd0aE69510cE374A86749f8276647B19",
-        primary: true,
+        primary: false,
       },
       {
         address: "0x22222222780038f8817b3dE825a070225e6d9874",
