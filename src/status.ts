@@ -15,7 +15,8 @@ export enum Severity {
 
 type StatusCheck = {
   id: Checks;
-  description: string;
+  descriptionOk: string;
+  descriptionFail: string;
   severity: Severity;
 };
 
@@ -24,32 +25,38 @@ type Status = Record<Checks, StatusCheck>;
 export const status: Status = {
   [Checks.SEED_NODES_SYNCED]: {
     id: Checks.SEED_NODES_SYNCED,
-    description: "Seed nodes synced",
+    descriptionOk: "Seed nodes synced",
+    descriptionFail: "Seed nodes not synced",
     severity: Severity.MAJOR,
   },
   [Checks.TX_SENDER_WORKING]: {
     id: Checks.TX_SENDER_WORKING,
-    description: "Transaction sender working",
+    descriptionOk: "Transaction sender working",
+    descriptionFail: "Transaction sender not working",
     severity: Severity.MAJOR,
   },
   [Checks.TX_SENDER_BALANCE_INSUFFICIENT]: {
     id: Checks.TX_SENDER_BALANCE_INSUFFICIENT,
-    description: "Transaction sender balance insufficient",
+    descriptionOk: "Transaction sender balance sufficient",
+    descriptionFail: "Transaction sender balance insufficient",
     severity: Severity.CRITICAL,
   },
   [Checks.SUBGRAPH_WORKING]: {
     id: Checks.SUBGRAPH_WORKING,
-    description: "Subgraph working",
+    descriptionOk: "Subgraph working",
+    descriptionFail: "Subgraph not working",
     severity: Severity.CRITICAL,
   },
   [Checks.DATA_READER_DATA_UP_TO_DATE]: {
     id: Checks.DATA_READER_DATA_UP_TO_DATE,
-    description: "Data reader data up to date",
+    descriptionOk: "Data reader data up to date",
+    descriptionFail: "Data reader data not up to date",
     severity: Severity.MAJOR,
   },
   [Checks.RPC_WORKING]: {
     id: Checks.RPC_WORKING,
-    description: "RPC working",
+    descriptionOk: "RPC working",
+    descriptionFail: "RPC not working",
     severity: Severity.MAJOR,
   },
 };
