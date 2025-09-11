@@ -17,6 +17,7 @@ import {
   assetOracles,
   vaultOracles,
 } from "../src";
+import { Checks, status } from "../src/status";
 
 describe("index", () => {
   test("deployments", () => {
@@ -63,5 +64,8 @@ describe("index", () => {
   test("oracles", () => {
     expect(Object.keys(assetOracles).length).toBeGreaterThan(0);
     expect(Object.keys(vaultOracles).length).toBeGreaterThan(0);
+  });
+  test("status", () => {
+    expect(Object.keys(status).length).toBe(Object.entries(Checks).length);
   });
 });
