@@ -5,6 +5,7 @@ export enum Checks {
   SUBGRAPH_WORKING = "subgraphWorking",
   DATA_READER_DATA_UP_TO_DATE = "dataReaderDataUpToDate",
   RPC_WORKING = "rpcWorking",
+  VAULTS_BATCH_TEST = "vaultsBatchTest",
 }
 
 export enum Severity {
@@ -57,6 +58,12 @@ export const status: Status = {
     id: Checks.RPC_WORKING,
     descriptionOk: "RPC working",
     descriptionFail: "RPC not working",
+    severity: Severity.MAJOR,
+  },
+  [Checks.VAULTS_BATCH_TEST]: {
+    id: Checks.VAULTS_BATCH_TEST,
+    descriptionOk: "Vaults batch test passed",
+    descriptionFail: "Vaults batch test failed",
     severity: Severity.MAJOR,
   },
 };
