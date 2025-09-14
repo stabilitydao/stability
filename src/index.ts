@@ -64,6 +64,7 @@ import {
 import { AssetOracle, assetOracles, vaultOracles } from "./oracles";
 import { IlDetails, getIL } from "./risk";
 import { Severity, status } from "./status";
+import { AgentId, Agent, agents, getAgent } from "./agents";
 
 export {
   deployments,
@@ -128,4 +129,8 @@ export {
   sonicWhitelistedAssets,
   getIL,
   IlDetails,
+  AgentId,
+  Agent,
+  agents,
+  getAgent,
 };

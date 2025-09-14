@@ -64,11 +64,13 @@ export const enum StrategyShortId {
   MMF = "MMF",
   VMF = "VMF",
   AMF = "AMF",
+  AMeritF = "AMeritF",
   ShF = "ShF",
   EMF = "EMF",
   A = "A",
   E = "E",
   SiMF = "SiMF",
+  SiMMF = "SiMMF",
   SiALMF = "SiALMF",
   C = "C",
 }
@@ -228,7 +230,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.SQMF]: {
     id: "Steer QuickSwap Merkl Farm",
     shortId: StrategyShortId.SQMF,
-    state: StrategyState.DEPLOYMENT,
+    state: StrategyState.CANCELLED,
     contractGithubId: 85,
     color: "#8587ff",
     bgColor: "#000000",
@@ -508,7 +510,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.IEF]: {
     id: "Ichi Equalizer Farm",
     shortId: StrategyShortId.IEF,
-    state: StrategyState.DEPLOYMENT,
+    state: StrategyState.CANCELLED,
     contractGithubId: 206,
     color: "#257bff",
     bgColor: "#061416",
@@ -520,7 +522,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.GEF]: {
     id: "Gamma Equalizer Farm",
     shortId: StrategyShortId.GEF,
-    state: StrategyState.DEPLOYMENT,
+    state: StrategyState.CANCELLED,
     contractGithubId: 207,
     color: "#ff0000",
     bgColor: "#061416",
@@ -623,6 +625,22 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
       ticks: [],
     },
   },
+  [StrategyShortId.AMeritF]: {
+    id: "Aave Merit Farm",
+    shortId: StrategyShortId.AMeritF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 381,
+    color: "#ffffff",
+    bgColor: "#2d1d39",
+    baseStrategies: [BaseStrategy.FARMING],
+    protocols: ["aave:aaveV3", "aave:merit"],
+    description: "Lend asset on Aave V3 and earn Merit rewards",
+    farmStruct: {
+      addresses: ["aToken"],
+      nums: [],
+      ticks: [],
+    },
+  },
   [StrategyShortId.ShF]: {
     id: "Shadow Farm",
     shortId: StrategyShortId.ShF,
@@ -638,7 +656,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.EMF]: {
     id: "Euler Merkl Farm",
     shortId: StrategyShortId.EMF,
-    state: StrategyState.CANCELLED,
+    state: StrategyState.DEPLOYMENT,
     contractGithubId: 251,
     color: "#186d66",
     bgColor: "#000000",
@@ -678,6 +696,28 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     baseStrategies: [BaseStrategy.FARMING],
     protocols: ["silo:siloV2"],
     description: "Supply asset to Silo V2 managed vault and earn farm rewards",
+    farmStruct: {
+      addresses: ["Silo Managed Vault", "xSILO"],
+      nums: [],
+      ticks: [],
+    },
+  },
+  [StrategyShortId.SiMMF]: {
+    id: "Silo Managed Merkl Farm",
+    shortId: StrategyShortId.SiMMF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 382,
+    color: "#cccccc",
+    bgColor: "#4f1359",
+    baseStrategies: [BaseStrategy.FARMING, BaseStrategy.MERKL],
+    protocols: ["silo:siloV2", "angle:merkl"],
+    description:
+      "Supply asset to Silo V2 managed vault and earn farm rewards from Silo and Merkl",
+    farmStruct: {
+      addresses: ["Silo Managed Vault", "xSILO"],
+      nums: [],
+      ticks: [],
+    },
   },
   [StrategyShortId.SiALMF]: {
     id: "Silo Advanced Leverage Merkl Farm",

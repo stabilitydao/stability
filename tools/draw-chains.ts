@@ -1,7 +1,7 @@
 import { createCanvas, loadImage } from "canvas";
 import * as fs from "node:fs";
 import axios from "axios";
-import { chains, chainStatusInfo, ChainStatus } from "../src";
+import { chains, chainStatusInfo, ChainStatus, getChainsTotals } from "../src";
 import { version } from "../package.json";
 
 async function main() {
@@ -57,12 +57,15 @@ async function main() {
   // title
   ctx.font = '30px "Sans"';
   ctx.fillStyle = "#ffffff";
-  ctx.fillText("Blockchain coverage", 460, 60);
+  ctx.fillText("⛓️ Blockchain coverage", 460, 60);
 
   // library
   ctx.font = '20px "Sans"';
   ctx.fillStyle = "#ffffff";
   ctx.fillText(`📦 Stability Integration Library v${version}`, 90, 770);
+
+  // load chain totals
+  const chainTotals = getChainsTotals();
 
   // statuses
   let i = 0;
@@ -70,12 +73,13 @@ async function main() {
   const paddingLeft = 190;
   const statusBlockWidth = 300;
   for (const chainStatus of Object.keys(chainStatusInfo)) {
-    ctx.fillStyle = chainStatusInfo[chainStatus as ChainStatus].bgColor;
+    const csi = chainStatusInfo[chainStatus as ChainStatus];
+    ctx.fillStyle = csi.bgColor;
     ctx.fillRect(paddingLeft + i * statusBlockWidth, k, 24, 24);
     ctx.font = '18px "Arial"';
-    ctx.fillStyle = chainStatusInfo[chainStatus as ChainStatus].color;
+    ctx.fillStyle = csi.color;
     ctx.fillText(
-      chainStatusInfo[chainStatus as ChainStatus].title,
+      `${csi.title} (${chainTotals[chainStatus as ChainStatus]})`,
       paddingLeft + i * statusBlockWidth + 30,
       k + 18,
     );

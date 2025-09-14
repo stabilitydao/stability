@@ -10,6 +10,7 @@ import {
   strategies,
   bridges,
   contests,
+  agents,
 } from "../src";
 import { Table } from "console-table-printer";
 import { version } from "../package.json";
@@ -160,4 +161,5 @@ for (const contestId of Object.keys(contests).filter(
     `[${contestId}] ${contest.name}. ${dates}. Rewards: ${Array.isArray(contest.rewards) ? contest.rewards.map((r) => r.type).join(", ") : contest.rewards}.${!!contest.img ? ` Image: ${contest.img}.` : ""}${!!contest.integration ? ` Integration: ${Object.keys(contest.integration)[0]}, ${contest.integration[Object.keys(contest.integration)[0]] || ""}.` : ""}`,
   );
 }
+console.log(`=== Agents: ${Object.keys(agents).length}`);
 console.log("");

@@ -103,7 +103,7 @@ export const chains: { [chainId: string]: Chain } = {
   "1": {
     name: ChainName.ETHEREUM,
     chainId: 1,
-    status: ChainStatus.AWAITING_DEPLOYMENT,
+    status: ChainStatus.NOT_SUPPORTED,
     img: "ethereum.svg",
     multisig: "0xEb49018157bAF7F1B385657D10fF5a5a5F4BB4c9",
     chainLibGithubId: 153,
@@ -111,7 +111,7 @@ export const chains: { [chainId: string]: Chain } = {
   "10": {
     name: ChainName.OPTIMISM,
     chainId: 10,
-    status: ChainStatus.AWAITING_ISSUE_CREATION,
+    status: ChainStatus.NOT_SUPPORTED,
     img: "optimism.svg",
     multisig: "0x06111E02BEb85B57caebEf15F5f90Bc82D54da3A",
   },
@@ -142,7 +142,7 @@ export const chains: { [chainId: string]: Chain } = {
   "56": {
     name: ChainName.BSC,
     chainId: 56,
-    status: ChainStatus.AWAITING_ISSUE_CREATION,
+    status: ChainStatus.NOT_SUPPORTED,
     img: "bsc.svg",
     multisig: "0xFad77AAD3C3b769500F8743C16A27FBf951e3A78",
   },
@@ -167,7 +167,7 @@ export const chains: { [chainId: string]: Chain } = {
   "137": {
     name: ChainName.POLYGON,
     chainId: 137,
-    status: ChainStatus.SUPPORTED,
+    status: ChainStatus.NOT_SUPPORTED,
     img: "polygon.svg",
     multisig: "0x36780E69D38c8b175761c6C5F8eD42E61ee490E9",
   },
@@ -367,7 +367,7 @@ export const chains: { [chainId: string]: Chain } = {
   "8453": {
     name: ChainName.BASE,
     chainId: 8453,
-    status: ChainStatus.SUPPORTED,
+    status: ChainStatus.NOT_SUPPORTED,
     img: "base.svg",
     multisig: "0x626Bd898ca994c11c9014377f4c50d30f2B0006c",
     chainLibGithubId: 143,
@@ -417,7 +417,7 @@ export const chains: { [chainId: string]: Chain } = {
   "42161": {
     name: ChainName.ARBITRUM,
     chainId: 42161,
-    status: ChainStatus.AWAITING_DEPLOYMENT,
+    status: ChainStatus.NOT_SUPPORTED,
     img: "arbitrum.svg",
     multisig: "0xE28e3Ee2bD10328bC8A7299B83A80d2E1ddD8708",
     chainLibGithubId: 142,
@@ -443,9 +443,10 @@ export const chains: { [chainId: string]: Chain } = {
   "43114": {
     name: ChainName.AVALANCHE,
     chainId: 43114,
-    status: ChainStatus.AWAITING_ISSUE_CREATION,
+    status: ChainStatus.SUPPORTED,
     img: "avalanche.png",
     multisig: "0xFad77AAD3C3b769500F8743C16A27FBf951e3A78",
+    chainLibGithubId: 369,
   },
   "48900": {
     name: ChainName.ZIRCUIT,
@@ -468,14 +469,14 @@ export const chains: { [chainId: string]: Chain } = {
   "81457": {
     name: ChainName.BLAST,
     chainId: 81457,
-    status: ChainStatus.AWAITING_ISSUE_CREATION,
+    status: ChainStatus.NOT_SUPPORTED,
     img: "blast.png",
     multisig: "0xFad77AAD3C3b769500F8743C16A27FBf951e3A78",
   },
   "111188": {
     name: ChainName.REAL,
     chainId: 111188,
-    status: ChainStatus.SUPPORTED,
+    status: ChainStatus.NOT_SUPPORTED,
     img: "real.png",
     multisig: "0x7B4388F4bD3A439E34a554EF67513112Bcd77Fba",
     chainLibGithubId: 173,
@@ -495,7 +496,7 @@ export const chains: { [chainId: string]: Chain } = {
   "534352": {
     name: ChainName.SCROLL,
     chainId: 534352,
-    status: ChainStatus.AWAITING_ISSUE_CREATION,
+    status: ChainStatus.NOT_SUPPORTED,
     img: "scroll.svg",
     multisig: "0xFad77AAD3C3b769500F8743C16A27FBf951e3A78",
   },
