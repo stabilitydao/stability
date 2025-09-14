@@ -8,7 +8,6 @@ import {
   integrations,
   strategies,
   StrategyShortId,
-  StrategyState,
   strategyStateDescription,
 } from "../src";
 
@@ -128,6 +127,70 @@ We usually consider the following as such assets:
 * [ ] add assets to \`stability.tokenlist.json\`
 * [ ] add addresses and info (if necessary) to \`assets.ts\`
     `);
+    console.log("-----------------------------------------------");
+  }
+}
+
+// chain issues
+for (const chainId in chains) {
+  const chain = chains[chainId];
+  if (chain.status === ChainStatus.AWAITING_ISSUE_CREATION) {
+    const img = `https://raw.githubusercontent.com/stabilitydao/.github/main/chains/${chain.img}`;
+    console.log(
+      `------ Need to create issue for chain ${chain.name}
+------ https://github.com/stabilitydao/stability-contracts/issues/new`,
+    );
+    console.log(`Title: ⛓️ ${chain.name} [${chainId}] deployment`);
+
+    console.log(`# ${chain.name} [${chainId}]`);
+
+    console.log(`
+Need to add chain libraries and deployment script for the **${chain.name}** blockchain.
+
+<div>
+<img align="right" src="${img}" width="80px" height="80px" />
+</div>
+
+## Task list
+
+### Chain constants
+
+\`chains/${chain.name.toLowerCase()}/${chain.name}ConstantsLib.sol\`
+
+* [ ] \`address public constant MULTISIG = ${chain.multisig};\`
+* [ ] Tokens
+* [ ] Pools
+* [ ] required protocol integration contacts
+
+### Chain deploy library
+
+\`chains/${chain.name.toLowerCase()}/${chain.name}Lib.sol\`
+
+* [ ] Deploy Platform
+* [ ] Deploy and setup oracle adapters
+* [ ] Deploy AMM adapters
+* [ ] SetupSwapper, add routes
+* [ ] Farms
+* [ ] Deploy strategy logics
+* [ ] Add DeX aggregators
+
+### Deploy script
+
+* [ ] \`script/deploy-core/Deploy.${chain.name}.s.sol\`
+
+### RPC, forking tests, CI setup
+
+* [ ] \`test/base/chains/${chain.name}Setup.sol\`
+* [ ] \`.env.example\`
+* [ ] \`foundry.toml\`
+* [ ] \`.github/workflows/test.yml\`
+
+### Strategies
+
+* [ ] ...
+
+    `);
+
     console.log("-----------------------------------------------");
   }
 }

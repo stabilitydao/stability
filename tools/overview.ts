@@ -10,6 +10,7 @@ import {
   strategies,
   bridges,
   contests,
+  agents,
 } from "../src";
 import { version } from "../package.json";
 import tokenlist from "../src/stability.tokenlist.json";
@@ -36,7 +37,7 @@ console.log(
   `Strategies: ${Object.keys(strategies).length}. Live: ${strategiesTotal.LIVE}, deploying: ${strategiesTotal.DEPLOYMENT}, development: ${strategiesTotal.DEVELOPMENT}, awaiting: ${strategiesTotal.AWAITING}, blocked: ${strategiesTotal.BLOCKED}, possible: ${strategiesTotal.POSSIBLE}, proposal: ${strategiesTotal.PROPOSAL}, cancelled: ${strategiesTotal.CANCELLED}.`,
 );
 console.log(
-  `Chains: ${Object.keys(chains).length}. ChainLib: ${networkTotal.AWAITING_DEPLOYMENT + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.AWAITING_DEVELOPER} awaiting dev. ${networkTotal.AWAITING_ISSUE_CREATION} awaiting creation. Multisigs: ${multisigsTotal}. Bridges: ${bridges.length}.`,
+  `Chains: ${Object.keys(chains).length}. Status: ${networkTotal.AWAITING_DEPLOYMENT + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.AWAITING_DEVELOPER} awaiting dev. ${networkTotal.AWAITING_ISSUE_CREATION} awaiting creation. Multisigs: ${multisigsTotal}. Bridges: ${bridges.length}.`,
 );
 console.log(
   `DeFi organizations: ${Object.keys(integrations).length}. Protocols: ${protocolsTotal}.`,
@@ -56,4 +57,5 @@ console.log(
       .filter((c) => !!contests[c].integration).length
   }.`,
 );
+console.log(`Agents: ${Object.keys(agents).length}`);
 console.log(``);

@@ -1893,6 +1893,20 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         strategies: [StrategyShortId.AMF, StrategyShortId.A],
         intermediaryStrategies: [StrategyShortId.Y],
       },
+      merit: {
+        name: "Merit",
+        img: "merit.png",
+        category: DefiCategory.REWARDING,
+        chains: [
+          ChainName.ETHEREUM,
+          ChainName.AVALANCHE,
+          ChainName.BASE,
+          ChainName.SONIC,
+          ChainName.GNOSIS,
+          ChainName.CELO,
+        ],
+        strategies: [StrategyShortId.AMeritF],
+      },
     },
     defiLlama: "aave",
     github: "aave",
@@ -2004,13 +2018,13 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         name: "Silo V2",
         category: DefiCategory.LENDING,
         creationDate: 1710307200,
-        accidents: [
+        /*accidents: [
           {
             date: 1750798800,
             url: "https://www.certora.com/blog/silo-incident-report-contract-exploit",
             name: "Silo Leverage Contract Exploit",
           },
-        ],
+        ],*/
         audits: [
           {
             name: "Silo-Certora (SiloV2) Audit Report May 2025",
@@ -2069,7 +2083,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
             url: "https://silodocs2.netlify.app/assets/files/SiloV2_Token_Audit_Report-65dcfeb4cf68a8e2a97d0d5e72918df3.pdf",
           },
         ],
-        chains: [ChainName.ARBITRUM, ChainName.SONIC],
+        chains: [ChainName.ARBITRUM, ChainName.SONIC, ChainName.AVALANCHE],
         strategies: [
           StrategyShortId.SiF,
           StrategyShortId.SiL,
@@ -2203,7 +2217,13 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         chains: [
           ChainName.ETHEREUM,
           ChainName.BASE,
+          ChainName.BSC,
+          ChainName.ARBITRUM,
+          ChainName.LINEA,
           // swellchain
+          // bob
+          // tac
+          // unichain
           ChainName.SONIC,
           ChainName.BOB,
           // berachain

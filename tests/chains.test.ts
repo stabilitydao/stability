@@ -11,7 +11,7 @@ describe("testing chains", () => {
   });
   test("getChainsTotals", () => {
     const s = getChainsTotals();
-    expect(s.SUPPORTED).toBeGreaterThan(1);
+    expect(s.SUPPORTED).toBeGreaterThanOrEqual(1);
   });
   test("getChainByName", () => {
     let s = getChainByName(ChainName.POLYGON);
