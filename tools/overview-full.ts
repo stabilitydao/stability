@@ -9,7 +9,8 @@ import {
   seeds,
   strategies,
   bridges,
-  contests, agents
+  contests,
+  agents,
 } from "../src";
 import { Table } from "console-table-printer";
 import { version } from "../package.json";

@@ -313,7 +313,7 @@ yarn prettier . --write
 | Prettier           | #️⃣     |
 | Docs               | 📙     |
 | Adapters           | 🔌     |
-| AI                 | 🤖🤖     |
+| AI                 | 🤖🤖   |
 | Chains             | ⛓️     |
 | API                | 📡     |
 | Contests           | 🏆     |
