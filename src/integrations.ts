@@ -264,6 +264,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         // chains with active rewards
         chains: [
           ChainName.ETHEREUM,
+          ChainName.AVALANCHE,
           ChainName.BASE,
           ChainName.ARBITRUM,
           ChainName.POLYGON,
@@ -294,6 +295,8 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           StrategyShortId.VMF,
           StrategyShortId.AMF,
           StrategyShortId.SiALMF,
+          StrategyShortId.SiMerklF,
+          StrategyShortId.SiMMF,
         ],
       },
     },
@@ -2085,10 +2088,12 @@ export const integrations: { [org: string]: DeFiOrganization } = {
         ],
         chains: [ChainName.ARBITRUM, ChainName.SONIC, ChainName.AVALANCHE],
         strategies: [
-          StrategyShortId.SiF,
-          StrategyShortId.SiL,
           StrategyShortId.Si,
+          StrategyShortId.SiL,
           StrategyShortId.SiMF,
+          StrategyShortId.SiF,
+          StrategyShortId.SiMMF,
+          StrategyShortId.SiMerklF,
         ],
       },
     },

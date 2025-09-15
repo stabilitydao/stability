@@ -9,6 +9,7 @@ export type Deployment = {
     strategyLogic: `0x${string}`;
     zap: `0x${string}`;
     metaVaultFactory?: `0x${string}`;
+    vaultPriceOracle?: `0x${string}`;
   };
   markets?: {
     poolDataProvider: `0x${string}`;
@@ -172,21 +173,26 @@ export const deployments: { [chainId: string]: Deployment } = {
   },
   "43114": {
     core: {
-      platform: "0x94ae77b4e2dbF7799f7c41da3F50aBeE12Fde70e",
-      factory: "0x75954965331d7b9a6fdd2dc024512b8f36da4dbc",
-      metaVaultFactory: "0xe5953738bed4bd2c7efcc87afb87213c7afa1ae2",
-      hardWorker: "0x609e0d74fab81085283df92b563750624054f8be",
-      swapper: "0x3222eb4824ceb0e9ccfe11018c83429105dfe00f",
-      priceReader: "0x0a45e97aceba96650f47da979bde3a8642f26739",
-      strategyLogic: "0x818b506c7960d04b184c5c82ccc67e5643c1bf86",
-      vaultManager: "0xe845fc737fead52fc134d426e5ba0ee0a02b901a",
-      zap: "0x8216c9affc982428af33d1d9f165baf9d75aebba",
+      platform: "0x72b931a12aacda6729b4f8f76454855cb5195941",
+      factory: "0xe9d2fcad6b691a1642587a2b61886a173632ed00",
+      metaVaultFactory: "0x2fa6cc5e1dc2f6dd8806a3969f2e7fcbf5f75e89",
+      hardWorker: "0x78e6ff0546106a6ed20085ff6d75df800b8a1cf1",
+      swapper: "0x16549a43c566cdc648a9aaea6bed1d860b7b586a",
+      priceReader: "0x0a4e9791802180dca35772448264c5bdf957fd13",
+      strategyLogic: "0xc1a02058f23f23eccf68c304afb2cf7cba70f79a",
+      vaultManager: "0x9d718c2a305caf6ffbd96aaadc3808fc488417c1",
+      zap: "0x42f1eabb3d1a99e2db3372815de9c3c5be9f853f",
+      vaultPriceOracle: "0xa73edff514c66f1a6b443014204dbe92c3ef5671",
     },
     periphery: {
-      frontend: "0x4377cfeB93448B23Df47d9A8e16cc2c7Cb1b2066",
+      frontend: "0x7D41c82384019cc7014d338E18d9D6a33dDEA5BA",
     },
     subgraph:
-      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-avalanche/0.0.56/gn",
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-avalanche/0.0.57/gn",
     tokenomics: {},
+    ammAdapters: {
+      AlgebraV4: "0x80de8bcd77d880a9c819d80e86a069f63b5c3af2",
+      UniswapV3: "0x348a11e8562f356aabc54edb72017a00120f8ff4",
+    },
   },
 };
