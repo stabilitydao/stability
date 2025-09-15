@@ -71,6 +71,7 @@ export const enum StrategyShortId {
   E = "E",
   SiMF = "SiMF",
   SiMMF = "SiMMF",
+  SiMerklF = "SiMerklF",
   SiALMF = "SiALMF",
   C = "C",
 }
@@ -718,6 +719,18 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
       nums: [],
       ticks: [],
     },
+  },
+  [StrategyShortId.SiMerklF]: {
+    id: "Silo Merkl Farm",
+    shortId: StrategyShortId.SiMerklF,
+    state: StrategyState.AWAITING,
+    contractGithubId: 384,
+    color: "#beaeae",
+    bgColor: "#221359",
+    baseStrategies: [BaseStrategy.FARMING, BaseStrategy.MERKL],
+    protocols: ["silo:siloV2", "angle:merkl"],
+    description:
+      "Supply asset to Silo V2 and earn farm rewards from Silo and Merkl",
   },
   [StrategyShortId.SiALMF]: {
     id: "Silo Advanced Leverage Merkl Farm",

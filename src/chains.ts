@@ -97,6 +97,10 @@ export const enum ChainName {
   HELA = "Hela",
   ASSET_CHAIN = "Asset Chain",
   SONIC = "Sonic",
+  TRON = "Tron",
+  HYPERLIQUID = "Hyperliquid",
+  CRONOS = "Cronos",
+  KATANA = "Katana",
 }
 
 export const chains: { [chainId: string]: Chain } = {
@@ -120,6 +124,12 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 14,
     status: ChainStatus.NOT_SUPPORTED,
     img: "flare.png",
+  },
+  "25": {
+    name: ChainName.CRONOS,
+    chainId: 25,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: "cronos.svg",
   },
   "30": {
     name: ChainName.ROOTSTOCK,
@@ -145,6 +155,12 @@ export const chains: { [chainId: string]: Chain } = {
     status: ChainStatus.NOT_SUPPORTED,
     img: "bsc.svg",
     multisig: "0xFad77AAD3C3b769500F8743C16A27FBf951e3A78",
+  },
+  "999": {
+    name: ChainName.HYPERLIQUID,
+    chainId: 999,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: "Hyperliquid.png",
   },
   "100": {
     name: ChainName.GNOSIS,
@@ -372,6 +388,12 @@ export const chains: { [chainId: string]: Chain } = {
     multisig: "0x626Bd898ca994c11c9014377f4c50d30f2B0006c",
     chainLibGithubId: 143,
   },
+  "8668": {
+    name: ChainName.HELA,
+    chainId: 8668,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: "hela.png",
+  },
   "8822": {
     name: ChainName.IOTA,
     chainId: 8822,
@@ -434,6 +456,12 @@ export const chains: { [chainId: string]: Chain } = {
     status: ChainStatus.NOT_SUPPORTED,
     img: "celo.svg",
   },
+  "42420": {
+    name: ChainName.ASSET_CHAIN,
+    chainId: 42420,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: "Assetchain.svg",
+  },
   "42766": {
     name: ChainName.ZKFAIR,
     chainId: 42766,
@@ -445,7 +473,7 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 43114,
     status: ChainStatus.SUPPORTED,
     img: "avalanche.png",
-    multisig: "0xFad77AAD3C3b769500F8743C16A27FBf951e3A78",
+    multisig: "0x06111E02BEb85B57caebEf15F5f90Bc82D54da3A",
     chainLibGithubId: 369,
   },
   "48900": {
@@ -500,6 +528,12 @@ export const chains: { [chainId: string]: Chain } = {
     img: "scroll.svg",
     multisig: "0xFad77AAD3C3b769500F8743C16A27FBf951e3A78",
   },
+  "747474": {
+    name: ChainName.KATANA,
+    chainId: 747474,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: "katana.png",
+  },
   "810180": {
     name: ChainName.ZKLINK,
     chainId: 810180,
@@ -511,6 +545,12 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 7777777,
     status: ChainStatus.NOT_SUPPORTED,
     img: "zora.svg",
+  },
+  "728126428": {
+    name: ChainName.TRON,
+    chainId: 728126428,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: "tron.svg",
   },
   "1380012617": {
     name: ChainName.RARI,
@@ -529,18 +569,6 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 2046399126,
     status: ChainStatus.NOT_SUPPORTED,
     img: "skale-europa.png",
-  },
-  "8668": {
-    name: ChainName.HELA,
-    chainId: 8668,
-    status: ChainStatus.NOT_SUPPORTED,
-    img: "hela.png",
-  },
-  "42420": {
-    name: ChainName.ASSET_CHAIN,
-    chainId: 42420,
-    status: ChainStatus.NOT_SUPPORTED,
-    img: "Assetchain.svg",
   },
 };
 

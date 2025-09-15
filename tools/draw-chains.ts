@@ -25,8 +25,8 @@ async function main() {
   const height = 800;
 
   // Chain blocks positioning
-  const chainBlockSize = 86;
-  const chainBlockPadding = 20;
+  const chainBlockSize = 80;
+  const chainBlockPadding = 16;
   const xPadding = 76;
 
   // download chain images
