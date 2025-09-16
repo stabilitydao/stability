@@ -447,6 +447,11 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     baseStrategies: [BaseStrategy.FARMING],
     protocols: ["silo:siloV2"],
     description: "Lend asset on Silo V2 and earn incentives",
+    farmStruct: {
+      addresses: ["Gauge", "Silo collateral vault"],
+      nums: [],
+      ticks: [],
+    },
   },
   [StrategyShortId.BSF]: {
     id: "Beets Stable Farm",
@@ -657,13 +662,22 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.EMF]: {
     id: "Euler Merkl Farm",
     shortId: StrategyShortId.EMF,
-    state: StrategyState.DEPLOYMENT,
+    state: StrategyState.LIVE,
     contractGithubId: 251,
     color: "#186d66",
     bgColor: "#000000",
     baseStrategies: [BaseStrategy.FARMING, BaseStrategy.MERKL],
     protocols: ["euler:eulerV2", "angle:merkl"],
     description: "Lend asset on Euler and earn Merkl rewards",
+    farmStruct: {
+      addresses: [
+        "Merkl Distributor (not used now)",
+        "Euler vault (collateral vault)",
+        "rEUL token address",
+      ],
+      nums: [],
+      ticks: [],
+    },
   },
   [StrategyShortId.A]: {
     id: "Aave",
@@ -706,7 +720,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.SiMMF]: {
     id: "Silo Managed Merkl Farm",
     shortId: StrategyShortId.SiMMF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.DEPLOYMENT,
     contractGithubId: 382,
     color: "#cccccc",
     bgColor: "#4f1359",
@@ -715,7 +729,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     description:
       "Supply asset to Silo V2 managed vault and earn farm rewards from Silo and Merkl",
     farmStruct: {
-      addresses: ["Silo Managed Vault", "xSILO"],
+      addresses: ["Silo Managed Vault", "xSILO (or zero address)"],
       nums: [],
       ticks: [],
     },
