@@ -189,7 +189,9 @@ export const deployments: { [chainId: string]: Deployment } = {
     },
     subgraph:
       "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-avalanche/0.0.57/gn",
-    tokenomics: {},
+    tokenomics: {
+      merkleDistributor: "0x0391aBDCFaB86947d93f9dd032955733B639416b",
+    },
     ammAdapters: {
       AlgebraV4: "0x80de8bcd77d880a9c819d80e86a069f63b5c3af2",
       UniswapV3: "0x348a11e8562f356aabc54edb72017a00120f8ff4",
