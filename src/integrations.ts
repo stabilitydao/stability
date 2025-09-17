@@ -297,6 +297,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           StrategyShortId.SiALMF,
           StrategyShortId.SiMerklF,
           StrategyShortId.SiMMF,
+          StrategyShortId.EMF,
         ],
       },
     },
