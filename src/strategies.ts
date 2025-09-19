@@ -720,7 +720,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.SiMMF]: {
     id: "Silo Managed Merkl Farm",
     shortId: StrategyShortId.SiMMF,
-    state: StrategyState.DEPLOYMENT,
+    state: StrategyState.LIVE,
     contractGithubId: 382,
     color: "#cccccc",
     bgColor: "#4f1359",
@@ -737,7 +737,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.SiMerklF]: {
     id: "Silo Merkl Farm",
     shortId: StrategyShortId.SiMerklF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.DEPLOYMENT,
     contractGithubId: 384,
     color: "#beaeae",
     bgColor: "#221359",
