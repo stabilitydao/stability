@@ -917,6 +917,15 @@ export const assets: Asset[] = [
     website: "https://stability.farm/",
     color: "#2775CA",
   },
+  {
+    addresses: {
+      "43114": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
+    },
+    symbol: "AUSD",
+    description: "AUSD: The Digital Dollar",
+    website: "https://www.agora.finance/",
+    color: "#f1d3aa",
+  },
 ];
 
 export const sonicWhitelistedAssets: {

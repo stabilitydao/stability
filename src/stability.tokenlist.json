@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-06-06T00:00:00+00:00",
+  "timestamp": "2025-09-19T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 24,
+    "minor": 25,
     "patch": 0
   },
   "tags": {
@@ -1318,6 +1318,15 @@
       "name": "Staked Stream USD",
       "decimals": 6,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/xUSD.png",
+      "tags": ["usd"]
+    },
+    {
+      "chainId": 43114,
+      "address": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
+      "symbol": "AUSD",
+      "name": "AUSD",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/AUSD.png",
       "tags": ["usd"]
     }
   ]
