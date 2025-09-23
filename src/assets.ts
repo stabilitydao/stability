@@ -812,6 +812,7 @@ export const assets: Asset[] = [
   {
     addresses: {
       "146": "0x22222222780038f8817b3dE825a070225e6d9874",
+      "43114": "0x22226a3c59c52f6768cd44b97B88167217c12222",
     },
     symbol: "metaUSDC",
     description: "Stability MetaVault",
@@ -857,6 +858,7 @@ export const assets: Asset[] = [
   {
     addresses: {
       "146": "0xEEEEEEE6d95E55A468D32FeB5d6648754d10A967",
+      "43114": "0xcCCCaBc3370633AD166669b27A71eB3aE4bFCcCc",
     },
     symbol: "wUSDC",
     description: "Stability Wrapped MetaVault",
