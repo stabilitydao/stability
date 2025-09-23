@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-09-19T00:00:00+00:00",
+  "timestamp": "2025-09-23T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 25,
+    "minor": 26,
     "patch": 0
   },
   "tags": {
@@ -1327,6 +1327,24 @@
       "name": "AUSD",
       "decimals": 6,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/AUSD.png",
+      "tags": ["usd"]
+    },
+    {
+      "chainId": 146,
+      "address": "0xc7990369DA608C2F4903715E3bD22f2970536C29",
+      "symbol": "smsUSD",
+      "name": "Staked msUSD",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/smsusd.jpg",
+      "tags": ["usd"]
+    },
+    {
+      "chainId": 146,
+      "address": "0x5EE17fD12eDE62B508F9615DB384ce7B834bA657",
+      "symbol": "PT-smsUSD-30OCT2025",
+      "name": "PT Staked msUSD 30OCT2025",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/ptsmsusd.svg",
       "tags": ["usd"]
     }
   ]
