@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-09-23T00:00:00+00:00",
+  "timestamp": "2025-09-24T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 26,
+    "minor": 27,
     "patch": 0
   },
   "tags": {
@@ -1345,6 +1345,24 @@
       "name": "PT Staked msUSD 30OCT2025",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/ptsmsusd.svg",
+      "tags": ["usd"]
+    },
+    {
+      "chainId": 43114,
+      "address": "0x22226a3c59c52f6768cd44b97B88167217c12222",
+      "symbol": "metaUSDC",
+      "name": "Stability USDC",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/metaUSDC.png",
+      "tags": ["stablecoin", "usd", "rebase"]
+    },
+    {
+      "chainId": 43114,
+      "address": "0xcCCCaBc3370633AD166669b27A71eB3aE4bFCcCc",
+      "symbol": "wmetaUSDC",
+      "name": "Wrapped USDC",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wmetaUSDC.png",
       "tags": ["usd"]
     }
   ]
