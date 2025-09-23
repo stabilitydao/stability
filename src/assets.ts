@@ -926,6 +926,26 @@ export const assets: Asset[] = [
     website: "https://www.agora.finance/",
     color: "#f1d3aa",
   },
+  {
+    addresses: {
+      "146": "0xc7990369DA608C2F4903715E3bD22f2970536C29",
+    },
+    symbol: "smsUSD",
+    description:
+      "Staked msUSD harnesses institutional-grade volatility arbitrage strategies to create a delta neutral yield bearing stablecoin.",
+    website: "https://mainstreet.finance/",
+    color: "#06a94e",
+  },
+  {
+    addresses: {
+      "146": "0x5EE17fD12eDE62B508F9615DB384ce7B834bA657",
+    },
+    symbol: "PT-smsUSD-30OCT2025",
+    description:
+      "PT Staked msUSD 30OCT2025. msUSD harnesses institutional-grade volatility arbitrage strategies to create a delta neutral yield bearing stablecoin.",
+    website: "https://mainstreet.finance/",
+    color: "#066731",
+  },
 ];
 
 export const sonicWhitelistedAssets: {

@@ -745,6 +745,11 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     protocols: ["silo:siloV2", "angle:merkl"],
     description:
       "Supply asset to Silo V2 and earn farm rewards from Silo and Merkl",
+    farmStruct: {
+      addresses: ["Silo vault", "xSILO (can be 0)", "Gauge (can be 0)"],
+      nums: ["Borrowable collateral (0/1)"],
+      ticks: [],
+    },
   },
   [StrategyShortId.SiALMF]: {
     id: "Silo Advanced Leverage Merkl Farm",
