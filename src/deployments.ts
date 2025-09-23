@@ -77,10 +77,12 @@ export const deployments: { [chainId: string]: Deployment } = {
     markets: {
       poolDataProvider: "0xAC2b7EADb55858700B8567aB5Ca7863101508304",
       poolAddresses: {
-        main: "0x24835e3Da1B402f8037e3ce6dE4a701677fa1b54",
-        brunch: "0xC0512947845cCe3a32e58Efc3B4526Dd1D11F6af",
-        stableJack: "0x3E3aAB589Ba86fB8f40CEB69332bb44E9B1411D4",
-        stream: "0xCc31959682Ad726A9bcde9bbD41c89f36c03E743",
+        Main: "0x24835e3Da1B402f8037e3ce6dE4a701677fa1b54",
+        Brunch: "0xC0512947845cCe3a32e58Efc3B4526Dd1D11F6af",
+        "Stable Jack": "0x3E3aAB589Ba86fB8f40CEB69332bb44E9B1411D4",
+        Stream: "0xCc31959682Ad726A9bcde9bbD41c89f36c03E743",
+        "Brunch gen2": "0x6D8Aa37DfAa98d2a14da39cfeD36975F97fc3f85",
+        "wmetaUSD gen2": "0x909ba6aC1A9D34fE97Cb459C2CA9b6Ff986676F7",
       },
     },
     tokenomics: {
@@ -189,12 +191,18 @@ export const deployments: { [chainId: string]: Deployment } = {
     },
     subgraph:
       "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-avalanche/0.0.57/gn",
-    tokenomics: {
-      merkleDistributor: "0x0391aBDCFaB86947d93f9dd032955733B639416b",
-    },
+    tokenomics: {},
     ammAdapters: {
       AlgebraV4: "0x80de8bcd77d880a9c819d80e86a069f63b5c3af2",
       UniswapV3: "0x348a11e8562f356aabc54edb72017a00120f8ff4",
     },
+    metaVaults: [
+      {
+        address: "0x22226a3c59c52f6768cd44b97B88167217c12222",
+        symbol: "metaUSDC",
+        type: "MultiVault",
+        wrapper: "0xcCCCaBc3370633AD166669b27A71eB3aE4bFCcCc",
+      },
+    ],
   },
 };
