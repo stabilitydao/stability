@@ -1,4 +1,4 @@
-// Types of ApiService v4.7.12 from 21.08.2025
+// Types of ApiService v4.7.16 from 24.09.2025
 
 //#region ===== Main reply            | GET /                                    =====
 export interface ApiMainReply {
@@ -6,6 +6,7 @@ export interface ApiMainReply {
   time: number;
   total: Total;
   network: StabilityNetwork;
+  status: Status;
   platforms: Platforms;
   vaults: Vaults;
   metaVaults: MetaVaults;
@@ -23,12 +24,40 @@ export type RevenueChart = Record<number, string>;
 
 export interface Total {
   tvl: number;
+  marketTvl: number;
+  marketNetTvl: number;
   usersEarned: number;
   activeVaults: number;
   farms: number;
   vaultForBuilding: number;
   chainTvl: { [chainId: string]: number };
 }
+
+export enum RUNTIME_MODE {
+  PROD = "PROD",
+  DEV = "DEV",
+}
+
+export enum LINKED_SERVICES {
+  TelegramDaoBot = "TelegramDaoBot",
+  StatusService = "StatusService",
+}
+
+export enum Severity {
+  MINOR,
+  MAJOR,
+  CRITICAL,
+}
+
+export type StatusCheck = {
+  id: string;
+  isOk: boolean;
+  description: string;
+  severity: Severity;
+  messages: string[];
+};
+
+export type Status = Record<string, StatusCheck>;
 
 export interface StabilityNetwork {
   status: string;
@@ -39,7 +68,7 @@ export interface StabilityNetwork {
 export interface NetworkHealthReview {
   isOk: boolean;
   checksPassed: number;
-  alerts: Partial<Record<keyof NetworkStatus, string>>;
+  alerts: Partial<Record<keyof NetworkStatus, any>>;
 }
 
 export type NetworkStatus = {
@@ -53,6 +82,7 @@ export type NetworkStatus = {
 
 export type NodeState = {
   hostname: string | "private";
+  runtimeMode: RUNTIME_MODE;
   seedNode: boolean;
   lifetime: number;
   about: string;
@@ -95,6 +125,8 @@ export type Market = {
   price: string;
   cap: string;
   borrowCap: string;
+  liquidationThreshold: string;
+  maxLtv: string;
 };
 
 export type MarketData = {
@@ -153,6 +185,7 @@ export type Vault = {
   underlyingDecimals?: number;
   lastHardWork?: number;
   merklApr?: number;
+  farmId?: number;
   status?: string;
   strategySpecific?: string;
   strategyDescription?: string;
@@ -417,6 +450,7 @@ export interface ApiFactoryReply {
 export interface ApiChartsReply {
   time: number;
   hash: string;
+  dataByChainId: { [chainId: string]: MetaVaultsCharts };
   data: {
     metaVaults: MetaVaultsCharts;
   };
