@@ -34,13 +34,13 @@ export interface Total {
 }
 
 export enum RUNTIME_MODE {
-  PROD = 'PROD',
-  DEV = 'DEV',
+  PROD = "PROD",
+  DEV = "DEV",
 }
 
 export enum LINKED_SERVICES {
-  TelegramDaoBot = 'TelegramDaoBot',
-  StatusService = 'StatusService',
+  TelegramDaoBot = "TelegramDaoBot",
+  StatusService = "StatusService",
 }
 
 export enum Severity {
@@ -81,7 +81,7 @@ export type NetworkStatus = {
 };
 
 export type NodeState = {
-  hostname: string | 'private';
+  hostname: string | "private";
   runtimeMode: RUNTIME_MODE;
   seedNode: boolean;
   lifetime: number;
@@ -166,7 +166,7 @@ export type MetaVaultSubgraphHistoricalEntry = {
 export type MetaVaultsCharts = {
   [symbol: string]: Record<
     number,
-    Omit<MetaVaultSubgraphHistoricalEntry, 'timestamp'>
+    Omit<MetaVaultSubgraphHistoricalEntry, "timestamp">
   >;
 };
 
@@ -383,8 +383,8 @@ export interface ApiPostBody {
 }
 
 export enum InteractionType {
-  SYNC = 'SYNC',
-  DATA_DELIVERY = 'DATA_DELIVERY',
+  SYNC = "SYNC",
+  DATA_DELIVERY = "DATA_DELIVERY",
 }
 
 export interface ApiPostReply {
@@ -540,7 +540,7 @@ export interface ApiVerifyIntractReply {
     // required, whether success or error
     result: true | false; // bool, the user has done the task.
     metric: number; // earned USD
-    metricDataType: 'DOUBLE';
+    metricDataType: "DOUBLE";
   };
 }
 
