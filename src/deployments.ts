@@ -69,6 +69,7 @@ export const deployments: { [chainId: string]: Deployment } = {
       strategyLogic: "0xe0e71b484bb20e37d18ab51fb60c32dec778478a",
       zap: "0x029dfd1a79e0ad9305d773fb8f3c01d8ef9b913d",
       metaVaultFactory: "0xa190302880acF9deCC4447363640f589000EF601",
+      vaultPriceOracle: "0x3137a6498d03df485d75af9a866bbe73fd1124ea",
     },
     periphery: {
       frontend: "0x15487495cce9210795f9C2E0e1A7238E336dFc32",
