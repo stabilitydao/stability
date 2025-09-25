@@ -1893,6 +1893,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.BSC,
           ChainName.SCROLL,
           ChainName.SONIC,
+          ChainName.PLASMA,
         ],
         strategies: [StrategyShortId.AMF, StrategyShortId.A],
         intermediaryStrategies: [StrategyShortId.Y],
@@ -2234,6 +2235,7 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.BOB,
           // berachain
           ChainName.AVALANCHE,
+          ChainName.PLASMA,
         ],
         strategies: [StrategyShortId.EMF, StrategyShortId.E],
       },

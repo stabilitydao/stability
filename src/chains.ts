@@ -101,6 +101,7 @@ export const enum ChainName {
   HYPERLIQUID = "Hyperliquid",
   CRONOS = "Cronos",
   KATANA = "Katana",
+  PLASMA = "Plasma",
 }
 
 export const chains: { [chainId: string]: Chain } = {
@@ -405,6 +406,14 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 9001,
     status: ChainStatus.NOT_SUPPORTED,
     img: "evmos.png",
+  },
+  "9745": {
+    name: ChainName.PLASMA,
+    chainId: 9745,
+    status: ChainStatus.CHAINLIB_DEVELOPMENT,
+    img: "plasma.webp",
+    multisig: "0xE929438B5B53984FdBABf8562046e141e90E8099",
+    chainLibGithubId: 397,
   },
   "9790": {
     name: ChainName.CARBON,
