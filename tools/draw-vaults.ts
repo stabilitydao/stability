@@ -404,7 +404,7 @@ async function main() {
 
       // write the image to file
       const buffer = canvas.toBuffer("image/png");
-      fs.writeFileSync(`${vaultsDir}/${vault.address}.png`, buffer);
+      fs.writeFileSync(`${vaultsDir}/${chainId}-${vault.address}.png`, buffer);
       processedVaults++;
 
       // progress bar
