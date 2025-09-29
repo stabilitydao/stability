@@ -737,7 +737,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.SiMerklF]: {
     id: "Silo Merkl Farm",
     shortId: StrategyShortId.SiMerklF,
-    state: StrategyState.DEPLOYMENT,
+    state: StrategyState.LIVE,
     contractGithubId: 384,
     color: "#beaeae",
     bgColor: "#221359",

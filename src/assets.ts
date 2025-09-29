@@ -55,6 +55,7 @@ export const assets: Asset[] = [
       "56": "0x55d398326f99059fF775485246999027B3197955",
       "137": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
       "8453": "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2",
+      "9745": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
       "42161": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
       "42420": "0x26E490d30e73c36800788DC6d6315946C4BbEa24",
       "43114": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
@@ -107,6 +108,7 @@ export const assets: Asset[] = [
       "81457": "0x4300000000000000000000000000000000000004",
       "534352": "0x5300000000000000000000000000000000000004",
       "146": "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b",
+      "9745": "0x9895D81bB462A195b4922ED7De0e3ACD007c32CB",
     },
     symbol: "WETH",
     description: "WETH is an ERC-20 token that represents 1 Ether (ETH)",
@@ -947,6 +949,45 @@ export const assets: Asset[] = [
       "PT Staked msUSD 30OCT2025. msUSD harnesses institutional-grade volatility arbitrage strategies to create a delta neutral yield bearing stablecoin.",
     website: "https://mainstreet.finance/",
     color: "#066731",
+  },
+  {
+    addresses: {
+      "9745": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+    },
+    symbol: "USDe",
+    description:
+      "Digital Dollars for the \n" +
+      "Internet Economy. The Holy Grail: Internet Money. Unparalleled Transparency.",
+    website: "https://ethena.fi/",
+    color: "#4f4f4f",
+  },
+  {
+    addresses: {
+      "9745": "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
+    },
+    symbol: "sUSDe",
+    description: "Staked USDe.",
+    website: "https://ethena.fi/",
+    color: "#a8a8a8",
+  },
+  {
+    addresses: {
+      "9745": "0x6100E367285b01F48D07953803A2d8dCA5D19873",
+    },
+    symbol: "WXPL",
+    description: "Wrapped native XPL coin",
+    website: "https://www.plasma.to/",
+    color: "#41a11c",
+  },
+  {
+    addresses: {
+      "9745": "0xA3D68b74bF0528fdD07263c60d6488749044914b",
+    },
+    symbol: "weETH",
+    description:
+      "ether.fi: Truly decentralized staking. Keep your keys. Build the network.",
+    website: "https://www.ether.fi/",
+    color: "#6a60e1",
   },
 ];
 

@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-09-24T00:00:00+00:00",
+  "timestamp": "2025-09-25T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 27,
+    "minor": 28,
     "patch": 0
   },
   "tags": {
@@ -1364,6 +1364,60 @@
       "decimals": 6,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wmetaUSDC.png",
       "tags": ["usd"]
+    },
+    {
+      "chainId": 9745,
+      "address": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
+      "symbol": "USDT0",
+      "name": "USDT0",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdt.jpg",
+      "tags": ["usd"]
+    },
+    {
+      "chainId": 9745,
+      "address": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+      "symbol": "USDe",
+      "name": "USDe",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/usde.svg",
+      "tags": ["usd"]
+    },
+    {
+      "chainId": 9745,
+      "address": "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
+      "symbol": "sUSDe",
+      "name": "Staked USDe",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/susde.svg",
+      "tags": ["usd"]
+    },
+    {
+      "chainId": 9745,
+      "address": "0x9895D81bB462A195b4922ED7De0e3ACD007c32CB",
+      "symbol": "WETH",
+      "name": "WETH",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/eth.jpg",
+      "tags": ["bridged"]
+    },
+    {
+      "chainId": 9745,
+      "address": "0xA3D68b74bF0528fdD07263c60d6488749044914b",
+      "symbol": "weETH",
+      "name": "Wrapped eETH",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/weeth.svg",
+      "tags": ["bridged", "ETH"]
+    },
+    {
+      "chainId": 9745,
+      "address": "0x6100E367285b01F48D07953803A2d8dCA5D19873",
+      "symbol": "WXPL",
+      "name": "Wrapped XPL",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/chains/plasma.webp",
+      "tags": ["bridged", "wNative"]
     }
   ]
 }

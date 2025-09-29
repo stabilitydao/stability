@@ -104,7 +104,10 @@ for (const chainId in chains) {
   if (chainAssets.length === 0 && chain.status !== ChainStatus.NOT_SUPPORTED) {
     const img = `https://raw.githubusercontent.com/stabilitydao/.github/main/chains/${chain.img}`;
 
-    console.log(`------------------ Assets issue for ${chain.name}`);
+    console.log(
+      `------ Need to create assets issue for ${chain.name}
+------ https://github.com/stabilitydao/stability/issues/new`,
+    );
 
     console.log(
       `Title: 🪙 Add blue chip assets for ${chain.name} [${chainId}]`,
@@ -145,11 +148,11 @@ for (const chainId in chains) {
     console.log(`# ${chain.name} [${chainId}]`);
 
     console.log(`
-Need to add chain libraries and deployment script for the **${chain.name}** blockchain.
-
 <div>
 <img align="right" src="${img}" width="80px" height="80px" />
 </div>
+
+Need to add chain libraries and deployment script for the **${chain.name}** blockchain.
 
 ## Task list
 
