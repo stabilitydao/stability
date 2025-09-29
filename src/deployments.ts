@@ -27,6 +27,7 @@ export type Deployment = {
     xSTBL?: `0x${string}`;
     xStaking?: `0x${string}`;
     revenueRouter?: `0x${string}`;
+    recovery?: `0x${string}`;
   };
   subgraph: string;
   ammAdapters?: { [id: string]: `0x${string}` };
@@ -92,6 +93,7 @@ export const deployments: { [chainId: string]: Deployment } = {
       xSTBL: "0x902215dd96a291b256a3aef6c4dee62d2a9b80cb",
       xStaking: "0x17a7cf838a7c91de47552a9f65822b547f9a6997",
       revenueRouter: "0x23b8cc22c4c82545f4b451b11e2f17747a730810",
+      recovery: "0x940535bcbdee9ccf04a3b5696b018f9e6bdfc926",
     },
     subgraph:
       "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.55/gn",
