@@ -96,7 +96,7 @@ export const deployments: { [chainId: string]: Deployment } = {
       recovery: "0xB8d6019eD82a9e6216c9Bf87cAf145fFe4439b40",
     },
     subgraph:
-      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.55/gn",
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.58/gn",
     ammAdapters: {
       Solidly: "0xe3374041f173ffcb0026a82c6eef94409f713cf9",
       AlgebraV4: "0xcb2dfcaec4F1a4c61c5D09100482109574E6b8C7",
@@ -193,7 +193,7 @@ export const deployments: { [chainId: string]: Deployment } = {
       frontend: "0x7D41c82384019cc7014d338E18d9D6a33dDEA5BA",
     },
     subgraph:
-      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-avalanche/0.0.59/gn",
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-avalanche/0.0.60/gn",
     tokenomics: {},
     ammAdapters: {
       AlgebraV4: "0x80de8bcd77d880a9c819d80e86a069f63b5c3af2",
