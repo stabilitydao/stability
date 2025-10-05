@@ -1,3 +1,5 @@
+import { lendingMarkets } from "./lending";
+
 export type Deployment = {
   core: {
     platform: `0x${string}`;
@@ -79,12 +81,9 @@ export const deployments: { [chainId: string]: Deployment } = {
     markets: {
       poolDataProvider: "0xAC2b7EADb55858700B8567aB5Ca7863101508304",
       poolAddresses: {
-        Main: "0xaa1C02a83362BcE106dFf6eB65282fE8B97A1665",
-        Brunch: "0x680F8A574b0273f26A314cA61466c0A4f1E2d95e",
-        "Stable Jack": "0x4895151C8eB560c0DE6Bd29A3916610DdfCEB094",
-        Stream: "0x1f672BD230D0FC2Ee9A75D2037a92CC1225A4Ad8",
-        "Brunch gen2": "0x6D8Aa37DfAa98d2a14da39cfeD36975F97fc3f85",
-        "wmetaUSD gen2": "0x909ba6aC1A9D34fE97Cb459C2CA9b6Ff986676F7",
+        Main: lendingMarkets[0].pool,
+        "Brunch gen2": lendingMarkets[1].pool,
+        "wmetaUSD gen2": lendingMarkets[2].pool,
       },
     },
     tokenomics: {
