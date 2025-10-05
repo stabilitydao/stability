@@ -67,4 +67,5 @@ yarn prettier . --write
 | Docs               | 📙     |
 | Adapters           | 🔌     |
 | Contests           | 🏆     |
+| Lending            | 🏦     |
 | Collector          | 📦     |
