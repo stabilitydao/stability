@@ -65,6 +65,7 @@ import { AssetOracle, assetOracles, vaultOracles } from "./oracles";
 import { IlDetails, getIL } from "./risk";
 import { Severity, status } from "./status";
 import { AgentId, Agent, agents, getAgent } from "./agents";
+import { ILendingMarket, IReserve, lendingMarkets } from "./lending";
 
 export {
   deployments,
@@ -133,4 +134,7 @@ export {
   Agent,
   agents,
   getAgent,
+  lendingMarkets,
+  ILendingMarket,
+  IReserve,
 };
