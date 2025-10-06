@@ -6,6 +6,7 @@ export type Asset = {
   description: string;
   website: string;
   color: string;
+  mintApp?: string;
 };
 
 export type TokenData = {
@@ -846,6 +847,8 @@ export const assets: Asset[] = [
     symbol: "wmetaUSD",
     description: "Stability Wrapped MetaVault",
     website: "https://stability.farm/",
+    mintApp:
+      "/metavaults/metavault/146/0x1111111199558661bf7ff27b4f1623dc6b91aa3e",
     color: "#3fc00d",
   },
   {
@@ -855,6 +858,8 @@ export const assets: Asset[] = [
     symbol: "wmetaS",
     description: "Stability Wrapped MetaVault",
     website: "https://stability.farm/",
+    mintApp:
+      "/metavaults/metavault/146/0x4444444420d9de54d69b3997b7d6a31d2bf63f32",
     color: "#3fc00d",
   },
   {
@@ -891,7 +896,8 @@ export const assets: Asset[] = [
     },
     symbol: "sbUSD",
     description: "Staked bUSD",
-    website: "https://stability.farm/",
+    website: "https://brunch.finance/",
+    mintApp: "https://brunch.finance/mint?tab=mint",
     color: "#FA7273",
   },
   {
