@@ -6,6 +6,7 @@ export interface ILendingMarket {
   protocolDataProvider: `0x${string}`;
   // AaveProtocolDataProvider: getAllReservesTokens, getAllATokens
   reserves: IReserve[];
+  deployed: string;
 }
 
 export const enum LendingEngine {
@@ -104,6 +105,7 @@ export const lendingMarkets: ILendingMarket[] = [
         isBorrowable: true,
       },
     ],
+    deployed: "Feb 6, 2025",
   },
   {
     id: "Brunch gen2",
@@ -133,6 +135,7 @@ export const lendingMarkets: ILendingMarket[] = [
         isBorrowable: true,
       },
     ],
+    deployed: "Sep 5, 2025",
   },
   {
     id: "wmetaUSD gen2",
@@ -162,5 +165,6 @@ export const lendingMarkets: ILendingMarket[] = [
         isBorrowable: true,
       },
     ],
+    deployed: "Sep 19, 2025",
   },
 ];
