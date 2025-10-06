@@ -118,7 +118,6 @@ export type Underlying = {
 };
 
 export type Market = {
-  market: string;
   name: string;
   aToken: string;
   debtToken: string;
@@ -138,7 +137,10 @@ export type Market = {
 export type MarketData = {
   [chainId: number]: {
     [market: string]: {
-      [asset: `0x${string}`]: Market;
+      marketId: string;
+      reserves: {
+        [asset: `0x${string}`]: Market;
+      };
     };
   };
 };
