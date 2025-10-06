@@ -1,4 +1,4 @@
-// Types of ApiService v4.7.16 from 24.09.2025
+// Types of ApiService v4.7.19 from 06.10.2025
 
 //#region ===== Main reply            | GET /                                    =====
 export interface ApiMainReply {
@@ -7,6 +7,7 @@ export interface ApiMainReply {
   total: Total;
   network: StabilityNetwork;
   status: Status;
+  statusString: string;
   platforms: Platforms;
   vaults: Vaults;
   metaVaults: MetaVaults;
@@ -117,11 +118,16 @@ export type Underlying = {
 };
 
 export type Market = {
+  market: string;
   name: string;
+  aToken: string;
+  debtToken: string;
   supplyAPR: string;
   borrowAPR: string;
   supplyTVL: string;
   borrowTVL: string;
+  reserveFactor: string;
+  liquidityBonus: string;
   price: string;
   cap: string;
   borrowCap: string;
@@ -377,6 +383,7 @@ export interface ApiPostBody {
     factory: number;
     contests: number;
     charts: number;
+    lendingUsers: number;
   };
   state: NodeState;
   data?: PlatformDataPartial;
@@ -398,6 +405,7 @@ export interface PlatformDataPartial {
   factory?: ApiFactoryReply;
   contests?: ApiContestsReply;
   charts?: ApiChartsReply;
+  lendingUsers?: ApiLendingUsersReply;
 }
 
 export interface PlatformDataFull extends PlatformDataPartial {
@@ -405,6 +413,7 @@ export interface PlatformDataFull extends PlatformDataPartial {
   factory: ApiFactoryReply;
   contests: ApiContestsReply;
   charts: ApiChartsReply;
+  lendingUsers: ApiLendingUsersReply;
 }
 
 //#endregion
@@ -450,12 +459,24 @@ export interface ApiFactoryReply {
 export interface ApiChartsReply {
   time: number;
   hash: string;
-  dataByChainId: { [chainId: string]: MetaVaultsCharts };
-  data: {
-    metaVaults: MetaVaultsCharts;
-  };
+  data: { [chainId: string]: MetaVaultsCharts };
 }
 
+export interface ApiLendingUsersReply {
+  time: number;
+  hash: string;
+  data: {
+    [chainId: string]: {
+      [market: string]: {
+        [address: string]: {
+          ltv: number;
+          aTokenBalanceUsd: number;
+          debtTokenBalanceUsd: number;
+        };
+      };
+    };
+  };
+}
 export interface Farm {
   status: number;
   pool: `0x${string}`;
