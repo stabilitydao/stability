@@ -1,16 +1,18 @@
 import {
+  agents,
   assets,
+  bridges,
+  chains,
+  ChainStatus,
+  contests,
   deployments,
   getChainsTotals,
   getStrategiesTotals,
   getSupportedChainNames,
   integrations,
-  chains,
+  lendingMarkets,
   seeds,
   strategies,
-  bridges,
-  contests,
-  agents,
 } from "../src";
 import { version } from "../package.json";
 import tokenlist from "../src/stability.tokenlist.json";
@@ -30,24 +32,26 @@ for (const chain of Object.keys(chains)) {
 
 console.log(`## 📦 Stability Integration Library v${version}`);
 console.log(``);
+console.log(`🤖 Agents: ${Object.keys(agents).length}`);
 console.log(
-  `Deployments: ${Object.keys(deployments).length} (${getSupportedChainNames().join(", ")})`,
+  `#️⃣ Platform deployments: ${Object.keys(deployments).filter((chainId) => chains[chainId].status === ChainStatus.SUPPORTED).length} (${getSupportedChainNames().join(", ")})`,
+);
+console.log(`🏦 Lending markets: ${lendingMarkets.length}`);
+console.log(
+  `💲 Strategies: ${Object.keys(strategies).length}. Live: ${strategiesTotal.LIVE}, deploying: ${strategiesTotal.DEPLOYMENT}, development: ${strategiesTotal.DEVELOPMENT}, awaiting: ${strategiesTotal.AWAITING}, blocked: ${strategiesTotal.BLOCKED}, possible: ${strategiesTotal.POSSIBLE}, proposal: ${strategiesTotal.PROPOSAL}, cancelled: ${strategiesTotal.CANCELLED}.`,
 );
 console.log(
-  `Strategies: ${Object.keys(strategies).length}. Live: ${strategiesTotal.LIVE}, deploying: ${strategiesTotal.DEPLOYMENT}, development: ${strategiesTotal.DEVELOPMENT}, awaiting: ${strategiesTotal.AWAITING}, blocked: ${strategiesTotal.BLOCKED}, possible: ${strategiesTotal.POSSIBLE}, proposal: ${strategiesTotal.PROPOSAL}, cancelled: ${strategiesTotal.CANCELLED}.`,
+  `⛓️ Chains: ${Object.keys(chains).length}. Status: ${networkTotal.AWAITING_DEPLOYMENT + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.AWAITING_DEVELOPER} awaiting dev. ${networkTotal.AWAITING_ISSUE_CREATION} awaiting creation. Multisigs: ${multisigsTotal}. Bridges: ${bridges.length}.`,
 );
 console.log(
-  `Chains: ${Object.keys(chains).length}. Status: ${networkTotal.AWAITING_DEPLOYMENT + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.AWAITING_DEVELOPER} awaiting dev. ${networkTotal.AWAITING_ISSUE_CREATION} awaiting creation. Multisigs: ${multisigsTotal}. Bridges: ${bridges.length}.`,
+  `🌐 DeFi organizations: ${Object.keys(integrations).length}. Protocols: ${protocolsTotal}.`,
 );
 console.log(
-  `DeFi organizations: ${Object.keys(integrations).length}. Protocols: ${protocolsTotal}.`,
+  `🪙 Assets: ${assets.length}. Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map((t) => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} chains.`,
 );
+console.log(`📡 Seed nodes: ${seeds.length}`);
 console.log(
-  `Assets: ${assets.length}. Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map((t) => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} chains.`,
-);
-console.log(`Seed nodes: ${seeds.length}`);
-console.log(
-  `Contests: ${Object.keys(contests).filter((c) => !contests[c].hidden).length}. Banner images: ${
+  `🏆 Contests: ${Object.keys(contests).filter((c) => !contests[c].hidden).length}. Banner images: ${
     Object.keys(contests)
       .filter((c) => !contests[c].hidden)
       .filter((c) => !!contests[c].img).length
@@ -57,5 +61,4 @@ console.log(
       .filter((c) => !!contests[c].integration).length
   }.`,
 );
-console.log(`Agents: ${Object.keys(agents).length}`);
 console.log(``);

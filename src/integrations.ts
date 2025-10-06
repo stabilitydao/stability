@@ -2486,7 +2486,11 @@ export const integrations: { [org: string]: DeFiOrganization } = {
 };
 
 export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
-  const supportedNetWorkIds = getSupportedChainNames();
+  const supportedNetWorkIds = [
+    ChainName.POLYGON,
+    ChainName.BASE,
+    ChainName.SONIC,
+  ];
   const isSupportedNetwork = p.chains.some((r) =>
     supportedNetWorkIds.includes(r),
   );

@@ -625,7 +625,9 @@ export const chainStatusInfo: { [status in ChainStatus]: ChainStatusInfo } = {
 };
 
 export const getSupportedChainNames = (): ChainName[] =>
-  Object.keys(deployments).map((chainId) => chains[chainId].name);
+  Object.keys(deployments)
+    .filter((chainId) => chains[chainId].status === ChainStatus.SUPPORTED)
+    .map((chainId) => chains[chainId].name);
 
 export const getChainsTotals = (): { [status in ChainStatus]: number } => {
   const ids = Object.keys(chains);
