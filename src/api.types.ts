@@ -1,4 +1,4 @@
-// Types of ApiService v4.7.19 from 06.10.2025
+// Types of ApiService v4.7.20 from 06.10.2025
 
 //#region ===== Main reply            | GET /                                    =====
 export interface ApiMainReply {
@@ -125,6 +125,9 @@ export type Market = {
   borrowAPR: string;
   supplyTVL: string;
   borrowTVL: string;
+  supplyTVLInUSD: string;
+  borrowTVLInUSD: string;
+  utilization: string;
   reserveFactor: string;
   liquidityBonus: string;
   price: string;
