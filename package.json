@@ -23,6 +23,7 @@
     "postbuild": "shx cp src/*.tokenlist.json out/",
     "draw-chains": "ts-node tools/draw-chains.ts",
     "draw-integrations": "ts-node tools/draw-integrations.ts",
+    "draw-markets": "ts-node tools/draw-markets.ts",
     "draw-vaults": "ts-node tools/draw-vaults.ts",
     "issue": "ts-node tools/issue.ts",
     "contests-maker": "ts-node tools/contests-maker.ts"
