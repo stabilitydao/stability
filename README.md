@@ -51,9 +51,9 @@ yarn prettier . --write
 ### Commit/PR prefix
 
 | Changes            | Prefix |
-| ------------------ | ------ |
+|--------------------| ------ |
 | API types          | 📡     |
-| AI                 | 🤖     |
+| AI, Agents         | 🤖     |
 | Strategies         | 💲     |
 | Deployments        | #️⃣     |
 | Chains             | ⛓️     |
