@@ -53,7 +53,7 @@ yarn prettier . --write
 | Changes            | Prefix |
 | ------------------ | ------ |
 | API types          | 📡     |
-| AI                 | 🤖     |
+| AI, Agents         | 🤖     |
 | Strategies         | 💲     |
 | Deployments        | #️⃣     |
 | Chains             | ⛓️     |

@@ -995,6 +995,60 @@ export const assets: Asset[] = [
     website: "https://www.ether.fi/",
     color: "#6a60e1",
   },
+  {
+    addresses: {
+      "146": "0x000078392f3cF4262500FFeB7d803F90477ECC11",
+    },
+    symbol: "RECmetaUSD",
+    description: "Accident 1 recovery token",
+    website: "https://stability.farm/",
+    color: "#ff0000",
+  },
+  {
+    addresses: {
+      "146": "0x00001b2c60cD041a478521008CE6efeC475bb9Aa",
+    },
+    symbol: "RECwmetaUSD",
+    description: "Accident 1 recovery token",
+    website: "https://stability.farm/",
+    color: "#ff0000",
+  },
+  {
+    addresses: {
+      "146": "0x0000a59C549b4250a2931ac6054e1426a87DA0EE",
+    },
+    symbol: "RECwmetaUSDC",
+    description: "Accident 1 recovery token",
+    website: "https://stability.farm/",
+    color: "#ff0000",
+  },
+  {
+    addresses: {
+      "146": "0x0000c3b22bbD290588361E4B5C424F3AB0d0a3cc",
+    },
+    symbol: "RECwmetascUSD",
+    description: "Accident 1 recovery token",
+    website: "https://stability.farm/",
+    color: "#ff0000",
+  },
+  {
+    addresses: {
+      "146": "0x000006539BA0B4f5452186Af40aAB959bDEa4344",
+    },
+    symbol: "RECmetaS",
+    description: "Accident 1 recovery token",
+    website: "https://stability.farm/",
+    color: "#ff0000",
+  },
+  {
+    addresses: {
+      "146": "0x0000Dd8cEa00EA3336f5849590d69bbfc93A85bb",
+    },
+    symbol: "RECwmetaS",
+    description: "Accident 1 recovery token",
+    website: "https://stability.farm/",
+    color: "#ff0000",
+  },
 ];
 
 export const sonicWhitelistedAssets: {
