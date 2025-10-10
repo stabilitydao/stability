@@ -6,8 +6,8 @@ import { ILendingMarket, lendingMarkets } from "../src/lending";
 import tokenlist from "../src/stability.tokenlist.json";
 
 const marketsDir = "./temp/markets";
-const WIDTH = 1280;
-const HEIGHT = 720;
+const WIDTH = 768;
+const HEIGHT = 768;
 
 async function ensureDir(dir: string) {
   try {
@@ -29,51 +29,59 @@ async function drawMarket(
   const canvas = createCanvas(WIDTH, HEIGHT);
   const ctx = canvas.getContext("2d");
 
-  // Background gradient (deep violet)
+  // Background gradient (black → dark gray)
   const gradient = ctx.createLinearGradient(0, 0, 0, HEIGHT);
-  gradient.addColorStop(0, "#3b1e75");
-  gradient.addColorStop(1, "#0e0c23");
+  gradient.addColorStop(0, "#000000");
+  gradient.addColorStop(1, "#1b1b1b");
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
-  // Title
-  ctx.font = "bold 72px Sans-serif";
+  // Title (top-left)
+  ctx.font = "bold 64px 'Sans-serif'";
   ctx.fillStyle = "white";
-  ctx.textAlign = "center";
-  ctx.fillText(market.id, WIDTH / 2, 120);
+  ctx.textAlign = "left";
+  ctx.fillText(market.id, 60, 120);
 
-  // Subtitle (engine)
-  ctx.font = "32px Sans-serif";
-  ctx.fillStyle = "#ddd";
-  ctx.fillText(market.engine.replace(/_/g, " "), WIDTH / 2, 170);
+  // Subtitle
+  ctx.font = "28px 'Sans-serif'";
+  ctx.fillStyle = "#ccc";
+  ctx.fillText(market.engine.replace(/_/g, " "), 60, 165);
 
   // Date pill (top-right)
-  const pillW = 220;
-  const pillH = 60;
-  const pillX = WIDTH - pillW - 80;
-  const pillY = 60;
+  const pillW = 180;
+  const pillH = 50;
+  const pillX = WIDTH - pillW - 60;
+  const pillY = 70;
   ctx.beginPath();
-  ctx.roundRect(pillX, pillY, pillW, pillH, 30);
+  ctx.roundRect(pillX, pillY, pillW, pillH, 25);
   ctx.fillStyle = "#fff";
   ctx.fill();
-  ctx.font = "bold 26px Sans-serif";
+  ctx.font = "bold 24px 'Sans-serif'";
   ctx.fillStyle = "#000";
   ctx.textAlign = "center";
-  ctx.fillText(market.deployed, pillX + pillW / 2, pillY + 39);
+  ctx.fillText(market.deployed, pillX + pillW / 2, pillY + 33);
 
-  // Token row
-  const tokenSize = 90;
-  const spacing = 130;
-  const startX = WIDTH / 2 - ((market.reserves.length - 1) * spacing) / 2;
-  const iconY = 280;
-  const labelY = iconY + 110;
+  // Token icons (centered layout)
+  const tokens = market.reserves;
+  const total = tokens.length;
+  const tokenSize = 120;
+  const spacingX = 160;
+  const spacingY = 200;
+  const maxPerRow = 4;
+  const rows = Math.ceil(total / maxPerRow);
+  const startY = HEIGHT / 2 - ((rows - 1) * spacingY) / 2;
 
-  for (let i = 0; i < market.reserves.length; i++) {
-    const r = market.reserves[i];
-    const x = startX + i * spacing;
+  for (let i = 0; i < total; i++) {
+    const r = tokens[i];
     const token = getTokenInfo(r.asset);
+    const row = Math.floor(i / maxPerRow);
+    const col = i % maxPerRow;
+    const rowCount = Math.min(total - row * maxPerRow, maxPerRow);
+    const startX = WIDTH / 2 - ((rowCount - 1) * spacingX) / 2;
+    const x = startX + col * spacingX;
+    const y = startY + row * spacingY;
 
-    // Circular token image
+    // Load token image
     let logo: any = null;
     if (token?.logoURI) {
       try {
@@ -83,86 +91,64 @@ async function drawMarket(
       }
     }
 
+    // Shadow + circle clip
     ctx.save();
     ctx.beginPath();
-    ctx.arc(x, iconY, tokenSize / 2, 0, Math.PI * 2);
+    ctx.arc(x, y, tokenSize / 2, 0, Math.PI * 2);
     ctx.closePath();
+    ctx.shadowColor = "rgba(0,0,0,0.6)";
+    ctx.shadowBlur = 10;
     ctx.clip();
 
     if (logo) {
       ctx.drawImage(
         logo,
         x - tokenSize / 2,
-        iconY - tokenSize / 2,
+        y - tokenSize / 2,
         tokenSize,
         tokenSize,
       );
     } else {
       ctx.fillStyle = "#444";
-      ctx.fillRect(
-        x - tokenSize / 2,
-        iconY - tokenSize / 2,
-        tokenSize,
-        tokenSize,
-      );
+      ctx.fillRect(x - tokenSize / 2, y - tokenSize / 2, tokenSize, tokenSize);
     }
     ctx.restore();
 
-    // Token label
-    ctx.font = "bold 26px Sans-serif";
+    // White border
+    ctx.beginPath();
+    ctx.arc(x, y, tokenSize / 2 + 3, 0, Math.PI * 2);
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = "white";
+    ctx.stroke();
+
+    // Symbol label
+    ctx.font = "bold 26px 'Sans-serif'";
     ctx.fillStyle = "white";
     ctx.textAlign = "center";
-    ctx.fillText(token?.symbol || r.aTokenSymbol, x, labelY);
+    ctx.fillText(token?.symbol || r.aTokenSymbol, x, y + tokenSize / 2 + 40);
   }
 
-  // Get LTV + liquidationThreshold from marketData
-  const ltvValues = market.reserves.map(
-    (r) =>
-      (marketData.reserves[r.asset.toLowerCase() as `0x${string}`]?.maxLtv ??
-        0) + "%",
-  );
-  const liqValues = market.reserves.map(
-    (r) =>
-      (marketData.reserves[r.asset.toLowerCase() as `0x${string}`]
-        ?.liquidationThreshold ?? 0) + "%",
-  );
+  // Footer: Stability logo + centered group
+  try {
+    const stabilityLogo = await loadImage(path.resolve("./temp/Stability.svg"));
+    const logoSize = 64;
+    const groupWidth = 64 + 20 + 170; // logo + gap + text width
+    const groupX = WIDTH / 2 - groupWidth / 2;
+    const logoY = HEIGHT - 110;
 
-  // Function to draw value bars
-  const barWidth = 960;
-  const barHeight = 70;
-  const barX = WIDTH / 2 - barWidth / 2;
-  const firstBarY = 500;
-  const secondBarY = 640;
+    // Logo
+    ctx.drawImage(stabilityLogo, groupX, logoY, logoSize, logoSize);
 
-  const drawBar = (label: string, y: number, values: string[]) => {
-    // Label
-    ctx.font = "bold 30px Sans-serif";
+    // Text
+    ctx.font = "bold 36px 'Sans-serif'";
     ctx.fillStyle = "white";
     ctx.textAlign = "left";
-    ctx.fillText(label, barX, y - 25);
+    ctx.fillText("Stability", groupX + logoSize + 20, logoY + logoSize - 15);
+  } catch (e) {
+    console.warn("⚠️ Could not load Stability logo:", e);
+  }
 
-    // Bar background
-    ctx.beginPath();
-    ctx.roundRect(barX, y, barWidth, barHeight, 35);
-    ctx.fillStyle = "#3a2c6b";
-    ctx.fill();
-
-    // Values
-    const sectionWidth = barWidth / values.length;
-    ctx.font = "bold 26px Sans-serif";
-    ctx.textAlign = "center";
-    ctx.fillStyle = "white";
-
-    values.forEach((v, i) => {
-      const vx = barX + sectionWidth * i + sectionWidth / 2;
-      ctx.fillText(v, vx, y + barHeight / 1.6);
-    });
-  };
-
-  drawBar("Loan to Value", firstBarY, ltvValues);
-  drawBar("Liquidation Threshold", secondBarY, liqValues);
-
-  // Save to file
+  // Save output
   await ensureDir(marketsDir);
   const outPath = path.join(
     marketsDir,
