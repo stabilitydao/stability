@@ -1,4 +1,4 @@
-// Types of ApiService v4.7.19 from 06.10.2025
+// Types of ApiService v4.7.21 from 10.10.2025
 
 //#region ===== Main reply            | GET /                                    =====
 export interface ApiMainReply {
@@ -26,6 +26,9 @@ export type RevenueChart = Record<number, string>;
 export interface Total {
   tvl: number;
   marketTvl: number;
+  xSTBLStaked: number;
+  xSTBLPendingRevenue: number;
+  xSTBLPendingAPR: number;
   marketNetTvl: number;
   usersEarned: number;
   activeVaults: number;
@@ -49,6 +52,14 @@ export enum Severity {
   MAJOR,
   CRITICAL,
 }
+
+export type VaultNft = {
+  image: string;
+} & {
+  [key: string]: string;
+};
+
+export type VaultNfts = { [chainId: string]: { [address: string]: VaultNft } };
 
 export type StatusCheck = {
   id: string;
@@ -125,6 +136,11 @@ export type Market = {
   borrowAPR: string;
   supplyTVL: string;
   borrowTVL: string;
+  supplyTVLInUSD: string;
+  borrowTVLInUSD: string;
+  availableToBorrow: string;
+  availableToBorrowInUSD: string;
+  utilization: string;
   reserveFactor: string;
   liquidityBonus: string;
   price: string;
@@ -132,6 +148,13 @@ export type Market = {
   borrowCap: string;
   liquidationThreshold: string;
   maxLtv: string;
+  interestStrategyData: {
+    address: `0x${string}`;
+    optimalUsageRatio: string;
+    maxVariableBorrowRate: string;
+    variableRateSlope1: string;
+    variableRateSlope2: string;
+  };
 };
 
 export type MarketData = {
@@ -386,6 +409,7 @@ export interface ApiPostBody {
     contests: number;
     charts: number;
     lendingUsers: number;
+    vaultNfts: number;
   };
   state: NodeState;
   data?: PlatformDataPartial;
@@ -408,6 +432,7 @@ export interface PlatformDataPartial {
   contests?: ApiContestsReply;
   charts?: ApiChartsReply;
   lendingUsers?: ApiLendingUsersReply;
+  vaultNfts?: ApiVaultNftsReply;
 }
 
 export interface PlatformDataFull extends PlatformDataPartial {
@@ -416,6 +441,7 @@ export interface PlatformDataFull extends PlatformDataPartial {
   contests: ApiContestsReply;
   charts: ApiChartsReply;
   lendingUsers: ApiLendingUsersReply;
+  vaultNfts: ApiVaultNftsReply;
 }
 
 //#endregion
@@ -479,6 +505,13 @@ export interface ApiLendingUsersReply {
     };
   };
 }
+
+export interface ApiVaultNftsReply {
+  time: number;
+  hash: string;
+  data: VaultNfts;
+}
+
 export interface Farm {
   status: number;
   pool: `0x${string}`;
