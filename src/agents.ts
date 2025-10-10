@@ -37,6 +37,10 @@ export interface IOperatorAgent extends IAgentBase, IAgentRuntime {
 
 export interface IBuilderAgent extends IAgentBase, IAgentRuntime {
   repo: string[];
+  burnRate: {
+    period: string;
+    usdAmount: number;
+  }[];
   workers: string[];
 }
 
@@ -84,6 +88,12 @@ export const agents: Agent[] = [
       "stabilitydao/stability-subgraph",
       "stabilitydao/lending-deploy",
       "stabilitydao/stability-node-pro",
+    ],
+    burnRate: [
+      {
+        period: "Sep, 2025",
+        usdAmount: 32200,
+      },
     ],
     workers: [],
   },
