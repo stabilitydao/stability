@@ -40,18 +40,18 @@ async function drawMarket(
   ctx.font = "bold 64px 'Sans-serif'";
   ctx.fillStyle = "white";
   ctx.textAlign = "left";
-  ctx.fillText(market.id, 60, 120);
+  ctx.fillText(market.id, 60, 150);
 
   // Subtitle
   ctx.font = "28px 'Sans-serif'";
   ctx.fillStyle = "#ccc";
-  ctx.fillText(market.engine.replace(/_/g, " "), 60, 165);
+  ctx.fillText(market.engine.replace(/_/g, " "), 60, 185);
 
   // Date pill (top-right)
   const pillW = 180;
   const pillH = 50;
   const pillX = WIDTH - pillW - 60;
-  const pillY = 70;
+  const pillY = 20;
   ctx.beginPath();
   ctx.roundRect(pillX, pillY, pillW, pillH, 25);
   ctx.fillStyle = "#fff";
