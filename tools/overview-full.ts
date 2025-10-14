@@ -37,7 +37,7 @@ console.log("");
 // @ts-ignore
 console.log(bold`=== Strategies: ${Object.keys(strategies).length} ===`);
 console.log(
-  `Live: ${strategiesTotal.LIVE}, deploying: ${strategiesTotal.DEPLOYMENT}, development: ${strategiesTotal.DEVELOPMENT}, awaiting: ${strategiesTotal.AWAITING}, blocked: ${strategiesTotal.BLOCKED}, possible: ${strategiesTotal.POSSIBLE}, proposal: ${strategiesTotal.PROPOSAL}.`,
+  `Live: ${strategiesTotal.LIVE}, ready: ${strategiesTotal.READY}, development: ${strategiesTotal.DEVELOPMENT}, cancelled: ${strategiesTotal.CANCELLED}.`,
 );
 for (const strategyShortId of Object.keys(strategies)) {
   // @ts-ignore

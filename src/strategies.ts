@@ -78,12 +78,8 @@ export const enum StrategyShortId {
 
 export enum StrategyState {
   CANCELLED = "CANCELLED",
-  PROPOSAL = "PROPOSAL",
-  POSSIBLE = "POSSIBLE",
-  BLOCKED = "BLOCKED",
-  AWAITING = "AWAITING",
   DEVELOPMENT = "DEVELOPMENT",
-  DEPLOYMENT = "DEPLOYMENT",
+  READY = "READY",
   LIVE = "LIVE",
 }
 
@@ -98,16 +94,8 @@ export enum BaseStrategy {
 
 export const strategyStateDescription: { [state in StrategyState]: string } = {
   [StrategyState.CANCELLED]: "Development cancelled",
-  [StrategyState.PROPOSAL]:
-    "The strategy described in free form is proposed for development",
-  [StrategyState.POSSIBLE]:
-    "Proposed strategy can be deployed at supported network",
-  [StrategyState.BLOCKED]: "Development blocked by not solved BLOCKER issue",
-  [StrategyState.AWAITING]:
-    "The task of developing a strategy is formulated, the base contracts are indicated and the logic is described. We are waiting for the implementer to appear.",
   [StrategyState.DEVELOPMENT]: "The strategy is under development",
-  [StrategyState.DEPLOYMENT]:
-    "The strategy has been developed. Awaiting deployment.",
+  [StrategyState.READY]: "Strategy developed, but not used now.",
   [StrategyState.LIVE]: "Vault and strategy are deployed and working",
 };
 
@@ -125,7 +113,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.QSMF]: {
     id: "QuickSwap Static Merkl Farm",
     shortId: StrategyShortId.QSMF,
-    state: StrategyState.LIVE,
+    state: StrategyState.READY,
     contractGithubId: 101,
     color: "#558ac5",
     bgColor: "#000000",
@@ -137,7 +125,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.DQMF]: {
     id: "DefiEdge QuickSwap Merkl Farm",
     shortId: StrategyShortId.DQMF,
-    state: StrategyState.LIVE,
+    state: StrategyState.READY,
     contractGithubId: 80,
     color: "#a5c2ff",
     bgColor: "#000000",
@@ -149,7 +137,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.IQMF]: {
     id: "Ichi QuickSwap Merkl Farm",
     shortId: StrategyShortId.IQMF,
-    state: StrategyState.LIVE,
+    state: StrategyState.READY,
     contractGithubId: 81,
     color: "#965fff",
     bgColor: "#000000",
@@ -161,7 +149,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.GQMF]: {
     id: "Gamma QuickSwap Merkl Farm",
     shortId: StrategyShortId.GQMF,
-    state: StrategyState.LIVE,
+    state: StrategyState.READY,
     contractGithubId: 90,
     color: "#de43ff",
     bgColor: "#140414",
@@ -173,7 +161,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.IRMF]: {
     id: "Ichi Retro Merkl Farm",
     shortId: StrategyShortId.IRMF,
-    state: StrategyState.LIVE,
+    state: StrategyState.READY,
     contractGithubId: 95,
     color: "#28fffb",
     bgColor: "#000000",
@@ -185,7 +173,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.GRMF]: {
     id: "Gamma Retro Merkl Farm",
     shortId: StrategyShortId.GRMF,
-    state: StrategyState.LIVE,
+    state: StrategyState.READY,
     contractGithubId: 99,
     color: "#ff0000",
     bgColor: "#000000",
@@ -197,7 +185,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.CF]: {
     id: "Compound Farm",
     shortId: StrategyShortId.CF,
-    state: StrategyState.LIVE,
+    state: StrategyState.READY,
     contractGithubId: 79,
     color: "#00d395",
     sourceCode: "CompoundFarmStrategy.sol",
@@ -208,7 +196,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.CCF]: {
     id: "Curve Convex Farm",
     shortId: StrategyShortId.CCF,
-    state: StrategyState.LIVE,
+    state: StrategyState.READY,
     contractGithubId: 110,
     color: "#dddddd",
     bgColor: "#000000",
@@ -220,7 +208,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.Y]: {
     id: "Yearn",
     shortId: StrategyShortId.Y,
-    state: StrategyState.LIVE,
+    state: StrategyState.READY,
     contractGithubId: 114,
     color: "#dc568a",
     bgColor: "#000000",
@@ -353,7 +341,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.TPF]: {
     id: "Trident Pearl Farm",
     shortId: StrategyShortId.TPF,
-    state: StrategyState.LIVE,
+    state: StrategyState.READY,
     contractGithubId: 172,
     color: "#ffe300",
     bgColor: "#004e67",
@@ -634,7 +622,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.AMeritF]: {
     id: "Aave Merit Farm",
     shortId: StrategyShortId.AMeritF,
-    state: StrategyState.AWAITING,
+    state: StrategyState.CANCELLED,
     contractGithubId: 381,
     color: "#ffffff",
     bgColor: "#2d1d39",
@@ -779,7 +767,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.C]: {
     id: "Compound",
     shortId: StrategyShortId.C,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.LIVE,
     contractGithubId: 351,
     color: "#c5d300",
     sourceCode: "CompoundStrategy.sol",
@@ -828,35 +816,15 @@ export const getStrategiesTotals = (): { [state in StrategyState]: number } => {
         strategies[strategyShortId as StrategyShortId].state ==
         StrategyState.CANCELLED,
     ).length,
-    [StrategyState.PROPOSAL]: ids.filter(
-      (strategyShortId) =>
-        strategies[strategyShortId as StrategyShortId].state ==
-        StrategyState.PROPOSAL,
-    ).length,
-    [StrategyState.POSSIBLE]: ids.filter(
-      (strategyShortId) =>
-        strategies[strategyShortId as StrategyShortId].state ==
-        StrategyState.POSSIBLE,
-    ).length,
-    [StrategyState.BLOCKED]: ids.filter(
-      (strategyShortId) =>
-        strategies[strategyShortId as StrategyShortId].state ==
-        StrategyState.BLOCKED,
-    ).length,
-    [StrategyState.AWAITING]: ids.filter(
-      (strategyShortId) =>
-        strategies[strategyShortId as StrategyShortId].state ==
-        StrategyState.AWAITING,
-    ).length,
     [StrategyState.DEVELOPMENT]: ids.filter(
       (strategyShortId) =>
         strategies[strategyShortId as StrategyShortId].state ==
         StrategyState.DEVELOPMENT,
     ).length,
-    [StrategyState.DEPLOYMENT]: ids.filter(
+    [StrategyState.READY]: ids.filter(
       (strategyShortId) =>
         strategies[strategyShortId as StrategyShortId].state ==
-        StrategyState.DEPLOYMENT,
+        StrategyState.READY,
     ).length,
     [StrategyState.LIVE]: ids.filter(
       (strategyShortId) =>
