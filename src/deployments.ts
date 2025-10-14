@@ -32,7 +32,7 @@ export type Deployment = {
     recovery?: `0x${string}`;
   };
   subgraph: string;
-  liquidationSubgraph: string;
+  liquidationSubgraph?: string;
   ammAdapters?: { [id: string]: `0x${string}` };
   metaVaults?: {
     address: `0x${string}`;
