@@ -99,6 +99,7 @@ export const enum ChainName {
   CRONOS = "Cronos",
   KATANA = "Katana",
   PLASMA = "Plasma",
+  ETHERLINK = "Etherlink",
 }
 
 export const chains: { [chainId: string]: Chain } = {
@@ -473,6 +474,12 @@ export const chains: { [chainId: string]: Chain } = {
     chainId: 42766,
     status: ChainStatus.NOT_SUPPORTED,
     img: "zkfair.png",
+  },
+  "42793": {
+    name: ChainName.ETHERLINK,
+    chainId: 42793,
+    status: ChainStatus.NOT_SUPPORTED,
+    img: "etherlink.webp",
   },
   "43114": {
     name: ChainName.AVALANCHE,
