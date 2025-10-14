@@ -63,7 +63,7 @@ for (const chain of Object.keys(chains)) {
   }
 }
 console.log(
-  `Chain libraries: ${networkTotal.AWAITING_DEPLOYMENT + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.AWAITING_DEVELOPER} awaiting  dev. ${networkTotal.AWAITING_ISSUE_CREATION} awaiting creation. Multisigs: ${multisigsTotal}.`,
+  `Supported: ${networkTotal.SUPPORTED} available, ${networkTotal.DEVELOPMENT} development. Multisigs: ${multisigsTotal}.`,
 );
 console.log(
   `${Object.keys(chains)

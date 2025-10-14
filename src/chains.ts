@@ -6,7 +6,7 @@ export type Chain = {
   status: ChainStatus;
   img: string;
   multisig?: `0x${string}`;
-  chainLibGithubId?: number;
+  chainLibGithubId?: number; // 0 - issue will be created
 };
 
 export type ChainStatusInfo = {
@@ -18,10 +18,7 @@ export type ChainStatusInfo = {
 
 export const enum ChainStatus {
   SUPPORTED = "SUPPORTED",
-  AWAITING_DEPLOYMENT = "AWAITING_DEPLOYMENT",
-  CHAINLIB_DEVELOPMENT = "CHAINLIB_DEVELOPMENT",
-  AWAITING_DEVELOPER = "AWAITING_DEVELOPER",
-  AWAITING_ISSUE_CREATION = "AWAITING_ISSUE_CREATION",
+  DEVELOPMENT = "DEVELOPMENT",
   NOT_SUPPORTED = "NOT_SUPPORTED",
 }
 
@@ -410,7 +407,7 @@ export const chains: { [chainId: string]: Chain } = {
   "9745": {
     name: ChainName.PLASMA,
     chainId: 9745,
-    status: ChainStatus.CHAINLIB_DEVELOPMENT,
+    status: ChainStatus.DEVELOPMENT,
     img: "plasma.webp",
     multisig: "0xE929438B5B53984FdBABf8562046e141e90E8099",
     chainLibGithubId: 397,
@@ -588,32 +585,11 @@ export const chainStatusInfo: { [status in ChainStatus]: ChainStatusInfo } = {
     color: "#4ade80", // green-400
     bgColor: "#00521f",
   },
-  [ChainStatus.AWAITING_DEPLOYMENT]: {
-    title: "Awaiting deployment",
-    description:
-      "ChainLib and strategy contracts ready for deployment to the chain",
-    color: "#a78bfa", // violet-400
-    bgColor: "#55009d",
-  },
-  [ChainStatus.CHAINLIB_DEVELOPMENT]: {
+  [ChainStatus.DEVELOPMENT]: {
     title: "Development",
     description: "Chain library being developed",
     color: "#60a5fa", // blue-400
     bgColor: "#1d3f6c",
-  },
-  [ChainStatus.AWAITING_DEVELOPER]: {
-    title: "Awaiting developer",
-    description:
-      "We awaiting developer to be assigned to solve chain library issue",
-    color: "#fef08a", // yellow-200
-    bgColor: "#796e00",
-  },
-  [ChainStatus.AWAITING_ISSUE_CREATION]: {
-    title: "Awaiting issue",
-    description:
-      "We have treasury in this chain and chain library contract can be developed, need issue.",
-    color: "#ff4646",
-    bgColor: "#7c0000",
   },
   [ChainStatus.NOT_SUPPORTED]: {
     title: "Not supported",
@@ -635,20 +611,8 @@ export const getChainsTotals = (): { [status in ChainStatus]: number } => {
     [ChainStatus.SUPPORTED]: ids.filter(
       (networkId) => chains[networkId].status == ChainStatus.SUPPORTED,
     ).length,
-    [ChainStatus.AWAITING_DEPLOYMENT]: ids.filter(
-      (networkId) =>
-        chains[networkId].status == ChainStatus.AWAITING_DEPLOYMENT,
-    ).length,
-    [ChainStatus.CHAINLIB_DEVELOPMENT]: ids.filter(
-      (networkId) =>
-        chains[networkId].status == ChainStatus.CHAINLIB_DEVELOPMENT,
-    ).length,
-    [ChainStatus.AWAITING_DEVELOPER]: ids.filter(
-      (networkId) => chains[networkId].status == ChainStatus.AWAITING_DEVELOPER,
-    ).length,
-    [ChainStatus.AWAITING_ISSUE_CREATION]: ids.filter(
-      (networkId) =>
-        chains[networkId].status == ChainStatus.AWAITING_ISSUE_CREATION,
+    [ChainStatus.DEVELOPMENT]: ids.filter(
+      (networkId) => chains[networkId].status == ChainStatus.DEVELOPMENT,
     ).length,
     [ChainStatus.NOT_SUPPORTED]: ids.filter(
       (networkId) => chains[networkId].status == ChainStatus.NOT_SUPPORTED,
