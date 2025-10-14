@@ -51,8 +51,8 @@ describe("index", () => {
     expect(assets.length).toBeGreaterThan(0);
   });
   test("strategyStateDescription", () => {
-    expect(strategyStateDescription[StrategyState.DEPLOYMENT]).toBe(
-      "The strategy has been developed. Awaiting deployment.",
+    expect(strategyStateDescription[StrategyState.READY]).toBe(
+      "Strategy developed, but not used now.",
     );
   });
   test("seeds", () => {

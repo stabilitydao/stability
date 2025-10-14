@@ -2506,20 +2506,14 @@ export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
   }
   if (p.strategies) {
     for (const strategy of p.strategies) {
-      if (strategies[strategy]?.state == StrategyState.LIVE) {
+      if (
+        strategies[strategy]?.state == StrategyState.LIVE ||
+        strategies[strategy]?.state == StrategyState.READY
+      ) {
         return IntegrationStatus.LIVE;
-      }
-      if (strategies[strategy]?.state == StrategyState.DEPLOYMENT) {
-        return IntegrationStatus.BEING_DEPLOYED;
       }
       if (strategies[strategy]?.state == StrategyState.DEVELOPMENT) {
         return IntegrationStatus.DEVELOPMENT;
-      }
-      if (strategies[strategy]?.state == StrategyState.PROPOSAL) {
-        return IntegrationStatus.AWAITING;
-      }
-      if (strategies[strategy]?.state == StrategyState.AWAITING) {
-        return IntegrationStatus.AWAITING;
       }
     }
   }
@@ -2528,14 +2522,8 @@ export const getIntegrationStatus = (p: DeFiProtocol): IntegrationStatus => {
       if (strategies[strategy]?.state == StrategyState.LIVE) {
         return IntegrationStatus.IN_USE;
       }
-      if (strategies[strategy]?.state == StrategyState.DEPLOYMENT) {
-        return IntegrationStatus.BEING_DEPLOYED;
-      }
       if (strategies[strategy]?.state == StrategyState.DEVELOPMENT) {
         return IntegrationStatus.DEVELOPMENT;
-      }
-      if (strategies[strategy]?.state == StrategyState.PROPOSAL) {
-        return IntegrationStatus.AWAITING;
       }
     }
   }
