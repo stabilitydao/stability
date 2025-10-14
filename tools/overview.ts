@@ -41,7 +41,7 @@ console.log(
   `💲 Strategies: ${Object.keys(strategies).length}. Live: ${strategiesTotal.LIVE}, ready: ${strategiesTotal.READY}, development: ${strategiesTotal.DEVELOPMENT}, cancelled: ${strategiesTotal.CANCELLED}.`,
 );
 console.log(
-  `⛓️ Chains: ${Object.keys(chains).length}. Status: ${networkTotal.AWAITING_DEPLOYMENT + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.AWAITING_DEVELOPER} awaiting dev. ${networkTotal.AWAITING_ISSUE_CREATION} awaiting creation. Multisigs: ${multisigsTotal}. Bridges: ${bridges.length}.`,
+  `⛓️ Chains: ${Object.keys(chains).length}. Status: ${networkTotal.SUPPORTED} supported, ${networkTotal.DEVELOPMENT} development. Multisigs: ${multisigsTotal}. Bridges: ${bridges.length}.`,
 );
 console.log(
   `🌐 DeFi organizations: ${Object.keys(integrations).length}. Protocols: ${protocolsTotal}.`,
