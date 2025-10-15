@@ -210,4 +210,23 @@ export const deployments: { [chainId: string]: Deployment } = {
       },
     ],
   },
+  "9745": {
+    core: {
+      platform: "0xd4d6ad656f64e8644afa18e7ccc9372e0cd256f0",
+      factory: "0x4c5758e3c454a260d98238706ca6f4802cc52746",
+      metaVaultFactory: "0xbd5296dc2603942f116b375c8ee373674be86f56",
+      hardWorker: "0x73ae48f75ea304ff229d2a1374654672fa8388e7",
+      priceReader: "0xd4af1b538c826e1e90b695314042ab6fd0e7f4aa",
+      strategyLogic: "0x5e670b7a1740e8a11aff06335984d696d537b7bc",
+      swapper: "0x54f22378e03bea25a05a071b60357d31ce535bb9",
+      vaultManager: "0x22d031e45a02d6472786b9d7a4fd78f1733d6990",
+      zap: "0xbc4ff9766074b53c7a4cb91964836c83188f333d",
+    },
+    periphery: {
+      frontend: "0x70e804364175e23F1c30dFa03BFb19d936E5E81c",
+    },
+    subgraph:
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-plasma/0.0.60/gn",
+    tokenomics: {},
+  },
 };
