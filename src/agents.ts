@@ -1,3 +1,5 @@
+import { builder, IBuilderAgent } from "./builder";
+
 export const enum AgentId {
   OPERATOR = "OPERATOR",
   BUILDER = "BUILDER",
@@ -26,22 +28,13 @@ export interface IAgentRuntime {
   }[];
 }
 
-const emptyRuntime: IAgentRuntime = {
+export const emptyRuntime: IAgentRuntime = {
   machineIDs: [],
   providers: [],
 };
 
 export interface IOperatorAgent extends IAgentBase, IAgentRuntime {
   api: string[];
-}
-
-export interface IBuilderAgent extends IAgentBase, IAgentRuntime {
-  repo: string[];
-  burnRate: {
-    period: string;
-    usdAmount: number;
-  }[];
-  workers: string[];
 }
 
 export interface IYieldTrackerAgent extends IAgentBase, IAgentRuntime {
@@ -75,28 +68,7 @@ export const agents: Agent[] = [
     ...emptyRuntime,
     api: ["https://api.stability.farm", "https://api.stabilitydao.org"],
   },
-  {
-    id: AgentId.BUILDER,
-    status: AgentStatus.UNDER_CONSTRUCTION,
-    name: "Stability Builder",
-    tokenization: "2026",
-    ...emptyRuntime,
-    repo: [
-      "stabilitydao/stability",
-      "stabilitydao/stability-contracts",
-      "stabilitydao/stability-ui",
-      "stabilitydao/stability-subgraph",
-      "stabilitydao/lending-deploy",
-      "stabilitydao/stability-node-pro",
-    ],
-    burnRate: [
-      {
-        period: "Sep, 2025",
-        usdAmount: 32200,
-      },
-    ],
-    workers: [],
-  },
+  builder,
   {
     id: AgentId.YIELD_TRACKER,
     status: AgentStatus.INITIAL_FUNDING,

@@ -54,7 +54,7 @@ yarn prettier . --write
 | ------------------ | ------ |
 | API types          | 📡     |
 | AI, Agents         | 🤖     |
-| Strategies         | 💲     |
+| Strategies         | 📜     |
 | Deployments        | #️⃣     |
 | Chains             | ⛓️     |
 | Integrations       | 🌐     |
