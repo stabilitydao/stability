@@ -255,6 +255,7 @@ export const builder: Agent = {
     "stabilitydao/stability-ui",
     "stabilitydao/stability-subgraph",
     "stabilitydao/lending-deploy",
+    "stabilitydao/builder",
     "stabilitydao/stability-node-pro",
   ],
   burnRate: [
