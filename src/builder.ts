@@ -52,6 +52,7 @@ export const enum ArtifactType {
   URL_UI = "URL to UI page",
   URL_API = "API endpoint",
   URL_STATIC = "Static content URL",
+  CONTRACT_ADDRESS = "Address of deployed contract",
 }
 
 export interface IArtifact {
@@ -65,6 +66,7 @@ export interface IConveyorStep {
   issues: {
     repo: string;
     title: string;
+    issueTemplate?: string;
     body?: string;
     taskList?: string[];
     generator?: string;
@@ -79,8 +81,8 @@ export const pools: IPool[] = [
     name: "Products",
     label: {
       name: "builder:PRODUCT",
-      description: "",
-      color: "#30da71",
+      description: "New product request",
+      color: "#00ff62",
     },
     productTypes: [
       ProductType.CVAULT,
@@ -131,8 +133,9 @@ export const conveyors: IConveyor[] = [
     type: "Task",
     label: {
       name: "builder:STRATEGY",
-      description: "",
-      color: "#30da71",
+      description:
+        "Developing and deploying a new strategy on the **Strategies** conveyor belt.",
+      color: "#00d0ff",
     },
     description: "Implement and integrate new strategy contract",
     steps: [
@@ -142,13 +145,40 @@ export const conveyors: IConveyor[] = [
           {
             repo: "stabilitydao/stability",
             title:
-              "📜 *%STRATEGY_SHORT_ID%* | %STRATEGY_ID%: strategy architecture",
+              "📜 %STRATEGY_SHORT_ID% | %STRATEGY_ID%: strategy architecture",
+            issueTemplate: "strategy.md",
           },
         ],
         artifacts: [
           {
             type: ArtifactType.LIBRARY_RELEASE_TAG,
             name: "Library with prepared strategy architecture",
+          },
+        ],
+      },
+      {
+        name: "Implement deploy and strategy smart contract",
+        issues: [
+          {
+            repo: "stabilitydao/stability-contracts",
+            title: "📜 [%SHORT_NAME%] | %ID%: implement strategy",
+          },
+        ],
+        /*artifacts: [
+          {
+            type: ArtifactType.CONTRACT_ADDRESS,
+            name: "Strategy implementation",
+          },
+        ],*/
+      },
+      {
+        name: "Integrate strategy",
+        // todo
+        issues: [],
+        artifacts: [
+          {
+            type: ArtifactType.LIBRARY_RELEASE_TAG,
+            name: "Library where strategy is READY to use and live with all necessary tokens",
           },
         ],
       },
