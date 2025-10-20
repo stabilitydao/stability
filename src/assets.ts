@@ -1049,6 +1049,24 @@ export const assets: Asset[] = [
     website: "https://stability.farm/",
     color: "#ff0000",
   },
+  {
+    addresses: {
+      "9745": "0x1111836D0Ff66770F9d9a22FDB7e1f0349501111",
+    },
+    symbol: "metaUSDT",
+    description: "Stability MetaVault",
+    website: "https://stability.farm/",
+    color: "#3d19b6",
+  },
+  {
+    addresses: {
+      "9745": "0xaAAaBE1F93b9470C56f17d9Ef4E3fF13bCf9AAAA",
+    },
+    symbol: "wmetaUSDT",
+    description: "Stability Wrapped MetaVault",
+    website: "https://stability.farm/",
+    color: "#3fc00d",
+  },
 ];
 
 export const sonicWhitelistedAssets: {
