@@ -228,5 +228,14 @@ export const deployments: { [chainId: string]: Deployment } = {
     subgraph:
       "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-plasma/0.0.60/gn",
     tokenomics: {},
+    metaVaults: [
+      {
+        address: "0x1111836D0Ff66770F9d9a22FDB7e1f0349501111",
+        symbol: "metaUSDT",
+        type: "MultiVault",
+        wrapper: "0xaAAaBE1F93b9470C56f17d9Ef4E3fF13bCf9AAAA",
+        primary: true,
+      },
+    ],
   },
 };

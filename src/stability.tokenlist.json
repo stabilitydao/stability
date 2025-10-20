@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-10-09T00:00:00+00:00",
+  "timestamp": "2025-10-20T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 29,
+    "minor": 30,
     "patch": 0
   },
   "tags": {
@@ -1472,6 +1472,24 @@
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/RECwmetaS.png",
       "tags": []
+    },
+    {
+      "chainId": 9745,
+      "address": "0x1111836D0Ff66770F9d9a22FDB7e1f0349501111",
+      "symbol": "metaUSDT",
+      "name": "Stability USDT",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/metaUSDT.png",
+      "tags": ["stablecoin", "usd", "rebase"]
+    },
+    {
+      "chainId": 9745,
+      "address": "0xaAAaBE1F93b9470C56f17d9Ef4E3fF13bCf9AAAA",
+      "symbol": "wmetaUSDT",
+      "name": "Wrapped Stability USDT",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wmetaUSDT.png",
+      "tags": ["usd"]
     }
   ]
 }
