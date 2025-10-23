@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-09-25T00:00:00+00:00",
+  "timestamp": "2025-10-20T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 28,
+    "minor": 30,
     "patch": 0
   },
   "tags": {
@@ -1228,7 +1228,7 @@
       "name": "Wrapped Stability S",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wmetaS.png",
-      "tags": ["usd"]
+      "tags": ["s"]
     },
     {
       "chainId": 146,
@@ -1418,6 +1418,78 @@
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/chains/plasma.webp",
       "tags": ["bridged", "wNative"]
+    },
+    {
+      "chainId": 146,
+      "address": "0x000078392f3cF4262500FFeB7d803F90477ECC11",
+      "symbol": "RECmetaUSD",
+      "name": "Recovery Stability USD",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/RECmetaUSD.png",
+      "tags": []
+    },
+    {
+      "chainId": 146,
+      "address": "0x00001b2c60cD041a478521008CE6efeC475bb9Aa",
+      "symbol": "RECwmetaUSD",
+      "name": "Recovery Wrapped Stability USD",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/RECwmetaUSD.png",
+      "tags": []
+    },
+    {
+      "chainId": 146,
+      "address": "0x0000a59C549b4250a2931ac6054e1426a87DA0EE",
+      "symbol": "RECwmetaUSDC",
+      "name": "Recovery Wrapped Stability USDC",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/RECwmetaUSDC.png",
+      "tags": []
+    },
+    {
+      "chainId": 146,
+      "address": "0x0000c3b22bbD290588361E4B5C424F3AB0d0a3cc",
+      "symbol": "RECwmetascUSD",
+      "name": "Recovery Wrapped Stability scUSD",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/RECwmetascUSD.png",
+      "tags": []
+    },
+    {
+      "chainId": 146,
+      "address": "0x000006539BA0B4f5452186Af40aAB959bDEa4344",
+      "symbol": "RECmetaS",
+      "name": "Recovery Stability S",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/RECmetaS.png",
+      "tags": []
+    },
+    {
+      "chainId": 146,
+      "address": "0x0000Dd8cEa00EA3336f5849590d69bbfc93A85bb",
+      "symbol": "RECwmetaS",
+      "name": "Recovery Wrapped Stability S",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/RECwmetaS.png",
+      "tags": []
+    },
+    {
+      "chainId": 9745,
+      "address": "0x1111836D0Ff66770F9d9a22FDB7e1f0349501111",
+      "symbol": "metaUSDT",
+      "name": "Stability USDT",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/metaUSDT.png",
+      "tags": ["stablecoin", "usd", "rebase"]
+    },
+    {
+      "chainId": 9745,
+      "address": "0xaAAaBE1F93b9470C56f17d9Ef4E3fF13bCf9AAAA",
+      "symbol": "wmetaUSDT",
+      "name": "Wrapped Stability USDT",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wmetaUSDT.png",
+      "tags": ["usd"]
     }
   ]
 }

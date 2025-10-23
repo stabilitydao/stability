@@ -37,7 +37,7 @@ console.log("");
 // @ts-ignore
 console.log(bold`=== Strategies: ${Object.keys(strategies).length} ===`);
 console.log(
-  `Live: ${strategiesTotal.LIVE}, deploying: ${strategiesTotal.DEPLOYMENT}, development: ${strategiesTotal.DEVELOPMENT}, awaiting: ${strategiesTotal.AWAITING}, blocked: ${strategiesTotal.BLOCKED}, possible: ${strategiesTotal.POSSIBLE}, proposal: ${strategiesTotal.PROPOSAL}.`,
+  `Live: ${strategiesTotal.LIVE}, ready: ${strategiesTotal.READY}, development: ${strategiesTotal.DEVELOPMENT}, cancelled: ${strategiesTotal.CANCELLED}.`,
 );
 for (const strategyShortId of Object.keys(strategies)) {
   // @ts-ignore
@@ -63,7 +63,7 @@ for (const chain of Object.keys(chains)) {
   }
 }
 console.log(
-  `Chain libraries: ${networkTotal.AWAITING_DEPLOYMENT + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.AWAITING_DEVELOPER} awaiting  dev. ${networkTotal.AWAITING_ISSUE_CREATION} awaiting creation. Multisigs: ${multisigsTotal}.`,
+  `Supported: ${networkTotal.SUPPORTED} available, ${networkTotal.DEVELOPMENT} development. Multisigs: ${multisigsTotal}.`,
 );
 console.log(
   `${Object.keys(chains)

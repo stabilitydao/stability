@@ -30,7 +30,7 @@ export const lendingMarkets: ILendingMarket[] = [
     chainId: "146",
     engine: LendingEngine.AAVE_3_0_2_CUSTOM,
     pool: "0xaa1C02a83362BcE106dFf6eB65282fE8B97A1665",
-    protocolDataProvider: "0xc67850eCd0EC9dB4c0fD65C1Ad43a53025e6d54D ",
+    protocolDataProvider: "0xc67850eCd0EC9dB4c0fD65C1Ad43a53025e6d54D",
     reserves: [
       {
         // wS

@@ -1,4 +1,5 @@
 import {
+  Agent,
   agents,
   assets,
   bridges,
@@ -16,6 +17,7 @@ import {
 } from "../src";
 import { version } from "../package.json";
 import tokenlist from "../src/stability.tokenlist.json";
+import { conveyors, IBuilderAgent } from "../src/builder";
 
 const networkTotal = getChainsTotals();
 const strategiesTotal = getStrategiesTotals();
@@ -38,10 +40,10 @@ console.log(
 );
 console.log(`🏦 Lending markets: ${lendingMarkets.length}`);
 console.log(
-  `💲 Strategies: ${Object.keys(strategies).length}. Live: ${strategiesTotal.LIVE}, deploying: ${strategiesTotal.DEPLOYMENT}, development: ${strategiesTotal.DEVELOPMENT}, awaiting: ${strategiesTotal.AWAITING}, blocked: ${strategiesTotal.BLOCKED}, possible: ${strategiesTotal.POSSIBLE}, proposal: ${strategiesTotal.PROPOSAL}, cancelled: ${strategiesTotal.CANCELLED}.`,
+  `📜 Strategies: ${Object.keys(strategies).length}. Live: ${strategiesTotal.LIVE}, ready: ${strategiesTotal.READY}, development: ${strategiesTotal.DEVELOPMENT}, cancelled: ${strategiesTotal.CANCELLED}.`,
 );
 console.log(
-  `⛓️ Chains: ${Object.keys(chains).length}. Status: ${networkTotal.AWAITING_DEPLOYMENT + networkTotal.SUPPORTED} available, ${networkTotal.CHAINLIB_DEVELOPMENT} development, ${networkTotal.AWAITING_DEVELOPER} awaiting dev. ${networkTotal.AWAITING_ISSUE_CREATION} awaiting creation. Multisigs: ${multisigsTotal}. Bridges: ${bridges.length}.`,
+  `⛓️ Chains: ${Object.keys(chains).length}. Status: ${networkTotal.SUPPORTED} supported, ${networkTotal.DEVELOPMENT} development. Multisigs: ${multisigsTotal}. Bridges: ${bridges.length}.`,
 );
 console.log(
   `🌐 DeFi organizations: ${Object.keys(integrations).length}. Protocols: ${protocolsTotal}.`,
@@ -61,4 +63,11 @@ console.log(
       .filter((c) => !!contests[c].integration).length
   }.`,
 );
+console.log(``);
+console.log(`### 👷 Builder`);
+const builder = agents[1] as IBuilderAgent;
+console.log(``);
+console.log(`* Conveyors: ${builder.conveyors.map((c) => c.name).join(", ")}`);
+console.log(`* Pools: ${builder.pools.map((c) => c.name).join(", ")}`);
+
 console.log(``);

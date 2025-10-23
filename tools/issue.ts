@@ -137,7 +137,7 @@ We usually consider the following as such assets:
 // chain issues
 for (const chainId in chains) {
   const chain = chains[chainId];
-  if (chain.status === ChainStatus.AWAITING_ISSUE_CREATION) {
+  if (chain.chainLibGithubId === 0) {
     const img = `https://raw.githubusercontent.com/stabilitydao/.github/main/chains/${chain.img}`;
     console.log(
       `------ Need to create issue for chain ${chain.name}
