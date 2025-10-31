@@ -7,6 +7,7 @@ export interface ILendingMarket {
   // AaveProtocolDataProvider: getAllReservesTokens, getAllATokens
   reserves: IReserve[];
   deployed: string;
+  deprecated?: boolean;
 }
 
 export const enum LendingEngine {
@@ -136,6 +137,7 @@ export const lendingMarkets: ILendingMarket[] = [
       },
     ],
     deployed: "Sep 5, 2025",
+    deprecated: true,
   },
   {
     id: "wmetaUSD gen2",
@@ -166,5 +168,35 @@ export const lendingMarkets: ILendingMarket[] = [
       },
     ],
     deployed: "Sep 19, 2025",
+  },
+  {
+    id: "STBL",
+    chainId: "146",
+    engine: LendingEngine.AAVE_3_0_2,
+    pool: "0xb0A06303085aB2F73212C8846CA5388Da5697c31",
+    protocolDataProvider: "0xB263ecA021e1D265D7e68842bc57e656cb88FE03",
+    reserves: [
+      {
+        // STBL
+        asset: "0x78a76316F66224CBaCA6e70acB24D5ee5b2Bd2c7",
+        aToken: "0x00886bC6a12d8D5ad0ef51e041a8AB37A0E59251",
+        aTokenSymbol: "asiSTBL",
+        oracle: "0x3c45Fdad0519Bce8D011552F8B11dD5Fa651200C",
+        oracleName: "Stability",
+        treasury: "0x3950b3a43fa0687561Bc5c8E32D2EE826D88a661",
+        isBorrowable: false,
+      },
+      {
+        // USDC
+        asset: "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+        aToken: "0x46b2E96725F03873Cb586a7f84c22545F2835F31",
+        aTokenSymbol: "asiUSDC",
+        oracle: "0x55bCa887199d5520B3Ce285D41e6dC10C08716C9",
+        oracleName: "ChainLink",
+        treasury: "0x3950b3a43fa0687561Bc5c8E32D2EE826D88a661",
+        isBorrowable: true,
+      },
+    ],
+    deployed: "Oct 31, 2025",
   },
 ];
