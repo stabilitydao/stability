@@ -2,10 +2,10 @@
   "name": "Stability Token List",
   "logoURI": "https://stability.farm/logo.svg",
   "keywords": [],
-  "timestamp": "2025-10-20T00:00:00+00:00",
+  "timestamp": "2025-10-27T00:00:00+00:00",
   "version": {
     "major": 1,
-    "minor": 30,
+    "minor": 31,
     "patch": 0
   },
   "tags": {
@@ -1490,6 +1490,15 @@
       "decimals": 6,
       "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wmetaUSDT.png",
       "tags": ["usd"]
+    },
+    {
+      "chainId": 146,
+      "address": "0x77773Cb473aD1bfE991bA299a127F64b45C17777",
+      "symbol": "STBL_DAO",
+      "name": "Stability DAO",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/STBL_DAO.png",
+      "tags": []
     }
   ]
 }
