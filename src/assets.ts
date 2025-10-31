@@ -1067,6 +1067,15 @@ export const assets: Asset[] = [
     website: "https://stability.farm/",
     color: "#3fc00d",
   },
+  {
+    addresses: {
+      "146": "0x77773Cb473aD1bfE991bA299a127F64b45C17777",
+    },
+    symbol: "STBL_DAO",
+    description: "Stability DAO power token",
+    website: "https://stability.farm/",
+    color: "#6600ff",
+  },
 ];
 
 export const sonicWhitelistedAssets: {

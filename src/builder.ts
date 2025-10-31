@@ -76,6 +76,34 @@ export interface IConveyorStep {
   guide?: string;
 }
 
+export interface IWorker {
+  username: string;
+  img: string;
+}
+
+export interface IIssue {
+  repo: string;
+  id: number;
+  title: string;
+  labels: ILabel[];
+  assignees: IWorker;
+  body?: string;
+}
+
+export interface IBuilderMemory {
+  openIssues: {
+    total: { [repo: string]: number };
+    pools: { [poolName: string]: IIssue[] };
+  };
+  conveyors: {
+    [conveyorName: string]: {
+      [taskId: string]: {
+        [stepName: string]: IIssue[];
+      };
+    };
+  };
+}
+
 export const pools: IPool[] = [
   {
     name: "Products",
@@ -278,6 +306,7 @@ export const builder: Agent = {
   status: AgentStatus.UNDER_CONSTRUCTION,
   name: "Stability Builder",
   tokenization: "2026",
+  image: "BUILDER.png",
   ...emptyRuntime,
   repo: [
     "stabilitydao/stability",

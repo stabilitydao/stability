@@ -65,6 +65,7 @@ export const agents: Agent[] = [
     name: "Stability Operator",
     tokenization: "2026",
     telegram: "@stability_dao_bot",
+    image: "OPERATOR.png",
     ...emptyRuntime,
     api: ["https://api.stability.farm", "https://api.stabilitydao.org"],
   },
