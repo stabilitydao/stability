@@ -1,13 +1,13 @@
 ---
-name: New strategy
+name: 📜 New strategy
 about: Initial issue for new strategy development by conveyor.
-title: "📜 %STRATEGY_SHORT_ID% | %STRATEGY_ID%: strategy architecture"
+title: "📜 %STRATEGY_SHORT_ID% | %STRATEGY_ID%: Prepare"
 labels: builder:STRATEGY
 assignees: ''
 
 ---
 
-# %STRATEGY_SHORT_ID%
+# %STRATEGY_SHORT_ID% | %STRATEGY_ID%
 
 ## Tasks
 
@@ -18,4 +18,4 @@ assignees: ''
 
 ## Artifacts
 
-* [ ] Library tag
+* [ ] Library tag: `v0.X.Y`

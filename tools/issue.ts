@@ -22,7 +22,7 @@ for (const shortId of Object.keys(strategies)) {
       `------ Need to create issue for strategy ${strategy.shortId}
 ------ https://github.com/stabilitydao/stability-contracts/issues/new`,
     );
-    console.log(`Title: 📜 [${strategy.state}] ${strategy.id}`);
+    console.log(`Title: 📜 ${strategy.shortId} | ${strategy.id}: Contract`);
     console.log(`# ${strategy.shortId} | ${strategy.id}`);
     console.log("");
     console.log("<div>");

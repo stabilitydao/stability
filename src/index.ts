@@ -66,6 +66,7 @@ import { IlDetails, getIL } from "./risk";
 import { Severity, status } from "./status";
 import { AgentId, Agent, agents, getAgent } from "./agents";
 import { ILendingMarket, IReserve, lendingMarkets } from "./lending";
+import { IBuilderAgent } from "./builder";
 
 export {
   deployments,
@@ -137,4 +138,5 @@ export {
   lendingMarkets,
   ILendingMarket,
   IReserve,
+  IBuilderAgent,
 };
