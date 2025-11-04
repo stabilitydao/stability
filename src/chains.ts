@@ -408,7 +408,7 @@ export const chains: { [chainId: string]: Chain } = {
   "9745": {
     name: ChainName.PLASMA,
     chainId: 9745,
-    status: ChainStatus.DEVELOPMENT,
+    status: ChainStatus.SUPPORTED,
     img: "plasma.webp",
     multisig: "0xE929438B5B53984FdBABf8562046e141e90E8099",
     chainLibGithubId: 397,

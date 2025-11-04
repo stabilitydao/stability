@@ -72,14 +72,14 @@ export const agents: Agent[] = [
   builder,
   {
     id: AgentId.YIELD_TRACKER,
-    status: AgentStatus.INITIAL_FUNDING,
+    status: AgentStatus.PROPOSAL,
     name: "Yield Tracker",
     ...emptyRuntime,
     chainIDs: ["146"],
   },
   {
     id: AgentId.TRADER,
-    status: AgentStatus.INITIAL_FUNDING,
+    status: AgentStatus.PROPOSAL,
     name: "ETH trader",
     ...emptyRuntime,
     asset: ["ETH"],

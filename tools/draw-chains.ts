@@ -156,8 +156,13 @@ async function main() {
     ctx.fillText(`Chain ID: ${chainId}`, 100, 900);
 
     // image
-    const image = await loadImage(`${tmpDir}/${chain.img}`);
-    ctx.drawImage(image, 250, 170, 500, 500);
+    const imgPath = `${tmpDir}/${chain.img}`;
+    try {
+      const image = await loadImage(imgPath);
+      ctx.drawImage(image, 250, 170, 500, 500);
+    } catch (e) {
+      console.log(`Error while processing ${imgPath}`);
+    }
 
     // Write the image to file
     const buffer = canvas.toBuffer("image/png");

@@ -50,22 +50,15 @@ yarn prettier . --write
 
 ### Commit/PR prefix
 
-| Changes            | Prefix |
-| ------------------ | ------ |
-| API types          | 📡     |
-| AI, Agents         | 🤖     |
-| Strategies         | 📜     |
-| Deployments        | #️⃣     |
-| Chains             | ⛓️     |
-| Integrations       | 🌐     |
-| Assets, tokenlist  | 🪙     |
-| Sync state, etc    | ♻️️    |
-| Content generators | 🎇     |
-| Bridges            | 🌉     |
-| Risk               | 🚦     |
-| Prettier           | #️⃣     |
-| Docs               | 📙     |
-| Adapters           | 🔌     |
-| Contests           | 🏆     |
-| Lending            | 🏦     |
-| Collector          | 📦     |
+- 🤖 Agents
+- 📡 API
+- 📜 Strategies
+- 🪙 Assets
+- ⛓️ Chains
+- 🏦 Lending
+- 🌐 DeFi, integrations
+- ♻️ Sync
+- 🎇 Content generator
+- 📦 Library
+- #️⃣ Lint, format
+- 📙 Docs

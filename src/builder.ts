@@ -26,9 +26,12 @@ export interface IBuilderAgent extends IAgentBase, IAgentRuntime {
 
 export interface IConveyor {
   name: string;
+  symbol: string;
   type: string;
   label: ILabel;
   description: string;
+  issueTitleTemplate: string;
+  taskIdIs: string;
   steps: IConveyorStep[];
 }
 
@@ -65,10 +68,9 @@ export interface IConveyorStep {
   name: string;
   issues: {
     repo: string;
-    title: string;
+    taskList?: string[];
     issueTemplate?: string;
     body?: string;
-    taskList?: string[];
     generator?: string;
   }[];
   artifacts?: IArtifact[];
@@ -158,6 +160,7 @@ export const pools: IPool[] = [
 export const conveyors: IConveyor[] = [
   {
     name: "Strategies",
+    symbol: "📜",
     type: "Task",
     label: {
       name: "builder:STRATEGY",
@@ -165,15 +168,15 @@ export const conveyors: IConveyor[] = [
         "Developing and deploying a new strategy on the **Strategies** conveyor belt.",
       color: "#00d0ff",
     },
-    description: "Implement and integrate new strategy contract",
+    issueTitleTemplate: "📜 %STRATEGY_SHORT_ID% | %STRATEGY_ID%: %STEP_NAME%",
+    taskIdIs: "%STRATEGY_SHORT_ID%",
+    description: "Implement and integrate new strategy smart contract",
     steps: [
       {
-        name: "Prepare library",
+        name: "Prepare",
         issues: [
           {
             repo: "stabilitydao/stability",
-            title:
-              "📜 %STRATEGY_SHORT_ID% | %STRATEGY_ID%: strategy architecture",
             issueTemplate: "strategy.md",
           },
         ],
@@ -185,28 +188,59 @@ export const conveyors: IConveyor[] = [
         ],
       },
       {
-        name: "Implement deploy and strategy smart contract",
+        name: "Contract",
         issues: [
           {
             repo: "stabilitydao/stability-contracts",
-            title: "📜 [%SHORT_NAME%] | %ID%: implement strategy",
+            generator: "yarn issue",
           },
         ],
-        /*artifacts: [
+        artifacts: [
           {
             type: ArtifactType.CONTRACT_ADDRESS,
-            name: "Strategy implementation",
+            name: "Strategy implementations in chains",
           },
-        ],*/
+        ],
       },
       {
-        name: "Integrate strategy",
-        // todo
-        issues: [],
+        name: "Integrate",
+        issues: [
+          {
+            repo: "stabilitydao/stability",
+            taskList: [
+              "Setup platform in chains",
+              "Add farms / strategy init params",
+              "Deploy vaults",
+              "Do post setup (toggleDistributorOperator, etc)",
+              "Add all necessary tokens to `src/stability.tokenlist.json`, `src/assets.ts`",
+              "Set status READY to strategy in `src/strategies.ts`",
+            ],
+          },
+        ],
         artifacts: [
           {
             type: ArtifactType.LIBRARY_RELEASE_TAG,
-            name: "Library where strategy is READY to use and live with all necessary tokens",
+          },
+        ],
+      },
+      {
+        name: "Backend",
+        issues: [
+          {
+            repo: "stabilitydao/stability-node-pro",
+            taskList: ["Update library"],
+          },
+        ],
+      },
+      {
+        name: "Frontend",
+        issues: [
+          {
+            repo: "stabilitydao/stability-ui",
+            taskList: [
+              "Update library",
+              "Generate and fill new vault OG images",
+            ],
           },
         ],
       },
@@ -214,20 +248,22 @@ export const conveyors: IConveyor[] = [
   },
   {
     name: "Chains",
+    symbol: "⛓️",
     type: "Task",
     label: {
       name: "builder:CHAIN",
-      description: "",
+      description: "Chain integration by Chains conveyor",
       color: "#30da71",
     },
+    issueTitleTemplate: "⛓️ %CHAIN_NAME% [%CHAIN_ID%]: %STEP_NAME%",
+    taskIdIs: "%CHAIN_NAME%",
     description: "Add chain support",
     steps: [
       {
-        name: "Prepare and release library",
+        name: "Prepare",
         issues: [
           {
             repo: "stabilitydao/stability",
-            title: "⛓️ %CHAIN_NAME% [%CHAIN_ID%]: prepare chain",
             taskList: [
               "Add chain image to static repo",
               "add new chain to `src/chains.ts` with status `ChainStatus.DEVELOPMENT`",
@@ -245,11 +281,10 @@ export const conveyors: IConveyor[] = [
         ],
       },
       {
-        name: "Prepare and deploy platform contracts",
+        name: "Contracts",
         issues: [
           {
             repo: "stabilitydao/stability-contracts",
-            title: "⛓️ %CHAIN_NAME% [%CHAIN_ID%] deployment",
             generator:
               "🎇 Run `yarn issue` in library repo, fill issue id to `src/chains.ts`.",
           },
@@ -257,42 +292,44 @@ export const conveyors: IConveyor[] = [
         result: "deployed and verified core and periphery contract addresses",
       },
       {
-        name: "Deploy subgraph",
+        name: "Subgraph",
         issues: [
           {
             repo: "stabilitydao/stability-subgraph",
-            title: "⛓️ %CHAIN_NAME% [%CHAIN_ID%]: deploy subgraph",
+            taskList: ["add chain support", "deploy subgraph"],
           },
         ],
         result: "subgraph endpoint url",
       },
       {
-        name: "Release library with deployment",
+        name: "Deployment",
         issues: [
           {
             repo: "stabilitydao/stability",
-            title: "⛓️ %CHAIN_NAME% [%CHAIN_ID%]: add deployment",
             taskList: ["Add chain to `src/deployments.ts`"],
           },
         ],
         result: "library release tag",
       },
       {
-        name: "Backend support",
+        name: "Backend",
         issues: [
           {
             repo: "stabilitydao/stability-node-pro",
-            title: "⛓️ %CHAIN_NAME% [%CHAIN_ID%]: add chain support",
+            taskList: ["Show chain in API", "Setup TxSender"],
           },
         ],
         result: "API reply has chain data",
       },
       {
-        name: "Frontend support",
+        name: "Frontend",
         issues: [
           {
             repo: "stabilitydao/stability-ui",
-            title: "⛓️ %CHAIN_NAME% [%CHAIN_ID%]: add chain support",
+            taskList: [
+              "add chain support to dapp",
+              "show chain in vaults filter",
+            ],
           },
         ],
         result: "beta UI show chain",
@@ -305,7 +342,7 @@ export const builder: Agent = {
   id: AgentId.BUILDER,
   status: AgentStatus.UNDER_CONSTRUCTION,
   name: "Stability Builder",
-  tokenization: "2026",
+  tokenization: "Q1 2026",
   image: "BUILDER.png",
   ...emptyRuntime,
   repo: [
@@ -321,6 +358,10 @@ export const builder: Agent = {
     {
       period: "Sep, 2025",
       usdAmount: 32200,
+    },
+    {
+      period: "Oct, 2025",
+      usdAmount: 31100,
     },
   ],
   workers: [],
