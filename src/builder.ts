@@ -163,7 +163,7 @@ export const conveyors: IConveyor[] = [
     symbol: "📜",
     type: "Task",
     label: {
-      name: "builder:STRATEGY",
+      name: "conveyor:STRATEGY",
       description:
         "Developing and deploying a new strategy on the **Strategies** conveyor belt.",
       color: "#00d0ff",
@@ -251,7 +251,7 @@ export const conveyors: IConveyor[] = [
     symbol: "⛓️",
     type: "Task",
     label: {
-      name: "builder:CHAIN",
+      name: "conveyor:CHAIN",
       description: "Chain integration by Chains conveyor",
       color: "#30da71",
     },

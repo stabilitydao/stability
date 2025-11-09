@@ -74,6 +74,7 @@ export const enum StrategyShortId {
   SiMerklF = "SiMerklF",
   SiALMF = "SiALMF",
   C = "C",
+  ALMF = "ALMF",
 }
 
 export enum StrategyState {
@@ -775,6 +776,26 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     protocols: [`compound:compoundV2`],
     bgColor: "#000000",
     description: "Lend asset on Compound V2",
+  },
+  [StrategyShortId.ALMF]: {
+    id: "Aave Leverage Merkl Farm",
+    shortId: StrategyShortId.ALMF,
+    state: StrategyState.DEVELOPMENT,
+    contractGithubId: 431,
+    color: "#416dff",
+    bgColor: "#000d1f",
+    baseStrategies: [
+      BaseStrategy.LEVERAGED_LENDING,
+      BaseStrategy.FARMING,
+      BaseStrategy.MERKL,
+    ],
+    protocols: ["aave:aaveV3", "angle:merkl"],
+    description: "Leverage asset on Aave V3",
+    farmStruct: {
+      addresses: ["Collateral aToken", "Borrowed aToken", "FlashLoan Pool"],
+      nums: ["Min target leverage", "Max target leverage"],
+      ticks: [],
+    },
   },
 };
 

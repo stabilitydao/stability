@@ -56,6 +56,7 @@ yarn prettier . --write
 - 🪙 Assets
 - ⛓️ Chains
 - 🏦 Lending
+- 🧺 Products
 - 🌐 DeFi, integrations
 - ♻️ Sync
 - 🎇 Content generator
