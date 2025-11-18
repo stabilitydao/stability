@@ -2,17 +2,26 @@ export interface ILendingMarket {
   id: string;
   chainId: string;
   engine: LendingEngine;
+  operator: LendingOperator;
   pool: `0x${string}`;
   protocolDataProvider: `0x${string}`;
   // AaveProtocolDataProvider: getAllReservesTokens, getAllATokens
   reserves: IReserve[];
   deployed: string;
+  show: boolean;
+  stableCoinIsolatedMarket?: boolean;
   deprecated?: boolean;
 }
 
 export const enum LendingEngine {
-  AAVE_3_0_2 = "Aave 3.0.2",
-  AAVE_3_0_2_CUSTOM = "Aave 3.0.2 custom",
+  AAVE_3_0_2 = "Aave v3.0.2",
+  AAVE_3_0_2_CUSTOM = "Aave v3.0.2 custom",
+  AAVE_3_5 = "Aave v3.5",
+}
+
+export const enum LendingOperator {
+  STABILITY = "Stability",
+  AAVE = "Aave",
 }
 
 export interface IReserve {
@@ -27,9 +36,83 @@ export interface IReserve {
 
 export const lendingMarkets: ILendingMarket[] = [
   {
-    id: "Main",
+    id: "Core Instance",
+    chainId: "1",
+    engine: LendingEngine.AAVE_3_5,
+    operator: LendingOperator.AAVE,
+    pool: "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+    protocolDataProvider: "0x0a16f2FCC0D44FaE41cc54e079281D84A363bECD",
+    reserves: [
+      {
+        // WETH
+        asset: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        aToken: "0x4d5F47FA6A74757f35C14fD3a6Ef8E3C9BC514E8",
+        aTokenSymbol: "aEthWETH",
+        oracle: "0x5424384B256154046E9667dDFaaa5e550145215e",
+        oracleName: "Chainlink",
+        treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
+        isBorrowable: true,
+      },
+      {
+        // USDT
+        asset: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        aToken: "0x23878914EFE38d27C4D67Ab83ed1b93A74D4086a",
+        aTokenSymbol: "aEthUSDT",
+        oracle: "0x260326c220E469358846b187eE53328303Efe19C",
+        oracleName: "Chainlink",
+        treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
+        isBorrowable: true,
+      },
+      {
+        // weETH
+        asset: "0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee",
+        aToken: "0xBdfa7b7893081B35Fb54027489e2Bc7A38275129",
+        aTokenSymbol: "aEthweETH",
+        oracle: "0x87625393534d5C102cADB66D37201dF24cc26d4C",
+        oracleName: "Chainlink",
+        treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
+        isBorrowable: true,
+      },
+      {
+        // wstETH
+        asset: "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+        aToken: "0x0B925eD163218f6662a35e0f0371Ac234f9E9371",
+        aTokenSymbol: "aEthwstETH",
+        oracle: "0xe1D97bF61901B075E9626c8A2340a7De385861Ef",
+        oracleName: "Chainlink",
+        treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
+        isBorrowable: true,
+      },
+      {
+        // USDC
+        asset: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        aToken: "0x98C23E9d8f34FEFb1B7BD6a91B7FF122F4e16F5c",
+        aTokenSymbol: "aEthUSDC",
+        oracle: "0x3f73F03aa83B2A48ed27E964eD0fDb590332095B",
+        oracleName: "Chainlink",
+        treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
+        isBorrowable: true,
+      },
+      {
+        // WBTC
+        asset: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        aToken: "0x5Ee5bf7ae06D1Be5997A1A72006FE6C607eC6DE8",
+        aTokenSymbol: "aEthWBTC",
+        oracle: "0xDaa4B74C6bAc4e25188e64ebc68DB5050b690cAc",
+        oracleName: "Chainlink",
+        treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
+        isBorrowable: true,
+      },
+      // todo add other assets by `yarn update-lending`
+    ],
+    deployed: "Dec 29, 2022",
+    show: false,
+  },
+  {
+    id: "Vicuna",
     chainId: "146",
     engine: LendingEngine.AAVE_3_0_2_CUSTOM,
+    operator: LendingOperator.STABILITY,
     pool: "0xaa1C02a83362BcE106dFf6eB65282fE8B97A1665",
     protocolDataProvider: "0xc67850eCd0EC9dB4c0fD65C1Ad43a53025e6d54D",
     reserves: [
@@ -107,11 +190,13 @@ export const lendingMarkets: ILendingMarket[] = [
       },
     ],
     deployed: "Feb 6, 2025",
+    show: true,
   },
   {
     id: "Brunch gen2",
     chainId: "146",
     engine: LendingEngine.AAVE_3_0_2,
+    operator: LendingOperator.STABILITY,
     pool: "0x6D8Aa37DfAa98d2a14da39cfeD36975F97fc3f85",
     protocolDataProvider: "0xb102Cc0cb1357C339D1eFd611De4feE2e0E82448",
     reserves: [
@@ -137,12 +222,14 @@ export const lendingMarkets: ILendingMarket[] = [
       },
     ],
     deployed: "Sep 5, 2025",
+    show: true,
     deprecated: true,
   },
   {
     id: "wmetaUSD gen2",
     chainId: "146",
     engine: LendingEngine.AAVE_3_0_2,
+    operator: LendingOperator.STABILITY,
     pool: "0x909ba6aC1A9D34fE97Cb459C2CA9b6Ff986676F7",
     protocolDataProvider: "0x253A04ca6efef2e25f801153852B02bF74E1f749",
     reserves: [
@@ -168,11 +255,14 @@ export const lendingMarkets: ILendingMarket[] = [
       },
     ],
     deployed: "Sep 19, 2025",
+    show: true,
+    stableCoinIsolatedMarket: true,
   },
   {
     id: "STBL",
     chainId: "146",
     engine: LendingEngine.AAVE_3_0_2,
+    operator: LendingOperator.STABILITY,
     pool: "0xb0A06303085aB2F73212C8846CA5388Da5697c31",
     protocolDataProvider: "0xB263ecA021e1D265D7e68842bc57e656cb88FE03",
     reserves: [
@@ -198,5 +288,6 @@ export const lendingMarkets: ILendingMarket[] = [
       },
     ],
     deployed: "Oct 31, 2025",
+    show: true,
   },
 ];
