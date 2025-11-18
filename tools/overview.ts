@@ -18,8 +18,7 @@ import {
 } from "../src";
 import { version } from "../package.json";
 import tokenlist from "../src/stability.tokenlist.json";
-import { conveyors, IBuilderAgent } from "../src/builder";
-import { IOperatorAgent } from "../src/agents";
+import { IBuilderAgent, IOperatorAgent } from "../src/agents";
 
 const networkTotal = getChainsTotals();
 const strategiesTotal = getStrategiesTotals();
@@ -76,8 +75,10 @@ const builder = agents[1] as IBuilderAgent;
 console.log(`### 🤖 ${builder.name}`);
 console.log(``);
 console.log(
-  `* Conveyors: ${builder.conveyors.map((c) => `${c.symbol} ${c.name}`).join(", ")}`,
+  `* Conveyors: ${builder.builderData.conveyors.map((c) => `${c.symbol} ${c.name}`).join(", ")}`,
 );
-console.log(`* Pools: ${builder.pools.map((c) => c.name).join(", ")}`);
+console.log(
+  `* Pools: ${builder.builderData.pools.map((c) => c.name).join(", ")}`,
+);
 
 console.log(``);

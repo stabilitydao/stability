@@ -64,9 +64,8 @@ import {
 import { AssetOracle, assetOracles, vaultOracles } from "./oracles";
 import { IlDetails, getIL } from "./risk";
 import { Severity, status } from "./status";
-import { AgentId, Agent, agents, getAgent } from "./agents";
+import { AgentRole, Agent, IBuilderAgent, agents, getAgents } from "./agents";
 import { ILendingMarket, IReserve, lendingMarkets } from "./lending";
-import { IBuilderAgent } from "./builder";
 
 export {
   deployments,
@@ -131,10 +130,10 @@ export {
   sonicWhitelistedAssets,
   getIL,
   IlDetails,
-  AgentId,
+  AgentRole,
   Agent,
   agents,
-  getAgent,
+  getAgents,
   lendingMarkets,
   ILendingMarket,
   IReserve,

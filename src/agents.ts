@@ -1,20 +1,32 @@
-import { builder, IBuilderAgent } from "./builder";
+import { stabilityBuilderData } from "./builder";
 
-export const enum AgentId {
+/*
+ * Stability agent is highly abstract and high-level entity that follow role directives.
+ * Live agent is tokenized and managed by DAO
+ */
+
+export const enum AgentRole {
   OPERATOR = "OPERATOR",
   BUILDER = "BUILDER",
-  YIELD_TRACKER = "YIELD_TRACKER",
-  TRADER = "TRADER",
+}
+
+export const enum AgentTokenizationState {
+  LIVE = "LIVE",
+  UNDER_CONSTRUCTION = "UNDER_CONSTRUCTION",
+  INITIAL_FUNDING = "INITIAL_FUNDING",
 }
 
 export interface IAgentBase {
-  id: AgentId;
-  status: AgentStatus;
+  roles: AgentRole[];
+  tokenization: {
+    state: AgentTokenizationState;
+    eta?: string;
+    tokenSymbol: string;
+    xSymbol: string;
+    daoSymbol: string;
+  };
   name: string;
-  tokenization?: string | boolean;
   directives?: string[];
-  token?: `0x${string}`[];
-  eoa?: `0x${string}`[];
   image?: string;
   telegram?: `@${string}`;
 }
@@ -37,54 +49,155 @@ export interface IOperatorAgent extends IAgentBase, IAgentRuntime {
   api: string[];
 }
 
-export interface IYieldTrackerAgent extends IAgentBase, IAgentRuntime {
-  chainIDs: string[];
+export interface IOperatorData {
+  units: Unit[];
 }
 
-export interface ITraderAgent extends IAgentBase, IAgentRuntime {
-  asset: string[];
+export interface Unit {
+  name: string;
+  share: number;
 }
 
-export type Agent =
-  | IOperatorAgent
-  | IBuilderAgent
-  | ITraderAgent
-  | IYieldTrackerAgent;
-
-export const enum AgentStatus {
-  PROPOSAL = "PROPOSAL",
-  INITIAL_FUNDING = "INITIAL_FUNDING",
-  UNDER_CONSTRUCTION = "UNDER_CONSTRUCTION",
-  LIVE = "LIVE",
+export interface IBuilderAgent extends IAgentBase, IAgentRuntime {
+  builderData: IBuilderData;
 }
+
+export interface IBuilderData {
+  repo: string[];
+  burnRate: {
+    period: string;
+    usdAmount: number;
+  }[];
+  workers: string[];
+  conveyors: IConveyor[];
+  pools: IPool[];
+}
+
+export interface IPool {
+  name: string;
+  label: ILabel;
+  productTypes?: string[];
+  artifacts?: IArtifact[];
+}
+
+export interface IConveyor {
+  name: string;
+  symbol: string;
+  type: string;
+  label: ILabel;
+  description: string;
+  issueTitleTemplate: string;
+  taskIdIs: string;
+  steps: IConveyorStep[];
+}
+
+export const enum ArtifactType {
+  LIBRARY_RELEASE_TAG = "Library release tag",
+  DEPLOYMENT_ADDRESSES = "Deployment addresses",
+  URL_UI = "URL to UI page",
+  URL_API = "API endpoint",
+  URL_STATIC = "Static content URL",
+  CONTRACT_ADDRESS = "Address of deployed contract",
+}
+
+export interface IArtifact {
+  type: ArtifactType;
+  name?: string;
+  value?: any;
+}
+
+export interface IConveyorStep {
+  name: string;
+  issues: {
+    repo: string;
+    taskList?: string[];
+    issueTemplate?: string;
+    body?: string;
+    generator?: string;
+  }[];
+  artifacts?: IArtifact[];
+  result?: string;
+  guide?: string;
+}
+
+export interface ILabel {
+  name: string;
+  description: string;
+  color: string;
+}
+
+export interface IGithubUser {
+  username: string;
+  img: string;
+}
+
+export interface IIssue {
+  repo: string;
+  id: number;
+  title: string;
+  labels: ILabel[];
+  assignees: IGithubUser;
+  body?: string;
+}
+
+export interface IBuilderMemory {
+  openIssues: {
+    total: { [repo: string]: number };
+    pools: { [poolName: string]: IIssue[] };
+  };
+  conveyors: {
+    [conveyorName: string]: {
+      [taskId: string]: {
+        [stepName: string]: IIssue[];
+      };
+    };
+  };
+}
+
+export type Agent = IOperatorAgent | IBuilderAgent;
 
 export const agents: Agent[] = [
   {
-    id: AgentId.OPERATOR,
-    status: AgentStatus.UNDER_CONSTRUCTION,
+    roles: [AgentRole.OPERATOR],
     name: "Stability Operator",
-    tokenization: "2026",
+    tokenization: {
+      state: AgentTokenizationState.LIVE,
+      tokenSymbol: "STBL",
+      xSymbol: "xSTBL",
+      daoSymbol: "STBL_DAO",
+    },
     telegram: "@stability_dao_bot",
     image: "OPERATOR.png",
     ...emptyRuntime,
     api: ["https://api.stability.farm", "https://api.stabilitydao.org"],
   },
-  builder,
   {
-    id: AgentId.YIELD_TRACKER,
-    status: AgentStatus.PROPOSAL,
-    name: "Yield Tracker",
+    roles: [AgentRole.BUILDER],
+    name: "Stability Builder",
+    tokenization: {
+      eta: "2026",
+      state: AgentTokenizationState.UNDER_CONSTRUCTION,
+      tokenSymbol: "BUILDER",
+      xSymbol: "xBUILDER",
+      daoSymbol: "BUILDER_DAO",
+    },
+    image: "BUILDER.png",
     ...emptyRuntime,
-    chainIDs: ["146"],
+    builderData: stabilityBuilderData,
   },
   {
-    id: AgentId.TRADER,
-    status: AgentStatus.PROPOSAL,
-    name: "ETH trader",
+    roles: [AgentRole.OPERATOR, AgentRole.BUILDER],
+    name: "MEV Fighter",
+    tokenization: {
+      state: AgentTokenizationState.INITIAL_FUNDING,
+      tokenSymbol: "MEVBOT",
+      xSymbol: "xMEVBOT",
+      daoSymbol: "MEVBOTDAO",
+    },
     ...emptyRuntime,
-    asset: ["ETH"],
+    api: [],
   },
 ];
 
-export const getAgent = (agentId: AgentId): Agent =>
-  agents.filter((a) => a.id === agentId)[0];
+export const getAgents = (role: AgentRole): Agent[] =>
+  agents.filter((a) => a.roles.includes(role));
