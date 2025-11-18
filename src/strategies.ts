@@ -75,6 +75,7 @@ export const enum StrategyShortId {
   SiALMF = "SiALMF",
   C = "C",
   ALMF = "ALMF",
+  // PEA = "PEA",
 }
 
 export enum StrategyState {
@@ -793,10 +794,14 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     description: "Leverage asset on Aave V3",
     farmStruct: {
       addresses: ["Collateral aToken", "Borrowed aToken", "FlashLoan Pool"],
-      nums: ["Min target leverage", "Max target leverage"],
+      nums: ["Target min LTV", "Target max LTV"],
       ticks: [],
     },
   },
+  /*[StrategyShortId.PEA]: {
+    id: "Paradex Extended Arbitrage",
+    
+  },*/
 };
 
 export const getMerklStrategies = (): string[] => {
