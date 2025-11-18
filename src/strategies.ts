@@ -794,7 +794,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
     description: "Leverage asset on Aave V3",
     farmStruct: {
       addresses: ["Collateral aToken", "Borrowed aToken", "FlashLoan Pool"],
-      nums: ["Target min LTV", "Target max LTV"],
+      nums: ["Target min LTV", "Target max LTV", "flashloan kind (0/1/2/3)"],
       ticks: [],
     },
   },
