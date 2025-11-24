@@ -87,6 +87,13 @@ export interface IDAOParameters {
   recoveryShare?: number;
 }
 
+export const enum UnitComponentCategory {
+  CHAIN_SUPPORT = "CHAIN_SUPPORT",
+  ENGINE_SUPPORT = "ENGINE_SUPPORT",
+  DEFI_STRATEGY = "DEFI_STRATEGY",
+  MEV_STRATEGY = "MEV_STRATEGY",
+}
+
 /**
  Revenue generating unit.
 */
@@ -109,13 +116,6 @@ export const enum UnitType {
 export interface IUnitUILink {
   href: `https://${string}`;
   title: string;
-}
-
-export const enum UnitComponentCategory {
-  CHAIN_SUPPORT = "CHAIN_SUPPORT",
-  ENGINE_SUPPORT = "ENGINE_SUPPORT",
-  DEFI_STRATEGY = "DEFI_STRATEGY",
-  MEV_STRATEGY = "MEV_STRATEGY",
 }
 
 export type UnitComponent = StrategyShortId | ChainName | LendingEngine;
