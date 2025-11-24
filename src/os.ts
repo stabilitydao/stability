@@ -7,13 +7,13 @@ import { ChainName } from "./chains";
 import { AgentRole, emptyRuntime, IAgent } from "./agents";
 import { strategies, StrategyShortId, StrategyState } from "./strategies";
 import { LendingEngine } from "./lending";
-import { ArtifactType, IConveyor, IPool } from "./activity/builder";
+import { ArtifactType, IBuilderActivity } from "./activity/builder";
 
 export const STABILITY_OS_TYPES_VERSION = "v2025.11.22";
 
 /**
- * Represents a DAO running on Stability OS.
- * @interface
+ Represents a DAO running on Stability OS.
+ @interface
  */
 export interface IDAO {
   /** Name of the DAO, used in token names. Without DAO word. */
@@ -96,13 +96,24 @@ export const enum UnitComponentCategory {
 
 /**
  Revenue generating unit.
+ @interface
 */
 export interface IUnit {
+  /** Unique unit string id. For DeFi protocol its defiOrg:protocolKey. */
   unitId: string;
+  /** Short name of the unit */
   name: string;
-  revenueShare: number;
+  /** Status of unit changes appear when unit starting to work and starting earning revenue */
+  status: UnitStatus;
+  /** Supported type of the Unit */
   type: UnitType;
+  /** Components of the Unit */
   components: { [category in UnitComponentCategory]?: UnitComponent[] };
+  /** The share of a Unit's profit received by the DAO to which it belongs. 100 - 100%. */
+  revenueShare: number;
+  /** A unique emoji for the shortest possible representation of a Unit in the Stability OS. */
+  emoji?: string;
+  /** Frontend endpoints of Unit */
   ui?: IUnitUILink[];
   api?: string[];
 }
@@ -113,28 +124,18 @@ export const enum UnitType {
   MEV = "MEV",
 }
 
+export const enum UnitStatus {
+  RESEARCH = "RESEARCH",
+  BUILDING = "BUILDING",
+  LIVE = "LIVE",
+}
+
 export interface IUnitUILink {
   href: `https://${string}`;
   title: string;
 }
 
 export type UnitComponent = StrategyShortId | ChainName | LendingEngine;
-
-export interface IBuilderActivity {
-  /** Safe multisig account of dev team */
-  multisig: string[];
-  /** Tracked Github repositories where development going on */
-  repo: string[];
-  burnRate: {
-    period: string;
-    usdAmount: number;
-  }[];
-  workers: string[];
-  /** Conveyors of unit components. */
-  conveyors: IConveyor[];
-  /** Pools of development tasks. */
-  pools: IPool[];
-}
 
 export const daos: IDAO[] = [
   {
@@ -150,6 +151,7 @@ export const daos: IDAO[] = [
       {
         unitId: "stability:stabilityFarm",
         name: "VaaS",
+        status: UnitStatus.LIVE,
         revenueShare: 100,
         type: UnitType.DEFI_PROTOCOL,
         components: {
@@ -164,6 +166,7 @@ export const daos: IDAO[] = [
             ChainName.PLASMA,
           ],
         },
+        emoji: "🧑‍🌾",
         ui: [
           {
             href: "https://stability.farm/vaults",
@@ -182,11 +185,13 @@ export const daos: IDAO[] = [
       {
         unitId: "stability:stabilityMarket",
         name: "Lending",
+        status: UnitStatus.LIVE,
         revenueShare: 25,
         type: UnitType.DEFI_PROTOCOL,
         components: {
           [UnitComponentCategory.ENGINE_SUPPORT]: [LendingEngine.AAVE_3_0_2],
         },
+        emoji: "🏦",
         ui: [
           {
             href: "https://stability.farm/lending",
@@ -227,9 +232,11 @@ export const daos: IDAO[] = [
       {
         unitId: "os",
         name: "Stability OS",
+        status: UnitStatus.BUILDING,
         revenueShare: 100,
         type: UnitType.SAAS,
         components: {},
+        emoji: "🧊",
       },
     ],
     agents: [
@@ -257,7 +264,8 @@ export const daos: IDAO[] = [
         "stabilitydao/stability-ui",
         "stabilitydao/stability-subgraph",
         "stabilitydao/lending-deploy",
-        "stabilitydao/builder",
+        "stabilitydao/stability-os",
+        "stabilitydao/stability-os-ui",
         "stabilitydao/stability-node-pro",
       ],
       burnRate: [
@@ -270,7 +278,7 @@ export const daos: IDAO[] = [
           usdAmount: 31100,
         },
       ],
-      workers: ["a17", "omriss"],
+      workers: ["a17", "omriss", "DevTeaLeaf", "nikita-dogil", "iammrjude"],
       conveyors: [
         {
           unitId: "stability:stabilityFarm",
@@ -492,16 +500,24 @@ export const daos: IDAO[] = [
       {
         unitId: "mevbot:liquidation",
         name: "Liquidator",
+        status: UnitStatus.RESEARCH,
         revenueShare: 100,
         type: UnitType.MEV,
-        components: {},
+        components: {
+          [UnitComponentCategory.MEV_STRATEGY]: [],
+        },
+        emoji: "🧑‍💼",
       },
       {
         unitId: "mevbot:arb",
         name: "Arbitrager",
+        status: UnitStatus.RESEARCH,
         revenueShare: 100,
         type: UnitType.MEV,
-        components: {},
+        components: {
+          [UnitComponentCategory.MEV_STRATEGY]: [],
+        },
+        emoji: "🥷",
       },
     ],
     agents: [
@@ -522,7 +538,7 @@ export const daos: IDAO[] = [
       pools: [],
       conveyors: [],
       burnRate: [],
-      workers: [],
+      workers: ["a17", "iammrjude"],
     },
   },
 ];

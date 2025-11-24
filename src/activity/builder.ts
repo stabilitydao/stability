@@ -81,3 +81,19 @@ export interface IConveyorStep {
   result?: string;
   guide?: string;
 }
+
+export interface IBuilderActivity {
+  /** Safe multisig account of dev team */
+  multisig: string[];
+  /** Tracked Github repositories where development going on */
+  repo: string[];
+  burnRate: {
+    period: string;
+    usdAmount: number;
+  }[];
+  workers: string[];
+  /** Conveyors of unit components. */
+  conveyors: IConveyor[];
+  /** Pools of development tasks. */
+  pools: IPool[];
+}
