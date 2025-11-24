@@ -30,7 +30,6 @@ yarn add @stabilitydao/stability
 
 ```shell
 yarn overview
-yarn overview-full
 yarn draw-chains
 yarn draw-integrations
 yarn contests-maker
