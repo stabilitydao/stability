@@ -137,6 +137,16 @@ export interface IUnitUILink {
 
 export type UnitComponent = StrategyShortId | ChainName | LendingEngine;
 
+export function getUnitById(unitId: string): IUnit | undefined {
+  for (const dao of daos) {
+    for (const unit of dao.units) {
+      if (unit.unitId === unitId) {
+        return unit;
+      }
+    }
+  }
+}
+
 export const daos: IDAO[] = [
   {
     name: "Stability",
@@ -166,7 +176,7 @@ export const daos: IDAO[] = [
             ChainName.PLASMA,
           ],
         },
-        emoji: "🧑‍🌾",
+        emoji: "🧊",
         ui: [
           {
             href: "https://stability.farm/vaults",
@@ -236,7 +246,7 @@ export const daos: IDAO[] = [
         revenueShare: 100,
         type: UnitType.SAAS,
         components: {},
-        emoji: "🧊",
+        emoji: "🍀",
       },
     ],
     agents: [
@@ -506,7 +516,7 @@ export const daos: IDAO[] = [
         components: {
           [UnitComponentCategory.MEV_STRATEGY]: [],
         },
-        emoji: "🧑‍💼",
+        emoji: "🥷",
       },
       {
         unitId: "mevbot:arb",
@@ -517,7 +527,7 @@ export const daos: IDAO[] = [
         components: {
           [UnitComponentCategory.MEV_STRATEGY]: [],
         },
-        emoji: "🥷",
+        emoji: "🧑‍💼",
       },
     ],
     agents: [

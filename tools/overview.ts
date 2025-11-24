@@ -3,13 +3,13 @@ import {
   chains,
   integrations,
   lendingMarkets,
-  seeds,
   strategies,
   daos,
   getChainByName,
   ChainName,
   StrategyShortId,
   StrategyState,
+  getUnitById,
 } from "../src";
 import { version } from "../package.json";
 import tokenlist from "../src/stability.tokenlist.json";
@@ -25,7 +25,7 @@ for (const chain of Object.keys(chains)) {
   }
 }
 
-console.log(`## 📦 Stability Operation System Library v${version}`);
+console.log(`## 📦 Stability Operating System Library v${version}`);
 
 console.log(
   `
@@ -67,7 +67,7 @@ ${daos
         dao.builderActivity.pools
           .map(
             (pool) =>
-              `${pool.unitIds.map((unitId) => daos.filter((d) => d.units.map((u) => u.unitId).includes(unitId))[0].tokenization.tokenSymbol)[0]} ${pool.name}`,
+              `${pool.unitIds.map((unitId) => getUnitById(unitId)?.emoji).join(" ")} ${pool.name}`,
           )
           .join(", ")
       : "";
