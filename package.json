@@ -1,7 +1,7 @@
 {
   "name": "@stabilitydao/stability",
-  "version": "0.49.0",
-  "description": "Stability Integration Library",
+  "version": "0.50.0",
+  "description": "Stability Operation System Library",
   "main": "out/index.js",
   "types": "out/index.d.ts",
   "files": [
@@ -14,11 +14,11 @@
   "author": "stabilitydao",
   "license": "MIT",
   "scripts": {
+    "os": "ts-node tools/overview.ts",
+    "overview": "ts-node tools/overview.ts",
     "build": "tsc",
     "test": "jest",
     "coverage": "jest --collect-coverage",
-    "overview": "ts-node tools/overview.ts",
-    "overview-full": "ts-node tools/overview-full.ts",
     "postbuild": "shx cp src/*.tokenlist.json out/",
     "draw-chains": "ts-node tools/draw-chains.ts",
     "draw-integrations": "ts-node tools/draw-integrations.ts",
