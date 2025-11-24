@@ -29,7 +29,7 @@ console.log(`## 📦 Stability Operation System Library v${version}`);
 
 console.log(
   `
-### DAOs
+### 🏛️ DAOs
 
 ${daos
   .map((dao) => {
@@ -40,7 +40,7 @@ ${daos
         const uis = !!unit.ui?.length
           ? `\n    * UI: ${unit.ui.map((ui) => `[${ui.title}](${ui.href})`).join(", ")}`
           : "";
-        const unitStr = `  * Unit **${unit.name}**${uis}`;
+        const unitStr = `  * Unit ${unit.emoji} **${unit.name}** [${unit.status}]${uis}`;
         const defiStrategies = !!unit.components.DEFI_STRATEGY?.length
           ? `\n    * DeFi Strategies: ${unit.components.DEFI_STRATEGY.length}. Being developed: ${Object.keys(
               strategies,
@@ -86,7 +86,7 @@ ${daos
 `,
 );
 
-console.log(`### Knowledge`);
+console.log(`### 📚 Knowledge`);
 console.log(``);
 console.log(`* ⛓️ Chains: ${Object.keys(chains).length}`);
 console.log(

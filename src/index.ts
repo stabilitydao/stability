@@ -65,7 +65,7 @@ import { AssetOracle, assetOracles, vaultOracles } from "./oracles";
 import { IlDetails, getIL } from "./risk";
 import { Severity, status } from "./status";
 import { AgentRole, IAgent } from "./agents";
-import { daos, IDAO } from "./os";
+import { daos, IDAO, UnitStatus, UnitType } from "./os";
 import { ILendingMarket, IReserve, lendingMarkets } from "./lending";
 
 export {
@@ -138,4 +138,6 @@ export {
   lendingMarkets,
   ILendingMarket,
   IReserve,
+  UnitType,
+  UnitStatus,
 };
