@@ -1,5 +1,5 @@
 import { strategies, StrategyShortId, StrategyState } from "./strategies";
-import { ChainName, chains, getSupportedChainNames } from "./chains";
+import { ChainName, chains } from "./chains";
 
 export type DeFiOrganization = {
   name: string;
@@ -1895,7 +1895,11 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.SONIC,
           ChainName.PLASMA,
         ],
-        strategies: [StrategyShortId.AMF, StrategyShortId.A],
+        strategies: [
+          StrategyShortId.AMF,
+          StrategyShortId.A,
+          StrategyShortId.ALMF,
+        ],
         intermediaryStrategies: [StrategyShortId.Y],
       },
       merit: {

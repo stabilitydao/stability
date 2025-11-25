@@ -1,4 +1,4 @@
-# 📦 Stability Integration Library
+# 📦 Stability Operating System Library
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/stabilitydao/stability/main)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/stabilitydao/stability/dev)
@@ -11,17 +11,21 @@
 
 [![codecov](https://codecov.io/github/stabilitydao/stability/graph/badge.svg?token=V0JV1WOGMM)](https://codecov.io/github/stabilitydao/stability)
 
-This is library for integrating Stability Platform into Node.js applications.
-
-![](chains.png)
-![](integrations.png)
+This is library for integrating Stability OS into Node.js applications.
 
 ## 🔌 Usage
 
-Add npm package to your js/ts project:
+Add this package to your project:
 
 ```shell
 yarn add @stabilitydao/stability
+```
+
+and use it
+
+```javascript
+import { daos } from "@stabilitydao/stability";
+console.log(`Names of DAOs: ${daos.map((dao) => dao.name).join(", ")}`);
 ```
 
 ## 👷 Develop
@@ -29,37 +33,25 @@ yarn add @stabilitydao/stability
 ### How to
 
 ```shell
-yarn overview
-yarn overview-full
-yarn draw-chains
-yarn draw-integrations
-yarn contests-maker
+yarn os
 yarn test
 yarn coverage
-yarn prettier . --check
 yarn prettier . --write
 ```
 
-### Branch structure
+### Commit and PR prefix
 
-| Branch        | Description                            |
-| ------------- | -------------------------------------- |
-| main          | Production. Accepts only PRs from dev. |
-| dev           | Accumulator of changes for the release |
-| developer-dev | Developer's changes                    |
-
-### Commit/PR prefix
-
+- 📦 New version
+- 📚 Knowledge (🪙 assets, 🌐 protocols, ⛓️ chains)
+- 🔨 Types, refactor
+- ♻️ Update data (DAOs, strats, integrations, etc)
+- 🏛️ DAO
+- 🧑‍🎓 Docs
+- 📜 DeFi Strategies
+- 📙 MEV Strategies
+- ✨ Epic
 - 🤖 Agents
 - 📡 API
-- 📜 Strategies
-- 🪙 Assets
-- ⛓️ Chains
 - 🏦 Lending
 - 🧺 Products
-- 🌐 DeFi, integrations
-- ♻️ Sync
 - 🎇 Content generator
-- 📦 Library
-- #️⃣ Lint, format
-- 📙 Docs

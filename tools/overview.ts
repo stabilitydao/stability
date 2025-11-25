@@ -1,27 +1,19 @@
 import {
-  Agent,
-  agents,
   assets,
-  bridges,
   chains,
-  ChainStatus,
-  contests,
-  deployments,
-  getChainsTotals,
-  getStrategiesTotals,
-  getSupportedChainNames,
   integrations,
   lendingMarkets,
-  seeds,
-  status,
   strategies,
+  daos,
+  getChainByName,
+  ChainName,
+  StrategyShortId,
+  StrategyState,
+  getUnitById,
 } from "../src";
 import { version } from "../package.json";
 import tokenlist from "../src/stability.tokenlist.json";
-import { IBuilderAgent, IOperatorAgent } from "../src/agents";
 
-const networkTotal = getChainsTotals();
-const strategiesTotal = getStrategiesTotals();
 let protocolsTotal = 0;
 for (const defiOrgCode of Object.keys(integrations)) {
   protocolsTotal += Object.keys(integrations[defiOrgCode].protocols).length;
@@ -33,52 +25,77 @@ for (const chain of Object.keys(chains)) {
   }
 }
 
-console.log(`## 📦 Stability Integration Library v${version}`);
+console.log(`## 📦 Stability Operating System Library v${version}`);
+
+console.log(
+  `
+### 🏛️ DAOs
+
+${daos
+  .map((dao) => {
+    const activities = `  * Activities: ${dao.activity.join(", ")}\n`;
+    const tokenization = `  * Tokenization: ${dao.tokenization.state}. Tokens: ${dao.tokenization.tokenSymbol}, ${dao.tokenization.xSymbol}, ${dao.tokenization.daoSymbol}.\n`;
+    const daoUnits = dao.units
+      .map((unit) => {
+        const uis = !!unit.ui?.length
+          ? `\n    * UI: ${unit.ui.map((ui) => `[${ui.title}](${ui.href})`).join(", ")}`
+          : "";
+        const unitStr = `  * Unit ${unit.emoji} **${unit.name}** [${unit.status}]${uis}`;
+        const defiStrategies = !!unit.components.DEFI_STRATEGY?.length
+          ? `\n    * DeFi Strategies: ${unit.components.DEFI_STRATEGY.length}. Being developed: ${Object.keys(
+              strategies,
+            )
+              .filter(
+                (shortId) =>
+                  strategies[shortId as StrategyShortId].state ===
+                  StrategyState.DEVELOPMENT,
+              )
+              .join(", ")}.`
+          : "";
+        const lendingEngines = !!unit.components.ENGINE_SUPPORT?.length
+          ? `\n    * Engines: ${unit.components.ENGINE_SUPPORT.join(", ")}.`
+          : "";
+        const chains = !!unit.components.CHAIN_SUPPORT?.length
+          ? `\n    * Chains: ${unit.components.CHAIN_SUPPORT.map((chainName) => getChainByName(chainName as ChainName).name).join(", ")}`
+          : "";
+
+        return `${unitStr} ${defiStrategies}${lendingEngines}${chains}`;
+      })
+      .join("\n");
+    const builderPools = !!dao.builderActivity?.pools.length
+      ? `\n    * Pools: ` +
+        dao.builderActivity.pools
+          .map(
+            (pool) =>
+              `${pool.unitIds.map((unitId) => getUnitById(unitId)?.emoji).join(" ")} ${pool.name}`,
+          )
+          .join(", ")
+      : "";
+    const builderConveyors = !!dao.builderActivity?.conveyors.length
+      ? `\n    * Conveyors: ` +
+        dao.builderActivity.conveyors
+          .map((conveyor) => conveyor.name)
+          .join(", ")
+      : "";
+    const builderActivity = !!dao.builderActivity
+      ? `\n  * BUILDER repos: ${dao.builderActivity?.repo.length}${builderPools}${builderConveyors}`
+      : "";
+    return `* **${dao.name}**\n${activities}${tokenization}${daoUnits}${builderActivity}`;
+  })
+  .join("\n")}  
+`,
+);
+
+console.log(`### 📚 Knowledge`);
 console.log(``);
-console.log(`* 🤖 Agents: ${Object.keys(agents).length}`);
-console.log(
-  `* #️⃣ Platform deployments: ${Object.keys(deployments).filter((chainId) => chains[chainId].status === ChainStatus.SUPPORTED).length} (${getSupportedChainNames().join(", ")})`,
-);
-console.log(`* 🏦 Lending markets: ${lendingMarkets.length}`);
-console.log(
-  `* 📜 Strategies: ${Object.keys(strategies).length}. Live: ${strategiesTotal.LIVE}, ready: ${strategiesTotal.READY}, development: ${strategiesTotal.DEVELOPMENT}, cancelled: ${strategiesTotal.CANCELLED}.`,
-);
-console.log(
-  `* ⛓️ Chains: ${Object.keys(chains).length}. Status: ${networkTotal.SUPPORTED} supported, ${networkTotal.DEVELOPMENT} development. Multisigs: ${multisigsTotal}. Bridges: ${bridges.length}.`,
-);
-console.log(
-  `* 🌐 DeFi organizations: ${Object.keys(integrations).length}. Protocols: ${protocolsTotal}.`,
-);
+console.log(`* ⛓️ Chains: ${Object.keys(chains).length}`);
 console.log(
   `* 🪙 Assets: ${assets.length}. Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map((t) => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} chains.`,
 );
-console.log(`* 📡 Seed nodes: ${seeds.length}`);
-/*console.log(
-  `🏆 Contests: ${Object.keys(contests).filter((c) => !contests[c].hidden).length}. Banner images: ${
-    Object.keys(contests)
-      .filter((c) => !contests[c].hidden)
-      .filter((c) => !!contests[c].img).length
-  }, quest platform integrations: ${
-    Object.keys(contests)
-      .filter((c) => !contests[c].hidden)
-      .filter((c) => !!contests[c].integration).length
-  }.`,
-);*/
-console.log(``);
-const operator = agents[0] as IOperatorAgent;
-console.log(`### 🤖 ${operator.name}`);
-console.log(``);
-console.log(`* Status checks: ${Object.keys(status).length}`);
-
-console.log(``);
-const builder = agents[1] as IBuilderAgent;
-console.log(`### 🤖 ${builder.name}`);
-console.log(``);
 console.log(
-  `* Conveyors: ${builder.builderData.conveyors.map((c) => `${c.symbol} ${c.name}`).join(", ")}`,
-);
-console.log(
-  `* Pools: ${builder.builderData.pools.map((c) => c.name).join(", ")}`,
+  `* 🌐 DeFi protocols: ${protocolsTotal}. Organizations: ${Object.keys(integrations).length}.`,
 );
 
+console.log(`* 🏦 Money markets: ${lendingMarkets.length}`);
+//console.log(`* 📡 Memory endpoints: ${seeds.join(', ')}`);
 console.log(``);
