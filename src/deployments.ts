@@ -226,7 +226,7 @@ export const deployments: { [chainId: string]: Deployment } = {
       frontend: "0x70e804364175e23F1c30dFa03BFb19d936E5E81c",
     },
     subgraph:
-      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-plasma/0.0.60/gn",
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-plasma/0.0.61/gn",
     tokenomics: {},
     metaVaults: [
       {
