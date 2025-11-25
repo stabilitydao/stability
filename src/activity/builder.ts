@@ -20,15 +20,17 @@ export interface IIssue {
   body?: string;
 }
 
-export interface IBuilderMemory {
-  openIssues: {
-    total: { [repo: string]: number };
-    pools: { [poolName: string]: IIssue[] };
-  };
-  conveyors: {
-    [conveyorName: string]: {
-      [taskId: string]: {
-        [stepName: string]: IIssue[];
+export interface IBuildersMemory {
+  [tokenSymbol: string]: {
+    openIssues: {
+      total: { [repo: string]: number };
+      pools: { [poolName: string]: IIssue[] };
+    };
+    conveyors: {
+      [conveyorName: string]: {
+        [taskId: string]: {
+          [stepName: string]: IIssue[];
+        };
       };
     };
   };

@@ -1895,7 +1895,11 @@ export const integrations: { [org: string]: DeFiOrganization } = {
           ChainName.SONIC,
           ChainName.PLASMA,
         ],
-        strategies: [StrategyShortId.AMF, StrategyShortId.A],
+        strategies: [
+          StrategyShortId.AMF,
+          StrategyShortId.A,
+          StrategyShortId.ALMF,
+        ],
         intermediaryStrategies: [StrategyShortId.Y],
       },
       merit: {
