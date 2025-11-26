@@ -105,10 +105,18 @@ async function updateMarketReserves(market: ILendingMarket) {
   return updated;
 }
 
-function toTsObjectLiteralArray(arr: any[]) {
+/* ------------------------ COMMENTED OUTPUT ------------------------ */
+
+function toTsObjectLiteralArray(arr: IReserve[]) {
   return (
     "[\n" +
-    arr.map((o) => toTsObjectLiteral(o).replace(/^/gm, "  ")).join(",\n") +
+    arr
+      .map((o) => {
+        const symbolComment = `  // ${o.aTokenSymbol.replace(/^asi/, "")}`;
+        const literal = toTsObjectLiteral(o).replace(/^/gm, "  "); // indent object
+        return `${symbolComment}\n${literal}`;
+      })
+      .join(",\n") +
     "\n]"
   );
 }
@@ -123,6 +131,8 @@ function toTsObjectLiteral(obj: Record<string, any>) {
 
   return `{\n${entries}\n}`;
 }
+
+/* ------------------------------------------------------------------ */
 
 async function main() {
   let updatedSource = fs.readFileSync(SOURCE_PATH, "utf8");

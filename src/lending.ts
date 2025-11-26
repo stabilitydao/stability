@@ -43,6 +43,7 @@ export const lendingMarkets: ILendingMarket[] = [
     pool: "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
     protocolDataProvider: "0x0a16f2FCC0D44FaE41cc54e079281D84A363bECD",
     reserves: [
+      // aEthWETH
       {
         asset: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
         aToken: "0x4d5F47FA6A74757f35C14fD3a6Ef8E3C9BC514E8",
@@ -52,6 +53,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // aEthwstETH
       {
         asset: "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
         aToken: "0x0B925eD163218f6662a35e0f0371Ac234f9E9371",
@@ -61,6 +63,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // aEthWBTC
       {
         asset: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
         aToken: "0x5Ee5bf7ae06D1Be5997A1A72006FE6C607eC6DE8",
@@ -70,6 +73,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // aEthUSDC
       {
         asset: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
         aToken: "0x98C23E9d8f34FEFb1B7BD6a91B7FF122F4e16F5c",
@@ -79,6 +83,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // DAI
       {
         asset: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
         aToken: "0x018008bfb33d285247A21d44E50697654f754e63",
@@ -88,6 +93,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // LINK
       {
         asset: "0x514910771AF9Ca656af840dff83E8264EcF986CA",
         aToken: "0x5E8C8A7243651DB1384C0dDfDbE39761E8e7E51a",
@@ -97,6 +103,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // AAVE
       {
         asset: "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
         aToken: "0xA700b4eB416Be35b2911fd5Dee80678ff64fF6C9",
@@ -106,6 +113,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // cbETH
       {
         asset: "0xBe9895146f7AF43049ca1c1AE358B0541Ea49704",
         aToken: "0x977b6fc5dE62598B08C85AC8Cf2b745874E8b78c",
@@ -115,6 +123,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // aEthUSDT
       {
         asset: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
         aToken: "0x23878914EFE38d27C4D67Ab83ed1b93A74D4086a",
@@ -124,6 +133,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // rETH
       {
         asset: "0xae78736Cd615f374D3085123A210448E74Fc6393",
         aToken: "0xCc9EE9483f662091a1de4795249E24aC0aC2630f",
@@ -133,6 +143,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // LUSD
       {
         asset: "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
         aToken: "0x3Fe6a295459FAe07DF8A0ceCC36F37160FE86AA9",
@@ -142,6 +153,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // CRV
       {
         asset: "0xD533a949740bb3306d119CC777fa900bA034cd52",
         aToken: "0x7B95Ec873268a6BFC6427e7a28e396Db9D0ebc65",
@@ -151,6 +163,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // MKR
       {
         asset: "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2",
         aToken: "0x8A458A9dc9048e005d22849F470891b840296619",
@@ -160,6 +173,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // SNX
       {
         asset: "0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F",
         aToken: "0xC7B4c17861357B8ABB91F25581E7263E08DCB59c",
@@ -169,6 +183,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // BAL
       {
         asset: "0xba100000625a3754423978a60c9317c58a424e3D",
         aToken: "0x2516E7B3F76294e03C42AA4c5b5b4DCE9C436fB8",
@@ -178,6 +193,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // UNI
       {
         asset: "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
         aToken: "0xF6D2224916DDFbbab6e6bd0D1B7034f4Ae0CaB18",
@@ -187,6 +203,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // LDO
       {
         asset: "0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32",
         aToken: "0x9A44fd41566876A39655f74971a3A6eA0a17a454",
@@ -196,6 +213,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // ENS
       {
         asset: "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72",
         aToken: "0x545bD6c032eFdde65A377A6719DEF2796C8E0f2e",
@@ -205,6 +223,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // 1INCH
       {
         asset: "0x111111111117dC0aa78b770fA6A738034120C302",
         aToken: "0x71Aef7b30728b9BB371578f36c5A1f1502a5723e",
@@ -214,6 +233,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // FRAX
       {
         asset: "0x853d955aCEf822Db058eb8505911ED77F175b99e",
         aToken: "0xd4e245848d6E1220DBE62e155d89fa327E43CB06",
@@ -223,6 +243,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // GHO
       {
         asset: "0x40D16FC0246aD3160Ccc09B8D0D3A2cD28aE6C2f",
         aToken: "0x00907f9921424583e7ffBfEdf84F92B7B2Be4977",
@@ -232,6 +253,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // RPL
       {
         asset: "0xD33526068D116cE69F19A9ee46F0bd304F21A51f",
         aToken: "0xB76CF92076adBF1D9C39294FA8e7A67579FDe357",
@@ -241,6 +263,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // sDAI
       {
         asset: "0x83F20F44975D03b1b09e64809B757c47f942BEeA",
         aToken: "0x4C612E3B15b96Ff9A6faED838F8d07d479a8dD4c",
@@ -250,6 +273,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // STG
       {
         asset: "0xAf5191B0De278C7286d6C7CC6ab6BB8A73bA2Cd6",
         aToken: "0x1bA9843bD4327c6c77011406dE5fA8749F7E3479",
@@ -259,6 +283,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // KNC
       {
         asset: "0xdeFA4e8a7bcBA345F687a2f1456F5Edd9CE97202",
         aToken: "0x5b502e3796385E1e9755d7043B9C945C3aCCeC9C",
@@ -268,6 +293,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // FXS
       {
         asset: "0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0",
         aToken: "0x82F9c5ad306BBa1AD0De49bB5FA6F01bf61085ef",
@@ -277,6 +303,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // crvUSD
       {
         asset: "0xf939E0A03FB07F59A73314E73794Be0E57ac1b4E",
         aToken: "0xb82fa9f31612989525992FCfBB09AB22Eff5c85A",
@@ -286,6 +313,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // PYUSD
       {
         asset: "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
         aToken: "0x0C0d01AbF3e6aDfcA0989eBbA9d6e85dD58EaB1E",
@@ -295,6 +323,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // aEthweETH
       {
         asset: "0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee",
         aToken: "0xBdfa7b7893081B35Fb54027489e2Bc7A38275129",
@@ -304,6 +333,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // osETH
       {
         asset: "0xf1C9acDc66974dFB6dEcB12aA385b9cD01190E38",
         aToken: "0x927709711794F3De5DdBF1D176bEE2D55Ba13c21",
@@ -313,6 +343,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // USDe
       {
         asset: "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
         aToken: "0x4F5923Fc5FD4a93352581b38B7cD26943012DECF",
@@ -322,6 +353,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // ETHx
       {
         asset: "0xA35b1B31Ce002FBF2058D22F30f95D405200A15b",
         aToken: "0x1c0E06a0b1A4c160c17545FF2A951bfcA57C0002",
@@ -331,6 +363,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // sUSDe
       {
         asset: "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
         aToken: "0x4579a27aF00A62C0EB156349f31B345c08386419",
@@ -340,6 +373,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // tBTC
       {
         asset: "0x18084fbA666a33d37592fA2633fD49a74DD93a88",
         aToken: "0x10Ac93971cdb1F5c778144084242374473c350Da",
@@ -349,6 +383,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // cbBTC
       {
         asset: "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
         aToken: "0x5c647cE0Ae10658ec44FA4E11A51c96e94efd1Dd",
@@ -358,6 +393,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // USDS
       {
         asset: "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
         aToken: "0x32a6268f9Ba3642Dda7892aDd74f1D34469A4259",
@@ -367,6 +403,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // rsETH
       {
         asset: "0xA1290d69c65A6Fe4DF752f95823fae25cB99e5A7",
         aToken: "0x2D62109243b87C4bA3EE7bA1D91B0dD0A074d7b1",
@@ -376,6 +413,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // LBTC
       {
         asset: "0x8236a87084f8B84306f72007F36F2618A5634494",
         aToken: "0x65906988ADEe75306021C417a1A3458040239602",
@@ -385,6 +423,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // eBTC
       {
         asset: "0x657e8C867D8B37dCC18fA4Caead9C45EB088C642",
         aToken: "0x5fefd7069a7D91d01f269DADE14526CCF3487810",
@@ -394,6 +433,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // RLUSD
       {
         asset: "0x8292Bb45bf1Ee4d140127049757C2E0fF06317eD",
         aToken: "0xFa82580c16A31D0c1bC632A36F82e83EfEF3Eec0",
@@ -403,6 +443,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // PT-eUSDE-29MAY2025
       {
         asset: "0x50D2C7992b802Eef16c04FeADAB310f31866a545",
         aToken: "0x4B0821e768Ed9039a70eD1E80E15E76a5bE5Df5F",
@@ -412,6 +453,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // PT-sUSDE-31JUL2025
       {
         asset: "0x3b3fB9C57858EF816833dC91565EFcd85D96f634",
         aToken: "0xDE6eF6CB4aBd3A473ffC2942eEf5D84536F8E864",
@@ -421,6 +463,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // USDtb
       {
         asset: "0xC139190F447e929f090Edeb554D95AbB8b18aC1C",
         aToken: "0xEc4ef66D4fCeEba34aBB4dE69dB391Bc5476ccc8",
@@ -430,6 +473,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // PT-USDe-31JUL2025
       {
         asset: "0x917459337CaAC939D41d7493B3999f571D20D667",
         aToken: "0x312ffC57778CEfa11989733e6E08143E7E229c1c",
@@ -439,6 +483,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // PT-eUSDE-14AUG2025
       {
         asset: "0x14Bdc3A3AE09f5518b923b69489CBcAfB238e617",
         aToken: "0x2eDff5AF94334fBd7C38ae318edf1c40e072b73B",
@@ -448,6 +493,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // eUSDe
       {
         asset: "0x90D2af7d622ca3141efA4d8f1F24d86E5974Cc8F",
         aToken: "0x5F9190496e0DFC831C3bd307978de4a245E2F5cD",
@@ -457,6 +503,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // FBTC
       {
         asset: "0xC96dE26018A54D51c097160568752c4E3BD6C364",
         aToken: "0xcCA43ceF272c30415866914351fdfc3E881bb7c2",
@@ -466,6 +513,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // EURC
       {
         asset: "0x1aBaEA1f7C830bD89Acc67eC4af516284b1bC33c",
         aToken: "0xAA6e91C82942aeAE040303Bf96c15a6dBcB82CA0",
@@ -475,6 +523,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
       },
+      // PT-sUSDE-25SEP2025
       {
         asset: "0x9F56094C450763769BA0EA9Fe2876070c0fD5F77",
         aToken: "0x5f4a0873a3A02f7C0CB0e13a1d4362a1AD90e751",
@@ -484,6 +533,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // PT-USDe-25SEP2025
       {
         asset: "0xBC6736d346a5eBC0dEbc997397912CD9b8FAe10a",
         aToken: "0x38A5357Ce55c81add62aBc84Fb32981e2626ADEf",
@@ -493,6 +543,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // tETH
       {
         asset: "0xD11c452fc99cF405034ee446803b6F6c1F6d5ED8",
         aToken: "0x481a2acf3A72ffDc602A9541896Ca1DB87f86cf7",
@@ -502,6 +553,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // ezETH
       {
         asset: "0xbf5495Efe5DB9ce00f80364C8B423567e58d2110",
         aToken: "0x4E2a4d9B3DF7Aae73b418Bd39F3af9e148E3F479",
@@ -511,6 +563,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // XAUt
       {
         asset: "0x68749665FF8D2d112Fa859AA293F07A622782F38",
         aToken: "0x8A2b6f94Ff3A89a03E8c02Ee92b55aF90c9454A2",
@@ -520,6 +573,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // PT-sUSDE-27NOV2025
       {
         asset: "0xe6A934089BBEe34F832060CE98848359883749B3",
         aToken: "0x285866acB0d60105B4Ed350a463361c2d9afA0E2",
@@ -529,6 +583,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // PT-USDe-27NOV2025
       {
         asset: "0x62C6E813b9589C3631Ba0Cdb013acdB8544038B7",
         aToken: "0x38C503a438185cDE29b5cF4dC1442FD6F074F1cc",
@@ -538,6 +593,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // PT-USDe-5FEB2026
       {
         asset: "0x1F84a51296691320478c98b8d77f2Bbd17D34350",
         aToken: "0xE728577e9a1Fe7032bc309B4541F58f45443866e",
@@ -547,6 +603,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // PT-sUSDE-5FEB2026
       {
         asset: "0xE8483517077afa11A9B07f849cee2552f040d7b2",
         aToken: "0xbe54767735fB7Acca2aa7E2d209a6f705073536D",
@@ -568,6 +625,7 @@ export const lendingMarkets: ILendingMarket[] = [
     pool: "0xaa1C02a83362BcE106dFf6eB65282fE8B97A1665",
     protocolDataProvider: "0xc67850eCd0EC9dB4c0fD65C1Ad43a53025e6d54D",
     reserves: [
+      // vSonicWS
       {
         asset: "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
         aToken: "0x9E581fC9181f99c3c4DAB344B91C55DaEb9413fe",
@@ -577,6 +635,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0xad1bB693975C16eC2cEEF65edD540BC735F8608B",
         isBorrowable: true,
       },
+      // vSonicSCUSD
       {
         asset: "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
         aToken: "0xF9f65F8c6566d71C5966a0a1852cEd1Eb978bafb",
@@ -586,6 +645,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0xad1bB693975C16eC2cEEF65edD540BC735F8608B",
         isBorrowable: true,
       },
+      // vSonicUSDC.E
       {
         asset: "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
         aToken: "0xF224CB039F2B5909197c019b1972E62d7fdCdA0f",
@@ -595,6 +655,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0xad1bB693975C16eC2cEEF65edD540BC735F8608B",
         isBorrowable: true,
       },
+      // vSonicWETH
       {
         asset: "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b",
         aToken: "0xA1241Ce1fBB74Ff37D5c73dcB84326766C3852C0",
@@ -604,6 +665,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0xad1bB693975C16eC2cEEF65edD540BC735F8608B",
         isBorrowable: true,
       },
+      // vSonicUSDT.E
       {
         asset: "0x6047828dc181963ba44974801FF68e538dA5eaF9",
         aToken: "0xb401dc6D04fd6D3993345dE2858065ddC9a36b79",
@@ -613,6 +675,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0xad1bB693975C16eC2cEEF65edD540BC735F8608B",
         isBorrowable: true,
       },
+      // vSonicwOS
       {
         asset: "0x9F0dF7799f6FDAd409300080cfF680f5A23df4b1",
         aToken: "0x9BF96Dee5b4161c5cA3DDDf2D19cc677B6832644",
@@ -622,6 +685,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0xad1bB693975C16eC2cEEF65edD540BC735F8608B",
         isBorrowable: true,
       },
+      // vSonicstS
       {
         asset: "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
         aToken: "0x4C8D17317884B53bEfE5abeF884818b2fbe0A2dD",
@@ -631,6 +695,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0xad1bB693975C16eC2cEEF65edD540BC735F8608B",
         isBorrowable: true,
       },
+      // scETH
       {
         asset: "0x3bcE5CB273F0F148010BbEa2470e7b5df84C7812",
         aToken: "0x085A6F625DCf7a8fa63111eE26b0F4D874F5CfD6",
@@ -652,6 +717,7 @@ export const lendingMarkets: ILendingMarket[] = [
     pool: "0x6D8Aa37DfAa98d2a14da39cfeD36975F97fc3f85",
     protocolDataProvider: "0xb102Cc0cb1357C339D1eFd611De4feE2e0E82448",
     reserves: [
+      // Staked bUSD
       {
         asset: "0x451812019238785086CFAC408D8A64f06898f6f5",
         aToken: "0xeB9bB589C12A0433B274760E657D549a6973C787",
@@ -661,6 +727,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x3950b3a43fa0687561Bc5c8E32D2EE826D88a661",
         isBorrowable: false,
       },
+      // USDC
       {
         asset: "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
         aToken: "0x958d930E61bdaebbBc0270D88FdBAEE9A13Dc6fd",
@@ -683,6 +750,7 @@ export const lendingMarkets: ILendingMarket[] = [
     pool: "0x909ba6aC1A9D34fE97Cb459C2CA9b6Ff986676F7",
     protocolDataProvider: "0x253A04ca6efef2e25f801153852B02bF74E1f749",
     reserves: [
+      // wmetaUSD
       {
         asset: "0xAaAaaAAac311D0572Bffb4772fe985A750E88805",
         aToken: "0xFC4A805Db8Dc217c468155cc5814070A15af8dc4",
@@ -692,6 +760,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x3950b3a43fa0687561Bc5c8E32D2EE826D88a661",
         isBorrowable: false,
       },
+      // USDC
       {
         asset: "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
         aToken: "0xb90a84F285aE8D3c0ceD37deD6Fc0f943f7279b7",
@@ -714,6 +783,7 @@ export const lendingMarkets: ILendingMarket[] = [
     pool: "0xb0A06303085aB2F73212C8846CA5388Da5697c31",
     protocolDataProvider: "0xB263ecA021e1D265D7e68842bc57e656cb88FE03",
     reserves: [
+      // STBL
       {
         asset: "0x78a76316F66224CBaCA6e70acB24D5ee5b2Bd2c7",
         aToken: "0x00886bC6a12d8D5ad0ef51e041a8AB37A0E59251",
@@ -723,6 +793,7 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x3950b3a43fa0687561Bc5c8E32D2EE826D88a661",
         isBorrowable: false,
       },
+      // USDC
       {
         asset: "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
         aToken: "0x46b2E96725F03873Cb586a7f84c22545F2835F31",
