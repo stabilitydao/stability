@@ -65,16 +65,22 @@ export const enum Activity {
   BUILDER = "BUILDER",
 }
 
-export const enum TokenizationState {
-  /** Initial funding */
-  PRE_SEED = "PRE_SEED",
-  RESEARCH = "RESEARCH",
+export enum TokenizationState {
+  /** Created */
+  DRAFT = "DRAFT",
+  /** Initial funding. DAO project passed requirements */
   SEED = "SEED",
-  BUILDING = "BUILDING",
+  /** Using SEED funds to launch MVP / Unit generating */
+  RESEARCH_AND_DEVELOPMENTS = "RESEARCH_AND_DEVELOPMENTS",
+  /** TGE is funding event for token liquidity and DAO developments */
   TGE = "TGE",
+  /** Delay before any vesting allocation started */
   LIVE_CLIFF = "LIVE_CLIFF",
+  /** Vesting period active */
   LIVE_VESTING = "LIVE_VESTING",
+  /** Vesting ended - token fully distributed */
   LIVE = "LIVE",
+  /** Absorbed by other DAO running on Stability OS */
   ABSORBED = "ABSORBED",
 }
 
@@ -233,7 +239,7 @@ export const daos: IDAO[] = [
     name: "DeFi Builder",
     activity: [Activity.BUILDER, Activity.SAAS_OPERATOR],
     tokenization: {
-      state: TokenizationState.BUILDING,
+      state: TokenizationState.DRAFT,
       tokenSymbol: "BUILDER",
       xSymbol: "xBUILDER",
       daoSymbol: "BUILDER_DAO",
@@ -460,7 +466,7 @@ export const daos: IDAO[] = [
           unitIds: ["stability:stabilityFarm", "stability:stabilityMarket"],
           name: "Products",
           label: {
-            name: "builder:PRODUCT",
+            name: "STBL:PRODUCT",
             description: "New product request",
             color: "#02a3fc",
           },
@@ -471,7 +477,7 @@ export const daos: IDAO[] = [
           unitIds: ["stability:stabilityFarm", "stability:stabilityMarket"],
           name: "Features",
           label: {
-            name: "builder:FEAT",
+            name: "STBL:FEAT",
             description: "",
             color: "#3b15d2",
           },
@@ -480,7 +486,7 @@ export const daos: IDAO[] = [
           unitIds: ["stability:stabilityFarm", "stability:stabilityMarket"],
           name: "Maintenance",
           label: {
-            name: "builder:MAINTENANCE",
+            name: "STBL:MAINTENANCE",
             description: "",
             color: "#da7130",
           },
@@ -489,7 +495,7 @@ export const daos: IDAO[] = [
           unitIds: ["os"],
           name: "Stability OS",
           label: {
-            name: "builder:OS",
+            name: "BUILDER:OS",
             description: "",
             color: "#00b243",
           },
@@ -501,7 +507,7 @@ export const daos: IDAO[] = [
     name: "MEV Fighter",
     activity: [Activity.BUILDER, Activity.MEV_SEARCHER],
     tokenization: {
-      state: TokenizationState.PRE_SEED,
+      state: TokenizationState.DRAFT,
       tokenSymbol: "MEVBOT",
       xSymbol: "xMEVBOT",
       daoSymbol: "MEVBOT_DAO",
@@ -509,25 +515,25 @@ export const daos: IDAO[] = [
     units: [
       {
         unitId: "mevbot:liquidation",
-        name: "Liquidator",
+        name: "Liquidation",
         status: UnitStatus.RESEARCH,
         revenueShare: 100,
         type: UnitType.MEV,
         components: {
           [UnitComponentCategory.MEV_STRATEGY]: [],
         },
-        emoji: "🥷",
+        emoji: "🐺",
       },
       {
         unitId: "mevbot:arb",
-        name: "Arbitrager",
+        name: "Arbitrage",
         status: UnitStatus.RESEARCH,
         revenueShare: 100,
         type: UnitType.MEV,
         components: {
           [UnitComponentCategory.MEV_STRATEGY]: [],
         },
-        emoji: "🧑‍💼",
+        emoji: "🦄",
       },
     ],
     agents: [
