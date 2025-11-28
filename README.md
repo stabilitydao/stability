@@ -41,17 +41,28 @@ yarn prettier . --write
 
 ### Commit and PR prefix
 
+#### Units
+
+- 🍀 Stability OS
+- 🧊 VaaS
+  - 📜 DeFi Strategies
+  - ⛓️ Chain support
+- 🏦 Lending
+- 🦄 Arbitrage
+  - 📙 MEV Strategies
+- 🐺 Liquidation
+  - 📙 MEV Strategies
+
+#### Common
+
 - 📦 New version
 - 📚 Knowledge (🪙 assets, 🌐 protocols, ⛓️ chains)
 - 🔨 Types, refactor
 - ♻️ Update data (DAOs, strats, integrations, etc)
 - 🏛️ DAO
 - 🧑‍🎓 Docs
-- 📜 DeFi Strategies
-- 📙 MEV Strategies
 - ✨ Epic
 - 🤖 Agents
 - 📡 API
-- 🏦 Lending
 - 🧺 Products
 - 🎇 Content generator
