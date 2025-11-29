@@ -1,4 +1,4 @@
-// Types of ApiService v4.7.21 from 10.10.2025
+// Types of ApiService 29.11.2025
 
 //#region ===== Main reply            | GET /                                    =====
 export interface ApiMainReply {
@@ -234,6 +234,8 @@ export type Vault = {
     apr24h: string;
     aprWeek: string;
     // aprLifetime: string;
+    // for leverage merkl strats
+    aprLive?: string;
   };
   vsHold?: {
     aprLatest: string;
@@ -287,10 +289,15 @@ export type Vault = {
   leverageLending?: {
     ltv: number;
     maxLtv: number;
+    lt: number;
     leverage: number;
     supplyApr: number;
     borrowApr: number;
-    targetLeveragePercent: number;
+    targetLeveragePercent?: number;
+    // from Farm nums
+    minTargetLtv?: number;
+    // from Farm nums
+    maxTargetLtv?: number;
   };
   risk?: Risk;
 };
