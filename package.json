@@ -18,7 +18,7 @@
     "overview": "ts-node tools/overview.ts",
     "build": "tsc",
     "test": "jest",
-    "update-lending": "ts-node tools/update-lending.ts",
+    "update-lending": "ts-node tools/update-lending.ts && yarn prettier --write src/lending.ts",
     "coverage": "jest --collect-coverage",
     "postbuild": "shx cp src/*.tokenlist.json out/",
     "draw-chains": "ts-node tools/draw-chains.ts",

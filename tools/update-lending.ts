@@ -1,11 +1,9 @@
-import { createPublicClient, http } from "viem";
-import { lendingMarkets, IReserve, ILendingMarket } from "../src/lending";
+import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
-import { execSync } from "child_process";
+import { createPublicClient, http } from "viem";
+import { ILendingMarket, IReserve, lendingMarkets } from "../src/lending";
 
-import poolDataProviderAbi from "../abis/PoolDataProviderABI.json";
-import aaveOracleAbi from "../abis/AaveOracleABI.json";
 import aTokenAbi from "../abis/ATokenABI.json";
 
 const aaveOracles: Record<string, `0x${string}`> = {
@@ -17,6 +15,99 @@ const rpcUrls: Record<string, string> = {
   "1": "https://eth.llamarpc.com",
   "146": "https://rpc.soniclabs.com",
 };
+
+const getReserveTokensAddressesABI = [
+  {
+    inputs: [{ internalType: "address", name: "asset", type: "address" }],
+    name: "getReserveTokensAddresses",
+    outputs: [
+      { internalType: "address", name: "aTokenAddress", type: "address" },
+      {
+        internalType: "address",
+        name: "stableDebtTokenAddress",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "variableDebtTokenAddress",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+];
+
+const getAllReservesTokensABI = [
+  {
+    inputs: [],
+    name: "getAllReservesTokens",
+    outputs: [
+      {
+        components: [
+          { internalType: "string", name: "symbol", type: "string" },
+          {
+            internalType: "address",
+            name: "tokenAddress",
+            type: "address",
+          },
+        ],
+        internalType: "struct IPoolDataProvider.TokenData[]",
+        name: "",
+        type: "tuple[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+];
+
+const getSourceOfAssetABI = [
+  {
+    inputs: [{ internalType: "address", name: "asset", type: "address" }],
+    name: "getSourceOfAsset",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+];
+
+const getReserveConfigurationABI = [
+  {
+    inputs: [{ internalType: "address", name: "asset", type: "address" }],
+    name: "getReserveConfigurationData",
+    outputs: [
+      { internalType: "uint256", name: "decimals", type: "uint256" },
+      { internalType: "uint256", name: "ltv", type: "uint256" },
+      {
+        internalType: "uint256",
+        name: "liquidationThreshold",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "liquidationBonus",
+        type: "uint256",
+      },
+      { internalType: "uint256", name: "reserveFactor", type: "uint256" },
+      {
+        internalType: "bool",
+        name: "usageAsCollateralEnabled",
+        type: "bool",
+      },
+      { internalType: "bool", name: "borrowingEnabled", type: "bool" },
+      {
+        internalType: "bool",
+        name: "stableBorrowRateEnabled",
+        type: "bool",
+      },
+      { internalType: "bool", name: "isActive", type: "bool" },
+      { internalType: "bool", name: "isFrozen", type: "bool" },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+];
 
 const SOURCE_PATH = path.resolve(__dirname, "../src/lending.ts");
 
@@ -32,18 +123,9 @@ async function updateMarketReserves(market: ILendingMarket) {
     transport: http(rpcUrl),
   });
 
-  const provider = {
-    address: market.protocolDataProvider,
-    abi: poolDataProviderAbi,
-  };
-
-  const aaveOracle = {
-    address: aaveOracles[market.chainId],
-    abi: aaveOracleAbi,
-  };
-
   const reserves = (await client.readContract({
-    ...provider,
+    address: market.protocolDataProvider,
+    abi: getAllReservesTokensABI,
     functionName: "getAllReservesTokens",
   })) as any;
 
@@ -57,7 +139,8 @@ async function updateMarketReserves(market: ILendingMarket) {
     if (r.oracleName) oracleName = r.oracleName;
 
     const [aToken] = (await client.readContract({
-      ...provider,
+      address: market.protocolDataProvider,
+      abi: getReserveTokensAddressesABI,
       functionName: "getReserveTokensAddresses",
       args: [asset],
     })) as any;
@@ -70,7 +153,8 @@ async function updateMarketReserves(market: ILendingMarket) {
 
     if (!existing) {
       const oracle = (await client.readContract({
-        ...aaveOracle,
+        address: aaveOracles[market.chainId],
+        abi: getSourceOfAssetABI,
         functionName: "getSourceOfAsset",
         args: [asset],
       })) as `0x${string}`;
@@ -82,7 +166,8 @@ async function updateMarketReserves(market: ILendingMarket) {
 
       const isBorrowable = await client
         .readContract({
-          ...provider,
+          address: market.protocolDataProvider,
+          abi: getReserveConfigurationABI,
           functionName: "getReserveConfigurationData",
           args: [asset],
         })
