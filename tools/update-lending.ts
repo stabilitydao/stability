@@ -4,8 +4,6 @@ import path from "path";
 import { createPublicClient, http } from "viem";
 import { ILendingMarket, IReserve, lendingMarkets } from "../src/lending";
 
-import aTokenAbi from "../abis/ATokenABI.json";
-
 const aaveOracles: Record<string, `0x${string}`> = {
   "1": "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
   "146": "0xd63f7658c66b2934bd234d79d06aef5290734b30",
@@ -109,6 +107,16 @@ const getReserveConfigurationABI = [
   },
 ];
 
+const reserveTreasuryAddressABI = [
+  {
+    inputs: [],
+    name: "RESERVE_TREASURY_ADDRESS",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+];
+
 const SOURCE_PATH = path.resolve(__dirname, "../src/lending.ts");
 
 async function updateMarketReserves(market: ILendingMarket) {
@@ -145,8 +153,6 @@ async function updateMarketReserves(market: ILendingMarket) {
       args: [asset],
     })) as any;
 
-    const aTokenContract = { address: aToken, abi: aTokenAbi };
-
     const existing = market.reserves.find(
       (x) => x.asset.toLowerCase() === asset.toLowerCase(),
     );
@@ -160,7 +166,8 @@ async function updateMarketReserves(market: ILendingMarket) {
       })) as `0x${string}`;
 
       const treasury = (await client.readContract({
-        ...aTokenContract,
+        address: aToken,
+        abi: reserveTreasuryAddressABI,
         functionName: "RESERVE_TREASURY_ADDRESS",
       })) as `0x${string}`;
 
