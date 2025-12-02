@@ -9,7 +9,7 @@ import { strategies, StrategyShortId, StrategyState } from "./strategies";
 import { LendingEngine } from "./lending";
 import { ArtifactType, IBuilderActivity } from "./activity/builder";
 
-export const STABILITY_OS_TYPES_VERSION = "v2025.11.22";
+export const STABILITY_OS_TYPES_VERSION = "v2025.11.30";
 
 /**
  Represents a DAO running on Stability OS.
@@ -18,6 +18,9 @@ export const STABILITY_OS_TYPES_VERSION = "v2025.11.22";
 export interface IDAO {
   /** Name of the DAO, used in token names. Without DAO word. */
   name: string;
+
+  /** Community socials */
+  socials: string[];
 
   /** Activities of the organization. */
   activity: Activity[];
@@ -156,6 +159,11 @@ export function getUnitById(unitId: string): IUnit | undefined {
 export const daos: IDAO[] = [
   {
     name: "Stability",
+    socials: [
+      "https://x.com/stabilitydao",
+      "https://discord.com/invite/R3nnetWzC9",
+      "https://t.me/stabilitydao",
+    ],
     activity: [Activity.DEFI_PROTOCOL_OPERATOR],
     tokenization: {
       state: TokenizationState.LIVE_VESTING,
@@ -237,6 +245,7 @@ export const daos: IDAO[] = [
   },
   {
     name: "DeFi Builder",
+    socials: [],
     activity: [Activity.BUILDER, Activity.SAAS_OPERATOR],
     tokenization: {
       state: TokenizationState.DRAFT,
@@ -505,6 +514,7 @@ export const daos: IDAO[] = [
   },
   {
     name: "MEV Fighter",
+    socials: [],
     activity: [Activity.BUILDER, Activity.MEV_SEARCHER],
     tokenization: {
       state: TokenizationState.DRAFT,
