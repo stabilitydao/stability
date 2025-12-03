@@ -13,6 +13,7 @@ import {
 } from "../src";
 import { version } from "../package.json";
 import tokenlist from "../src/stability.tokenlist.json";
+import { getTokensNaming } from "../src/os";
 
 let protocolsTotal = 0;
 for (const defiOrgCode of Object.keys(integrations)) {
@@ -33,8 +34,8 @@ console.log(
 
 ${daos
   .map((dao) => {
+    const naming = getTokensNaming(dao.name, dao.symbol);
     const activities = `  * Activities: ${dao.activity.join(", ")}\n`;
-    const tokenization = `  * Tokenization: ${dao.tokenization.state}. Tokens: ${dao.tokenization.tokenSymbol}, ${dao.tokenization.xSymbol}, ${dao.tokenization.daoSymbol}.\n`;
     const daoUnits = dao.units
       .map((unit) => {
         const uis = !!unit.ui?.length
@@ -80,7 +81,7 @@ ${daos
     const builderActivity = !!dao.builderActivity
       ? `\n  * BUILDER repos: ${dao.builderActivity?.repo.length}${builderPools}${builderConveyors}`
       : "";
-    return `* **${dao.name}**\n${activities}${tokenization}${daoUnits}${builderActivity}`;
+    return `* **${dao.name}** ${naming.tokenSymbol} [${dao.phase}]\n${activities}${daoUnits}${builderActivity}`;
   })
   .join("\n")}  
 `,
