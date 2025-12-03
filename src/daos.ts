@@ -123,6 +123,17 @@ export const daos: IDAO[] = [
       recoveryShare: 10,
     },
     tokenomics: {
+      initialChain: ChainName.SONIC,
+      funding: {
+        tge: {
+          start: 1740700800,
+          end: 1741132800,
+          claim: 1741167300,
+          minRaise: 250000,
+          maxRaise: 500000,
+          raised: 500000,
+        },
+      },
       vesting: [
         {
           name: "Investors",
@@ -149,14 +160,6 @@ export const daos: IDAO[] = [
           end: 1883098800,
         },
       ],
-      tge: {
-        start: 1740700800,
-        end: 1741132800,
-        claim: 1741167300,
-        minRaise: 250000,
-        maxRaise: 500000,
-        raised: 500000,
-      },
     },
   },
   {
@@ -190,7 +193,9 @@ export const daos: IDAO[] = [
       lockPeriod: 180,
       instantExitFee: 100,
     },
-    tokenomics: {},
+    tokenomics: {
+      funding: {},
+    },
     builderActivity: {
       multisig: [
         "matic:0x36780E69D38c8b175761c6C5F8eD42E61ee490E9",
@@ -216,8 +221,33 @@ export const daos: IDAO[] = [
           period: "Oct, 2025",
           usdAmount: 31100,
         },
+        {
+          period: "Nov, 2025",
+          usdAmount: 31345,
+        },
       ],
-      workers: ["a17", "omriss", "DevTeaLeaf", "nikita-dogil", "iammrjude"],
+      workers: [
+        {
+          github: "a17",
+          rate: 65,
+        },
+        {
+          github: "iammrjude",
+          rate: 20,
+        },
+        {
+          github: "omriss",
+          rate: 50,
+        },
+        {
+          github: "DevTeaLeaf",
+          rate: 25,
+        },
+        {
+          github: "nikita-dogil",
+          rate: 26,
+        },
+      ],
       conveyors: [
         {
           unitId: "stability:stabilityFarm",
@@ -244,7 +274,7 @@ export const daos: IDAO[] = [
                   issueTemplate: "strategy.md",
                 },
               ],
-              artifacts: [ArtifactType.LIBRARY_RELEASE_TAG],
+              artifacts: [ArtifactType.URL_RELEASE],
             },
             {
               name: "Contract",
@@ -271,7 +301,7 @@ export const daos: IDAO[] = [
                   ],
                 },
               ],
-              artifacts: [ArtifactType.LIBRARY_RELEASE_TAG],
+              artifacts: [ArtifactType.URL_RELEASE],
             },
             {
               name: "Backend",
@@ -325,7 +355,7 @@ export const daos: IDAO[] = [
                   ],
                 },
               ],
-              artifacts: [ArtifactType.LIBRARY_RELEASE_TAG],
+              artifacts: [ArtifactType.URL_RELEASE],
             },
             {
               name: "Contracts",
@@ -356,7 +386,7 @@ export const daos: IDAO[] = [
                   taskList: ["Add chain to `src/deployments.ts`"],
                 },
               ],
-              artifacts: [ArtifactType.LIBRARY_RELEASE_TAG],
+              artifacts: [ArtifactType.URL_RELEASE],
             },
             {
               name: "Backend",
@@ -393,7 +423,7 @@ export const daos: IDAO[] = [
             description: "New product request",
             color: "#02a3fc",
           },
-          productTypes: ["CVault", "MetaVault", "Lending market"],
+          description: "Build CVault, MetaVault, Lending market",
           artifacts: [ArtifactType.URL_UI],
         },
         {
@@ -470,11 +500,13 @@ export const daos: IDAO[] = [
       instantExitFee: 100,
     },
     tokenomics: {
-      seed: {
-        start: 1767225600,
-        end: 1774915200,
-        minRaise: 50000,
-        maxRaise: 250000,
+      funding: {
+        seed: {
+          start: 1767225600,
+          end: 1774915200,
+          minRaise: 50000,
+          maxRaise: 250000,
+        },
       },
     },
     builderActivity: {
@@ -483,7 +515,14 @@ export const daos: IDAO[] = [
       pools: [],
       conveyors: [],
       burnRate: [],
-      workers: ["a17", "iammrjude"],
+      workers: [
+        {
+          github: "a17",
+        },
+        {
+          github: "iammrjude",
+        },
+      ],
     },
   },
 ];

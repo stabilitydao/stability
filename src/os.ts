@@ -1,27 +1,32 @@
 /**
- Stability OS MVP prototype
+ Stability OS MVP prototype.
 */
 
 import { ChainName } from "./chains";
 import { IAgent } from "./agents";
 import { StrategyShortId } from "./strategies";
 import { LendingEngine } from "./lending";
-import { IBuilderActivity } from "./activity/builder";
+import { IBuilderActivity, IBuildersMemory } from "./activity/builder";
+import { RevenueChart } from "./api.types";
 
 export const STABILITY_OS_DESCRIPTION =
   "Operating System of Self-developing DAOs";
-export const STABILITY_OS_TYPES_VERSION = "v2025.12.03";
 
 /**
  Represents a DAO running on Stability OS.
 
  todo: Optimize it for on-chain storing
- todo: [META-ISSUE] A DAO must manage most of this interface properties itself by on-chain/off-chain voting system.
+ todo: [META-ISSUE] DAO must manage properties itself via voting by executing Operating proposals.
 
+ @version 0.1.0
+ @alpha
  @interface
  */
 export interface IDAO {
-  /** DAO lifecycle phase */
+  /**
+   DAO lifecycle phase.
+   Changes permissionless when next phase start timestamp reached.
+   */
   phase: LifecyclePhase;
 
   /** Name of the DAO, used in token names. Without DAO word. */
@@ -55,35 +60,43 @@ export interface IDAO {
 
   /** Supply distribution and fundraising events */
   tokenomics: {
-    seed?: {
-      start: number | string;
-      end: number | string;
-      minRaise: number;
-      maxRaise: number;
-      raised?: number;
+    /** Where initial deployment became */
+    initialChain?: ChainName;
+    /** Fundraising */
+    funding: {
+      seed?: {
+        start: number | string;
+        end: number | string;
+        minRaise: number;
+        maxRaise: number;
+        raised?: number;
+      };
+      tge?: {
+        start: number | string;
+        end: number | string;
+        claim: number | string;
+        minRaise: number;
+        maxRaise: number;
+        raised?: number;
+      };
     };
+    /** Vesting allocations  */
     vesting?: IVesting[];
-    tge?: {
-      start: number | string;
-      end: number | string;
-      claim: number | string;
-      minRaise: number;
-      maxRaise: number;
-      raised?: number;
-    };
   };
 
   /** DAOs engaging BUILDER activity have  */
   builderActivity?: IBuilderActivity;
-
-  emoji?: string;
 }
 
-export const enum Activity {
+/** Organization activities supported by OS. */
+export enum Activity {
+  /** Owner of Decentralized Finance protocols */
   DEFI_PROTOCOL_OPERATOR = "DEFI_PROTOCOL_OPERATOR",
+  /** Owner of Software as a Service business */
   SAAS_OPERATOR = "SAAS_OPERATOR",
+  /** Searching of Maximum Extractable Value opportunities and submitting it to block builders.  */
   MEV_SEARCHER = "MEV_SEARCHER",
-  /** BUILDER is team of engineers managed by DAOs */
+  /** BUILDER is a team of engineers managed by DAOs. */
   BUILDER = "BUILDER",
 }
 
@@ -141,12 +154,20 @@ export interface IDAOParameters {
   proposalThreshold?: number;
 }
 
+/**
+ Vesting allocation data
+ @interface
+ */
 export interface IVesting {
+  /** Short name of vesting allocation */
   name: string;
+  /** How must be spent */
   description?: string;
-  /** Share of total token supply */
+  /** Vesting supply. 10 == 10e18 TOKEN */
   allocation: number;
+  /** Start timestamp */
   start: number;
+  /** End timestamp */
   end: number;
 }
 
@@ -179,7 +200,7 @@ export interface IDAODeployments {
 }
 
 /**
- Revenue generating unit.
+ Revenue generating unit owned by a DAO.
  @interface
 */
 export interface IUnit {
@@ -202,19 +223,20 @@ export interface IUnit {
   api?: string[];
 }
 
-export const enum UnitType {
+export enum UnitType {
   DEFI_PROTOCOL = "DEFI_PROTOCOL",
   SAAS = "SAAS",
   MEV = "MEV",
 }
 
-export const enum UnitStatus {
+export enum UnitStatus {
   RESEARCH = "RESEARCH",
   BUILDING = "BUILDING",
   LIVE = "LIVE",
 }
 
-export const enum UnitComponentCategory {
+/** Supported categories of running units. */
+export enum UnitComponentCategory {
   CHAIN_SUPPORT = "CHAIN_SUPPORT",
   ENGINE_SUPPORT = "ENGINE_SUPPORT",
   DEFI_STRATEGY = "DEFI_STRATEGY",
@@ -227,6 +249,38 @@ export interface IUnitUILink {
 }
 
 export type UnitComponent = StrategyShortId | ChainName | LendingEngine;
+
+/**
+ Hot memory with indexed and aggregated data. OS API reply.
+ @interface
+ */
+export interface IOSMemory {
+  /** DAO runtime data. Updates each minute or faster. */
+  daos: {
+    [symbol: string]: {
+      /** Price from Stability interchain oracle */
+      oraclePrice: string;
+      /** Coingecko price */
+      coingeckoPrice?: string;
+      /** Data for total revenue chart */
+      revenueChart: RevenueChart;
+      /** Extracted on-chain data */
+      onChainData: {
+        [chainId: string]: {
+          stakingAPR: number;
+          staked: number;
+          units: {
+            [unitId: string]: {
+              pendingRevenue: number;
+            };
+          };
+        };
+      };
+    };
+  };
+  /** Instant Updates by subscribing to github application webhooks */
+  builders: IBuildersMemory;
+}
 
 export function getTokensNaming(name: string, symbol: string) {
   return {
