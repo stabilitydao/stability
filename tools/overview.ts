@@ -10,10 +10,10 @@ import {
   StrategyShortId,
   StrategyState,
   getUnitById,
+  OS,
 } from "../src";
 import { version } from "../package.json";
 import tokenlist from "../src/stability.tokenlist.json";
-import { getTokensNaming } from "../src/os";
 
 let protocolsTotal = 0;
 for (const defiOrgCode of Object.keys(integrations)) {
@@ -34,7 +34,7 @@ console.log(
 
 ${daos
   .map((dao) => {
-    const naming = getTokensNaming(dao.name, dao.symbol);
+    const naming = OS.getTokensNaming(dao.name, dao.symbol);
     const activities = `  * Activities: ${dao.activity.join(", ")}\n`;
     const daoUnits = dao.units
       .map((unit) => {

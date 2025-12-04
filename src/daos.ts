@@ -1,5 +1,6 @@
 import {
   Activity,
+  FundingType,
   IDAO,
   IUnit,
   LifecyclePhase,
@@ -123,8 +124,8 @@ export const daos: IDAO[] = [
       },
     ],
     params: {
-      lockPeriod: 180,
-      instantExitFee: 80,
+      vePeriod: 180,
+      pvpFee: 80,
       minPower: 4000,
       proposalThreshold: 100_000,
       ttBribe: 10,
@@ -132,16 +133,17 @@ export const daos: IDAO[] = [
     },
     tokenomics: {
       initialChain: ChainName.SONIC,
-      funding: {
-        tge: {
+      funding: [
+        {
+          type: FundingType.TGE,
           start: 1740700800,
           end: 1741132800,
-          claim: 1741167300,
           minRaise: 250000,
           maxRaise: 500000,
           raised: 500000,
+          claim: 1741167300,
         },
-      },
+      ],
       vesting: [
         {
           name: "Investors",
@@ -198,11 +200,19 @@ export const daos: IDAO[] = [
       },
     ],
     params: {
-      lockPeriod: 180,
-      instantExitFee: 100,
+      vePeriod: 180,
+      pvpFee: 100,
     },
     tokenomics: {
-      funding: {},
+      funding: [
+        {
+          type: FundingType.SEED,
+          start: 1772323200,
+          end: 1785456000,
+          minRaise: 10000,
+          maxRaise: 500000,
+        },
+      ],
     },
     builderActivity: {
       multisig: [
@@ -504,18 +514,19 @@ export const daos: IDAO[] = [
       },
     ],
     params: {
-      lockPeriod: 120,
-      instantExitFee: 100,
+      vePeriod: 120,
+      pvpFee: 100,
     },
     tokenomics: {
-      funding: {
-        seed: {
+      funding: [
+        {
+          type: FundingType.SEED,
           start: 1767225600,
           end: 1774915200,
           minRaise: 50000,
           maxRaise: 250000,
         },
-      },
+      ],
     },
     builderActivity: {
       multisig: [],

@@ -63,23 +63,7 @@ export interface IDAO {
     /** Where initial deployment became */
     initialChain?: ChainName;
     /** Fundraising */
-    funding: {
-      seed?: {
-        start: number | string;
-        end: number | string;
-        minRaise: number;
-        maxRaise: number;
-        raised?: number;
-      };
-      tge?: {
-        start: number | string;
-        end: number | string;
-        claim: number | string;
-        minRaise: number;
-        maxRaise: number;
-        raised?: number;
-      };
-    };
+    funding: IFunding[];
     /** Vesting allocations  */
     vesting?: IVesting[];
   };
@@ -140,18 +124,33 @@ export enum LifecyclePhase {
  @interface
  */
 export interface IDAOParameters {
-  /** Vested escrow period */
-  lockPeriod: number;
-  /** PvP fee */
-  instantExitFee: number;
-  /** Minimal power in chain to have voting rights */
+  /** Vested Escrow period, days. */
+  vePeriod: number;
+  /** Instant exit fee, percent */
+  pvpFee: number;
+  /** Minimal power in chain to have voting rights, amount of staked tokens */
   minPower?: number;
-  /** Bribe share for Tokenomics Transactions (vested funds spending) */
+  /** Bribe share for Tokenomics Transactions (vested funds spending), percent */
   ttBribe?: number;
-  /** Share of total DAO revenue going to accidents compensations */
+  /** Share of total DAO revenue going to accidents compensations, percent */
   recoveryShare?: number;
   /** Minimal total voting power (self and delegated) need to create a proposal */
   proposalThreshold?: number;
+}
+
+export interface IFunding {
+  type: FundingType;
+  start: number;
+  end: number;
+  minRaise: number;
+  maxRaise: number;
+  raised?: number;
+  claim?: number;
+}
+
+export enum FundingType {
+  SEED = "SEED",
+  TGE = "TGE",
 }
 
 /**
@@ -288,17 +287,75 @@ export interface IOSMemory {
   builders: IBuildersMemory;
 }
 
-export function getTokensNaming(name: string, symbol: string) {
-  return {
-    seedName: `${name} SEED`,
-    seedSymbol: `seed${symbol}`,
-    tgeName: `${name} PRESALE`,
-    tgeSymbol: `sale${symbol}`,
-    tokenName: name,
-    tokenSymbol: symbol,
-    xName: `x${name}`,
-    xSymbol: `x${symbol}`,
-    daoName: `${name} DAO`,
-    daoSymbol: `${symbol}_DAO`,
-  };
+/**
+ Operating System typescript implementation
+ @class
+ */
+export class OS {
+  /** DAOs storage */
+  daos: IDAO[];
+
+  constructor(daos: IDAO[]) {
+    daos.forEach((dao) => this._validate(dao));
+    this.daos = daos;
+  }
+
+  static getTokensNaming(name: string, symbol: string) {
+    return {
+      seedName: `${name} SEED`,
+      seedSymbol: `seed${symbol}`,
+      tgeName: `${name} PRESALE`,
+      tgeSymbol: `sale${symbol}`,
+      tokenName: name,
+      tokenSymbol: symbol,
+      xName: `x${name}`,
+      xSymbol: `x${symbol}`,
+      daoName: `${name} DAO`,
+      daoSymbol: `${symbol}_DAO`,
+    };
+  }
+
+  /**
+   * Create new DAO
+   * @throws Error
+   */
+  createDAO(
+    name: string,
+    symbol: string,
+    activity: Activity[],
+    vePeriod: number,
+    pvpFee: number,
+    funding: IFunding[],
+  ): IDAO {
+    const dao: IDAO = {
+      phase: LifecyclePhase.DRAFT,
+      name,
+      symbol,
+      activity,
+      socials: [],
+      deployments: {},
+      units: [],
+      agents: [],
+      params: {
+        vePeriod,
+        pvpFee,
+      },
+      tokenomics: {
+        funding,
+      },
+    };
+    this._validate(dao);
+    this.daos.push(dao);
+    return dao;
+  }
+
+  /** @throws Error */
+  _validate(dao: IDAO) {
+    if (!dao.symbol.length || dao.symbol.length > 7) {
+      throw new Error(`SymbolLengthError(${dao.symbol.length})`);
+    }
+    if (!dao.tokenomics.funding.length) {
+      throw new Error("NeedFunding");
+    }
+  }
 }
