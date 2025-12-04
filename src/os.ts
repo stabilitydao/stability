@@ -1,23 +1,44 @@
 /**
- Stability OS MVP prototype
- Self-developing DAOs Operating System
+ Stability OS MVP prototype.
 */
 
 import { ChainName } from "./chains";
-import { AgentRole, emptyRuntime, IAgent } from "./agents";
-import { strategies, StrategyShortId, StrategyState } from "./strategies";
+import { IAgent } from "./agents";
+import { StrategyShortId } from "./strategies";
 import { LendingEngine } from "./lending";
-import { ArtifactType, IBuilderActivity } from "./activity/builder";
+import { IBuilderActivity, IBuildersMemory } from "./activity/builder";
+import { RevenueChart } from "./api.types";
 
-export const STABILITY_OS_TYPES_VERSION = "v2025.11.30";
+export const STABILITY_OS_DESCRIPTION =
+  "Operating System of Self-developing DAOs";
 
 /**
  Represents a DAO running on Stability OS.
+
+ todo: Optimize it for effective on-chain storing
+ todo: [META-ISSUE] DAO must manage properties itself via voting by executing Operating proposals.
+
+ @version 0.1.0
+ @alpha
  @interface
  */
 export interface IDAO {
+  /**
+   DAO lifecycle phase.
+   Changes permissionless when next phase start timestamp reached.
+   */
+  phase: LifecyclePhase;
+
   /** Name of the DAO, used in token names. Without DAO word. */
   name: string;
+
+  /**
+   * Tradeable interchain ERC-20 token symbol.
+   * Lowercased used as slug - unique ID of DAO in OS.
+   * While token symbol is SYM then additional DAO tokens symbols are:
+   * seedSYM, saleSYM, xSYM, SYM_DAO
+   */
+  symbol: string;
 
   /** Community socials */
   socials: string[];
@@ -25,86 +46,160 @@ export interface IDAO {
   /** Activities of the organization. */
   activity: Activity[];
 
+  /** Deployed smart-contracts */
+  deployments: IDAODeployments;
+
   /** Revenue generating units owned by the organization. */
   units: IUnit[];
 
   /** Operating agents managed by the organization. */
   agents: IAgent[];
 
-  /** Constants and state of DAO tokenization in blockchains. */
-  tokenization: {
-    /**
-     * Tradeable interchain ERC-20 token symbol.
-     * Lowercased used as slug - unique ID of DAO in OS.
-     */
-    tokenSymbol: string;
-
-    /** VE-tokenomics entry token symbol. */
-    xSymbol: string;
-
-    /** Governance token symbol. */
-    daoSymbol: string;
-
-    /** The tokenization state changes as tokenomics milestones are passed. */
-    state: TokenizationState;
-
-    eta?: string;
-  };
-
   /** On-chain DAO parameters for tokenomics, governance and revenue sharing */
   params: IDAOParameters;
 
+  /** Supply distribution and fundraising events */
+  tokenomics: {
+    /** Where initial deployment became */
+    initialChain?: ChainName;
+    /** Fundraising */
+    funding: IFunding[];
+    /** Vesting allocations  */
+    vesting?: IVesting[];
+  };
+
   /** DAOs engaging BUILDER activity have  */
   builderActivity?: IBuilderActivity;
-
-  emoji?: string;
 }
 
-export const enum Activity {
+/** Organization activities supported by OS. */
+export enum Activity {
+  /** Owner of Decentralized Finance protocols */
   DEFI_PROTOCOL_OPERATOR = "DEFI_PROTOCOL_OPERATOR",
+  /** Owner of Software as a Service business */
   SAAS_OPERATOR = "SAAS_OPERATOR",
+  /** Searching of Maximum Extractable Value opportunities and submitting it to block builders.  */
   MEV_SEARCHER = "MEV_SEARCHER",
-  /** BUILDER is team of engineers managed by DAOs */
+  /** BUILDER is a team of engineers managed by DAOs. */
   BUILDER = "BUILDER",
 }
 
-export enum TokenizationState {
+/**
+ Lifecycle phase represents DAO tokenomics stage.
+ */
+export enum LifecyclePhase {
   /** Created */
   DRAFT = "DRAFT",
-  /** Initial funding. DAO project passed requirements */
+
+  /**
+   Initial funding. DAO project passed requirements.
+   Since SEED started a DAO become real DAO:
+   - noncustodial
+   - tokenized share holdings
+   - collective management via voting
+   */
   SEED = "SEED",
+
   /** Using SEED funds to launch MVP / Unit generating */
-  RESEARCH_AND_DEVELOPMENTS = "RESEARCH_AND_DEVELOPMENTS",
-  /** TGE is funding event for token liquidity and DAO developments */
+  DEVELOPMENT = "DEVELOPMENT",
+
+  /** TGE is funding event for token liquidity and DAO developments (optionally) */
   TGE = "TGE",
+
   /** Delay before any vesting allocation started */
   LIVE_CLIFF = "LIVE_CLIFF",
+
   /** Vesting period active */
   LIVE_VESTING = "LIVE_VESTING",
+
   /** Vesting ended - token fully distributed */
   LIVE = "LIVE",
+
   /** Absorbed by other DAO running on Stability OS */
   ABSORBED = "ABSORBED",
 }
 
+/**
+ Parameters of VE-tokenomics, Governance and revenue sharing.
+ @interface
+ */
 export interface IDAOParameters {
-  lockPeriod: number;
-  instantExitFee: number;
+  /** Vested Escrow period, days. */
+  vePeriod: number;
+  /** Instant exit fee, percent */
+  pvpFee: number;
+  /** Minimal power in chain to have voting rights, amount of staked tokens */
   minPower?: number;
-  proposalThreshold?: number;
-  sttBribe?: number;
+  /** Bribe share for Tokenomics Transactions (vested funds spending), percent */
+  ttBribe?: number;
+  /** Share of total DAO revenue going to accidents compensations, percent */
   recoveryShare?: number;
+  /** Minimal total voting power (self and delegated) need to create a proposal */
+  proposalThreshold?: number;
 }
 
-export const enum UnitComponentCategory {
-  CHAIN_SUPPORT = "CHAIN_SUPPORT",
-  ENGINE_SUPPORT = "ENGINE_SUPPORT",
-  DEFI_STRATEGY = "DEFI_STRATEGY",
-  MEV_STRATEGY = "MEV_STRATEGY",
+export interface IFunding {
+  type: FundingType;
+  start: number;
+  end: number;
+  minRaise: number;
+  maxRaise: number;
+  raised?: number;
+  claim?: number;
+}
+
+export enum FundingType {
+  SEED = "SEED",
+  TGE = "TGE",
 }
 
 /**
- Revenue generating unit.
+ Vesting allocation data
+ @interface
+ */
+export interface IVesting {
+  /** Short name of vesting allocation */
+  name: string;
+  /** How must be spent */
+  description?: string;
+  /** Vesting supply. 10 == 10e18 TOKEN */
+  allocation: number;
+  /** Start timestamp */
+  start: number;
+  /** End timestamp */
+  end: number;
+}
+
+/**
+ Deployments of running DAO on blockchains.
+
+ @interface
+ */
+export interface IDAODeployments {
+  [chainId: string]: {
+    /** Seed round receipt token. */
+    seedToken?: `0x${string}`;
+    /** TGE pre-sale receipt token. */
+    tgeToken?: `0x${string}`;
+    /** Main tradable DAO token. */
+    token?: `0x${string}`;
+    /** VE-tokenomics entry token. */
+    xToken?: `0x${string}`;
+    /** Staking contract. */
+    staking?: `0x${string}`;
+    /** Governance token. */
+    daoToken?: `0x${string}`;
+    /** Revenue utilization and distributing contract. */
+    revenueRouter?: `0x${string}`;
+    /** Accident recovery system contract. */
+    recovery?: `0x${string}`;
+    /** Set of vesting contracts. */
+    vesting?: { [name: string]: `0x${string}` };
+  };
+}
+
+/**
+ Revenue generating unit owned by a DAO.
  @interface
 */
 export interface IUnit {
@@ -127,16 +222,30 @@ export interface IUnit {
   api?: string[];
 }
 
-export const enum UnitType {
+/** Supported unit types */
+export enum UnitType {
+  /** VE-token early exit fees */
+  PVP = "PVP",
+  /** Decentralized finance protocol */
   DEFI_PROTOCOL = "DEFI_PROTOCOL",
+  /** Software as a Service business */
   SAAS = "SAAS",
+  /** Maximum Extractable Value tool */
   MEV = "MEV",
 }
 
-export const enum UnitStatus {
+export enum UnitStatus {
   RESEARCH = "RESEARCH",
   BUILDING = "BUILDING",
   LIVE = "LIVE",
+}
+
+/** Supported categories of running units. */
+export enum UnitComponentCategory {
+  CHAIN_SUPPORT = "CHAIN_SUPPORT",
+  ENGINE_SUPPORT = "ENGINE_SUPPORT",
+  DEFI_STRATEGY = "DEFI_STRATEGY",
+  MEV_STRATEGY = "MEV_STRATEGY",
 }
 
 export interface IUnitUILink {
@@ -146,425 +255,117 @@ export interface IUnitUILink {
 
 export type UnitComponent = StrategyShortId | ChainName | LendingEngine;
 
-export function getUnitById(unitId: string): IUnit | undefined {
-  for (const dao of daos) {
-    for (const unit of dao.units) {
-      if (unit.unitId === unitId) {
-        return unit;
-      }
-    }
-  }
+/**
+ Hot memory with indexed and aggregated data. OS API reply.
+ @interface
+ */
+export interface IOSMemory {
+  /** DAO runtime data. Updates each minute or faster. */
+  daos: {
+    [symbol: string]: {
+      /** Price from Stability interchain oracle */
+      oraclePrice: string;
+      /** Coingecko price */
+      coingeckoPrice?: string;
+      /** Data for total revenue chart */
+      revenueChart: RevenueChart;
+      /** Extracted on-chain data */
+      onChainData: {
+        [chainId: string]: {
+          stakingAPR: number;
+          staked: number;
+          units: {
+            [unitId: string]: {
+              pendingRevenue: number;
+            };
+          };
+        };
+      };
+    };
+  };
+  /** Instant Updates by subscribing to github application webhooks */
+  builders: IBuildersMemory;
 }
 
-export const daos: IDAO[] = [
-  {
-    name: "Stability",
-    socials: [
-      "https://x.com/stabilitydao",
-      "https://discord.com/invite/R3nnetWzC9",
-      "https://t.me/stabilitydao",
-    ],
-    activity: [Activity.DEFI_PROTOCOL_OPERATOR],
-    tokenization: {
-      state: TokenizationState.LIVE_VESTING,
-      tokenSymbol: "STBL",
-      xSymbol: "xSTBL",
-      daoSymbol: "STBL_DAO",
-    },
-    units: [
-      {
-        unitId: "stability:stabilityFarm",
-        name: "VaaS",
-        status: UnitStatus.LIVE,
-        revenueShare: 100,
-        type: UnitType.DEFI_PROTOCOL,
-        components: {
-          [UnitComponentCategory.DEFI_STRATEGY]: Object.keys(strategies).filter(
-            (s) =>
-              strategies[s as StrategyShortId].state !==
-              StrategyState.CANCELLED,
-          ) as StrategyShortId[],
-          [UnitComponentCategory.CHAIN_SUPPORT]: [
-            ChainName.SONIC,
-            ChainName.AVALANCHE,
-            ChainName.PLASMA,
-          ],
-        },
-        emoji: "🧊",
-        ui: [
-          {
-            href: "https://stability.farm/vaults",
-            title: "All Vaults",
-          },
-          {
-            href: "https://stability.farm/metavaults",
-            title: "Meta Vaults",
-          },
-          {
-            href: "https://stability.farm/leverage-vaults",
-            title: "Leverage Vaults",
-          },
-        ],
+/**
+ Operating System typescript implementation
+ @class
+ */
+export class OS {
+  /** DAOs storage */
+  daos: IDAO[];
+
+  constructor(daos: IDAO[]) {
+    daos.forEach((dao) => this.validate(dao));
+    this.daos = daos;
+  }
+
+  static getTokensNaming(name: string, symbol: string) {
+    return {
+      seedName: `${name} SEED`,
+      seedSymbol: `seed${symbol}`,
+      tgeName: `${name} PRESALE`,
+      tgeSymbol: `sale${symbol}`,
+      tokenName: name,
+      tokenSymbol: symbol,
+      xName: `x${name}`,
+      xSymbol: `x${symbol}`,
+      daoName: `${name} DAO`,
+      daoSymbol: `${symbol}_DAO`,
+    };
+  }
+
+  /**
+   * Create new DAO
+   * @throws Error
+   */
+  createDAO(
+    name: string,
+    symbol: string,
+    activity: Activity[],
+    vePeriod: number,
+    pvpFee: number,
+    funding: IFunding[],
+  ): IDAO {
+    const dao: IDAO = {
+      phase: LifecyclePhase.DRAFT,
+      name,
+      symbol,
+      activity,
+      socials: [],
+      deployments: {},
+      units: [],
+      agents: [],
+      params: {
+        vePeriod,
+        pvpFee,
       },
-      {
-        unitId: "stability:stabilityMarket",
-        name: "Lending",
-        status: UnitStatus.LIVE,
-        revenueShare: 25,
-        type: UnitType.DEFI_PROTOCOL,
-        components: {
-          [UnitComponentCategory.ENGINE_SUPPORT]: [LendingEngine.AAVE_3_0_2],
-        },
-        emoji: "🏦",
-        ui: [
-          {
-            href: "https://stability.farm/lending",
-            title: "Markets",
-          },
-        ],
+      tokenomics: {
+        funding,
       },
-    ],
-    agents: [
-      {
-        roles: [AgentRole.OPERATOR],
-        name: "Stability Operator",
-        telegram: "@stability_dao_bot",
-        image: "OPERATOR.png",
-        ...emptyRuntime,
-        api: ["https://api.stability.farm", "https://api.stabilitydao.org"],
-      },
-    ],
-    params: {
-      lockPeriod: 180,
-      instantExitFee: 80,
-      minPower: 4000,
-      proposalThreshold: 100_000,
-      sttBribe: 10,
-      recoveryShare: 10,
-    },
-  },
-  {
-    name: "DeFi Builder",
-    socials: [],
-    activity: [Activity.BUILDER, Activity.SAAS_OPERATOR],
-    tokenization: {
-      state: TokenizationState.DRAFT,
-      tokenSymbol: "BUILDER",
-      xSymbol: "xBUILDER",
-      daoSymbol: "BUILDER_DAO",
-    },
-    units: [
-      {
-        unitId: "os",
-        name: "Stability OS",
-        status: UnitStatus.BUILDING,
-        revenueShare: 100,
-        type: UnitType.SAAS,
-        components: {},
-        emoji: "🍀",
-      },
-    ],
-    agents: [
-      {
-        roles: [AgentRole.OPERATOR],
-        name: "Stability OS",
-        image: "BUILDER.png",
-        ...emptyRuntime,
-        api: [],
-      },
-    ],
-    params: {
-      lockPeriod: 180,
-      instantExitFee: 100,
-    },
-    builderActivity: {
-      multisig: [
-        "matic:0x36780E69D38c8b175761c6C5F8eD42E61ee490E9",
-        "sonic:0xF564EBaC1182578398E94868bea1AbA6ba339652",
-        "avax:0x06111E02BEb85B57caebEf15F5f90Bc82D54da3A",
-      ],
-      repo: [
-        "stabilitydao/stability",
-        "stabilitydao/stability-contracts",
-        "stabilitydao/stability-ui",
-        "stabilitydao/stability-subgraph",
-        "stabilitydao/lending-deploy",
-        "stabilitydao/stability-os",
-        "stabilitydao/stability-os-ui",
-        "stabilitydao/stability-node-pro",
-      ],
-      burnRate: [
-        {
-          period: "Sep, 2025",
-          usdAmount: 32200,
-        },
-        {
-          period: "Oct, 2025",
-          usdAmount: 31100,
-        },
-      ],
-      workers: ["a17", "omriss", "DevTeaLeaf", "nikita-dogil", "iammrjude"],
-      conveyors: [
-        {
-          unitId: "stability:stabilityFarm",
-          componentCategory: UnitComponentCategory.DEFI_STRATEGY,
-          name: "Strategies",
-          symbol: "📜",
-          type: "Task",
-          label: {
-            name: "conveyor:STRATEGY",
-            description:
-              "Developing and deploying a new DeFi asset management strategy on the **Strategies** conveyor belt.",
-            color: "#cc02ff",
-          },
-          issueTitleTemplate:
-            "📜 %STRATEGY_SHORT_ID% | %STRATEGY_ID%: %STEP_NAME%",
-          taskIdIs: "%STRATEGY_SHORT_ID%",
-          description: "Implement and integrate new strategy smart contract",
-          steps: [
-            {
-              name: "Prepare",
-              issues: [
-                {
-                  repo: "stabilitydao/stability",
-                  issueTemplate: "strategy.md",
-                },
-              ],
-              artifacts: [ArtifactType.LIBRARY_RELEASE_TAG],
-            },
-            {
-              name: "Contract",
-              issues: [
-                {
-                  repo: "stabilitydao/stability-contracts",
-                  generator: "yarn issue",
-                },
-              ],
-              artifacts: [ArtifactType.CONTRACT_ADDRESS],
-            },
-            {
-              name: "Integrate",
-              issues: [
-                {
-                  repo: "stabilitydao/stability",
-                  taskList: [
-                    "Setup platform in chains",
-                    "Add farms / strategy init params",
-                    "Deploy vaults",
-                    "Do post setup (toggleDistributorOperator, etc)",
-                    "Add all necessary tokens to `src/stability.tokenlist.json`, `src/assets.ts`",
-                    "Set status READY to strategy in `src/strategies.ts`",
-                  ],
-                },
-              ],
-              artifacts: [ArtifactType.LIBRARY_RELEASE_TAG],
-            },
-            {
-              name: "Backend",
-              issues: [
-                {
-                  repo: "stabilitydao/stability-node-pro",
-                  taskList: ["Update library"],
-                },
-              ],
-            },
-            {
-              name: "Frontend",
-              issues: [
-                {
-                  repo: "stabilitydao/stability-ui",
-                  taskList: [
-                    "Update library",
-                    "Generate and fill new vault OG images",
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-        {
-          unitId: "stability:stabilityFarm",
-          componentCategory: UnitComponentCategory.CHAIN_SUPPORT,
-          name: "Chains",
-          symbol: "⛓️",
-          type: "Task",
-          label: {
-            name: "conveyor:CHAIN",
-            description: "Chain integration by Chains conveyor",
-            color: "#b1dc13",
-          },
-          issueTitleTemplate: "⛓️ %CHAIN_NAME% [%CHAIN_ID%]: %STEP_NAME%",
-          taskIdIs: "%CHAIN_NAME%",
-          description: "Add chain support",
-          steps: [
-            {
-              name: "Prepare",
-              issues: [
-                {
-                  repo: "stabilitydao/stability",
-                  taskList: [
-                    "Add chain image to static repo",
-                    "add new chain to `src/chains.ts` with status `ChainStatus.DEVELOPMENT`",
-                    "fill multisig",
-                    "fill assets",
-                    "fill integrations",
-                  ],
-                },
-              ],
-              artifacts: [ArtifactType.LIBRARY_RELEASE_TAG],
-            },
-            {
-              name: "Contracts",
-              issues: [
-                {
-                  repo: "stabilitydao/stability-contracts",
-                  generator:
-                    "🎇 Run `yarn issue` in library repo, fill issue id to `src/chains.ts`.",
-                },
-              ],
-              artifacts: [ArtifactType.CONTRACT_ADDRESS],
-            },
-            {
-              name: "Subgraph",
-              issues: [
-                {
-                  repo: "stabilitydao/stability-subgraph",
-                  taskList: ["add chain support", "deploy subgraph"],
-                },
-              ],
-              result: "subgraph endpoint url",
-            },
-            {
-              name: "Deployment",
-              issues: [
-                {
-                  repo: "stabilitydao/stability",
-                  taskList: ["Add chain to `src/deployments.ts`"],
-                },
-              ],
-              artifacts: [ArtifactType.LIBRARY_RELEASE_TAG],
-            },
-            {
-              name: "Backend",
-              issues: [
-                {
-                  repo: "stabilitydao/stability-node-pro",
-                  taskList: ["Show chain in API", "Setup TxSender"],
-                },
-              ],
-              result: "API reply has chain data",
-            },
-            {
-              name: "Frontend",
-              issues: [
-                {
-                  repo: "stabilitydao/stability-ui",
-                  taskList: [
-                    "add chain support to dapp",
-                    "show chain in vaults filter",
-                  ],
-                },
-              ],
-              result: "beta UI show chain",
-            },
-          ],
-        },
-      ],
-      pools: [
-        {
-          unitIds: ["stability:stabilityFarm", "stability:stabilityMarket"],
-          name: "Products",
-          label: {
-            name: "STBL:PRODUCT",
-            description: "New product request",
-            color: "#02a3fc",
-          },
-          productTypes: ["CVault", "MetaVault", "Lending market"],
-          artifacts: [ArtifactType.URL_UI],
-        },
-        {
-          unitIds: ["stability:stabilityFarm", "stability:stabilityMarket"],
-          name: "Features",
-          label: {
-            name: "STBL:FEAT",
-            description: "",
-            color: "#3b15d2",
-          },
-        },
-        {
-          unitIds: ["stability:stabilityFarm", "stability:stabilityMarket"],
-          name: "Maintenance",
-          label: {
-            name: "STBL:MAINTENANCE",
-            description: "",
-            color: "#da7130",
-          },
-        },
-        {
-          unitIds: ["os"],
-          name: "Stability OS",
-          label: {
-            name: "BUILDER:OS",
-            description: "",
-            color: "#00b243",
-          },
-        },
-      ],
-    },
-  },
-  {
-    name: "MEV Fighter",
-    socials: [],
-    activity: [Activity.BUILDER, Activity.MEV_SEARCHER],
-    tokenization: {
-      state: TokenizationState.DRAFT,
-      tokenSymbol: "MEVBOT",
-      xSymbol: "xMEVBOT",
-      daoSymbol: "MEVBOT_DAO",
-    },
-    units: [
-      {
-        unitId: "mevbot:liquidation",
-        name: "Liquidation",
-        status: UnitStatus.RESEARCH,
-        revenueShare: 100,
-        type: UnitType.MEV,
-        components: {
-          [UnitComponentCategory.MEV_STRATEGY]: [],
-        },
-        emoji: "🐺",
-      },
-      {
-        unitId: "mevbot:arb",
-        name: "Arbitrage",
-        status: UnitStatus.RESEARCH,
-        revenueShare: 100,
-        type: UnitType.MEV,
-        components: {
-          [UnitComponentCategory.MEV_STRATEGY]: [],
-        },
-        emoji: "🦄",
-      },
-    ],
-    agents: [
-      {
-        roles: [AgentRole.OPERATOR],
-        name: "MEV Earner",
-        ...emptyRuntime,
-        api: [],
-      },
-    ],
-    params: {
-      lockPeriod: 120,
-      instantExitFee: 100,
-    },
-    builderActivity: {
-      multisig: [],
-      repo: ["stabilitydao/mevbot"],
-      pools: [],
-      conveyors: [],
-      burnRate: [],
-      workers: ["a17", "iammrjude"],
-    },
-  },
-];
+    };
+    this.validate(dao);
+    this.daos.push(dao);
+    return dao;
+  }
+
+  /** @throws Error */
+  validate(dao: IDAO) {
+    if (!dao.symbol.length || dao.symbol.length > 7) {
+      throw new Error(`SymbolLengthError(${dao.symbol.length})`);
+    }
+    if (!dao.tokenomics.funding.length) {
+      throw new Error("NeedFunding");
+    }
+
+    // todo: check name min/max length
+    // todo: check name is unique
+    // todo: check symbol is unique
+    // todo: check activity are correct
+    // todo: check vePeriod min/max duration
+    // todo: check pvpFee min/max
+    // todo: check funding array has unique funding types
+    // todo: check funding dates
+    // todo: check funding raise goals
+  }
+}

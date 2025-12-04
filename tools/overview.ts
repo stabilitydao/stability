@@ -10,6 +10,7 @@ import {
   StrategyShortId,
   StrategyState,
   getUnitById,
+  OS,
 } from "../src";
 import { version } from "../package.json";
 import tokenlist from "../src/stability.tokenlist.json";
@@ -33,14 +34,14 @@ console.log(
 
 ${daos
   .map((dao) => {
+    const naming = OS.getTokensNaming(dao.name, dao.symbol);
     const activities = `  * Activities: ${dao.activity.join(", ")}\n`;
-    const tokenization = `  * Tokenization: ${dao.tokenization.state}. Tokens: ${dao.tokenization.tokenSymbol}, ${dao.tokenization.xSymbol}, ${dao.tokenization.daoSymbol}.\n`;
     const daoUnits = dao.units
       .map((unit) => {
         const uis = !!unit.ui?.length
           ? `\n    * UI: ${unit.ui.map((ui) => `[${ui.title}](${ui.href})`).join(", ")}`
           : "";
-        const unitStr = `  * Unit ${unit.emoji} **${unit.name}** [${unit.status}]${uis}`;
+        const unitStr = `  * Unit ${unit.emoji ? `${unit.emoji} ` : ""}**${unit.name}** [${unit.status}]${uis}`;
         const defiStrategies = !!unit.components.DEFI_STRATEGY?.length
           ? `\n    * DeFi Strategies: ${unit.components.DEFI_STRATEGY.length}. Being developed: ${Object.keys(
               strategies,
@@ -78,9 +79,9 @@ ${daos
           .join(", ")
       : "";
     const builderActivity = !!dao.builderActivity
-      ? `\n  * BUILDER repos: ${dao.builderActivity?.repo.length}${builderPools}${builderConveyors}`
+      ? `\n  * BUILDER repos: ${dao.builderActivity?.repo.length}. Workers: ${dao.builderActivity?.workers.length}.${builderPools}${builderConveyors}`
       : "";
-    return `* **${dao.name}**\n${activities}${tokenization}${daoUnits}${builderActivity}`;
+    return `* **${dao.name}** ${naming.tokenSymbol} [${dao.phase}]\n${activities}${daoUnits}${builderActivity}`;
   })
   .join("\n")}  
 `,
