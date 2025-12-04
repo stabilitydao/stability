@@ -296,7 +296,7 @@ export class OS {
   daos: IDAO[];
 
   constructor(daos: IDAO[]) {
-    daos.forEach((dao) => this._validate(dao));
+    daos.forEach((dao) => this.validate(dao));
     this.daos = daos;
   }
 
@@ -344,18 +344,28 @@ export class OS {
         funding,
       },
     };
-    this._validate(dao);
+    this.validate(dao);
     this.daos.push(dao);
     return dao;
   }
 
   /** @throws Error */
-  _validate(dao: IDAO) {
+  validate(dao: IDAO) {
     if (!dao.symbol.length || dao.symbol.length > 7) {
       throw new Error(`SymbolLengthError(${dao.symbol.length})`);
     }
     if (!dao.tokenomics.funding.length) {
       throw new Error("NeedFunding");
     }
+
+    // todo: check name min/max length
+    // todo: check name is unique
+    // todo: check symbol is unique
+    // todo: check activity are correct
+    // todo: check vePeriod min/max duration
+    // todo: check pvpFee min/max
+    // todo: check funding array has unique funding types
+    // todo: check funding dates
+    // todo: check funding raise goals
   }
 }
