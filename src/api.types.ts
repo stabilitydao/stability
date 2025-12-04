@@ -217,6 +217,7 @@ export type Vault = {
   lastHardWork?: number;
   merklApr?: number;
   farmId?: number;
+  farmingAssets?: `0x${string}`[];
   status?: string;
   strategySpecific?: string;
   strategyDescription?: string;

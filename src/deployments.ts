@@ -87,6 +87,7 @@ export const deployments: { [chainId: string]: Deployment } = {
         "wmetaUSD gen2": lendingMarkets[2].pool,
       },
     },
+    /** @deprecated Use `IDAO.deployments` todo: remove this prop */
     tokenomics: {
       merkleDistributor: "0x0391aBDCFaB86947d93f9dd032955733B639416b",
       gem1: "0x9A08cD5691E009cC72E2A4d8e7F2e6EE14E96d6d",
