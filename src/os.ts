@@ -7,7 +7,7 @@ import { IAgent } from "./agents";
 import { StrategyShortId } from "./strategies";
 import { LendingEngine } from "./lending";
 import { IBuilderActivity, IBuildersMemory } from "./activity/builder";
-import { RevenueChart } from "./api.types";
+import { Prices, RevenueChart } from "./api.types";
 
 export const STABILITY_OS_DESCRIPTION =
   "Operating System of Self-developing DAOs";
@@ -40,7 +40,7 @@ export interface IDAO {
    */
   symbol: string;
 
-  /** Community socials */
+  /** Community socials. Update by `OS.updateSocials` */
   socials: string[];
 
   /** Activities of the organization. */
@@ -60,15 +60,15 @@ export interface IDAO {
 
   /** Supply distribution and fundraising events */
   tokenomics: {
-    /** Where initial deployment became */
-    initialChain?: ChainName;
     /** Fundraising */
     funding: IFunding[];
+    /** Where initial deployment became */
+    initialChain?: ChainName;
     /** Vesting allocations  */
     vesting?: IVesting[];
   };
 
-  /** DAOs engaging BUILDER activity have  */
+  /** DAOs engaging BUILDER activity settings are stored off-chain  */
   builderActivity?: IBuilderActivity;
 }
 
@@ -260,6 +260,12 @@ export type UnitComponent = StrategyShortId | ChainName | LendingEngine;
  @interface
  */
 export interface IOSMemory {
+  /** Prices of assets */
+  prices: Prices;
+
+  /** Total Value Locked in blockchains */
+  chainTvl: { [chainId: string]: number };
+
   /** DAO runtime data. Updates each minute or faster. */
   daos: {
     [symbol: string]: {
@@ -283,6 +289,7 @@ export interface IOSMemory {
       };
     };
   };
+
   /** Instant Updates by subscribing to github application webhooks */
   builders: IBuildersMemory;
 }
@@ -294,6 +301,8 @@ export interface IOSMemory {
 export class OS {
   /** DAOs storage */
   daos: IDAO[];
+
+  events: string[] = [];
 
   constructor(daos: IDAO[]) {
     daos.forEach((dao) => this.validate(dao));
@@ -313,6 +322,14 @@ export class OS {
       daoName: `${name} DAO`,
       daoSymbol: `${symbol}_DAO`,
     };
+  }
+
+  static isLiveDAO(phase: LifecyclePhase) {
+    return [
+      LifecyclePhase.LIVE_CLIFF,
+      LifecyclePhase.LIVE_VESTING,
+      LifecyclePhase.LIVE,
+    ].includes(phase);
   }
 
   /**
@@ -346,7 +363,15 @@ export class OS {
     };
     this.validate(dao);
     this.daos.push(dao);
+    this._emit("DAO created");
     return dao;
+  }
+
+  /** @throws Error */
+  updateSocials(symbol: string, socials: string[]) {
+    const dao = this.getDao(symbol);
+    dao.socials = socials;
+    this._emit("Socials updated");
   }
 
   /** @throws Error */
@@ -367,5 +392,18 @@ export class OS {
     // todo: check funding array has unique funding types
     // todo: check funding dates
     // todo: check funding raise goals
+  }
+
+  getDao(symbol: string): IDAO {
+    for (const dao of this.daos) {
+      if (dao.symbol.toLowerCase() === symbol.toLowerCase()) {
+        return dao;
+      }
+    }
+    throw new Error("DAONotFound");
+  }
+
+  private _emit(event: string) {
+    this.events.push(event);
   }
 }
