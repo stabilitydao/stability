@@ -26,14 +26,18 @@ export type RevenueChart = Record<number, string>;
 export interface Total {
   tvl: number;
   marketTvl: number;
+  /** @deprecated Use stability-os API IOSMemory */
   xSTBLStaked: number;
+  /** @deprecated Use stability-os API IOSMemory */
   xSTBLPendingRevenue: number;
+  /** @deprecated Use stability-os API IOSMemory */
   xSTBLPendingAPR: number;
   marketNetTvl: number;
   usersEarned: number;
   activeVaults: number;
   farms: number;
   vaultForBuilding: number;
+  /** @deprecated Use stability-os API IOSMemory */
   chainTvl: { [chainId: string]: number };
 }
 
@@ -128,7 +132,7 @@ export type Underlying = {
   provider?: string;
 };
 
-export type Market = {
+export type MarketReserve = {
   name: string;
   aToken: string;
   debtToken: string;
@@ -162,7 +166,7 @@ export type MarketData = {
     [market: string]: {
       marketId: string;
       reserves: {
-        [asset: `0x${string}`]: Market;
+        [asset: `0x${string}`]: MarketReserve;
       };
     };
   };
