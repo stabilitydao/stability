@@ -41,7 +41,7 @@ ${daos
         const uis = !!unit.ui?.length
           ? `\n    * UI: ${unit.ui.map((ui) => `[${ui.title}](${ui.href})`).join(", ")}`
           : "";
-        const unitStr = `  * Unit ${unit.emoji} **${unit.name}** [${unit.status}]${uis}`;
+        const unitStr = `  * Unit ${unit.emoji ? `${unit.emoji} ` : ""}**${unit.name}** [${unit.status}]${uis}`;
         const defiStrategies = !!unit.components.DEFI_STRATEGY?.length
           ? `\n    * DeFi Strategies: ${unit.components.DEFI_STRATEGY.length}. Being developed: ${Object.keys(
               strategies,
@@ -79,7 +79,7 @@ ${daos
           .join(", ")
       : "";
     const builderActivity = !!dao.builderActivity
-      ? `\n  * BUILDER repos: ${dao.builderActivity?.repo.length}${builderPools}${builderConveyors}`
+      ? `\n  * BUILDER repos: ${dao.builderActivity?.repo.length}. Workers: ${dao.builderActivity?.workers.length}.${builderPools}${builderConveyors}`
       : "";
     return `* **${dao.name}** ${naming.tokenSymbol} [${dao.phase}]\n${activities}${daoUnits}${builderActivity}`;
   })

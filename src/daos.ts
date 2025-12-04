@@ -53,6 +53,14 @@ export const daos: IDAO[] = [
     },
     units: [
       {
+        unitId: "xstbl",
+        name: "PVP",
+        status: UnitStatus.LIVE,
+        revenueShare: 100,
+        type: UnitType.PVP,
+        components: {},
+      },
+      {
         unitId: "stability:stabilityFarm",
         name: "VaaS",
         status: UnitStatus.LIVE,

@@ -15,7 +15,7 @@ export const STABILITY_OS_DESCRIPTION =
 /**
  Represents a DAO running on Stability OS.
 
- todo: Optimize it for on-chain storing
+ todo: Optimize it for effective on-chain storing
  todo: [META-ISSUE] DAO must manage properties itself via voting by executing Operating proposals.
 
  @version 0.1.0
@@ -223,9 +223,15 @@ export interface IUnit {
   api?: string[];
 }
 
+/** Supported unit types */
 export enum UnitType {
+  /** VE-token early exit fees */
+  PVP = "PVP",
+  /** Decentralized finance protocol */
   DEFI_PROTOCOL = "DEFI_PROTOCOL",
+  /** Software as a Service business */
   SAAS = "SAAS",
+  /** Maximum Extractable Value tool */
   MEV = "MEV",
 }
 
