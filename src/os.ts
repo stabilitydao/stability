@@ -46,6 +46,15 @@ export interface IDAO {
   /** Activities of the organization. */
   activity: Activity[];
 
+  /** Images of tokens. Absolute or relative from stabilitydao/.github repo /os/ folder.  */
+  images: {
+    seedToken?: string;
+    tgeToken?: string;
+    token?: string;
+    xToken?: string;
+    daoToken?: string;
+  };
+
   /** Deployed smart-contracts */
   deployments: IDAODeployments;
 
@@ -350,6 +359,7 @@ export class OS {
       symbol,
       activity,
       socials: [],
+      images: {},
       deployments: {},
       units: [],
       agents: [],
