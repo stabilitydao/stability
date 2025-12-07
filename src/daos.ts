@@ -35,6 +35,11 @@ export const daos: IDAO[] = [
       "https://t.me/stabilitydao",
     ],
     activity: [Activity.DEFI_PROTOCOL_OPERATOR],
+    images: {
+      token: "/stbl.svg",
+      xToken: "/xstbl.png",
+      daoToken: "/STBL_DAO.png",
+    },
     deployments: {
       ["146"]: {
         tgeToken: "0x4D61CB8553bB5Db02DF3bdc6CDa88AA85b32224b",
@@ -178,6 +183,9 @@ export const daos: IDAO[] = [
     symbol: "BUILDER",
     socials: [],
     activity: [Activity.BUILDER, Activity.SAAS_OPERATOR],
+    images: {
+      token: "/builder.png",
+    },
     deployments: {},
     units: [
       {
@@ -480,6 +488,9 @@ export const daos: IDAO[] = [
     symbol: "MEVBOT",
     socials: [],
     activity: [Activity.BUILDER, Activity.MEV_SEARCHER],
+    images: {
+      token: "/mevbot.jpg",
+    },
     deployments: {},
     units: [
       {
