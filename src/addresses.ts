@@ -15,3 +15,23 @@ export const almFactories: {
     },
   },
 };
+
+export const layerZeroV2: {
+  [chainId: string]: {
+    endpoint: `0x${string}`;
+    endpointId: number;
+  };
+} = {
+  "146": {
+    endpoint: "0x6F475642a6e85809B1c36Fa62763669b1b48DD5B",
+    endpointId: 30332,
+  },
+  "9745": {
+    endpoint: "0x6F475642a6e85809B1c36Fa62763669b1b48DD5B",
+    endpointId: 30383,
+  },
+  "43114": {
+    endpoint: "0x1a44076050125825900e736c501f859c50fE728c",
+    endpointId: 30106,
+  },
+};
