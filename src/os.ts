@@ -204,6 +204,12 @@ export interface IDAODeployments {
     recovery?: `0x${string}`;
     /** Set of vesting contracts. */
     vesting?: { [name: string]: `0x${string}` };
+    /** Bridge for Token */
+    tokenBridge?: `0x${string}`;
+    /** Bridge for XToken */
+    xTokenBridge?: `0x${string}`;
+    /** Bridge for Governance token */
+    daoTokenBridge?: `0x${string}`;
   };
 }
 
