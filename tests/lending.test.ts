@@ -11,9 +11,7 @@ describe("testing lending", () => {
 
 describe("testing market reserves exist in assets lists", () => {
   test("market reserves", () => {
-    const visibleMarkets = lendingMarkets.filter((market) => market.show);
-
-    for (const market of visibleMarkets) {
+    for (const market of lendingMarkets) {
       for (const reserve of market.reserves) {
         const existsInTokenList = checkAssetInTokenList(reserve.asset);
         const existsInAssets = checkAssetInAssetsList(
@@ -40,11 +38,14 @@ function checkAssetInAssetsList(assetAddress: `0x${string}`, chainId: string) {
     if (!asset.addresses[chainId]) {
       return false;
     }
-    const assets = [asset.addresses[chainId]]
+    const assetAddresses = [asset.addresses[chainId]]
       ?.flat()
       ?.map((address) => address.toLowerCase());
 
-    return assets.length && assets?.includes(assetAddress.toLowerCase());
+    return (
+      assetAddresses.length &&
+      assetAddresses?.includes(assetAddress.toLowerCase())
+    );
   });
 
   return existsInAssets;
