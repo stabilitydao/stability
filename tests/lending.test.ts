@@ -10,19 +10,21 @@ describe("testing lending", () => {
 });
 
 describe("testing market reserves exist in assets lists", () => {
-  const visibleMarkets = lendingMarkets.filter((market) => market.show);
+  test("market reserves", () => {
+    const visibleMarkets = lendingMarkets.filter((market) => market.show);
 
-  for (const market of visibleMarkets) {
-    for (const reserve of market.reserves) {
-      const existsInTokenList = checkAssetInTokenList(reserve.asset);
-      const existsInAssets = checkAssetInAssetsList(
-        reserve.asset,
-        market.chainId,
-      );
-      expect(existsInTokenList).toBeTruthy();
-      expect(existsInAssets).toBeTruthy();
+    for (const market of visibleMarkets) {
+      for (const reserve of market.reserves) {
+        const existsInTokenList = checkAssetInTokenList(reserve.asset);
+        const existsInAssets = checkAssetInAssetsList(
+          reserve.asset,
+          market.chainId,
+        );
+        expect(existsInTokenList).toBeTruthy();
+        expect(existsInAssets).toBeTruthy();
+      }
     }
-  }
+  });
 });
 
 function checkAssetInTokenList(assetAddress: `0x${string}`) {
