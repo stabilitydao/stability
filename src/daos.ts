@@ -35,6 +35,11 @@ export const daos: IDAO[] = [
       "https://t.me/stabilitydao",
     ],
     activity: [Activity.DEFI_PROTOCOL_OPERATOR],
+    images: {
+      token: "/stbl.svg",
+      xToken: "/xstbl.png",
+      daoToken: "/STBL_DAO.png",
+    },
     deployments: {
       ["146"]: {
         tgeToken: "0x4D61CB8553bB5Db02DF3bdc6CDa88AA85b32224b",
@@ -50,6 +55,17 @@ export const daos: IDAO[] = [
           ["Community"]: "0xEF2CE83527FAE22E0012Efc4d64987C1a51448c5",
           ["Team"]: "0xe6C2AA6e67EF1B806B9Daec7147b113051a445E8",
         },
+        tokenBridge: "0xD6a8b05f08834Ed2f205E3d591CD6D1A84b7C19B",
+        xTokenBridge: "0x533A0c7869e36D1640D4058Bac4604DB6b4d7AD5",
+      },
+      ["9745"]: {
+        token: "0xfdf91362B7E9330F232e500c0236a02B0DE3e492",
+        xToken: "0xF40D0724599282CaF9dfb66feB630e936bC0CFBE",
+        staking: "0x601572b91DC054Be500392A6d3e15c690140998D",
+        revenueRouter: "0x5AC5b2740F77200CCe6562795cFcf4c3c2aC3745",
+        daoToken: "0x87C51aa090587790A5298ea4C2d0DBbcCD0026A6",
+        tokenBridge: "0xfdf91362B7E9330F232e500c0236a02B0DE3e492",
+        xTokenBridge: "0x4E3F0A27bbF443Ba81FCf17E28F4100f35b1b51B",
       },
     },
     units: [
@@ -178,6 +194,9 @@ export const daos: IDAO[] = [
     symbol: "BUILDER",
     socials: [],
     activity: [Activity.BUILDER, Activity.SAAS_OPERATOR],
+    images: {
+      token: "/builder.png",
+    },
     deployments: {},
     units: [
       {
@@ -480,6 +499,9 @@ export const daos: IDAO[] = [
     symbol: "MEVBOT",
     socials: [],
     activity: [Activity.BUILDER, Activity.MEV_SEARCHER],
+    images: {
+      token: "/mevbot.jpg",
+    },
     deployments: {},
     units: [
       {
