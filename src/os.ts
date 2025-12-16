@@ -523,9 +523,9 @@ export class OS {
         throw new Error("WaitFundingEnd");
       }
 
-      const sucess = tge.raised >= tge.minRaise;
+      const success = tge.raised >= tge.minRaise;
 
-      if (sucess) {
+      if (success) {
         // deploy token, xToken, staking, daoToken
         this.daos[symbol].deployments[this.chainId].token = "0xProxyToken";
         this.daos[symbol].deployments[this.chainId].xToken = "0xProxyXToken";
@@ -555,6 +555,16 @@ export class OS {
       }
 
       this.daos[symbol].phase = LifecyclePhase.LIVE_VESTING;
+    } else if (dao.phase === LifecyclePhase.LIVE_VESTING) {
+      // if any vesting started then phase changed
+      const isVestingEnded = !dao.tokenomics.vesting?.filter(
+        (v) => v.end > this.blockTimestamp,
+      ).length;
+      if (!isVestingEnded) {
+        throw new Error("WaitVestingEnd");
+      }
+
+      this.daos[symbol].phase = LifecyclePhase.LIVE;
     }
   }
 
@@ -909,7 +919,8 @@ export class OS {
       const seedIndex = this.getFundingIndex(symbol, FundingType.SEED);
       if (
         dao.tokenomics.funding[seedIndex].raised <
-        dao.tokenomics.funding[seedIndex].minRaise
+          dao.tokenomics.funding[seedIndex].minRaise &&
+        dao.tokenomics.funding[seedIndex].end > this.blockTimestamp
       ) {
         r.push({
           name: "Need attract minimal seed funding",
@@ -949,7 +960,8 @@ export class OS {
       const tgeIndex = this.getFundingIndex(symbol, FundingType.TGE);
       if (
         dao.tokenomics.funding[tgeIndex].raised <
-        dao.tokenomics.funding[tgeIndex].minRaise
+          dao.tokenomics.funding[tgeIndex].minRaise &&
+        dao.tokenomics.funding[tgeIndex].end > this.blockTimestamp
       ) {
         r.push({
           name: "Need attract minimal TGE funding",

@@ -1,5 +1,11 @@
 import { daos, getUnitById, OS, UnitStatus, UnitType } from "../src";
-import { Activity, FundingType, IFunding, LifecyclePhase } from "../src/os";
+import {
+  Activity,
+  FundingType,
+  IFunding,
+  IVesting,
+  LifecyclePhase,
+} from "../src/os";
 
 describe("testing OS", () => {
   test("Lifecycle", () => {
@@ -170,17 +176,14 @@ describe("testing OS", () => {
     os56.receiveVotingResults(proposalId, true);
 
     // add vesting
+
     proposalId = os56.updateVesting(daoAliens.symbol, [
-      {
-        name: "Development",
-        start:
-          (daoAliens.tokenomics.funding[
-            os56.getFundingIndex(daoAliens.symbol, FundingType.TGE)
-          ].end as number) +
-          180 * 86400,
-        end: os56.blockTimestamp + (180 + 365) * 86400,
-        allocation: 100,
-      },
+      _generateVesting(
+        "Development",
+        daoAliens.tokenomics.funding[
+          os56.getFundingIndex(daoAliens.symbol, FundingType.TGE)
+        ].end as number,
+      ),
     ]) as string;
     os56.receiveVotingResults(proposalId, true);
 
@@ -251,6 +254,40 @@ describe("testing OS", () => {
     );
     os56.tasks(daoAliens.symbol);
 
+    try {
+      // too early
+      os56.changePhase(daoAliens.symbol);
+    } catch {}
+
+    // 4000 days later
+    os1.warpDays(4000);
+    os10.warpDays(4000);
+    os56.warpDays(4000);
+    os56.changePhase(daoAliens.symbol);
+    expect(os56.getDao(daoAliens.symbol).phase).toEqual(LifecyclePhase.LIVE);
+    os56.tasks(daoAliens.symbol);
+
+    // try update fundings for coverage
+    try {
+      os56.updateFunding(
+        daoAliens.symbol,
+        _generateSeedFunding(os1, 7 * 86400),
+      );
+    } catch {}
+    try {
+      os56.updateFunding(daoAliens.symbol, _generateTGEFunding(os1, 7 * 86400));
+    } catch {}
+    try {
+      os56.updateVesting(daoAliens.symbol, [
+        _generateVesting(
+          "Development",
+          daoAliens.tokenomics.funding[
+            os56.getFundingIndex(daoAliens.symbol, FundingType.TGE)
+          ].end as number,
+        ),
+      ]);
+    } catch {}
+
     // second DAO are APES syndicate
     // they cant build but need their own DeFi lending protocol
     // they do many errors
@@ -283,20 +320,12 @@ describe("testing OS", () => {
     ]);
     os1.updateSocials(daoApes.symbol, ["https://apes.aa", "https://apes.bb"]);
     os1.updateVesting(daoApes.symbol, [
-      {
-        name: "Development",
-        start:
-          (daoAliens.tokenomics.funding[
-            os56.getFundingIndex(daoAliens.symbol, FundingType.TGE)
-          ].end as number) +
-          180 * 86400,
-        end:
-          (daoAliens.tokenomics.funding[
-            os56.getFundingIndex(daoAliens.symbol, FundingType.TGE)
-          ].end as number) +
-          (180 + 365) * 86400,
-        allocation: 100,
-      },
+      _generateVesting(
+        "Development",
+        daoAliens.tokenomics.funding[
+          os1.getFundingIndex(daoApes.symbol, FundingType.SEED)
+        ].end as number,
+      ),
     ]);
 
     // apes forgot they created DRAFT
@@ -320,6 +349,102 @@ describe("testing OS", () => {
     os1.changePhase(daoApes.symbol);
 
     // fund small amount
+    os1.from = "0xseeder1";
+    os1.fund(daoApes.symbol, 1000);
+
+    // 127 days later
+    os1.warpDays(127);
+    os10.warpDays(127);
+    os56.warpDays(127);
+
+    os1.changePhase(daoApes.symbol);
+    expect(os1.getDao(daoApes.symbol).phase).toEqual(
+      LifecyclePhase.SEED_FAILED,
+    );
+
+    // third DAO are Machines Cartel
+    const daoMachines = os10.createDAO(
+      "Machines Cartel",
+      "MACHINE",
+      [Activity.MEV_SEARCHER],
+      {
+        vePeriod: 14,
+        pvpFee: 99,
+      },
+      [_generateSeedFunding(os10, 7 * 86400), _generateTGEFunding(os10)],
+    );
+
+    os10.updateImages(daoMachines.symbol, {
+      seedToken: "/seedMACHINE.png",
+      token: "/MACHINE.png",
+      tgeToken: "/saleMACHINE.png",
+      xToken: "/xMACHINE.png",
+      daoToken: "/MACHINE_DAO.png",
+    });
+    os10.updateUnits(daoMachines.symbol, [
+      {
+        unitId: "MACHINES:MEVBOT",
+        name: "MEV searcher",
+        status: UnitStatus.LIVE,
+        type: UnitType.MEV,
+        revenueShare: 100,
+        ui: [],
+        api: [],
+      },
+    ]);
+    os10.updateSocials(daoMachines.symbol, [
+      "https://apes.aa",
+      "https://apes.bb",
+    ]);
+    os10.updateVesting(daoMachines.symbol, [
+      _generateVesting(
+        "Development",
+        daoMachines.tokenomics.funding[
+          os10.getFundingIndex(daoMachines.symbol, FundingType.SEED)
+        ].end as number,
+      ),
+    ]);
+
+    // 7 days later
+    os1.warpDays();
+    os10.warpDays();
+    os56.warpDays();
+
+    os10.changePhase(daoMachines.symbol);
+
+    // fund enough amount
+    os10.from = "0xseeder1";
+    os10.fund(daoMachines.symbol, 50000);
+
+    // 127 days later
+    os1.warpDays(127);
+    os10.warpDays(127);
+    os56.warpDays(127);
+
+    os10.changePhase(daoMachines.symbol);
+
+    // now DEVELOPMENT
+
+    // 180 days later
+    os1.warpDays(180);
+    os10.warpDays(180);
+    os56.warpDays(180);
+
+    os10.changePhase(daoMachines.symbol);
+
+    // now TGE
+
+    // 180 days later
+    os1.warpDays(180);
+    os10.warpDays(180);
+    os56.warpDays(180);
+
+    // TGE FAILED
+    os10.changePhase(daoMachines.symbol);
+
+    expect(os10.getDao(daoMachines.symbol).phase).toEqual(
+      LifecyclePhase.DEVELOPMENT,
+    );
   });
 
   test("launch", () => {
@@ -610,6 +735,21 @@ describe("testing OS", () => {
       minRaise,
       maxRaise,
       raised: 0,
+    };
+  };
+
+  const _generateVesting = (
+    name: string,
+    tgeEnd: number,
+    cliff: number = 180 * 86400,
+    duration: number = 365 * 86400,
+    allocation: number = 100,
+  ): IVesting => {
+    return {
+      name,
+      start: tgeEnd + cliff,
+      end: tgeEnd + cliff + duration,
+      allocation,
     };
   };
 });
