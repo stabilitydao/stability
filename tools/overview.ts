@@ -42,7 +42,7 @@ ${daos
           ? `\n    * UI: ${unit.ui.map((ui) => `[${ui.title}](${ui.href})`).join(", ")}`
           : "";
         const unitStr = `  * Unit ${unit.emoji ? `${unit.emoji} ` : ""}**${unit.name}** [${unit.status}]${uis}`;
-        const defiStrategies = !!unit.components.DEFI_STRATEGY?.length
+        const defiStrategies = !!unit.components?.DEFI_STRATEGY?.length
           ? `\n    * DeFi Strategies: ${unit.components.DEFI_STRATEGY.length}. Being developed: ${Object.keys(
               strategies,
             )
@@ -53,10 +53,10 @@ ${daos
               )
               .join(", ")}.`
           : "";
-        const lendingEngines = !!unit.components.ENGINE_SUPPORT?.length
+        const lendingEngines = !!unit.components?.ENGINE_SUPPORT?.length
           ? `\n    * Engines: ${unit.components.ENGINE_SUPPORT.join(", ")}.`
           : "";
-        const chains = !!unit.components.CHAIN_SUPPORT?.length
+        const chains = !!unit.components?.CHAIN_SUPPORT?.length
           ? `\n    * Chains: ${unit.components.CHAIN_SUPPORT.map((chainName) => getChainByName(chainName as ChainName).name).join(", ")}`
           : "";
 
