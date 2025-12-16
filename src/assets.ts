@@ -1076,6 +1076,476 @@ export const assets: Asset[] = [
     website: "https://stability.farm/",
     color: "#6600ff",
   },
+  {
+    addresses: {
+      "1": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+    },
+    symbol: "wstETH",
+    description: "wstETH is a wrapped version of stETH.",
+    website: "https://lido.fi",
+    color: "#00a3ff",
+  },
+  {
+    addresses: {
+      "1": "0x514910771AF9Ca656af840dff83E8264EcF986CA",
+    },
+    symbol: "LINK",
+    description: "ChainLink Token",
+    website: "https://chain.link/",
+    color: "#2a5ada",
+  },
+  {
+    addresses: {
+      "1": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
+    },
+    symbol: "AAVE",
+    description: "Aave Token",
+    website: "https://aave.com/",
+    color: "#b6509e",
+  },
+  {
+    addresses: {
+      "1": "0xBe9895146f7AF43049ca1c1AE358B0541Ea49704",
+    },
+    symbol: "cbETH",
+    description:
+      "Coinbase Wrapped Staked ETH (cbETH) is a utility token that represents ETH staked through Coinbase.",
+    website: "https://www.coinbase.com/cbeth",
+    color: "#2151f5",
+  },
+  {
+    addresses: {
+      "1": "0xae78736Cd615f374D3085123A210448E74Fc6393",
+    },
+    symbol: "rETH",
+    description: "Rocket Pool ETH",
+    website: "https://rocketpool.net/",
+    color: "#fda86a",
+  },
+  {
+    addresses: {
+      "1": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    },
+    symbol: "LUSD",
+    description: "LUSD Stablecoin",
+    website: "https://www.liquity.org/",
+    color: "#745ddf",
+  },
+  {
+    addresses: {
+      "1": "0xD533a949740bb3306d119CC777fa900bA034cd52",
+    },
+    symbol: "CRV",
+    description: "Curve DAO Token",
+    website: "https://curve.fi/",
+    color: "#40649f",
+  },
+  {
+    addresses: {
+      "1": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2",
+    },
+    symbol: "MKR",
+    description: "Maker",
+    website: "https://makerdao.com/",
+    color: "#1aab9b",
+  },
+  {
+    addresses: {
+      "1": "0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F",
+    },
+    symbol: "SNX",
+    description: "Synthetix Network Token",
+    website: "https://synthetix.io/",
+    color: "#00d1ff",
+  },
+  {
+    addresses: {
+      "1": "0xba100000625a3754423978a60c9317c58a424e3D",
+    },
+    symbol: "BAL",
+    description: "Balancer",
+    website: "https://balancer.fi/",
+    color: "#1e1e1e",
+  },
+  {
+    addresses: {
+      "1": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
+    },
+    symbol: "UNI",
+    description: "Uniswap",
+    website: "https://uniswap.org/",
+    color: "#ff007a",
+  },
+  {
+    addresses: {
+      "1": "0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32",
+    },
+    symbol: "LDO",
+    description: "Lido DAO Token",
+    website: "https://lido.fi/",
+    color: "#00a3ff",
+  },
+  {
+    addresses: {
+      "1": "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72",
+    },
+    symbol: "ENS",
+    description: "Ethereum Name Service",
+    website: "https://ens.domains/",
+    color: "#5298ff",
+  },
+  {
+    addresses: {
+      "1": "0x111111111117dC0aa78b770fA6A738034120C302",
+    },
+    symbol: "1INCH",
+    description: "1INCH Token",
+    website: "https://1inch.io/",
+    color: "#94a6c3",
+  },
+  {
+    addresses: {
+      "1": "0x853d955aCEf822Db058eb8505911ED77F175b99e",
+    },
+    symbol: "FRAX",
+    description: "Frax",
+    website: "https://frax.finance/",
+    color: "#000000",
+  },
+  {
+    addresses: {
+      "1": "0x40D16FC0246aD3160Ccc09B8D0D3A2cD28aE6C2f",
+    },
+    symbol: "GHO",
+    description: "Gho Token",
+    website: "https://aave.com/",
+    color: "#b6509e",
+  },
+  {
+    addresses: {
+      "1": "0xD33526068D116cE69F19A9ee46F0bd304F21A51f",
+    },
+    symbol: "RPL",
+    description: "Rocket Pool Protocol",
+    website: "https://rocketpool.net/",
+    color: "#fda86a",
+  },
+  {
+    addresses: {
+      "1": "0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+    },
+    symbol: "sDAI",
+    description: "Savings Dai",
+    website: "https://makerdao.com/",
+    color: "#f3ba42",
+  },
+  {
+    addresses: {
+      "1": "0xAf5191B0De278C7286d6C7CC6ab6BB8A73bA2Cd6",
+    },
+    symbol: "STG",
+    description: "StargateToken",
+    website: "https://stargate.finance/",
+    color: "#000000",
+  },
+  {
+    addresses: {
+      "1": "0xdeFA4e8a7bcBA345F687a2f1456F5Edd9CE97202",
+    },
+    symbol: "KNC",
+    description: "Kyber Network Crystal v2",
+    website: "https://kyber.network/",
+    color: "#31cb9e",
+  },
+  {
+    addresses: {
+      "1": "0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0",
+    },
+    symbol: "FXS",
+    description: "Frax Share",
+    website: "https://frax.finance/",
+    color: "#000000",
+  },
+  {
+    addresses: {
+      "1": "0xf939E0A03FB07F59A73314E73794Be0E57ac1b4E",
+    },
+    symbol: "crvUSD",
+    description:
+      "crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar",
+    website: "https://crvusd.curve.fi/",
+    color: "#397949",
+  },
+  {
+    addresses: {
+      "1": "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
+    },
+    symbol: "PYUSD",
+    description: "PayPal USD",
+    website: "https://www.paypal.com/pyusd",
+    color: "#0070ba",
+  },
+  {
+    addresses: {
+      "1": "0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee",
+    },
+    symbol: "weETH",
+    description: "Wrapped eETH",
+    website: "https://www.ether.fi/",
+    color: "#6a60e1",
+  },
+  {
+    addresses: {
+      "1": "0xf1C9acDc66974dFB6dEcB12aA385b9cD01190E38",
+    },
+    symbol: "osETH",
+    description: "Staked ETH",
+    website: "https://www.stakewise.io/",
+    color: "#6b46c1",
+  },
+  {
+    addresses: {
+      "1": "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+    },
+    symbol: "USDe",
+    description: "USDe",
+    website: "https://ethena.fi/",
+    color: "#4f4f4f",
+  },
+  {
+    addresses: {
+      "1": "0xA35b1B31Ce002FBF2058D22F30f95D405200A15b",
+    },
+    symbol: "ETHx",
+    description: "ETHx",
+    website: "https://www.staderlabs.com/",
+    color: "#72a8ff",
+  },
+  {
+    addresses: {
+      "1": "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+    },
+    symbol: "sUSDe",
+    description: "Staked USDe",
+    website: "https://ethena.fi/",
+    color: "#a8a8a8",
+  },
+  {
+    addresses: {
+      "1": "0x18084fbA666a33d37592fA2633fD49a74DD93a88",
+    },
+    symbol: "tBTC",
+    description: "tBTC v2",
+    website: "https://threshold.network/",
+    color: "#000000",
+  },
+  {
+    addresses: {
+      "1": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+    },
+    symbol: "cbBTC",
+    description: "Coinbase Wrapped BTC",
+    website: "https://www.coinbase.com/",
+    color: "#0052ff",
+  },
+  {
+    addresses: {
+      "1": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+    },
+    symbol: "USDS",
+    description: "USDS Stablecoin",
+    website: "https://makerdao.com/",
+    color: "#f3ba42",
+  },
+  {
+    addresses: {
+      "1": "0xA1290d69c65A6Fe4DF752f95823fae25cB99e5A7",
+    },
+    symbol: "rsETH",
+    description: "rsETH",
+    website: "https://www.kelpdao.xyz/",
+    color: "#96f6c8",
+  },
+  {
+    addresses: {
+      "1": "0x8236a87084f8B84306f72007F36F2618A5634494",
+    },
+    symbol: "LBTC",
+    description: "Lombard Staked Bitcoin",
+    website: "https://lombard.finance/",
+    color: "#ff6b35",
+  },
+  {
+    addresses: {
+      "1": "0x657e8C867D8B37dCC18fA4Caead9C45EB088C642",
+    },
+    symbol: "eBTC",
+    description: "ether.fi BTC",
+    website: "https://www.ether.fi/",
+    color: "#6a60e1",
+  },
+  {
+    addresses: {
+      "1": "0x8292Bb45bf1Ee4d140127049757C2E0fF06317eD",
+    },
+    symbol: "RLUSD",
+    description: "RLUSD",
+    website: "https://ripple.com/",
+    color: "#23292f",
+  },
+  {
+    addresses: {
+      "1": "0x50D2C7992b802Eef16c04FeADAB310f31866a545",
+    },
+    symbol: "PT-eUSDE-29MAY2025",
+    description: "PT Ethereal eUSDE 29MAY2025",
+    website: "https://www.pendle.finance/",
+    color: "#91d8f7",
+  },
+  {
+    addresses: {
+      "1": "0x3b3fB9C57858EF816833dC91565EFcd85D96f634",
+    },
+    symbol: "PT-sUSDE-31JUL2025",
+    description: "PT Ethena sUSDE 31JUL2025",
+    website: "https://www.pendle.finance/",
+    color: "#91d8f7",
+  },
+  {
+    addresses: {
+      "1": "0xC139190F447e929f090Edeb554D95AbB8b18aC1C",
+    },
+    symbol: "USDtb",
+    description: "USDtb",
+    website: "https://www.ethena.fi/",
+    color: "#4f4f4f",
+  },
+  {
+    addresses: {
+      "1": "0x917459337CaAC939D41d7493B3999f571D20D667",
+    },
+    symbol: "PT-USDe-31JUL2025",
+    description: "PT Ethena USDe 31JUL2025",
+    website: "https://www.pendle.finance/",
+    color: "#91d8f7",
+  },
+  {
+    addresses: {
+      "1": "0x14Bdc3A3AE09f5518b923b69489CBcAfB238e617",
+    },
+    symbol: "PT-eUSDE-14AUG2025",
+    description: "PT Ethereal eUSDE 14AUG2025",
+    website: "https://www.pendle.finance/",
+    color: "#91d8f7",
+  },
+  {
+    addresses: {
+      "1": "0x90D2af7d622ca3141efA4d8f1F24d86E5974Cc8F",
+    },
+    symbol: "eUSDe",
+    description: "Ethereal Pre-deposit Vault",
+    website: "https://www.ethereal.finance/",
+    color: "#8b5cf6",
+  },
+  {
+    addresses: {
+      "1": "0xC96dE26018A54D51c097160568752c4E3BD6C364",
+    },
+    symbol: "FBTC",
+    description: "Fire Bitcoin",
+    website: "https://www.fbtc.com/",
+    color: "#ff6b35",
+  },
+  {
+    addresses: {
+      "1": "0x1aBaEA1f7C830bD89Acc67eC4af516284b1bC33c",
+    },
+    symbol: "EURC",
+    description: "Euro Coin",
+    website: "https://www.circle.com/",
+    color: "#3b87df",
+  },
+  {
+    addresses: {
+      "1": "0x9F56094C450763769BA0EA9Fe2876070c0fD5F77",
+    },
+    symbol: "PT-sUSDE-25SEP2025",
+    description: "PT Ethena sUSDE 25SEP2025",
+    website: "https://www.pendle.finance/",
+    color: "#91d8f7",
+  },
+  {
+    addresses: {
+      "1": "0xBC6736d346a5eBC0dEbc997397912CD9b8FAe10a",
+    },
+    symbol: "PT-USDe-25SEP2025",
+    description: "PT Ethena USDe 25SEP2025",
+    website: "https://www.pendle.finance/",
+    color: "#91d8f7",
+  },
+  {
+    addresses: {
+      "1": "0xD11c452fc99cF405034ee446803b6F6c1F6d5ED8",
+    },
+    symbol: "tETH",
+    description: "Treehouse ETH",
+    website: "https://www.treehouse.finance/",
+    color: "#22c55e",
+  },
+  {
+    addresses: {
+      "1": "0xbf5495Efe5DB9ce00f80364C8B423567e58d2110",
+    },
+    symbol: "ezETH",
+    description: "Renzo Restaked ETH",
+    website: "https://www.renzoprotocol.com/",
+    color: "#84cc16",
+  },
+  {
+    addresses: {
+      "1": "0x68749665FF8D2d112Fa859AA293F07A622782F38",
+    },
+    symbol: "XAUt",
+    description: "Tether Gold",
+    website: "https://gold.tether.to/",
+    color: "#d4af37",
+  },
+  {
+    addresses: {
+      "1": "0xe6A934089BBEe34F832060CE98848359883749B3",
+    },
+    symbol: "PT-sUSDE-27NOV2025",
+    description: "PT Ethena sUSDE 27NOV2025",
+    website: "https://www.pendle.finance/",
+    color: "#91d8f7",
+  },
+  {
+    addresses: {
+      "1": "0x62C6E813b9589C3631Ba0Cdb013acdB8544038B7",
+    },
+    symbol: "PT-USDe-27NOV2025",
+    description: "PT Ethena USDe 27NOV2025",
+    website: "https://www.pendle.finance/",
+    color: "#91d8f7",
+  },
+  {
+    addresses: {
+      "1": "0x1F84a51296691320478c98b8d77f2Bbd17D34350",
+    },
+    symbol: "PT-USDe-5FEB2026",
+    description: "PT Ethena USDe 5FEB2026",
+    website: "https://www.pendle.finance/",
+    color: "#91d8f7",
+  },
+  {
+    addresses: {
+      "1": "0xE8483517077afa11A9B07f849cee2552f040d7b2",
+    },
+    symbol: "PT-sUSDE-5FEB2026",
+    description: "PT Ethena sUSDE 5FEB2026",
+    website: "https://www.pendle.finance/",
+    color: "#91d8f7",
+  },
 ];
 
 export const sonicWhitelistedAssets: {
