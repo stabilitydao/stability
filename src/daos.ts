@@ -187,6 +187,7 @@ export const daos: IDAO[] = [
         },
       ],
     },
+    deployer: "0x0",
   },
   {
     phase: LifecyclePhase.DRAFT,
@@ -223,6 +224,7 @@ export const daos: IDAO[] = [
       pvpFee: 100,
     },
     tokenomics: {
+      initialChain: ChainName.PLASMA,
       funding: [
         {
           type: FundingType.SEED,
@@ -230,9 +232,11 @@ export const daos: IDAO[] = [
           end: 1785456000,
           minRaise: 10000,
           maxRaise: 500000,
+          raised: 0,
         },
       ],
     },
+    deployer: "0x0",
     builderActivity: {
       multisig: [
         "matic:0x36780E69D38c8b175761c6C5F8eD42E61ee490E9",
@@ -540,6 +544,7 @@ export const daos: IDAO[] = [
       pvpFee: 100,
     },
     tokenomics: {
+      initialChain: ChainName.PLASMA,
       funding: [
         {
           type: FundingType.SEED,
@@ -547,9 +552,11 @@ export const daos: IDAO[] = [
           end: 1774915200,
           minRaise: 50000,
           maxRaise: 250000,
+          raised: 0,
         },
       ],
     },
+    deployer: "0x0",
     builderActivity: {
       multisig: [],
       repo: ["stabilitydao/mevbot"],

@@ -10,7 +10,8 @@
     "outDir": "./out",
     "rootDir": "./src",
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "experimentalDecorators": true
   },
   "include": ["src/**/*"]
 }
