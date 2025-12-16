@@ -445,6 +445,12 @@ describe("testing OS", () => {
     expect(os10.getDao(daoMachines.symbol).phase).toEqual(
       LifecyclePhase.DEVELOPMENT,
     );
+
+    // rejected proposal coverage
+    proposalId = os10.updateSocials(daoMachines.symbol, [
+      "https://t.me/stabilitydao1",
+    ]) as string;
+    os10.receiveVotingResults(proposalId as string, false);
   });
 
   test("launch", () => {

@@ -834,7 +834,7 @@ export class OS {
   private _proposeAction(
     symbol: string,
     action: DAOAction,
-    payload: any = {},
+    payload: any,
   ): string {
     const dao = this.getDao(symbol);
 
@@ -1130,7 +1130,7 @@ export class OS {
     }
   }
 
-  private _sendCrossChainMessage(type: CROSS_CHAIN_MESSAGE, payload: any = {}) {
+  private _sendCrossChainMessage(type: CROSS_CHAIN_MESSAGE, payload: any) {
     // todo some stub
   }
 }
