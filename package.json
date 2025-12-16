@@ -1,6 +1,6 @@
 {
   "name": "@stabilitydao/stability",
-  "version": "0.55.0",
+  "version": "0.56.0",
   "description": "Stability Operating System Library",
   "main": "out/index.js",
   "types": "out/index.d.ts",
@@ -18,6 +18,7 @@
     "overview": "ts-node tools/overview.ts",
     "build": "tsc",
     "test": "jest",
+    "update-lending": "ts-node tools/update-lending.ts && yarn prettier --write src/lending.ts",
     "coverage": "jest --collect-coverage",
     "postbuild": "shx cp src/*.tokenlist.json out/",
     "draw-chains": "ts-node tools/draw-chains.ts",
@@ -38,6 +39,7 @@
     "shx": "^0.3.4",
     "ts-jest": "^29.1.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "viem": "^2.40.0"
   }
 }
