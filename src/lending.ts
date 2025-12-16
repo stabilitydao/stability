@@ -615,7 +615,7 @@ export const lendingMarkets: ILendingMarket[] = [
       },
     ],
     deployed: "Dec 29, 2022",
-    show: false,
+    show: true,
   },
   {
     id: "Vicuna",
