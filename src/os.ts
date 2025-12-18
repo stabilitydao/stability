@@ -783,6 +783,70 @@ export class OS {
     }
   }
 
+  /** OFF-CHAIN only **/
+  /** @throws Error */
+  roadmap(symbol: string): IRoadmapItem[] {
+    const dao: IDAO = this.getDao(symbol);
+    const r: IRoadmapItem[] = [];
+    let tgeRun = 0;
+
+    for (const funding of dao.tokenomics.funding) {
+      if (funding.type === FundingType.SEED) {
+        r.push({
+          phase: LifecyclePhase.SEED,
+          start: funding.start,
+          end: funding.end,
+        });
+      }
+      if (funding.type === FundingType.TGE) {
+        // if SEED was done
+        if (r.length > 0) {
+          r.push({
+            phase: LifecyclePhase.DEVELOPMENT,
+            start: (r[0].end as number) + 1,
+            end: funding.start - 1,
+          });
+        }
+
+        tgeRun = funding.claim || funding.end;
+        r.push({
+          phase: LifecyclePhase.TGE,
+          start: funding.start,
+          end: tgeRun,
+        });
+      }
+    }
+
+    if (dao.tokenomics.vesting) {
+      let vestingStart = this.blockTimestamp;
+      let vestingEnd = this.blockTimestamp;
+      for (const vesting of dao.tokenomics.vesting) {
+        if (vesting.start < vestingStart) {
+          vestingStart = vesting.start;
+        }
+        if (vesting.end > vestingEnd) {
+          vestingEnd = vesting.end;
+        }
+      }
+      r.push({
+        phase: LifecyclePhase.LIVE_CLIFF,
+        start: tgeRun + 1,
+        end: vestingStart - 1,
+      });
+      r.push({
+        phase: LifecyclePhase.LIVE_VESTING,
+        start: vestingStart,
+        end: vestingEnd,
+      });
+      r.push({
+        phase: LifecyclePhase.LIVE,
+        start: vestingEnd + 1,
+      });
+    }
+
+    return r;
+  }
+
   /** @throws Error */
   tasks(symbol: string): ITask[] {
     const dao: IDAO = this.getDao(symbol);
@@ -1074,4 +1138,10 @@ interface IProposal {
   action: DAOAction;
   payload: any;
   status: VotingStatus;
+}
+
+interface IRoadmapItem {
+  phase: LifecyclePhase;
+  start: number;
+  end?: number;
 }

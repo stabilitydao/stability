@@ -293,6 +293,10 @@ describe("testing OS", () => {
       ]);
     } catch {}
 
+    const roadmap = os56.roadmap(daoAliens.symbol);
+    expect(roadmap.length).toBeGreaterThanOrEqual(6);
+    //console.log(roadmap)
+
     // second DAO are APES syndicate
     // they cant build but need their own DeFi lending protocol
     // they do many errors
@@ -463,6 +467,9 @@ describe("testing OS", () => {
     os.addLiveDAO(daos[0]);
     expect(Object.keys(os.daos).length).toBe(1);
     expect(getUnitById(daos[0].units[1].unitId)?.name).toBe("VaaS");
+    const roadmap = os.roadmap(daos[0].symbol);
+    expect(roadmap.length).toBe(4);
+    //console.log(roadmap)
   });
 
   test("create DAO", () => {
@@ -649,6 +656,10 @@ describe("testing OS", () => {
     } catch (error: Error | unknown) {
       expect((error as Error).message).toBe("DAONotFound");
     }
+
+    const roadmap = os.roadmap(dao.symbol);
+    expect(roadmap.length).toBeGreaterThanOrEqual(1);
+    //console.log(roadmap)
   });
 
   test("getters", () => {
