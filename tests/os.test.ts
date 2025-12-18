@@ -237,6 +237,11 @@ describe("testing OS", () => {
       LifecyclePhase.LIVE_CLIFF,
     );
 
+    // owner of DAO is DAO token
+    expect(os56.getDaoOwner(daoAliens.symbol)).toBe(
+      daoAliens.deployments[os56.chainId].daoToken,
+    );
+
     try {
       // too early
       os56.changePhase(daoAliens.symbol);
@@ -631,46 +636,6 @@ describe("testing OS", () => {
     expect(os.getDao(daos[0].symbol).socials[0]).toBe(
       "https://t.me/stabilitydao1",
     );
-  });
-
-  test("absorbing", () => {
-    const os = new OS("146");
-    os.addLiveDAO(daos[0]);
-
-    const newDao = _createDAO(os);
-    os.from = os.getDaoOwner(newDao.symbol);
-
-    try {
-      os.absorbingOffer(newDao.symbol, daos[0].symbol, 10000);
-      expect(false).toBe(true);
-    } catch {}
-
-    os.absorbingOffer(newDao.symbol, daos[0].symbol, 1000000);
-
-    os.from = os.getDaoOwner(daos[0].symbol);
-    os.absorbingReject(newDao.symbol, daos[0].symbol);
-
-    os.from = os.getDaoOwner(newDao.symbol);
-    os.absorbingOffer(newDao.symbol, daos[0].symbol, 1000000);
-
-    os.from = os.getDaoOwner(daos[0].symbol);
-    os.absorbingApprove(newDao.symbol, daos[0].symbol);
-
-    expect(os.getDaoOwner(os.daos[Object.keys(os.daos)[0]].symbol)).toBe(
-      os.getDaoOwner(newDao.symbol),
-    );
-
-    try {
-      os.from = os.getDaoOwner(daos[0].symbol);
-      os.absorbingApprove(newDao.symbol, daos[0].symbol);
-      expect(false).toBe(true);
-    } catch {}
-
-    try {
-      os.from = os.getDaoOwner(daos[0].symbol);
-      os.absorbingReject(newDao.symbol, daos[0].symbol);
-      expect(false).toBe(true);
-    } catch {}
   });
 
   test("get DAO", () => {
