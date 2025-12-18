@@ -191,10 +191,14 @@ export const daos: IDAO[] = [
   },
   {
     phase: LifecyclePhase.DRAFT,
-    name: "DeFi Builder",
-    symbol: "BUILDER",
-    socials: [],
-    activity: [Activity.BUILDER, Activity.SAAS_OPERATOR],
+    name: "Host Dev",
+    symbol: "HOST",
+    socials: ["https://t.me/dao_host"],
+    activity: [
+      Activity.BUILDER,
+      Activity.SAAS_OPERATOR,
+      Activity.DEFI_PROTOCOL_OPERATOR,
+    ],
     images: {
       token: "/builder.png",
     },
@@ -202,7 +206,7 @@ export const daos: IDAO[] = [
     units: [
       {
         unitId: "os",
-        name: "Stability OS",
+        name: "dao.host",
         status: UnitStatus.BUILDING,
         revenueShare: 100,
         type: UnitType.SAAS,
@@ -224,14 +228,23 @@ export const daos: IDAO[] = [
       pvpFee: 100,
     },
     tokenomics: {
-      initialChain: ChainName.PLASMA,
+      initialChain: ChainName.ETHEREUM,
       funding: [
         {
           type: FundingType.SEED,
-          start: 1772323200,
-          end: 1785456000,
-          minRaise: 10000,
+          start: 1768521600, // Friday, 16 January 2026
+          end: 1776211200, // Wednesday, 15 April 2026
+          minRaise: 40000,
           maxRaise: 500000,
+          raised: 0,
+        },
+        {
+          type: FundingType.TGE,
+          start: 1793577600, // Monday, 2 November 2026
+          end: 1794182399, // Sunday, 8 November 2026, 23:59:59
+          claim: 1794268800, // Tuesday, 10 November 2026
+          minRaise: 400000,
+          maxRaise: 1200000,
           raised: 0,
         },
       ],
