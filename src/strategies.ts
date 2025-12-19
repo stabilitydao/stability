@@ -781,7 +781,7 @@ export const strategies: { [shortId in StrategyShortId]: Strategy } = {
   [StrategyShortId.ALMF]: {
     id: "Aave Leverage Merkl Farm",
     shortId: StrategyShortId.ALMF,
-    state: StrategyState.DEVELOPMENT,
+    state: StrategyState.LIVE,
     contractGithubId: 431,
     color: "#416dff",
     bgColor: "#000d1f",

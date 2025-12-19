@@ -57,7 +57,7 @@ yarn prettier . --write
 
 - 📦 New version
 - 📚 Knowledge (🪙 assets, 🌐 protocols, ⛓️ chains)
-- 🔨 Types, refactor
+- 🔨 Types, refactor, formatter
 - ♻️ Update data (DAOs, strats, integrations, etc)
 - 🏛️ DAO
 - 🧑‍🎓 Docs

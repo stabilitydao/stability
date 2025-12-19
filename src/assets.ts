@@ -1076,7 +1076,7 @@ export const assets: Asset[] = [
     website: "https://stability.farm/",
     color: "#6600ff",
   },
-    {
+  {
     addresses: {
       "1": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
     },
@@ -1108,7 +1108,8 @@ export const assets: Asset[] = [
       "1": "0xBe9895146f7AF43049ca1c1AE358B0541Ea49704",
     },
     symbol: "cbETH",
-    description: "Coinbase Wrapped Staked ETH (cbETH) is a utility token that represents ETH staked through Coinbase.",
+    description:
+      "Coinbase Wrapped Staked ETH (cbETH) is a utility token that represents ETH staked through Coinbase.",
     website: "https://www.coinbase.com/cbeth",
     color: "#2151f5",
   },
@@ -1270,7 +1271,8 @@ export const assets: Asset[] = [
       "1": "0xf939E0A03FB07F59A73314E73794Be0E57ac1b4E",
     },
     symbol: "crvUSD",
-    description: "crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar",
+    description:
+      "crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar",
     website: "https://crvusd.curve.fi/",
     color: "#397949",
   },
