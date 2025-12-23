@@ -955,7 +955,14 @@
       "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/btc.jpg",
       "tags": ["bridged"]
     },
-
+    {
+      "chainId": 43114,
+      "address": "0x9d92c21205383651610f90722131655a5b8ed3e0",
+      "symbol": "sUSDp",
+      "name": "Staked USDp",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/usdp.svg"
+    },
     {
       "chainId": 81457,
       "address": "0xb1a5700fA2358173Fe465e6eA4Ff52E36e88E2ad",
