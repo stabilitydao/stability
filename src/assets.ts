@@ -1548,7 +1548,7 @@ export const assets: Asset[] = [
   },
   {
     addresses: {
-      "43114": "0x9eE1963f05553eF838604Dd39403be21ceF26AA4",
+      "43114": "0x9d92c21205383651610f90722131655a5b8ed3e0",
     },
     symbol: "sUSDp",
     website: "https://parallel.best/",
