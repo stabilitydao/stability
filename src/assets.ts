@@ -1546,6 +1546,15 @@ export const assets: Asset[] = [
     website: "https://www.pendle.finance/",
     color: "#91d8f7",
   },
+  {
+    addresses: {
+      "43114": "0x9eE1963f05553eF838604Dd39403be21ceF26AA4",
+    },
+    symbol: "sUSDp",
+    website: "https://parallel.best/",
+    color: "#bc43c0ff",
+    description: "Staked USDp",
+  },
 ];
 
 export const sonicWhitelistedAssets: {
