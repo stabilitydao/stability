@@ -7,6 +7,7 @@ export interface ILendingMarket {
   protocolDataProvider: `0x${string}`;
   // AaveProtocolDataProvider: getAllReservesTokens, getAllATokens
   reserves: IReserve[];
+  uiPoolDataProvider: `0x${string}`;
   deployed: string;
   show: boolean;
   stableCoinIsolatedMarket?: boolean;
@@ -42,6 +43,7 @@ export const lendingMarkets: ILendingMarket[] = [
     operator: LendingOperator.AAVE,
     pool: "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
     protocolDataProvider: "0x0a16f2FCC0D44FaE41cc54e079281D84A363bECD",
+    uiPoolDataProvider: "0x3f78bbd206e4d3c504eb854232eda7e47e9fd8fc",
     reserves: [
       // aEthWETH
       {
@@ -624,6 +626,7 @@ export const lendingMarkets: ILendingMarket[] = [
     operator: LendingOperator.STABILITY,
     pool: "0xaa1C02a83362BcE106dFf6eB65282fE8B97A1665",
     protocolDataProvider: "0xc67850eCd0EC9dB4c0fD65C1Ad43a53025e6d54D",
+    uiPoolDataProvider: "0xAC2b7EADb55858700B8567aB5Ca7863101508304",
     reserves: [
       // vSonicWS
       {
@@ -714,6 +717,7 @@ export const lendingMarkets: ILendingMarket[] = [
     chainId: "146",
     engine: LendingEngine.AAVE_3_0_2,
     operator: LendingOperator.STABILITY,
+    uiPoolDataProvider: "0xAC2b7EADb55858700B8567aB5Ca7863101508304",
     pool: "0x6D8Aa37DfAa98d2a14da39cfeD36975F97fc3f85",
     protocolDataProvider: "0xb102Cc0cb1357C339D1eFd611De4feE2e0E82448",
     reserves: [
@@ -746,6 +750,7 @@ export const lendingMarkets: ILendingMarket[] = [
     id: "wmetaUSD gen2",
     chainId: "146",
     engine: LendingEngine.AAVE_3_0_2,
+    uiPoolDataProvider: "0xAC2b7EADb55858700B8567aB5Ca7863101508304",
     operator: LendingOperator.STABILITY,
     pool: "0x909ba6aC1A9D34fE97Cb459C2CA9b6Ff986676F7",
     protocolDataProvider: "0x253A04ca6efef2e25f801153852B02bF74E1f749",
@@ -779,6 +784,7 @@ export const lendingMarkets: ILendingMarket[] = [
     id: "STBL",
     chainId: "146",
     engine: LendingEngine.AAVE_3_0_2,
+    uiPoolDataProvider: "0xAC2b7EADb55858700B8567aB5Ca7863101508304",
     operator: LendingOperator.STABILITY,
     pool: "0xb0A06303085aB2F73212C8846CA5388Da5697c31",
     protocolDataProvider: "0xB263ecA021e1D265D7e68842bc57e656cb88FE03",
