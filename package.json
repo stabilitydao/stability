@@ -1,6 +1,6 @@
 {
   "name": "@stabilitydao/stability",
-  "version": "0.58.0",
+  "version": "0.58.1",
   "description": "Stability Operating System Library",
   "main": "out/index.js",
   "types": "out/index.d.ts",
