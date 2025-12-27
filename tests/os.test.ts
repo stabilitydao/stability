@@ -237,6 +237,11 @@ describe("testing OS", () => {
       LifecyclePhase.LIVE_CLIFF,
     );
 
+    // owner of DAO is DAO token
+    expect(os56.getDaoOwner(daoAliens.symbol)).toBe(
+      daoAliens.deployments[os56.chainId].daoToken,
+    );
+
     try {
       // too early
       os56.changePhase(daoAliens.symbol);
@@ -287,6 +292,10 @@ describe("testing OS", () => {
         ),
       ]);
     } catch {}
+
+    const roadmap = os56.roadmap(daoAliens.symbol);
+    expect(roadmap.length).toBeGreaterThanOrEqual(6);
+    //console.log(roadmap)
 
     // second DAO are APES syndicate
     // they cant build but need their own DeFi lending protocol
@@ -458,6 +467,9 @@ describe("testing OS", () => {
     os.addLiveDAO(daos[0]);
     expect(Object.keys(os.daos).length).toBe(1);
     expect(getUnitById(daos[0].units[1].unitId)?.name).toBe("VaaS");
+    const roadmap = os.roadmap(daos[0].symbol);
+    expect(roadmap.length).toBe(4);
+    //console.log(roadmap)
   });
 
   test("create DAO", () => {
@@ -633,46 +645,6 @@ describe("testing OS", () => {
     );
   });
 
-  test("absorbing", () => {
-    const os = new OS("146");
-    os.addLiveDAO(daos[0]);
-
-    const newDao = _createDAO(os);
-    os.from = os.getDaoOwner(newDao.symbol);
-
-    try {
-      os.absorbingOffer(newDao.symbol, daos[0].symbol, 10000);
-      expect(false).toBe(true);
-    } catch {}
-
-    os.absorbingOffer(newDao.symbol, daos[0].symbol, 1000000);
-
-    os.from = os.getDaoOwner(daos[0].symbol);
-    os.absorbingReject(newDao.symbol, daos[0].symbol);
-
-    os.from = os.getDaoOwner(newDao.symbol);
-    os.absorbingOffer(newDao.symbol, daos[0].symbol, 1000000);
-
-    os.from = os.getDaoOwner(daos[0].symbol);
-    os.absorbingApprove(newDao.symbol, daos[0].symbol);
-
-    expect(os.getDaoOwner(os.daos[Object.keys(os.daos)[0]].symbol)).toBe(
-      os.getDaoOwner(newDao.symbol),
-    );
-
-    try {
-      os.from = os.getDaoOwner(daos[0].symbol);
-      os.absorbingApprove(newDao.symbol, daos[0].symbol);
-      expect(false).toBe(true);
-    } catch {}
-
-    try {
-      os.from = os.getDaoOwner(daos[0].symbol);
-      os.absorbingReject(newDao.symbol, daos[0].symbol);
-      expect(false).toBe(true);
-    } catch {}
-  });
-
   test("get DAO", () => {
     const os = new OS("1");
     const dao = _createDAO(os);
@@ -684,6 +656,10 @@ describe("testing OS", () => {
     } catch (error: Error | unknown) {
       expect((error as Error).message).toBe("DAONotFound");
     }
+
+    const roadmap = os.roadmap(dao.symbol);
+    expect(roadmap.length).toBeGreaterThanOrEqual(1);
+    //console.log(roadmap)
   });
 
   test("getters", () => {

@@ -76,9 +76,6 @@ export interface IDAO {
 
   /** DAOs engaging BUILDER activity settings are stored off-chain  */
   builderActivity?: IBuilderActivity;
-
-  /** Symbol of DAO who absorbed this DAO */
-  absorberSymbol?: string;
 }
 
 /** Organization activities supported by OS. */
@@ -135,9 +132,6 @@ export enum LifecyclePhase {
 
   /** Vesting ended - token fully distributed */
   LIVE = "LIVE",
-
-  /** Absorbed by other DAO running on Stability OS */
-  ABSORBED = "ABSORBED",
 }
 
 /**
@@ -348,9 +342,6 @@ export class OS {
   /** Governance proposals. Can be created only at initialChain of DAO. */
   proposals: { [proposalId: string]: IProposal } = {};
 
-  /** Absorbing deals */
-  absorbing: IAbsorbing[] = [];
-
   /** Current user address */
   from: string = "0x00";
 
@@ -369,8 +360,6 @@ export class OS {
     maxPvPFee: 100,
     minFundingDuration: 1,
     maxFundingDuration: 180,
-    // todo refactor, need percent of value
-    minAbsorbOfferUsd: 50000, // 50k USD
   };
 
   constructor(chainId: string) {
@@ -736,101 +725,6 @@ export class OS {
     throw new Error("NotFundingPhase");
   }
 
-  /** @throws Error */
-  absorbingOffer(
-    absorberSymbol: string,
-    absorbTargetSymbol: string,
-    amount: number,
-  ) {
-    this._onlyOwnerOf(absorberSymbol);
-
-    // absorb target must exist in this chain
-    /*const absorbTarget = */ this.getDao(absorbTargetSymbol);
-
-    if (amount < this.settings.minAbsorbOfferUsd) {
-      throw new Error(`TooLowAbsorbOfferAmount(${amount})`);
-    }
-
-    // transfer amount from absorber to OS contract for escrow
-
-    // start voting for target DAO
-    this.absorbing.push({
-      absorberSymbol,
-      absorbTargetSymbol,
-      amount,
-      status: VotingStatus.VOTING,
-    });
-
-    this._emit(`Action ${DAOAction.ABSORBING_OFFER}`);
-  }
-
-  /** Approve absorbing offer after voting succeed */
-  /** @throws Error */
-  absorbingApprove(absorberSymbol: string, absorbTargetSymbol: string) {
-    this._onlyOwnerOf(absorbTargetSymbol);
-    for (let k = 0; k < this.absorbing.length; k++) {
-      const absorbing = this.absorbing[k];
-      if (
-        absorbing.absorberSymbol === absorberSymbol &&
-        absorbing.absorbTargetSymbol === absorbTargetSymbol &&
-        absorbing.status === VotingStatus.VOTING
-      ) {
-        const target = this.getDao(absorbing.absorbTargetSymbol);
-        for (const symbol of Object.keys(this.daos)) {
-          if (symbol === absorberSymbol) {
-            // absorb units
-            for (const unit of target.units) {
-              this.daos[symbol].units.push(unit);
-            }
-          }
-        }
-
-        for (const symbol of Object.keys(this.daos)) {
-          if (symbol === absorbTargetSymbol) {
-            // absorb units
-            this.daos[symbol].units = [];
-            // set absorber
-            this.daos[symbol].absorberSymbol = absorberSymbol;
-            // change phase
-            this.daos[symbol].phase = LifecyclePhase.ABSORBED;
-          }
-        }
-
-        // transfer offer amount to target DAO holders (airdrop/claim)
-
-        this.absorbing[k].status = VotingStatus.APPROVED;
-
-        this._emit(`Action ${DAOAction.ABSORBING_APPROVE}`);
-
-        this._sendCrossChainMessage(CROSS_CHAIN_MESSAGE.DAO_ABSORBED, {
-          absorberSymbol,
-          absorbTargetSymbol,
-        });
-
-        return;
-      }
-    }
-    throw new Error("AbsorbingOfferNotFound");
-  }
-
-  /** Reject absorbing offer after voting succeed */
-  /** @throws Error */
-  absorbingReject(absorberSymbol: string, absorbTargetSymbol: string) {
-    this._onlyOwnerOf(absorbTargetSymbol);
-    for (let i = 0; i < this.absorbing.length; i++) {
-      if (
-        this.absorbing[i].absorberSymbol === absorberSymbol &&
-        this.absorbing[i].absorbTargetSymbol === absorbTargetSymbol &&
-        this.absorbing[i].status === VotingStatus.VOTING
-      ) {
-        this.absorbing[i].status = VotingStatus.REJECTED;
-        this._emit(`Action ${DAOAction.ABSORBING_REJECT}`);
-        return;
-      }
-    }
-    throw new Error("AbsorbingOfferNotFound");
-  }
-
   private _proposeAction(
     symbol: string,
     action: DAOAction,
@@ -887,6 +781,70 @@ export class OS {
       }
       // todo other actions
     }
+  }
+
+  /** OFF-CHAIN only **/
+  /** @throws Error */
+  roadmap(symbol: string): IRoadmapItem[] {
+    const dao: IDAO = this.getDao(symbol);
+    const r: IRoadmapItem[] = [];
+    let tgeRun = 0;
+
+    for (const funding of dao.tokenomics.funding) {
+      if (funding.type === FundingType.SEED) {
+        r.push({
+          phase: LifecyclePhase.SEED,
+          start: funding.start,
+          end: funding.end,
+        });
+      }
+      if (funding.type === FundingType.TGE) {
+        // if SEED was done
+        if (r.length > 0) {
+          r.push({
+            phase: LifecyclePhase.DEVELOPMENT,
+            start: (r[0].end as number) + 1,
+            end: funding.start - 1,
+          });
+        }
+
+        tgeRun = funding.claim || funding.end;
+        r.push({
+          phase: LifecyclePhase.TGE,
+          start: funding.start,
+          end: tgeRun,
+        });
+      }
+    }
+
+    if (dao.tokenomics.vesting) {
+      let vestingStart = this.blockTimestamp;
+      let vestingEnd = this.blockTimestamp;
+      for (const vesting of dao.tokenomics.vesting) {
+        if (vesting.start < vestingStart) {
+          vestingStart = vesting.start;
+        }
+        if (vesting.end > vestingEnd) {
+          vestingEnd = vesting.end;
+        }
+      }
+      r.push({
+        phase: LifecyclePhase.LIVE_CLIFF,
+        start: tgeRun + 1,
+        end: vestingStart - 1,
+      });
+      r.push({
+        phase: LifecyclePhase.LIVE_VESTING,
+        start: vestingStart,
+        end: vestingEnd,
+      });
+      r.push({
+        phase: LifecyclePhase.LIVE,
+        start: vestingEnd + 1,
+      });
+    }
+
+    return r;
   }
 
   /** @throws Error */
@@ -974,7 +932,7 @@ export class OS {
     } else if (dao.phase === LifecyclePhase.LIVE_VESTING) {
       // distribute vesting funds to leverage token
     } else if (dao.phase === LifecyclePhase.LIVE) {
-      // lifetime revenue generating for DAO holders till possible absorbing
+      // lifetime revenue generating for DAO holders (till ABSORBED proposed feature)
     }
 
     return r;
@@ -1012,10 +970,6 @@ export class OS {
 
   getDaoOwner(symbol: string): string {
     const dao = this.getDao(symbol);
-
-    if (dao.phase === LifecyclePhase.ABSORBED) {
-      return this.getDaoOwner(dao.absorberSymbol as string) as string;
-    }
 
     if (dao.phase === LifecyclePhase.DRAFT) {
       return dao.deployer;
@@ -1142,9 +1096,6 @@ export enum DAOAction {
   UPDATE_UNITS,
   UPDATE_FUNDING,
   UPDATE_VESTING,
-  ABSORBING_OFFER,
-  ABSORBING_APPROVE,
-  ABSORBING_REJECT,
 }
 
 interface IOSSettings {
@@ -1162,14 +1113,6 @@ interface IOSSettings {
   maxPvPFee: number;
   minFundingDuration: number;
   maxFundingDuration: number;
-  minAbsorbOfferUsd: number;
-}
-
-interface IAbsorbing {
-  status: VotingStatus;
-  absorberSymbol: string;
-  absorbTargetSymbol: string;
-  amount: number;
 }
 
 enum VotingStatus {
@@ -1182,7 +1125,6 @@ enum CROSS_CHAIN_MESSAGE {
   NEW_DAO_SYMBOL = 0,
   DAO_RENAME_SYMBOL,
   DAO_BRIDGED,
-  DAO_ABSORBED,
 }
 
 interface ITask {
@@ -1196,4 +1138,10 @@ interface IProposal {
   action: DAOAction;
   payload: any;
   status: VotingStatus;
+}
+
+interface IRoadmapItem {
+  phase: LifecyclePhase;
+  start: number;
+  end?: number;
 }
