@@ -97,7 +97,7 @@ export const deployments: { [chainId: string]: Deployment } = {
       recovery: "0xB8d6019eD82a9e6216c9Bf87cAf145fFe4439b40",
     },
     subgraph:
-      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.60/gn",
+      "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic/0.0.62/gn",
     liquidationSubgraph:
       "https://api.goldsky.com/api/public/project_cm2v16o5ct0ql01vr3m5o0vt2/subgraphs/stability-sonic-liquidation/0.0.9/gn",
     ammAdapters: {
