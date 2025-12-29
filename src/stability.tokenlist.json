@@ -113,7 +113,7 @@
       "symbol": "wstETH",
       "name": "Wrapped liquid staked Ether 2.0",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/wsteth.svg",
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/wstETH.svg",
       "tags": ["wNative", "eth"]
     },
     {
@@ -122,7 +122,7 @@
       "name": "ChainLink Token",
       "symbol": "LINK",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/link.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/LINK.svg"
     },
     {
       "chainId": 1,
@@ -130,7 +130,7 @@
       "symbol": "AAVE",
       "name": "Aave Token",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/aave.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/AAVE.svg"
     },
     {
       "chainId": 1,
@@ -138,7 +138,7 @@
       "symbol": "cbETH",
       "name": "Coinbase Wrapped Staked ETH",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/cbeth.svg",
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/cbETH.svg",
       "tags": ["eth"]
     },
     {
@@ -147,7 +147,7 @@
       "symbol": "rETH",
       "name": "Rocket Pool ETH",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/reth.svg",
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/rETH.svg",
       "tags": ["eth"]
     },
     {
@@ -156,7 +156,7 @@
       "symbol": "LUSD",
       "name": "LUSD Stablecoin",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/lusd.svg",
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/LUSD.svg",
       "tags": ["stablecoin"]
     },
     {
@@ -165,7 +165,7 @@
       "symbol": "CRV",
       "name": "Curve DAO Token",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/crv.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/CRV.svg"
     },
     {
       "chainId": 1,
@@ -173,7 +173,7 @@
       "symbol": "MKR",
       "name": "Maker",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/mkr.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/MKR.svg"
     },
     {
       "chainId": 1,
@@ -181,7 +181,7 @@
       "symbol": "SNX",
       "name": "Synthetix Network Token",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/snx.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/SNX.svg"
     },
     {
       "chainId": 1,
@@ -189,7 +189,7 @@
       "symbol": "BAL",
       "name": "Balancer",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/bal.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/BAL.svg"
     },
     {
       "chainId": 1,
@@ -197,7 +197,7 @@
       "symbol": "UNI",
       "name": "Uniswap",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/uni.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/UNI.svg"
     },
     {
       "chainId": 1,
@@ -205,7 +205,7 @@
       "symbol": "LDO",
       "name": "Lido DAO Token",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/ldo.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/LDO.svg"
     },
     {
       "chainId": 1,
@@ -213,7 +213,7 @@
       "symbol": "ENS",
       "name": "Ethereum Name Service",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/ens.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/ENS.svg"
     },
     {
       "chainId": 1,
@@ -221,7 +221,7 @@
       "symbol": "1INCH",
       "name": "1INCH Token",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/1inch.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/1INCH.svg"
     },
     {
       "chainId": 1,
@@ -229,7 +229,7 @@
       "symbol": "FRAX",
       "name": "Frax",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/frax.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/FRAX.svg"
     },
     {
       "chainId": 1,
@@ -237,7 +237,7 @@
       "symbol": "GHO",
       "name": "Gho Token",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/gho.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/GHO.svg"
     },
     {
       "chainId": 1,
@@ -245,7 +245,7 @@
       "symbol": "RPL",
       "name": "Rocket Pool Protocol",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/rpl.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/RPL.svg"
     },
     {
       "chainId": 1,
@@ -253,7 +253,7 @@
       "symbol": "sDAI",
       "name": "Savings Dai",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/sdai.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/sDAI.svg"
     },
     {
       "chainId": 1,
@@ -261,7 +261,7 @@
       "symbol": "STG",
       "name": "StargateToken",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/stg.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/STG.svg"
     },
     {
       "chainId": 1,
@@ -269,7 +269,7 @@
       "symbol": "KNC",
       "name": "Kyber Network Crystal v2",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/knc.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/KNC.svg"
     },
     {
       "chainId": 1,
@@ -277,7 +277,7 @@
       "symbol": "FXS",
       "name": "Frax Share",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/fxs.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/FXS.svg"
     },
     {
       "chainId": 1,
@@ -285,7 +285,7 @@
       "symbol": "crvUSD",
       "name": "Curve.Fi USD Stablecoin",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/crvusd.svg",
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/crvUSD.svg",
       "tags": ["stablecoin"]
     },
     {
@@ -294,7 +294,7 @@
       "symbol": "PYUSD",
       "name": "PayPal USD",
       "decimals": 6,
-      "logoURI": "https://app.aave.com/icons/tokens/pyusd.svg",
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PYUSD.svg",
       "tags": ["stablecoin"]
     },
     {
@@ -303,7 +303,7 @@
       "symbol": "weETH",
       "name": "Wrapped eETH",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/weeth.svg",
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/weETH.svg",
       "tags": ["eth", "wNative"]
     },
     {
@@ -312,7 +312,7 @@
       "symbol": "osETH",
       "name": "Staked ETH",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/oseth.svg",
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/osETH.svg",
       "tags": ["eth"]
     },
     {
@@ -321,7 +321,7 @@
       "symbol": "USDe",
       "name": "USDe",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/usde.svg",
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/USDe.svg",
       "tags": ["stablecoin"]
     },
     {
@@ -330,7 +330,7 @@
       "symbol": "ETHx",
       "name": "ETHx",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/ethx.svg",
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/ETHx.svg",
       "tags": ["eth"]
     },
     {
@@ -339,7 +339,7 @@
       "symbol": "sUSDe",
       "name": "Staked USDe",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/susde.svg",
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/sUSDe.svg",
       "tags": ["stablecoin"]
     },
     {
@@ -348,7 +348,7 @@
       "symbol": "tBTC",
       "name": "tBTC v2",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/tbtc.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/tBTC.svg"
     },
     {
       "chainId": 1,
@@ -356,7 +356,7 @@
       "symbol": "cbBTC",
       "name": "Coinbase Wrapped BTC",
       "decimals": 8,
-      "logoURI": "https://app.aave.com/icons/tokens/cbbtc.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/cbBTC.svg"
     },
     {
       "chainId": 1,
@@ -364,7 +364,7 @@
       "symbol": "USDS",
       "name": "USDS Stablecoin",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/usds.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/USDS.svg"
     },
     {
       "chainId": 1,
@@ -372,7 +372,7 @@
       "symbol": "rsETH",
       "name": "rsETH",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/rseth.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/rsETH.svg"
     },
     {
       "chainId": 1,
@@ -380,7 +380,7 @@
       "symbol": "LBTC",
       "name": "Lombard Staked Bitcoin",
       "decimals": 8,
-      "logoURI": "https://app.aave.com/icons/tokens/lbtc.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/LBTC.svg"
     },
     {
       "chainId": 1,
@@ -388,7 +388,7 @@
       "symbol": "eBTC",
       "name": "ether.fi BTC",
       "decimals": 8,
-      "logoURI": "https://app.aave.com/icons/tokens/ebtc.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/eBTC.svg"
     },
     {
       "chainId": 1,
@@ -396,7 +396,7 @@
       "symbol": "RLUSD",
       "name": "RLUSD",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/rlusd.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/RLUSD.svg"
     },
     {
       "chainId": 1,
@@ -404,7 +404,7 @@
       "symbol": "PT-eUSDE-29MAY2025",
       "name": "PT Ethereal eUSDE 29MAY2025",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/pteusde.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT-eUSDE-29MAY2025.svg"
     },
     {
       "chainId": 1,
@@ -412,7 +412,7 @@
       "symbol": "PT-sUSDE-31JUL2025",
       "name": "PT Ethena sUSDE 31JUL2025",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/pteusde.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT-sUSDE-31JUL2025.svg"
     },
     {
       "chainId": 1,
@@ -420,7 +420,7 @@
       "symbol": "USDtb",
       "name": "USDtb",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/usdtb.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/USDtb.svg"
     },
     {
       "chainId": 1,
@@ -428,7 +428,7 @@
       "symbol": "PT-USDe-31JUL2025",
       "name": "PT Ethena USDe 31JUL2025",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/ptusde.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT-USDe-31JUL2025.svg"
     },
     {
       "chainId": 1,
@@ -436,7 +436,7 @@
       "symbol": "PT-eUSDE-14AUG2025",
       "name": "PT Ethereal eUSDE 14AUG2025",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/pteusde.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT-eUSDE-14AUG2025.svg"
     },
     {
       "chainId": 1,
@@ -444,7 +444,7 @@
       "symbol": "eUSDe",
       "name": "Ethereal Pre-deposit Vault",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/eusde.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/eUSDe.svg"
     },
     {
       "chainId": 1,
@@ -452,7 +452,7 @@
       "symbol": "FBTC",
       "name": "Fire Bitcoin",
       "decimals": 8,
-      "logoURI": "https://app.aave.com/icons/tokens/fbtc.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/FBTC.svg"
     },
     {
       "chainId": 1,
@@ -460,7 +460,7 @@
       "symbol": "EURC",
       "name": "Euro Coin",
       "decimals": 6,
-      "logoURI": "https://app.aave.com/icons/tokens/eurc.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/EURC.svg"
     },
     {
       "chainId": 1,
@@ -468,7 +468,7 @@
       "symbol": "PT-sUSDE-25SEP2025",
       "name": "PT Ethena sUSDE 25SEP2025",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/ptsusde.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT-sUSDE-25SEP2025.svg"
     },
     {
       "chainId": 1,
@@ -476,7 +476,7 @@
       "symbol": "PT-USDe-25SEP2025",
       "name": "PT Ethena USDe 25SEP2025",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/ptusde.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT-USDe-25SEP2025.svg"
     },
     {
       "chainId": 1,
@@ -484,7 +484,7 @@
       "symbol": "tETH",
       "name": "Treehouse ETH",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/teth.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/tETH.svg"
     },
     {
       "chainId": 1,
@@ -492,7 +492,7 @@
       "symbol": "ezETH",
       "name": "Renzo Restaked ETH",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/ezeth.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/ezETH.svg"
     },
     {
       "chainId": 1,
@@ -500,7 +500,7 @@
       "symbol": "XAUt",
       "name": "Tether Gold",
       "decimals": 6,
-      "logoURI": "https://app.aave.com/icons/tokens/xaut.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/XAUt.svg"
     },
     {
       "chainId": 1,
@@ -508,7 +508,7 @@
       "symbol": "PT-sUSDE-27NOV2025",
       "name": "PT Ethena sUSDE 27NOV2025",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/ptsusde.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT-sUSDE-27NOV2025.svg"
     },
     {
       "chainId": 1,
@@ -516,7 +516,7 @@
       "symbol": "PT-USDe-27NOV2025",
       "name": "PT Ethena USDe 27NOV2025",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/ptusde.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT-USDe-27NOV2025.svg"
     },
     {
       "chainId": 1,
@@ -524,7 +524,7 @@
       "symbol": "PT-USDe-5FEB2026",
       "name": "PT Ethena USDe 5FEB2026",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/ptusde.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT-USDe-5FEB2026.svg"
     },
     {
       "chainId": 1,
@@ -532,7 +532,7 @@
       "symbol": "PT-sUSDE-5FEB2026",
       "name": "PT Ethena sUSDE 5FEB2026",
       "decimals": 18,
-      "logoURI": "https://app.aave.com/icons/tokens/ptsusde.svg"
+      "logoURI": "https://raw.githubusercontent.com/stabilitydao/.github/main/tokens/PT-sUSDE-5FEB2026.svg"
     },
     {
       "chainId": 10,
