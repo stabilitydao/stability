@@ -464,10 +464,10 @@ describe("testing OS", () => {
 
   test("launch", () => {
     const os = new OS("146");
-    os.addLiveDAO(daos[0]);
+    os.addLiveDAO(daos[1]);
     expect(Object.keys(os.daos).length).toBe(1);
-    expect(getUnitById(daos[0].units[1].unitId)?.name).toBe("VaaS");
-    const roadmap = os.roadmap(daos[0].symbol);
+    expect(getUnitById(daos[1].units[1].unitId)?.name).toBe("VaaS");
+    const roadmap = os.roadmap(daos[1].symbol);
     expect(roadmap.length).toBe(4);
     //console.log(roadmap)
   });
@@ -615,7 +615,7 @@ describe("testing OS", () => {
 
   test("update DAO socials", () => {
     const os = new OS("146");
-    os.addLiveDAO(daos[0]);
+    os.addLiveDAO(daos[1]);
 
     os.from = "randomUserAddress1";
     const dao = _createDAO(os);
@@ -632,15 +632,15 @@ describe("testing OS", () => {
     expect(os.events.length).toBe(3);
 
     try {
-      os.updateSocials(daos[0].symbol, ["https://t.me/stabilitydao"]);
+      os.updateSocials(daos[1].symbol, ["https://t.me/stabilitydao"]);
     } catch {}
-    os.from = daos[0].deployments["146"].daoToken as string;
+    os.from = daos[1].deployments["146"].daoToken as string;
     os.chainId = "146";
-    let proposalId = os.updateSocials(daos[0].symbol, [
+    let proposalId = os.updateSocials(daos[1].symbol, [
       "https://t.me/stabilitydao1",
     ]);
     os.receiveVotingResults(proposalId as string, true);
-    expect(os.getDao(daos[0].symbol).socials[0]).toBe(
+    expect(os.getDao(daos[1].symbol).socials[0]).toBe(
       "https://t.me/stabilitydao1",
     );
   });
