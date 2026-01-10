@@ -1,5 +1,4 @@
 import {
-  Activity,
   FundingType,
   IDAO,
   IUnit,
@@ -13,6 +12,7 @@ import { ChainName } from "./chains";
 import { LendingEngine } from "./lending";
 import { AgentRole, emptyRuntime } from "./agents";
 import { ArtifactType } from "./activity/builder";
+import { Activity } from "./activity";
 
 export function getUnitById(unitId: string): IUnit | undefined {
   for (const dao of daos) {
@@ -30,7 +30,7 @@ export const daos: IDAO[] = [
     name: "Host Dev",
     symbol: "HOST",
     socials: ["https://t.me/dao_host"],
-    activity: [Activity.BUILDER, Activity.DEFI_PROTOCOL_OPERATOR],
+    activity: [Activity.BUILDER, Activity.DEFI],
     images: {
       token: "/builder.png",
     },
@@ -44,6 +44,12 @@ export const daos: IDAO[] = [
         type: UnitType.DEFI_PROTOCOL,
         components: {},
         emoji: "🍀",
+        ui: [
+          {
+            href: "https://dao.host",
+            title: "dao.host",
+          },
+        ],
       },
     ],
     agents: [
@@ -60,7 +66,7 @@ export const daos: IDAO[] = [
       pvpFee: 100,
     },
     tokenomics: {
-      initialChain: ChainName.PLASMA,
+      initialChain: ChainName.ETHEREUM,
       funding: [
         {
           type: FundingType.SEED,
@@ -351,7 +357,7 @@ export const daos: IDAO[] = [
       "https://discord.com/invite/R3nnetWzC9",
       "https://t.me/stabilitydao",
     ],
-    activity: [Activity.DEFI_PROTOCOL_OPERATOR],
+    activity: [Activity.DEFI],
     images: {
       token: "/stbl.svg",
       xToken: "/xstbl.png",
@@ -435,7 +441,10 @@ export const daos: IDAO[] = [
         revenueShare: 25,
         type: UnitType.DEFI_PROTOCOL,
         components: {
-          [UnitComponentCategory.ENGINE_SUPPORT]: [LendingEngine.AAVE_3_0_2],
+          [UnitComponentCategory.ENGINE_SUPPORT]: [
+            LendingEngine.AAVE_3_0_2,
+            LendingEngine.AAVE_3_5,
+          ],
         },
         emoji: "🏦",
         ui: [
@@ -511,7 +520,7 @@ export const daos: IDAO[] = [
     name: "MEV Fighter",
     symbol: "MEVBOT",
     socials: [],
-    activity: [Activity.BUILDER, Activity.MEV_SEARCHER],
+    activity: [Activity.BUILDER, Activity.MEV],
     images: {
       token: "/mevbot.jpg",
     },
@@ -522,7 +531,7 @@ export const daos: IDAO[] = [
         name: "Liquidator",
         status: UnitStatus.RESEARCH,
         revenueShare: 100,
-        type: UnitType.MEV,
+        type: UnitType.MEV_SEARCHER,
         components: {
           [UnitComponentCategory.MEV_STRATEGY]: [],
         },
@@ -533,7 +542,7 @@ export const daos: IDAO[] = [
         name: "Arbitrager",
         status: UnitStatus.RESEARCH,
         revenueShare: 100,
-        type: UnitType.MEV,
+        type: UnitType.MEV_SEARCHER,
         components: {
           [UnitComponentCategory.MEV_STRATEGY]: [],
         },

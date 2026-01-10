@@ -1,11 +1,7 @@
 import { daos, getUnitById, OS, UnitStatus, UnitType } from "../src";
-import {
-  Activity,
-  FundingType,
-  IFunding,
-  IVesting,
-  LifecyclePhase,
-} from "../src/os";
+import { FundingType, IFunding, IVesting } from "../src/os";
+import { Activity, LifecyclePhase } from "../src";
+import { activities } from "../src/activity";
 
 describe("testing OS", () => {
   test("Lifecycle", () => {
@@ -25,7 +21,7 @@ describe("testing OS", () => {
     const daoAliens = os56.createDAO(
       "Aliens Community",
       "ALIENS",
-      [Activity.BUILDER, Activity.DEFI_PROTOCOL_OPERATOR],
+      [Activity.BUILDER, Activity.DEFI],
       {
         vePeriod: 365,
         pvpFee: 100,
@@ -303,7 +299,7 @@ describe("testing OS", () => {
     const daoApes = os1.createDAO(
       "Apes Syndicate",
       "APES",
-      [Activity.DEFI_PROTOCOL_OPERATOR],
+      [Activity.DEFI],
       {
         vePeriod: 30,
         pvpFee: 90,
@@ -375,7 +371,7 @@ describe("testing OS", () => {
     const daoMachines = os10.createDAO(
       "Machines Cartel",
       "MACHINE",
-      [Activity.MEV_SEARCHER],
+      [Activity.MEV],
       {
         vePeriod: 14,
         pvpFee: 99,
@@ -395,7 +391,7 @@ describe("testing OS", () => {
         unitId: "MACHINES:MEVBOT",
         name: "MEV searcher",
         status: UnitStatus.LIVE,
-        type: UnitType.MEV,
+        type: UnitType.MEV_SEARCHER,
         revenueShare: 100,
         ui: [],
         api: [],
@@ -494,7 +490,7 @@ describe("testing OS", () => {
       os.createDAO(
         "SpaceSwap_000000000000000000",
         "SPACE",
-        [Activity.DEFI_PROTOCOL_OPERATOR],
+        [Activity.DEFI],
         {
           vePeriod: 365,
           pvpFee: 90,
@@ -511,7 +507,7 @@ describe("testing OS", () => {
       os.createDAO(
         "SpaceSwap",
         "SPACESWAP",
-        [Activity.DEFI_PROTOCOL_OPERATOR],
+        [Activity.DEFI],
         {
           vePeriod: 365,
           pvpFee: 90,
@@ -528,7 +524,7 @@ describe("testing OS", () => {
       os.createDAO(
         "SpaceSwap",
         "SPACE",
-        [Activity.DEFI_PROTOCOL_OPERATOR],
+        [Activity.DEFI],
         {
           vePeriod: 365,
           pvpFee: 90,
@@ -545,7 +541,7 @@ describe("testing OS", () => {
       os.createDAO(
         "SpaceSwap",
         "SPACE1",
-        [Activity.DEFI_PROTOCOL_OPERATOR],
+        [Activity.DEFI],
         {
           vePeriod: 365 * 5,
           pvpFee: 100,
@@ -562,7 +558,7 @@ describe("testing OS", () => {
       os.createDAO(
         "SpaceSwap",
         "SPACE1",
-        [Activity.DEFI_PROTOCOL_OPERATOR],
+        [Activity.DEFI],
         {
           vePeriod: 365,
           pvpFee: 101,
@@ -579,7 +575,7 @@ describe("testing OS", () => {
       os.createDAO(
         "SpaceSwap",
         "SPACE1",
-        [Activity.DEFI_PROTOCOL_OPERATOR],
+        [Activity.DEFI],
         {
           vePeriod: 365,
           pvpFee: 90,
@@ -672,12 +668,17 @@ describe("testing OS", () => {
     expect(OS.isLiveDAO(LifecyclePhase.TGE)).toBe(false);
   });
 
+  test("activities", () => {
+    const defiActivity = activities[Activity.DEFI];
+    expect(defiActivity.unitTypes[0]).toBe(UnitType.DEFI_PROTOCOL);
+  });
+
   const _createDAO = (os: OS) => {
     const funding = [_generateSeedFunding(os)];
     return os.createDAO(
       "SpaceSwap",
       "SPACE",
-      [Activity.DEFI_PROTOCOL_OPERATOR],
+      [Activity.DEFI],
       {
         vePeriod: 365,
         pvpFee: 90,
