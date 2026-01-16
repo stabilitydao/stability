@@ -42,16 +42,13 @@ ${daos
           ? `\n    * UI: ${unit.ui.map((ui) => `[${ui.title}](${ui.href})`).join(", ")}`
           : "";
         const unitStr = `  * Unit ${unit.emoji ? `${unit.emoji} ` : ""}**${unit.name}** [${unit.status}]${uis}`;
+        const defiStratsBeingDeveloped = Object.keys(strategies).filter(
+          (shortId) =>
+            strategies[shortId as StrategyShortId].state ===
+            StrategyState.DEVELOPMENT,
+        );
         const defiStrategies = !!unit.components?.DEFI_STRATEGY?.length
-          ? `\n    * DeFi Strategies: ${unit.components.DEFI_STRATEGY.length}. Being developed: ${Object.keys(
-              strategies,
-            )
-              .filter(
-                (shortId) =>
-                  strategies[shortId as StrategyShortId].state ===
-                  StrategyState.DEVELOPMENT,
-              )
-              .join(", ")}.`
+          ? `\n    * DeFi Strategies: ${unit.components.DEFI_STRATEGY.length}.${defiStratsBeingDeveloped.length > 0 ? ` Being developed: ${defiStratsBeingDeveloped.join(", ")}.` : ""}`
           : "";
         const lendingEngines = !!unit.components?.ENGINE_SUPPORT?.length
           ? `\n    * Engines: ${unit.components.ENGINE_SUPPORT.join(", ")}.`

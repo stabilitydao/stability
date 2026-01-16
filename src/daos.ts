@@ -1,5 +1,4 @@
 import {
-  Activity,
   FundingType,
   IDAO,
   IUnit,
@@ -13,6 +12,7 @@ import { ChainName } from "./chains";
 import { LendingEngine } from "./lending";
 import { AgentRole, emptyRuntime } from "./agents";
 import { ArtifactType } from "./activity/builder";
+import { Activity } from "./activity";
 
 export function getUnitById(unitId: string): IUnit | undefined {
   for (const dao of daos) {
@@ -26,179 +26,11 @@ export function getUnitById(unitId: string): IUnit | undefined {
 
 export const daos: IDAO[] = [
   {
-    phase: LifecyclePhase.LIVE_VESTING,
-    name: "Stability",
-    symbol: "STBL",
-    socials: [
-      "https://x.com/stabilitydao",
-      "https://discord.com/invite/R3nnetWzC9",
-      "https://t.me/stabilitydao",
-    ],
-    activity: [Activity.DEFI_PROTOCOL_OPERATOR],
-    images: {
-      token: "/stbl.svg",
-      xToken: "/xstbl.png",
-      daoToken: "/STBL_DAO.png",
-    },
-    deployments: {
-      ["146"]: {
-        tgeToken: "0x4D61CB8553bB5Db02DF3bdc6CDa88AA85b32224b",
-        token: "0x78a76316F66224CBaCA6e70acB24D5ee5b2Bd2c7",
-        xToken: "0x902215dd96a291b256a3aef6c4dee62d2a9b80cb",
-        staking: "0x17a7cf838a7c91de47552a9f65822b547f9a6997",
-        daoToken: "0x77773Cb473aD1bfE991bA299a127F64b45C17777",
-        revenueRouter: "0x23b8cc22c4c82545f4b451b11e2f17747a730810",
-        recovery: "0xB8d6019eD82a9e6216c9Bf87cAf145fFe4439b40",
-        vesting: {
-          ["Investors"]: "0x1a125ff7efdB54dc9EFB4Ad90C552C4C8822b212",
-          ["Foundation"]: "0x8C42C261A3104cEEFBb388CFd6C1f0E7c9F22062",
-          ["Community"]: "0xEF2CE83527FAE22E0012Efc4d64987C1a51448c5",
-          ["Team"]: "0xe6C2AA6e67EF1B806B9Daec7147b113051a445E8",
-        },
-        tokenBridge: "0xD6a8b05f08834Ed2f205E3d591CD6D1A84b7C19B",
-        xTokenBridge: "0x533A0c7869e36D1640D4058Bac4604DB6b4d7AD5",
-      },
-      ["9745"]: {
-        token: "0xfdf91362B7E9330F232e500c0236a02B0DE3e492",
-        xToken: "0xF40D0724599282CaF9dfb66feB630e936bC0CFBE",
-        staking: "0x601572b91DC054Be500392A6d3e15c690140998D",
-        revenueRouter: "0x5AC5b2740F77200CCe6562795cFcf4c3c2aC3745",
-        daoToken: "0x87C51aa090587790A5298ea4C2d0DBbcCD0026A6",
-        tokenBridge: "0xfdf91362B7E9330F232e500c0236a02B0DE3e492",
-        xTokenBridge: "0x4E3F0A27bbF443Ba81FCf17E28F4100f35b1b51B",
-      },
-    },
-    units: [
-      {
-        unitId: "xstbl",
-        name: "PVP",
-        status: UnitStatus.LIVE,
-        revenueShare: 100,
-        type: UnitType.PVP,
-        components: {},
-      },
-      {
-        unitId: "stability:stabilityFarm",
-        name: "VaaS",
-        status: UnitStatus.LIVE,
-        revenueShare: 100,
-        type: UnitType.DEFI_PROTOCOL,
-        components: {
-          [UnitComponentCategory.DEFI_STRATEGY]: Object.keys(strategies).filter(
-            (s) =>
-              strategies[s as StrategyShortId].state !==
-              StrategyState.CANCELLED,
-          ) as StrategyShortId[],
-          [UnitComponentCategory.CHAIN_SUPPORT]: [
-            ChainName.SONIC,
-            ChainName.AVALANCHE,
-            ChainName.PLASMA,
-          ],
-        },
-        emoji: "🧊",
-        ui: [
-          {
-            href: "https://stability.farm/vaults",
-            title: "All Vaults",
-          },
-          {
-            href: "https://stability.farm/metavaults",
-            title: "Meta Vaults",
-          },
-          {
-            href: "https://stability.farm/leverage-vaults",
-            title: "Leverage Vaults",
-          },
-        ],
-      },
-      {
-        unitId: "stability:stabilityMarket",
-        name: "Lending",
-        status: UnitStatus.LIVE,
-        revenueShare: 25,
-        type: UnitType.DEFI_PROTOCOL,
-        components: {
-          [UnitComponentCategory.ENGINE_SUPPORT]: [LendingEngine.AAVE_3_0_2],
-        },
-        emoji: "🏦",
-        ui: [
-          {
-            href: "https://stability.farm/lending",
-            title: "Markets",
-          },
-        ],
-      },
-    ],
-    agents: [
-      {
-        roles: [AgentRole.OPERATOR],
-        name: "Stability Operator",
-        telegram: "@stability_dao_bot",
-        image: "OPERATOR.png",
-        ...emptyRuntime,
-        api: ["https://api.stability.farm", "https://api.stabilitydao.org"],
-      },
-    ],
-    params: {
-      vePeriod: 180,
-      pvpFee: 80,
-      minPower: 4000,
-      proposalThreshold: 100_000,
-      ttBribe: 10,
-      recoveryShare: 10,
-    },
-    tokenomics: {
-      initialChain: ChainName.SONIC,
-      funding: [
-        {
-          type: FundingType.TGE,
-          start: 1740700800,
-          end: 1741132800,
-          minRaise: 250000,
-          maxRaise: 500000,
-          raised: 500000,
-          claim: 1741167300,
-        },
-      ],
-      vesting: [
-        {
-          name: "Investors",
-          allocation: 20000000,
-          start: 1756954800,
-          end: 1788490800,
-        },
-        {
-          name: "Foundation",
-          allocation: 30000000,
-          start: 1756954800,
-          end: 1883098800,
-        },
-        {
-          name: "Community",
-          allocation: 19972000,
-          start: 1756954800,
-          end: 1883098800,
-        },
-        {
-          name: "Team",
-          allocation: 20000000,
-          start: 1756954800,
-          end: 1883098800,
-        },
-      ],
-    },
-    deployer: "0x0",
-  },
-  {
     phase: LifecyclePhase.DRAFT,
     name: "Host Dev",
     symbol: "HOST",
     socials: ["https://t.me/dao_host"],
-    activity: [
-      Activity.BUILDER,
-      Activity.SAAS_OPERATOR,
-      Activity.DEFI_PROTOCOL_OPERATOR,
-    ],
+    activity: [Activity.BUILDER, Activity.DEFI],
     images: {
       token: "/builder.png",
     },
@@ -209,15 +41,21 @@ export const daos: IDAO[] = [
         name: "dao.host",
         status: UnitStatus.BUILDING,
         revenueShare: 100,
-        type: UnitType.SAAS,
+        type: UnitType.DEFI_PROTOCOL,
         components: {},
         emoji: "🍀",
+        ui: [
+          {
+            href: "https://dao.host",
+            title: "dao.host",
+          },
+        ],
       },
     ],
     agents: [
       {
         roles: [AgentRole.OPERATOR],
-        name: "Stability OS",
+        name: "Host Operator",
         image: "BUILDER.png",
         ...emptyRuntime,
         api: [],
@@ -232,7 +70,7 @@ export const daos: IDAO[] = [
       funding: [
         {
           type: FundingType.SEED,
-          start: 1768521600, // Friday, 16 January 2026
+          start: 1772323200, // Sunday, 1 March 2026
           end: 1776211200, // Wednesday, 15 April 2026
           minRaise: 40000,
           maxRaise: 500000,
@@ -511,11 +349,178 @@ export const daos: IDAO[] = [
     },
   },
   {
+    phase: LifecyclePhase.LIVE_VESTING,
+    name: "Stability",
+    symbol: "STBL",
+    socials: [
+      "https://x.com/stabilitydao",
+      "https://discord.com/invite/R3nnetWzC9",
+      "https://t.me/stabilitydao",
+    ],
+    activity: [Activity.DEFI],
+    images: {
+      token: "/stbl.svg",
+      xToken: "/xstbl.png",
+      daoToken: "/STBL_DAO.png",
+    },
+    deployments: {
+      ["146"]: {
+        tgeToken: "0x4D61CB8553bB5Db02DF3bdc6CDa88AA85b32224b",
+        token: "0x78a76316F66224CBaCA6e70acB24D5ee5b2Bd2c7",
+        xToken: "0x902215dd96a291b256a3aef6c4dee62d2a9b80cb",
+        staking: "0x17a7cf838a7c91de47552a9f65822b547f9a6997",
+        daoToken: "0x77773Cb473aD1bfE991bA299a127F64b45C17777",
+        revenueRouter: "0x23b8cc22c4c82545f4b451b11e2f17747a730810",
+        recovery: "0xB8d6019eD82a9e6216c9Bf87cAf145fFe4439b40",
+        vesting: {
+          ["Investors"]: "0x1a125ff7efdB54dc9EFB4Ad90C552C4C8822b212",
+          ["Foundation"]: "0x8C42C261A3104cEEFBb388CFd6C1f0E7c9F22062",
+          ["Community"]: "0xEF2CE83527FAE22E0012Efc4d64987C1a51448c5",
+          ["Team"]: "0xe6C2AA6e67EF1B806B9Daec7147b113051a445E8",
+        },
+        tokenBridge: "0xD6a8b05f08834Ed2f205E3d591CD6D1A84b7C19B",
+        xTokenBridge: "0x533A0c7869e36D1640D4058Bac4604DB6b4d7AD5",
+      },
+      ["9745"]: {
+        token: "0xfdf91362B7E9330F232e500c0236a02B0DE3e492",
+        xToken: "0xF40D0724599282CaF9dfb66feB630e936bC0CFBE",
+        staking: "0x601572b91DC054Be500392A6d3e15c690140998D",
+        revenueRouter: "0x5AC5b2740F77200CCe6562795cFcf4c3c2aC3745",
+        daoToken: "0x87C51aa090587790A5298ea4C2d0DBbcCD0026A6",
+        tokenBridge: "0xfdf91362B7E9330F232e500c0236a02B0DE3e492",
+        xTokenBridge: "0x4E3F0A27bbF443Ba81FCf17E28F4100f35b1b51B",
+      },
+    },
+    units: [
+      {
+        unitId: "xstbl",
+        name: "PVP",
+        status: UnitStatus.LIVE,
+        revenueShare: 100,
+        type: UnitType.PVP,
+        components: {},
+      },
+      {
+        unitId: "stability:stabilityFarm",
+        name: "VaaS",
+        status: UnitStatus.LIVE,
+        revenueShare: 100,
+        type: UnitType.DEFI_PROTOCOL,
+        components: {
+          [UnitComponentCategory.DEFI_STRATEGY]: Object.keys(strategies).filter(
+            (s) =>
+              strategies[s as StrategyShortId].state !==
+              StrategyState.CANCELLED,
+          ) as StrategyShortId[],
+          [UnitComponentCategory.CHAIN_SUPPORT]: [
+            ChainName.SONIC,
+            ChainName.AVALANCHE,
+            ChainName.PLASMA,
+          ],
+        },
+        emoji: "🧊",
+        ui: [
+          {
+            href: "https://stability.farm/vaults",
+            title: "All Vaults",
+          },
+          {
+            href: "https://stability.farm/metavaults",
+            title: "Meta Vaults",
+          },
+          {
+            href: "https://stability.farm/leverage-vaults",
+            title: "Leverage Vaults",
+          },
+        ],
+      },
+      {
+        unitId: "stability:stabilityMarket",
+        name: "Lending",
+        status: UnitStatus.LIVE,
+        revenueShare: 25,
+        type: UnitType.DEFI_PROTOCOL,
+        components: {
+          [UnitComponentCategory.ENGINE_SUPPORT]: [
+            LendingEngine.AAVE_3_0_2,
+            LendingEngine.AAVE_3_5,
+          ],
+        },
+        emoji: "🏦",
+        ui: [
+          {
+            href: "https://stability.farm/lending",
+            title: "Markets",
+          },
+        ],
+      },
+    ],
+    agents: [
+      {
+        roles: [AgentRole.OPERATOR],
+        name: "Stability Operator",
+        telegram: "@stability_dao_bot",
+        image: "OPERATOR.png",
+        ...emptyRuntime,
+        api: ["https://api.stability.farm", "https://api.stabilitydao.org"],
+      },
+    ],
+    params: {
+      vePeriod: 180,
+      pvpFee: 80,
+      minPower: 4000,
+      proposalThreshold: 100_000,
+      ttBribe: 10,
+      recoveryShare: 10,
+    },
+    tokenomics: {
+      initialChain: ChainName.SONIC,
+      funding: [
+        {
+          type: FundingType.TGE,
+          start: 1740700800,
+          end: 1741132800,
+          minRaise: 250000,
+          maxRaise: 500000,
+          raised: 500000,
+          claim: 1741167300,
+        },
+      ],
+      vesting: [
+        {
+          name: "Investors",
+          allocation: 20000000,
+          start: 1756954800,
+          end: 1788490800,
+        },
+        {
+          name: "Foundation",
+          allocation: 30000000,
+          start: 1756954800,
+          end: 1883098800,
+        },
+        {
+          name: "Community",
+          allocation: 19972000,
+          start: 1756954800,
+          end: 1883098800,
+        },
+        {
+          name: "Team",
+          allocation: 20000000,
+          start: 1756954800,
+          end: 1883098800,
+        },
+      ],
+    },
+    deployer: "0x0",
+  },
+  {
     phase: LifecyclePhase.DRAFT,
     name: "MEV Fighter",
     symbol: "MEVBOT",
     socials: [],
-    activity: [Activity.BUILDER, Activity.MEV_SEARCHER],
+    activity: [Activity.BUILDER, Activity.MEV],
     images: {
       token: "/mevbot.jpg",
     },
@@ -523,10 +528,10 @@ export const daos: IDAO[] = [
     units: [
       {
         unitId: "mevbot:liquidation",
-        name: "Liquidation",
+        name: "Liquidator",
         status: UnitStatus.RESEARCH,
         revenueShare: 100,
-        type: UnitType.MEV,
+        type: UnitType.MEV_SEARCHER,
         components: {
           [UnitComponentCategory.MEV_STRATEGY]: [],
         },
@@ -534,10 +539,10 @@ export const daos: IDAO[] = [
       },
       {
         unitId: "mevbot:arb",
-        name: "Arbitrage",
+        name: "Arbitrager",
         status: UnitStatus.RESEARCH,
         revenueShare: 100,
-        type: UnitType.MEV,
+        type: UnitType.MEV_SEARCHER,
         components: {
           [UnitComponentCategory.MEV_STRATEGY]: [],
         },
@@ -561,8 +566,8 @@ export const daos: IDAO[] = [
       funding: [
         {
           type: FundingType.SEED,
-          start: 1767225600,
-          end: 1774915200,
+          start: 1772323200, // Sunday, 1 March 2026
+          end: 1780185600, // Sunday, 31 May 2026
           minRaise: 50000,
           maxRaise: 250000,
           raised: 0,

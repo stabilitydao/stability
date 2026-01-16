@@ -8,6 +8,7 @@ import { StrategyShortId } from "./strategies";
 import { LendingEngine } from "./lending";
 import { IBuilderActivity, IBuildersMemory } from "./activity/builder";
 import { Prices, RevenueChart } from "./api.types";
+import { Activity } from "./activity";
 
 export const STABILITY_OS_DESCRIPTION =
   "Operating System of Self-developing DAOs";
@@ -76,18 +77,6 @@ export interface IDAO {
 
   /** DAOs engaging BUILDER activity settings are stored off-chain  */
   builderActivity?: IBuilderActivity;
-}
-
-/** Organization activities supported by OS. */
-export enum Activity {
-  /** Owner of Decentralized Finance protocols */
-  DEFI_PROTOCOL_OPERATOR = "DEFI_PROTOCOL_OPERATOR",
-  /** Owner of Software as a Service business */
-  SAAS_OPERATOR = "SAAS_OPERATOR",
-  /** Searching of Maximum Extractable Value opportunities and submitting it to block builders.  */
-  MEV_SEARCHER = "MEV_SEARCHER",
-  /** BUILDER is a team of engineers managed by DAOs. */
-  BUILDER = "BUILDER",
 }
 
 /** Images of tokens. Absolute or relative from stabilitydao/.github repo /os/ folder.  */
@@ -250,10 +239,10 @@ export enum UnitType {
   PVP = "PVP",
   /** Decentralized finance protocol */
   DEFI_PROTOCOL = "DEFI_PROTOCOL",
+  /** Maximum Extractable Value opportunities searcher and submitter. */
+  MEV_SEARCHER = "MEV_SEARCHER",
   /** Software as a Service business */
-  SAAS = "SAAS",
-  /** Maximum Extractable Value tool */
-  MEV = "MEV",
+  //SAAS = "SAAS",
 }
 
 /** Unit status can be changed automatically on DAO lifecycle phase changes or manually by DAO holders */
