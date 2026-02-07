@@ -615,6 +615,66 @@ export const lendingMarkets: ILendingMarket[] = [
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
       },
+      // mUSD
+      {
+        asset: "0xacA92E438df0B2401fF60dA7E4337B687a2435DA",
+        aToken: "0xAa0200d169fF3ba9385c12E073c5d1d30434AE7b",
+        aTokenSymbol: "mUSD",
+        oracle: "0x8adb5187695F773513dEC4b569d21db0341931dA",
+        oracleName: "Unknown",
+        treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
+        isBorrowable: true,
+      },
+      // syrupUSDT
+      {
+        asset: "0x356B8d89c1e1239Cbbb9dE4815c39A1474d5BA7D",
+        aToken: "0x24Ab03a9a5Bc2C49E5523e8d915A3536ac38B91D",
+        aTokenSymbol: "syrupUSDT",
+        oracle: "0x982aC260B5a4e5bCAb6A437e79168390cFbDe70D",
+        oracleName: "Unknown",
+        treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
+        isBorrowable: false,
+      },
+      // USDG
+      {
+        asset: "0xe343167631d89B6Ffc58B88d6b7fB0228795491D",
+        aToken: "0x7c0477d085ECb607CF8429f3eC91Ae5E1e460F4F",
+        aTokenSymbol: "USDG",
+        oracle: "0xF29b1e3b68Fd59DD0a413811fD5d0AbaE653216d",
+        oracleName: "Unknown",
+        treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
+        isBorrowable: true,
+      },
+      // PT-USDe-7MAY2026
+      {
+        asset: "0xAeBf0Bb9f57E89260d57f31AF34eB58657d96Ce0",
+        aToken: "0xE036478Da9A7ed89b56FE39A06e1FC1a4b38D4Ea",
+        aTokenSymbol: "PT-USDe-7MAY2026",
+        oracle: "0x0a72df02CE3E4185b6CEDf561f0AE651E9BeE235",
+        oracleName: "Unknown",
+        treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
+        isBorrowable: false,
+      },
+      // PT-sUSDE-7MAY2026
+      {
+        asset: "0x3de0ff76E8b528C092d47b9DaC775931cef80F49",
+        aToken: "0x81b76ff3FeD28BA0B4a5D4c76Bd5C13Bd0641d86",
+        aTokenSymbol: "PT-sUSDE-7MAY2026",
+        oracle: "0xa0dc0249c32fa79e8B9b17c735908a60b1141B40",
+        oracleName: "Unknown",
+        treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
+        isBorrowable: false,
+      },
+      // PT-srUSDe-2APR2026
+      {
+        asset: "0x9Bf45ab47747F4B4dD09B3C2c73953484b4eB375",
+        aToken: "0x1241ec22C9BdF16BA1Eb636F2a8de7e28A4343Cf",
+        aTokenSymbol: "PT-srUSDe-2APR2026",
+        oracle: "0xB539C6C0fc36ff1572B13ACec343B854937db576",
+        oracleName: "Unknown",
+        treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
+        isBorrowable: false,
+      },
     ],
     deployed: "Dec 29, 2022",
     show: true,
