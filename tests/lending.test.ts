@@ -25,6 +25,11 @@ describe("testing market reserves exist in assets lists", () => {
           reserve.asset,
           market.chainId,
         );
+        if (!existsInTokenList) {
+          console.log(
+            `[${market.chainId}] ${reserve.asset} does not exist in tokenlist`,
+          );
+        }
         expect(existsInTokenList).toBeTruthy();
         expect(existsInAssets).toBeTruthy();
       }

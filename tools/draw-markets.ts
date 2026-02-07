@@ -3,7 +3,7 @@ import fs from "fs/promises";
 import path from "path";
 import { MarketData } from "../src/api.types";
 import { ILendingMarket, lendingMarkets } from "../src";
-import {tokenlist} from "@stabilitydao/host";
+import { tokenlist } from "@stabilitydao/host";
 
 const marketsDir = "./temp/markets";
 const WIDTH = 768;
