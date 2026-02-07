@@ -814,3 +814,20 @@ export const lendingMarkets: ILendingMarket[] = [
     show: true,
   },
 ];
+
+export function getLendingMarketsForAsset(
+  chainId: string | number,
+  assetAddress: string,
+): ILendingMarket[] {
+  const r: ILendingMarket[] = [];
+  for (const market of lendingMarkets) {
+    if (market.chainId === chainId.toString()) {
+      for (const reserve of market.reserves) {
+        if (reserve.asset.toLowerCase() === assetAddress.toLowerCase()) {
+          r.push(market);
+        }
+      }
+    }
+  }
+  return r;
+}

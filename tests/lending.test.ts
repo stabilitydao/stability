@@ -1,10 +1,18 @@
 import { ILendingMarket, lendingMarkets } from "../src";
 import { tokenlist, assets } from "@stabilitydao/host";
+import { getLendingMarketsForAsset } from "../src/lending";
 
 describe("testing lending", () => {
   test("constants", () => {
     const mainMarket: ILendingMarket = lendingMarkets[0];
     expect(mainMarket.id).toEqual("Core Instance");
+  });
+  test("getLendingMarketsForAsset", () => {
+    const mainMarket = getLendingMarketsForAsset(
+      1,
+      "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    )[0];
+    expect(mainMarket?.id).toEqual("Core Instance");
   });
 });
 
