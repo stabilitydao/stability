@@ -40,16 +40,9 @@ import {
   ApiPostReply,
   InteractionType,
 } from "./api.types";
-import tokenlist from "./stability.tokenlist.json";
+import { tokenlist, assets } from "@stabilitydao/host";
 import { almFactories } from "./addresses";
-import {
-  assets,
-  Asset,
-  TokenData,
-  getAsset,
-  getTokenData,
-  sonicWhitelistedAssets,
-} from "./assets";
+import { sonicWhitelistedAssets } from "./assets";
 import { seeds } from "./seeds";
 import { bridges, Bridge, BridgeName, getChainBridges } from "./bridges";
 import {
@@ -101,8 +94,6 @@ export {
   getSupportedChainNames,
   getChainByName,
   assets,
-  Asset,
-  getAsset,
   strategyStateDescription,
   baseStrategyContracts,
   getChainsTotals,
@@ -125,8 +116,6 @@ export {
   getContestReward,
   getContestRewards,
   getContestGemsReward,
-  getTokenData,
-  TokenData,
   sonicWhitelistedAssets,
   getIL,
   IlDetails,

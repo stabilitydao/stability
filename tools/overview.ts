@@ -6,7 +6,6 @@ import {
   strategies,
 } from "../src";
 import { version } from "../package.json";
-import tokenlist from "../src/stability.tokenlist.json";
 
 let protocolsTotal = 0;
 for (const defiOrgCode of Object.keys(integrations)) {
@@ -77,14 +76,10 @@ ${daos
 `,
 );*/
 
-console.log(`* ⛓️ Chains: ${Object.keys(chains).length}`);
-console.log(
-  `* 🪙 Assets: ${assets.length}. Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map((t) => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} chains.`,
-);
 console.log(
   `* 🌐 DeFi protocols: ${protocolsTotal}. Organizations: ${Object.keys(integrations).length}.`,
 );
-console.log(`* ⛓️ Strategies: ${Object.keys(strategies).length}`);
+console.log(`* 📜 VaaS strategies: ${Object.keys(strategies).length}`);
 
 console.log(`* 🏦 Money markets: ${lendingMarkets.length}`);
 //console.log(`* 📡 Memory endpoints: ${seeds.join(', ')}`);

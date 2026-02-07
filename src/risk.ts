@@ -1,5 +1,4 @@
 import { StrategyShortId } from "./strategies";
-import { getTokenData } from "./assets";
 
 export type IlDetails = {
   rate: number;
@@ -148,17 +147,6 @@ export const getIL = (
 
   if (strategyShortId == StrategyShortId.QSMF) {
     return IL.CL_STABLE_FIXED;
-  }
-
-  if (strategyShortId == StrategyShortId.TPF) {
-    let onlyStables = true;
-    for (const asset of assets) {
-      const tokenData = getTokenData(asset);
-      if (!tokenData || !tokenData.tags?.includes("stablecoin")) {
-        onlyStables = false;
-      }
-    }
-    return onlyStables ? IL.ALM_STABLE_DEPEG_MEDIUM : IL.ALM_VOLATILE_HIGH;
   }
 
   if ([StrategyShortId.SF, StrategyShortId.EF].includes(strategyShortId)) {

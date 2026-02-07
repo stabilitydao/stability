@@ -1,6 +1,5 @@
 import { ILendingMarket, lendingMarkets } from "../src";
-import { assets } from "../src/assets";
-import * as tokenList from "../src/stability.tokenlist.json";
+import { tokenlist, assets } from "@stabilitydao/host";
 
 describe("testing lending", () => {
   test("constants", () => {
@@ -26,7 +25,7 @@ describe("testing market reserves exist in assets lists", () => {
 });
 
 function checkAssetInTokenList(assetAddress: `0x${string}`) {
-  const existsInTokenList = !!tokenList.tokens.find(
+  const existsInTokenList = !!tokenlist.tokens.find(
     (token) => token.address.toLowerCase() === assetAddress.toLowerCase(),
   );
 

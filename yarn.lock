@@ -641,6 +641,11 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
+"@stabilitydao/host@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@stabilitydao/host/-/host-0.5.0.tgz#ae819533da4cf2a1adf95fc6939bb63f2f50ef64"
+  integrity sha512-qIEa9UOBsKG7DdmKVJ7nx82hnAVKaCV8KNBb+uNt3nKv7vhv9BcH6wRmMNxM9jFaxZNPo2XX+lze9wN6VG8l2w==
+
 "@tsconfig/node10@^1.0.7":
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/@tsconfig/node10/-/node10-1.0.11.tgz#6ee46400685f130e278128c7b38b7e031ff5b2f2"
