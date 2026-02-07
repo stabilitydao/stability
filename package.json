@@ -1,6 +1,6 @@
 {
   "name": "@stabilitydao/stability",
-  "version": "0.61.0",
+  "version": "0.61.1",
   "description": "Stability DAO Library",
   "main": "out/index.js",
   "types": "out/index.d.ts",
@@ -15,6 +15,7 @@
   "license": "MIT",
   "scripts": {
     "overview": "ts-node tools/overview.ts",
+    "leverage": "ts-node tools/leverage.ts",
     "build": "tsc",
     "test": "jest",
     "update-lending": "ts-node tools/update-lending.ts && yarn prettier --write src/lending.ts",
@@ -31,7 +32,7 @@
     "@types/jest": "^29.5.12",
     "ansis": "^3.2.0",
     "axios": "^1.7.7",
-    "canvas": "^2.11.2",
+    "canvas": "^3.2.1",
     "console-table-printer": "^2.12.0",
     "jest": "^29.7.0",
     "prettier": "3.3.3",
@@ -42,6 +43,6 @@
     "viem": "^2.40.0"
   },
   "dependencies": {
-    "@stabilitydao/host": "^0.5.0"
+    "@stabilitydao/host": "^0.5.5"
   }
 }

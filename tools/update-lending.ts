@@ -10,7 +10,8 @@ const aaveOracles: Record<string, `0x${string}`> = {
 };
 
 const rpcUrls: Record<string, string> = {
-  "1": "https://eth.llamarpc.com",
+  //"1": "https://eth.llamarpc.com",
+  "1": "https://ethereum-rpc.publicnode.com",
   "146": "https://rpc.soniclabs.com",
 };
 
@@ -141,6 +142,7 @@ async function updateMarketReserves(market: ILendingMarket) {
   let oracleName = "Unknown";
 
   for (const r of reserves) {
+    process.stdout.write(".");
     const asset = r.tokenAddress;
     const symbol = r.symbol;
 
