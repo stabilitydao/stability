@@ -1,7 +1,7 @@
 {
   "name": "@stabilitydao/stability",
-  "version": "0.59.2",
-  "description": "Stability Operating System Library",
+  "version": "0.60.0",
+  "description": "Stability DAO Library",
   "main": "out/index.js",
   "types": "out/index.d.ts",
   "files": [
@@ -14,7 +14,6 @@
   "author": "stabilitydao",
   "license": "MIT",
   "scripts": {
-    "os": "ts-node tools/overview.ts",
     "overview": "ts-node tools/overview.ts",
     "build": "tsc",
     "test": "jest",

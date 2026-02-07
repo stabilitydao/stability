@@ -4,13 +4,6 @@ import {
   integrations,
   lendingMarkets,
   strategies,
-  daos,
-  getChainByName,
-  ChainName,
-  StrategyShortId,
-  StrategyState,
-  getUnitById,
-  OS,
 } from "../src";
 import { version } from "../package.json";
 import tokenlist from "../src/stability.tokenlist.json";
@@ -26,9 +19,9 @@ for (const chain of Object.keys(chains)) {
   }
 }
 
-console.log(`## 📦 Stability Operating System Library v${version}`);
+console.log(`## 📦 Stability DAO Library v${version}\n`);
 
-console.log(
+/*console.log(
   `
 ### 🏛️ DAOs
 
@@ -82,10 +75,8 @@ ${daos
   })
   .join("\n")}  
 `,
-);
+);*/
 
-console.log(`### 📚 Knowledge`);
-console.log(``);
 console.log(`* ⛓️ Chains: ${Object.keys(chains).length}`);
 console.log(
   `* 🪙 Assets: ${assets.length}. Tokenlist ${tokenlist.version.major}.${tokenlist.version.minor}.${tokenlist.version.patch}: ${tokenlist.tokens.length} tokens for ${tokenlist.tokens.map((t) => t.chainId).filter((value, index, array) => array.indexOf(value) === index).length} chains.`,
@@ -93,6 +84,7 @@ console.log(
 console.log(
   `* 🌐 DeFi protocols: ${protocolsTotal}. Organizations: ${Object.keys(integrations).length}.`,
 );
+console.log(`* ⛓️ Strategies: ${Object.keys(strategies).length}`);
 
 console.log(`* 🏦 Money markets: ${lendingMarkets.length}`);
 //console.log(`* 📡 Memory endpoints: ${seeds.join(', ')}`);

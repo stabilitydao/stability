@@ -26,8 +26,6 @@ export type Deployment = {
   tokenomics: {
     merkleDistributor?: `0x${string}`;
     gem1?: `0x${string}`;
-    xSTBL?: `0x${string}`;
-    xStaking?: `0x${string}`;
     revenueRouter?: `0x${string}`;
     recovery?: `0x${string}`;
   };
@@ -91,8 +89,6 @@ export const deployments: { [chainId: string]: Deployment } = {
     tokenomics: {
       merkleDistributor: "0x0391aBDCFaB86947d93f9dd032955733B639416b",
       gem1: "0x9A08cD5691E009cC72E2A4d8e7F2e6EE14E96d6d",
-      xSTBL: "0x902215dd96a291b256a3aef6c4dee62d2a9b80cb",
-      xStaking: "0x17a7cf838a7c91de47552a9f65822b547f9a6997",
       revenueRouter: "0x23b8cc22c4c82545f4b451b11e2f17747a730810",
       recovery: "0xB8d6019eD82a9e6216c9Bf87cAf145fFe4439b40",
     },

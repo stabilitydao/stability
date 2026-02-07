@@ -1,4 +1,4 @@
-# 📦 Stability Operating System Library
+# 📦 Stability DAO Library
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/stabilitydao/stability/main)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/stabilitydao/stability/dev)
@@ -11,7 +11,7 @@
 
 [![codecov](https://codecov.io/github/stabilitydao/stability/graph/badge.svg?token=V0JV1WOGMM)](https://codecov.io/github/stabilitydao/stability)
 
-This is library for integrating Stability OS into Node.js applications.
+This is library for integrating Stability DAO into Node.js applications.
 
 ## 🔌 Usage
 
@@ -24,8 +24,8 @@ yarn add @stabilitydao/stability
 and use it
 
 ```javascript
-import { daos } from "@stabilitydao/stability";
-console.log(`Names of DAOs: ${daos.map((dao) => dao.name).join(", ")}`);
+import { strategies } from "@stabilitydao/stability";
+console.log(`Strategies: ${Object.keys(strategies).join(", ")}`);
 ```
 
 ## 👷 Develop
@@ -33,7 +33,7 @@ console.log(`Names of DAOs: ${daos.map((dao) => dao.name).join(", ")}`);
 ### How to
 
 ```shell
-yarn os
+yarn overview
 yarn test
 yarn coverage
 yarn prettier . --write
@@ -41,20 +41,9 @@ yarn prettier . --write
 
 ### Commit and PR prefix
 
-#### Units
-
-- 🍀 Stability OS
-- 🧊 VaaS
-  - 📜 DeFi Strategies
-  - ⛓️ Chain support
+- 📜 DeFi Strategies
+- ⛓️ Chains
 - 🏦 Lending
-- 🦄 Arbitrage
-  - 📙 MEV Strategies
-- 🐺 Liquidation
-  - 📙 MEV Strategies
-
-#### Common
-
 - 📦 New version
 - 📚 Knowledge (🪙 assets, 🌐 protocols, ⛓️ chains)
 - 🔨 Types, refactor, formatter
