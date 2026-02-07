@@ -1,7 +1,7 @@
 import { createCanvas, loadImage } from "canvas";
 import * as fs from "node:fs";
-import { strategies, getStrategyProtocols } from "../src/strategies";
-import tokenlist from "../src/stability.tokenlist.json";
+import { strategies, getStrategyProtocols } from "../src";
+import {tokenlist} from "@stabilitydao/host";
 
 async function main() {
   console.log("== Draw vaults ==");

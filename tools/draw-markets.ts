@@ -2,8 +2,8 @@ import { createCanvas, loadImage } from "canvas";
 import fs from "fs/promises";
 import path from "path";
 import { MarketData } from "../src/api.types";
-import { ILendingMarket, lendingMarkets } from "../src/lending";
-import tokenlist from "../src/stability.tokenlist.json";
+import { ILendingMarket, lendingMarkets } from "../src";
+import {tokenlist} from "@stabilitydao/host";
 
 const marketsDir = "./temp/markets";
 const WIDTH = 768;
