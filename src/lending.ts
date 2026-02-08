@@ -35,6 +35,10 @@ export interface IReserve {
   isBorrowable: boolean;
 }
 
+/*
+ Aave deployments: https://aave.com/docs/resources/addresses
+*/
+
 export const lendingMarkets: ILendingMarket[] = [
   {
     id: "Core Instance",
@@ -872,6 +876,159 @@ export const lendingMarkets: ILendingMarket[] = [
     ],
     deployed: "Oct 31, 2025",
     show: true,
+  },
+  {
+    id: "Plasma Market",
+    chainId: "9745",
+    engine: LendingEngine.AAVE_3_5,
+    operator: LendingOperator.AAVE,
+    pool: "0x925a2A7214Ed92428B5b1B090F80b25700095e12",
+    protocolDataProvider: "0xf2D6E38B407e31E7E7e4a16E6769728b76c7419F",
+    uiPoolDataProvider: "0xc851e6147dcE6A469CC33BE3121b6B2D4CaD2763",
+    reserves: [
+      // USDT0
+      {
+        asset: "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
+        aToken: "0x5D72a9d9A9510Cd8cBdBA12aC62593A58930a948",
+        aTokenSymbol: "USDT0",
+        oracle: "0xdBbB0b5DD13E7AC9C56624834ef193df87b022c3",
+        oracleName: "Unknown",
+        treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
+        isBorrowable: true,
+      },
+      // USDe
+      {
+        asset: "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+        aToken: "0x7519403E12111ff6b710877Fcd821D0c12CAF43A",
+        aTokenSymbol: "USDe",
+        oracle: "0xdBbB0b5DD13E7AC9C56624834ef193df87b022c3",
+        oracleName: "Unknown",
+        treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
+        isBorrowable: true,
+      },
+      // sUSDe
+      {
+        asset: "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
+        aToken: "0xC1A318493fF07a68fE438Cee60a7AD0d0DBa300E",
+        aTokenSymbol: "sUSDe",
+        oracle: "0x40eE40D7332995CACA49Db46B94237Fa64647Bd4",
+        oracleName: "Unknown",
+        treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
+        isBorrowable: false,
+      },
+      // XAUt0
+      {
+        asset: "0x1B64B9025EEbb9A6239575dF9Ea4b9Ac46D4d193",
+        aToken: "0x5c43D6C075C7CF95fb188FB2977eeD3E3F2a92c2",
+        aTokenSymbol: "XAUt0",
+        oracle: "0x921371Fa4d4A30cD350D29762ccB8A5861724E29",
+        oracleName: "Unknown",
+        treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
+        isBorrowable: false,
+      },
+      // weETH
+      {
+        asset: "0xA3D68b74bF0528fdD07263c60d6488749044914b",
+        aToken: "0xAf1a7a488c8348b41d5860C04162af7d3D38A996",
+        aTokenSymbol: "weETH",
+        oracle: "0xA7786e3042435f88869e5a4e384B0AD6B009800b",
+        oracleName: "Unknown",
+        treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
+        isBorrowable: false,
+      },
+      // WETH
+      {
+        asset: "0x9895D81bB462A195b4922ED7De0e3ACD007c32CB",
+        aToken: "0xf1aB7f60128924d69f6d7dE25A20eF70bBd43d07",
+        aTokenSymbol: "WETH",
+        oracle: "0x43A7dd2125266c5c4c26EB86cd61241132426Fe7",
+        oracleName: "Unknown",
+        treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
+        isBorrowable: true,
+      },
+      // PT-USDe-15JAN2026
+      {
+        asset: "0x93B544c330F60A2aa05ceD87aEEffB8D38FD8c9a",
+        aToken: "0xEa601A9FECF80bFC529F08A51bD8Cb0d72fc862A",
+        aTokenSymbol: "PT-USDe-15JAN2026",
+        oracle: "0x30cb6ff8649Cc02cEa91971D4730EebeD5A8D2F1",
+        oracleName: "Unknown",
+        treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
+        isBorrowable: false,
+      },
+      // PT-sUSDE-15JAN2026
+      {
+        asset: "0x02FCC4989B4C9D435b7ceD3fE1Ba4CF77BBb5Dd8",
+        aToken: "0x0b9A412c94f07223752031f75a20DDe542D63d5C",
+        aTokenSymbol: "PT-sUSDE-15JAN2026",
+        oracle: "0x3eca1c7836eA09DB3dc85be7B5526Ce80E2609a1",
+        oracleName: "Unknown",
+        treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
+        isBorrowable: false,
+      },
+      // wstETH
+      {
+        asset: "0xe48D935e6C9e735463ccCf29a7F11e32bC09136E",
+        aToken: "0x140Bc58975DFba4D30fE65c4F6262a6c314683cf",
+        aTokenSymbol: "wstETH",
+        oracle: "0xd6ff49B650550ce2452e0fCCa101Ab7CE206d851",
+        oracleName: "Unknown",
+        treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
+        isBorrowable: true,
+      },
+      // wrsETH
+      {
+        asset: "0xe561FE05C39075312Aa9Bc6af79DdaE981461359",
+        aToken: "0x41c7aCCC0fB97470bFB48014bad52E0d99447E79",
+        aTokenSymbol: "wrsETH",
+        oracle: "0x3acFddf27b85B5f773B610c6F7e4420aeB1Df8dD",
+        oracleName: "Unknown",
+        treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
+        isBorrowable: false,
+      },
+      // syrupUSDT
+      {
+        asset: "0xC4374775489CB9C56003BF2C9b12495fC64F0771",
+        aToken: "0xD4eE376C40EdC83832aAaFc18fC0272660F5e90b",
+        aTokenSymbol: "syrupUSDT",
+        oracle: "0x0A3F8218a98337Ef37dCAE4F8a8cfaB0711C64cF",
+        oracleName: "Unknown",
+        treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
+        isBorrowable: false,
+      },
+      // WXPL
+      {
+        asset: "0x6100E367285b01F48D07953803A2d8dCA5D19873",
+        aToken: "0x5aA4bc74811D672DA5308019dA4779f673e60B47",
+        aTokenSymbol: "WXPL",
+        oracle: "0xF932477C37715aE6657Ab884414Bd9876FE3f750",
+        oracleName: "Unknown",
+        treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
+        isBorrowable: false,
+      },
+      // PT-sUSDE-9APR2026
+      {
+        asset: "0xab509448ad489e2E1341e25CC500f2596464Cc82",
+        aToken: "0x53349cBeD7A3F851f0722Bf3Fa8f1b93fA939BeF",
+        aTokenSymbol: "PT-sUSDE-9APR2026",
+        oracle: "0x13f2EA8dfa948c5247826283079615Ee4d0A1AA5",
+        oracleName: "Unknown",
+        treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
+        isBorrowable: false,
+      },
+      // PT-USDe-9APR2026
+      {
+        asset: "0x54Dc267be2839303ff1e323584A16e86CeC4Aa44",
+        aToken: "0x9326fA5a71C93D5De313c91C3b80D74d0c3a0F5A",
+        aTokenSymbol: "PT-USDe-9APR2026",
+        oracle: "0x37f3a8b02BAbe4dd71acb5f214F22C09AFf607f3",
+        oracleName: "Unknown",
+        treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
+        isBorrowable: false,
+      },
+    ],
+    deployed: "Sep-09-2025",
+    show: false,
   },
 ];
 

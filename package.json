@@ -43,6 +43,6 @@
     "viem": "^2.40.0"
   },
   "dependencies": {
-    "@stabilitydao/host": "^0.5.5"
+    "@stabilitydao/host": "^0.5.6"
   }
 }

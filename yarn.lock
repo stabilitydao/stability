@@ -626,10 +626,10 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@stabilitydao/host@^0.5.5":
-  version "0.5.5"
-  resolved "https://registry.yarnpkg.com/@stabilitydao/host/-/host-0.5.5.tgz#448345ec58b506e6730ba72971d980b85992da02"
-  integrity sha512-RGIntm4ZKozWE1u4W9yw6rrOLZROpbhwEi4N0k1AP4DSRiJSTzIAkzdobe/ubF2JH/oqGIl3pKkNSSx3Ca3pLA==
+"@stabilitydao/host@^0.5.6":
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/@stabilitydao/host/-/host-0.5.6.tgz#1806e097c986e6d916363444fe7b62cceb17304d"
+  integrity sha512-cvS3v5vwk5W79f+VWRR+/ubeVTQpF0rCo0+2CQTKwJZEdy13pVLCZ4si08dqqakT8He6xqaZdrrFU1R+XtRp4g==
 
 "@tsconfig/node10@^1.0.7":
   version "1.0.11"

@@ -18,6 +18,7 @@ describe("testing lending", () => {
 
 describe("testing market reserves exist in assets lists", () => {
   test("market reserves", () => {
+    let exist = true;
     for (const market of lendingMarkets) {
       for (const reserve of market.reserves) {
         const existsInTokenList = checkAssetInTokenList(reserve.asset);
@@ -30,10 +31,12 @@ describe("testing market reserves exist in assets lists", () => {
             `[${market.chainId}] ${reserve.asset} does not exist in tokenlist`,
           );
         }
-        expect(existsInTokenList).toBeTruthy();
-        expect(existsInAssets).toBeTruthy();
+        if (!existsInTokenList || !existsInAssets) {
+          exist = false;
+        }
       }
     }
+    expect(exist).toBeTruthy();
   });
 });
 

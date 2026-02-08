@@ -7,12 +7,14 @@ import { ILendingMarket, IReserve, lendingMarkets } from "../src/lending";
 const aaveOracles: Record<string, `0x${string}`> = {
   "1": "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
   "146": "0xd63f7658c66b2934bd234d79d06aef5290734b30",
+  "9745": "0x33E0b3fc976DC9C516926BA48CfC0A9E10a2aAA5",
 };
 
 const rpcUrls: Record<string, string> = {
   //"1": "https://eth.llamarpc.com",
   "1": "https://ethereum-rpc.publicnode.com",
   "146": "https://rpc.soniclabs.com",
+  "9745": "https://rpc.plasma.to",
 };
 
 const getReserveTokensAddressesABI = [
