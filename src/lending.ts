@@ -14,8 +14,11 @@ export interface ILendingMarket {
   deprecated?: boolean;
   eModes?: {
     id: number;
-    collaterals: `0x${string}`[];
+    label: string;
+    collateral: `0x${string}`[];
     borrowable: `0x${string}`[];
+    ltv: number;
+    lt: number;
   }[];
 }
 
@@ -38,6 +41,8 @@ export interface IReserve {
   oracleName: string;
   treasury: `0x${string}`;
   isBorrowable: boolean;
+  ltv?: number;
+  lt?: number;
 }
 
 /*
