@@ -12,6 +12,11 @@ export interface ILendingMarket {
   show: boolean;
   stableCoinIsolatedMarket?: boolean;
   deprecated?: boolean;
+  eModes?: {
+    id: number;
+    collaterals: `0x${string}`[];
+    borrowable: `0x${string}`[];
+  }[];
 }
 
 export const enum LendingEngine {
