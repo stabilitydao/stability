@@ -1,15 +1,24 @@
 import { ILendingMarket, lendingMarkets } from "../src";
 import { tokenlist, assets } from "@stabilitydao/host";
+import { getLendingMarketsForAsset } from "../src/lending";
 
 describe("testing lending", () => {
   test("constants", () => {
     const mainMarket: ILendingMarket = lendingMarkets[0];
     expect(mainMarket.id).toEqual("Core Instance");
   });
+  test("getLendingMarketsForAsset", () => {
+    const mainMarket = getLendingMarketsForAsset(
+      1,
+      "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    )[0];
+    expect(mainMarket?.id).toEqual("Core Instance");
+  });
 });
 
 describe("testing market reserves exist in assets lists", () => {
   test("market reserves", () => {
+    let exist = true;
     for (const market of lendingMarkets) {
       for (const reserve of market.reserves) {
         const existsInTokenList = checkAssetInTokenList(reserve.asset);
@@ -17,10 +26,17 @@ describe("testing market reserves exist in assets lists", () => {
           reserve.asset,
           market.chainId,
         );
-        expect(existsInTokenList).toBeTruthy();
-        expect(existsInAssets).toBeTruthy();
+        if (!existsInTokenList) {
+          console.log(
+            `[${market.chainId}] ${reserve.asset} does not exist in tokenlist`,
+          );
+        }
+        if (!existsInTokenList || !existsInAssets) {
+          exist = false;
+        }
       }
     }
+    expect(exist).toBeTruthy();
   });
 });
 
