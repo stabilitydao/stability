@@ -68,6 +68,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Chainlink",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 95,
+        ltv: 93,
       },
       // aEthwstETH
       {
@@ -78,6 +80,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Chainlink",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 95,
+        ltv: 93,
       },
       // aEthWBTC
       {
@@ -88,6 +92,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Chainlink",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 78,
+        ltv: 73,
       },
       // aEthUSDC
       {
@@ -98,6 +104,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Chainlink",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 78,
+        ltv: 75,
       },
       // DAI
       {
@@ -108,6 +116,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 77,
+        ltv: 0,
       },
       // LINK
       {
@@ -118,6 +128,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 71,
+        ltv: 66,
       },
       // AAVE
       {
@@ -128,6 +140,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 76,
+        ltv: 69,
       },
       // cbETH
       {
@@ -138,6 +152,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 95,
+        ltv: 93,
       },
       // aEthUSDT
       {
@@ -148,6 +164,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Chainlink",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 78,
+        ltv: 75,
       },
       // rETH
       {
@@ -158,6 +176,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 95,
+        ltv: 93,
       },
       // LUSD
       {
@@ -168,6 +188,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 77,
+        ltv: 0,
       },
       // CRV
       {
@@ -178,6 +200,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 41,
+        ltv: 0,
       },
       // MKR
       {
@@ -188,6 +212,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 70,
+        ltv: 0,
       },
       // SNX
       {
@@ -198,6 +224,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 65,
+        ltv: 0,
       },
       // BAL
       {
@@ -208,6 +236,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 59,
+        ltv: 0,
       },
       // UNI
       {
@@ -218,6 +248,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 74,
+        ltv: 0,
       },
       // LDO
       {
@@ -228,6 +260,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 50,
+        ltv: 0,
       },
       // ENS
       {
@@ -238,6 +272,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 49,
+        ltv: 0,
       },
       // 1INCH
       {
@@ -248,6 +284,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 67,
+        ltv: 0,
       },
       // FRAX
       {
@@ -258,6 +296,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 72,
+        ltv: 0,
       },
       // GHO
       {
@@ -268,6 +308,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 0,
+        ltv: 0,
       },
       // RPL
       {
@@ -278,6 +320,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 0,
+        ltv: 0,
       },
       // sDAI
       {
@@ -288,6 +332,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 78,
+        ltv: 75,
       },
       // STG
       {
@@ -298,6 +344,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 37,
+        ltv: 0,
       },
       // KNC
       {
@@ -308,6 +356,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 37,
+        ltv: 0,
       },
       // FXS
       {
@@ -318,6 +368,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 42,
+        ltv: 0,
       },
       // crvUSD
       {
@@ -328,6 +380,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 0,
+        ltv: 0,
       },
       // PYUSD
       {
@@ -338,6 +392,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 78,
+        ltv: 75,
       },
       // aEthweETH
       {
@@ -348,6 +404,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Chainlink",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 95,
+        ltv: 93,
       },
       // osETH
       {
@@ -358,6 +416,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 95,
+        ltv: 93,
       },
       // USDe
       {
@@ -368,6 +428,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 92,
+        ltv: 90,
       },
       // ETHx
       {
@@ -378,6 +440,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 95,
+        ltv: 93,
       },
       // sUSDe
       {
@@ -388,6 +452,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 92,
+        ltv: 90,
       },
       // tBTC
       {
@@ -398,6 +464,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 78,
+        ltv: 73,
       },
       // cbBTC
       {
@@ -408,6 +476,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 78,
+        ltv: 73,
       },
       // USDS
       {
@@ -418,6 +488,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 78,
+        ltv: 0,
       },
       // rsETH
       {
@@ -428,6 +500,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 95,
+        ltv: 93,
       },
       // LBTC
       {
@@ -438,6 +512,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 86,
+        ltv: 84,
       },
       // eBTC
       {
@@ -448,6 +524,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 85,
+        ltv: 83,
       },
       // RLUSD
       {
@@ -458,6 +536,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 0,
+        ltv: 0,
       },
       // PT-eUSDE-29MAY2025
       {
@@ -468,6 +548,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 93,
+        ltv: 91,
       },
       // PT-sUSDE-31JUL2025
       {
@@ -478,6 +560,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 92,
+        ltv: 90,
       },
       // USDtb
       {
@@ -488,6 +572,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 0,
+        ltv: 0,
       },
       // PT-USDe-31JUL2025
       {
@@ -498,6 +584,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 93,
+        ltv: 91,
       },
       // PT-eUSDE-14AUG2025
       {
@@ -508,6 +596,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 93,
+        ltv: 91,
       },
       // eUSDe
       {
@@ -518,6 +608,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 93,
+        ltv: 91,
       },
       // FBTC
       {
@@ -528,6 +620,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 86,
+        ltv: 84,
       },
       // EURC
       {
@@ -538,6 +632,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 78,
+        ltv: 75,
       },
       // PT-sUSDE-25SEP2025
       {
@@ -548,6 +644,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 92,
+        ltv: 90,
       },
       // PT-USDe-25SEP2025
       {
@@ -558,6 +656,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 93,
+        ltv: 91,
       },
       // tETH
       {
@@ -568,6 +668,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 75,
+        ltv: 72,
       },
       // ezETH
       {
@@ -578,6 +680,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 95,
+        ltv: 93,
       },
       // XAUt
       {
@@ -588,6 +692,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 75,
+        ltv: 70,
       },
       // PT-sUSDE-27NOV2025
       {
@@ -598,6 +704,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 92,
+        ltv: 90,
       },
       // PT-USDe-27NOV2025
       {
@@ -608,6 +716,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 93,
+        ltv: 91,
       },
       // PT-USDe-5FEB2026
       {
@@ -618,6 +728,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 93,
+        ltv: 91,
       },
       // PT-sUSDE-5FEB2026
       {
@@ -628,6 +740,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 92,
+        ltv: 90,
       },
       // mUSD
       {
@@ -638,6 +752,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 0,
+        ltv: 0,
       },
       // syrupUSDT
       {
@@ -648,6 +764,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 92,
+        ltv: 90,
       },
       // USDG
       {
@@ -658,6 +776,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: true,
+        lt: 0,
+        ltv: 0,
       },
       // PT-USDe-7MAY2026
       {
@@ -668,6 +788,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 90.2,
+        ltv: 88.2,
       },
       // PT-sUSDE-7MAY2026
       {
@@ -678,6 +800,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 89.4,
+        ltv: 87.4,
       },
       // PT-srUSDe-2APR2026
       {
@@ -688,10 +812,539 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
+        lt: 92,
+        ltv: 90,
       },
     ],
     deployed: "Dec 29, 2022",
     show: true,
+    eModes: [
+      // ETH correlated
+      {
+        id: 1,
+        label: "ETH correlated",
+        collateral: [
+          "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+          "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+          "0xBe9895146f7AF43049ca1c1AE358B0541Ea49704",
+          "0xae78736Cd615f374D3085123A210448E74Fc6393",
+          "0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee",
+          "0xf1C9acDc66974dFB6dEcB12aA385b9cD01190E38",
+          "0xA35b1B31Ce002FBF2058D22F30f95D405200A15b",
+        ],
+        borrowable: ["0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"],
+        ltv: 93,
+        lt: 95,
+      },
+      // sUSDe Stablecoins
+      {
+        id: 2,
+        label: "sUSDe Stablecoins",
+        collateral: [
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+        ],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        ],
+        ltv: 90,
+        lt: 92,
+      },
+      // rsETH__ETH_wstETH_ETHx
+      {
+        id: 3,
+        label: "rsETH__ETH_wstETH_ETHx",
+        collateral: ["0xA1290d69c65A6Fe4DF752f95823fae25cB99e5A7"],
+        borrowable: [
+          "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+          "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+          "0xA35b1B31Ce002FBF2058D22F30f95D405200A15b",
+        ],
+        ltv: 93,
+        lt: 95,
+      },
+      // LBTC_WBTC
+      {
+        id: 4,
+        label: "LBTC_WBTC",
+        collateral: ["0x8236a87084f8B84306f72007F36F2618A5634494"],
+        borrowable: ["0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"],
+        ltv: 84,
+        lt: 86,
+      },
+      // LBTC_cbBTC
+      {
+        id: 5,
+        label: "LBTC_cbBTC",
+        collateral: ["0x8236a87084f8B84306f72007F36F2618A5634494"],
+        borrowable: ["0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+        ltv: 84,
+        lt: 86,
+      },
+      // LBTC_tBTC
+      {
+        id: 6,
+        label: "LBTC_tBTC",
+        collateral: ["0x8236a87084f8B84306f72007F36F2618A5634494"],
+        borrowable: ["0x18084fbA666a33d37592fA2633fD49a74DD93a88"],
+        ltv: 84,
+        lt: 86,
+      },
+      // eBTC/WBTC
+      {
+        id: 7,
+        label: "eBTC/WBTC",
+        collateral: ["0x657e8C867D8B37dCC18fA4Caead9C45EB088C642"],
+        borrowable: ["0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"],
+        ltv: 83,
+        lt: 85,
+      },
+      // PT-sUSDe Stablecoins Jul 2025
+      {
+        id: 8,
+        label: "PT-sUSDe Stablecoins Jul 2025",
+        collateral: [
+          "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+          "0x3b3fB9C57858EF816833dC91565EFcd85D96f634",
+        ],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        ],
+        ltv: 90,
+        lt: 92,
+      },
+      // PT-eUSDe Stablecoins May 2025
+      {
+        id: 9,
+        label: "PT-eUSDe Stablecoins May 2025",
+        collateral: [
+          "0x50D2C7992b802Eef16c04FeADAB310f31866a545",
+          "0x90D2af7d622ca3141efA4d8f1F24d86E5974Cc8F",
+        ],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        ],
+        ltv: 91,
+        lt: 93,
+      },
+      // PT-USDe Stablecoins July 2025
+      {
+        id: 10,
+        label: "PT-USDe Stablecoins July 2025",
+        collateral: [
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0x917459337CaAC939D41d7493B3999f571D20D667",
+        ],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        ],
+        ltv: 91,
+        lt: 93,
+      },
+      // USDe Stablecoin
+      {
+        id: 11,
+        label: "USDe Stablecoin",
+        collateral: ["0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        ],
+        ltv: 90,
+        lt: 93,
+      },
+      // PT-USDe USDe July 2025
+      {
+        id: 12,
+        label: "PT-USDe USDe July 2025",
+        collateral: [
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0x917459337CaAC939D41d7493B3999f571D20D667",
+        ],
+        borrowable: ["0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"],
+        ltv: 94,
+        lt: 96,
+      },
+      // PT-eUSDe Stablecoins August 2025
+      {
+        id: 13,
+        label: "PT-eUSDe Stablecoins August 2025",
+        collateral: [
+          "0x14Bdc3A3AE09f5518b923b69489CBcAfB238e617",
+          "0x90D2af7d622ca3141efA4d8f1F24d86E5974Cc8F",
+        ],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        ],
+        ltv: 91,
+        lt: 93,
+      },
+      // PT-eUSDe USDe August 2025
+      {
+        id: 14,
+        label: "PT-eUSDe USDe August 2025",
+        collateral: [
+          "0x14Bdc3A3AE09f5518b923b69489CBcAfB238e617",
+          "0x90D2af7d622ca3141efA4d8f1F24d86E5974Cc8F",
+        ],
+        borrowable: ["0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"],
+        ltv: 94,
+        lt: 96,
+      },
+      // eUSDe_Stablecoin
+      {
+        id: 15,
+        label: "eUSDe_Stablecoin",
+        collateral: ["0x90D2af7d622ca3141efA4d8f1F24d86E5974Cc8F"],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        ],
+        ltv: 90,
+        lt: 93,
+      },
+      // FBTC/WBTC
+      {
+        id: 16,
+        label: "FBTC/WBTC",
+        collateral: ["0xC96dE26018A54D51c097160568752c4E3BD6C364"],
+        borrowable: ["0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"],
+        ltv: 84,
+        lt: 86,
+      },
+      // PT-sUSDe Stablecoins September 2025
+      {
+        id: 17,
+        label: "PT-sUSDe Stablecoins September 2025",
+        collateral: [
+          "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+          "0x3b3fB9C57858EF816833dC91565EFcd85D96f634",
+          "0x9F56094C450763769BA0EA9Fe2876070c0fD5F77",
+        ],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0xC139190F447e929f090Edeb554D95AbB8b18aC1C",
+        ],
+        ltv: 90,
+        lt: 92,
+      },
+      // PT-sUSDe USDe September 2025
+      {
+        id: 18,
+        label: "PT-sUSDe USDe September 2025",
+        collateral: ["0x9F56094C450763769BA0EA9Fe2876070c0fD5F77"],
+        borrowable: ["0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"],
+        ltv: 92,
+        lt: 94,
+      },
+      // PT-USDe Stablecoins September 2025
+      {
+        id: 19,
+        label: "PT-USDe Stablecoins September 2025",
+        collateral: [
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0x917459337CaAC939D41d7493B3999f571D20D667",
+          "0x14Bdc3A3AE09f5518b923b69489CBcAfB238e617",
+          "0xBC6736d346a5eBC0dEbc997397912CD9b8FAe10a",
+        ],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+        ],
+        ltv: 91,
+        lt: 93,
+      },
+      // PT-USDe USDe September 2025
+      {
+        id: 20,
+        label: "PT-USDe USDe September 2025",
+        collateral: [
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0x917459337CaAC939D41d7493B3999f571D20D667",
+          "0x14Bdc3A3AE09f5518b923b69489CBcAfB238e617",
+          "0xBC6736d346a5eBC0dEbc997397912CD9b8FAe10a",
+        ],
+        borrowable: ["0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"],
+        ltv: 94,
+        lt: 96,
+      },
+      // tETH/Stablecoins
+      {
+        id: 21,
+        label: "tETH/Stablecoins",
+        collateral: ["0xD11c452fc99cF405034ee446803b6F6c1F6d5ED8"],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        ],
+        ltv: 72,
+        lt: 75,
+      },
+      // ezETH/wstETH
+      {
+        id: 22,
+        label: "ezETH/wstETH",
+        collateral: ["0xbf5495Efe5DB9ce00f80364C8B423567e58d2110"],
+        borrowable: ["0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"],
+        ltv: 93,
+        lt: 95,
+      },
+      // ezETH/Stablecoins
+      {
+        id: 23,
+        label: "ezETH/Stablecoins",
+        collateral: ["0xbf5495Efe5DB9ce00f80364C8B423567e58d2110"],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        ],
+        ltv: 75,
+        lt: 78,
+      },
+      // PT-sUSDe Stablecoins Nov 2025
+      {
+        id: 24,
+        label: "PT-sUSDe Stablecoins Nov 2025",
+        collateral: [
+          "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+          "0x9F56094C450763769BA0EA9Fe2876070c0fD5F77",
+          "0xe6A934089BBEe34F832060CE98848359883749B3",
+        ],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0xC139190F447e929f090Edeb554D95AbB8b18aC1C",
+        ],
+        ltv: 90,
+        lt: 92,
+      },
+      // PT-sUSDe USDe Nov 2025
+      {
+        id: 25,
+        label: "PT-sUSDe USDe Nov 2025",
+        collateral: [
+          "0x9F56094C450763769BA0EA9Fe2876070c0fD5F77",
+          "0xe6A934089BBEe34F832060CE98848359883749B3",
+        ],
+        borrowable: ["0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"],
+        ltv: 92,
+        lt: 94,
+      },
+      // weETH/wstETH ETH Correlated
+      {
+        id: 26,
+        label: "weETH/wstETH ETH Correlated",
+        collateral: ["0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee"],
+        borrowable: [
+          "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+          "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+        ],
+        ltv: 93,
+        lt: 95,
+      },
+      // PT-USDe Stablecoins Nov 2025
+      {
+        id: 27,
+        label: "PT-USDe Stablecoins Nov 2025",
+        collateral: [
+          "0xBC6736d346a5eBC0dEbc997397912CD9b8FAe10a",
+          "0x62C6E813b9589C3631Ba0Cdb013acdB8544038B7",
+        ],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0xC139190F447e929f090Edeb554D95AbB8b18aC1C",
+        ],
+        ltv: 91,
+        lt: 93,
+      },
+      // PT-USDe USDe Nov 2025
+      {
+        id: 28,
+        label: "PT-USDe USDe Nov 2025",
+        collateral: [
+          "0xBC6736d346a5eBC0dEbc997397912CD9b8FAe10a",
+          "0x62C6E813b9589C3631Ba0Cdb013acdB8544038B7",
+        ],
+        borrowable: ["0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"],
+        ltv: 94,
+        lt: 96,
+      },
+      // PTUSDe5FEB/Stablecoins
+      {
+        id: 29,
+        label: "PTUSDe5FEB/Stablecoins",
+        collateral: [
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0x62C6E813b9589C3631Ba0Cdb013acdB8544038B7",
+          "0x1F84a51296691320478c98b8d77f2Bbd17D34350",
+        ],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0xC139190F447e929f090Edeb554D95AbB8b18aC1C",
+        ],
+        ltv: 91,
+        lt: 93,
+      },
+      // PTUSDe5FEB/USDe
+      {
+        id: 30,
+        label: "PTUSDe5FEB/USDe",
+        collateral: [
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0x62C6E813b9589C3631Ba0Cdb013acdB8544038B7",
+          "0x1F84a51296691320478c98b8d77f2Bbd17D34350",
+        ],
+        borrowable: ["0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"],
+        ltv: 94,
+        lt: 96,
+      },
+      // PTsUSDe5FEB/Stablecoins
+      {
+        id: 31,
+        label: "PTsUSDe5FEB/Stablecoins",
+        collateral: [
+          "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+          "0xe6A934089BBEe34F832060CE98848359883749B3",
+          "0xE8483517077afa11A9B07f849cee2552f040d7b2",
+        ],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0xC139190F447e929f090Edeb554D95AbB8b18aC1C",
+        ],
+        ltv: 90,
+        lt: 92,
+      },
+      // PTsUSDe5FEB/USDe
+      {
+        id: 32,
+        label: "PTsUSDe5FEB/USDe",
+        collateral: [
+          "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+          "0xe6A934089BBEe34F832060CE98848359883749B3",
+          "0xE8483517077afa11A9B07f849cee2552f040d7b2",
+        ],
+        borrowable: ["0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"],
+        ltv: 92,
+        lt: 94,
+      },
+      // syrupUSDT Stablecoins
+      {
+        id: 33,
+        label: "syrupUSDT Stablecoins",
+        collateral: ["0x356B8d89c1e1239Cbbb9dE4815c39A1474d5BA7D"],
+        borrowable: [
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "0x40D16FC0246aD3160Ccc09B8D0D3A2cD28aE6C2f",
+        ],
+        ltv: 90,
+        lt: 92,
+      },
+      // PT_USDe_7MAY2026__Stablecoins
+      {
+        id: 34,
+        label: "PT_USDe_7MAY2026__Stablecoins",
+        collateral: [
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0x1F84a51296691320478c98b8d77f2Bbd17D34350",
+          "0xAeBf0Bb9f57E89260d57f31AF34eB58657d96Ce0",
+        ],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0xC139190F447e929f090Edeb554D95AbB8b18aC1C",
+        ],
+        ltv: 88.2,
+        lt: 90.2,
+      },
+      // PT_USDe_7MAY2026__USDe
+      {
+        id: 35,
+        label: "PT_USDe_7MAY2026__USDe",
+        collateral: [
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0x1F84a51296691320478c98b8d77f2Bbd17D34350",
+          "0xAeBf0Bb9f57E89260d57f31AF34eB58657d96Ce0",
+        ],
+        borrowable: ["0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"],
+        ltv: 89.1,
+        lt: 91.1,
+      },
+      // PT_sUSDe_7MAY2026__Stablecoins
+      {
+        id: 36,
+        label: "PT_sUSDe_7MAY2026__Stablecoins",
+        collateral: [
+          "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+          "0xE8483517077afa11A9B07f849cee2552f040d7b2",
+          "0x3de0ff76E8b528C092d47b9DaC775931cef80F49",
+        ],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+          "0xC139190F447e929f090Edeb554D95AbB8b18aC1C",
+        ],
+        ltv: 87.4,
+        lt: 89.4,
+      },
+      // PT_sUSDe_7MAY2026__USDe
+      {
+        id: 37,
+        label: "PT_sUSDe_7MAY2026__USDe",
+        collateral: [
+          "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+          "0xE8483517077afa11A9B07f849cee2552f040d7b2",
+          "0x3de0ff76E8b528C092d47b9DaC775931cef80F49",
+        ],
+        borrowable: ["0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"],
+        ltv: 88.2,
+        lt: 90.2,
+      },
+      // PT_srUSDe_1APR2026_sUSDe__USDT_USDe_USDC
+      {
+        id: 38,
+        label: "PT_srUSDe_1APR2026_sUSDe__USDT_USDe_USDC",
+        collateral: [
+          "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+          "0x9Bf45ab47747F4B4dD09B3C2c73953484b4eB375",
+        ],
+        borrowable: [
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+        ],
+        ltv: 90,
+        lt: 92,
+      },
+      // PT_srUSDe_1APR2026_sUSDe__USDe
+      {
+        id: 39,
+        label: "PT_srUSDe_1APR2026_sUSDe__USDe",
+        collateral: [
+          "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+          "0x9Bf45ab47747F4B4dD09B3C2c73953484b4eB375",
+        ],
+        borrowable: ["0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"],
+        ltv: 91.7,
+        lt: 93.7,
+      },
+    ],
   },
   {
     id: "Vicuna",
@@ -711,6 +1364,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "API3 OEV",
         treasury: "0xad1bB693975C16eC2cEEF65edD540BC735F8608B",
         isBorrowable: true,
+        lt: 78,
+        ltv: 75,
       },
       // vSonicSCUSD
       {
@@ -721,6 +1376,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "API3 OEV",
         treasury: "0xad1bB693975C16eC2cEEF65edD540BC735F8608B",
         isBorrowable: true,
+        lt: 84,
+        ltv: 80,
       },
       // vSonicUSDC.E
       {
@@ -731,6 +1388,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "API3 OEV",
         treasury: "0xad1bB693975C16eC2cEEF65edD540BC735F8608B",
         isBorrowable: true,
+        lt: 84,
+        ltv: 80,
       },
       // vSonicWETH
       {
@@ -741,6 +1400,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "API3 OEV",
         treasury: "0xad1bB693975C16eC2cEEF65edD540BC735F8608B",
         isBorrowable: true,
+        lt: 84,
+        ltv: 80,
       },
       // vSonicUSDT.E
       {
@@ -751,6 +1412,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "API3 OEV",
         treasury: "0xad1bB693975C16eC2cEEF65edD540BC735F8608B",
         isBorrowable: true,
+        lt: 84,
+        ltv: 80,
       },
       // vSonicwOS
       {
@@ -761,6 +1424,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "API3 OEV",
         treasury: "0xad1bB693975C16eC2cEEF65edD540BC735F8608B",
         isBorrowable: true,
+        lt: 78,
+        ltv: 75,
       },
       // vSonicstS
       {
@@ -771,6 +1436,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "API3 OEV",
         treasury: "0xad1bB693975C16eC2cEEF65edD540BC735F8608B",
         isBorrowable: true,
+        lt: 78,
+        ltv: 75,
       },
       // scETH
       {
@@ -781,6 +1448,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0xad1bB693975C16eC2cEEF65edD540BC735F8608B",
         isBorrowable: true,
+        lt: 78,
+        ltv: 75,
       },
     ],
     deployed: "Feb 6, 2025",
@@ -804,6 +1473,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Brunch StakedERC20PriceOracle",
         treasury: "0x3950b3a43fa0687561Bc5c8E32D2EE826D88a661",
         isBorrowable: false,
+        lt: 95,
+        ltv: 93,
       },
       // USDC
       {
@@ -814,6 +1485,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "ChainLink",
         treasury: "0x3950b3a43fa0687561Bc5c8E32D2EE826D88a661",
         isBorrowable: true,
+        lt: 0,
+        ltv: 0,
       },
     ],
     deployed: "Sep 5, 2025",
@@ -838,6 +1511,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Stability WrappedMetaVaultOracle",
         treasury: "0x3950b3a43fa0687561Bc5c8E32D2EE826D88a661",
         isBorrowable: false,
+        lt: 97.5,
+        ltv: 95,
       },
       // USDC
       {
@@ -848,6 +1523,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "ChainLink",
         treasury: "0x3950b3a43fa0687561Bc5c8E32D2EE826D88a661",
         isBorrowable: true,
+        lt: 0,
+        ltv: 0,
       },
     ],
     deployed: "Sep 19, 2025",
@@ -872,6 +1549,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Stability",
         treasury: "0x3950b3a43fa0687561Bc5c8E32D2EE826D88a661",
         isBorrowable: false,
+        lt: 78,
+        ltv: 40,
       },
       // USDC
       {
@@ -882,6 +1561,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "ChainLink",
         treasury: "0x3950b3a43fa0687561Bc5c8E32D2EE826D88a661",
         isBorrowable: true,
+        lt: 0,
+        ltv: 0,
       },
     ],
     deployed: "Oct 31, 2025",
@@ -905,6 +1586,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: true,
+        lt: 78,
+        ltv: 75,
       },
       // USDe
       {
@@ -915,6 +1598,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: true,
+        lt: 93,
+        ltv: 90,
       },
       // sUSDe
       {
@@ -925,6 +1610,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: false,
+        lt: 92,
+        ltv: 90,
       },
       // XAUt0
       {
@@ -935,6 +1622,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: false,
+        lt: 75,
+        ltv: 70,
       },
       // weETH
       {
@@ -945,6 +1634,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: false,
+        lt: 95,
+        ltv: 93,
       },
       // WETH
       {
@@ -955,6 +1646,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: true,
+        lt: 83,
+        ltv: 80.5,
       },
       // PT-USDe-15JAN2026
       {
@@ -965,6 +1658,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: false,
+        lt: 93,
+        ltv: 91,
       },
       // PT-sUSDE-15JAN2026
       {
@@ -975,6 +1670,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: false,
+        lt: 92,
+        ltv: 90,
       },
       // wstETH
       {
@@ -985,6 +1682,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: true,
+        lt: 96,
+        ltv: 94,
       },
       // wrsETH
       {
@@ -995,6 +1694,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: false,
+        lt: 95,
+        ltv: 93,
       },
       // syrupUSDT
       {
@@ -1005,6 +1706,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: false,
+        lt: 92,
+        ltv: 90,
       },
       // WXPL
       {
@@ -1015,6 +1718,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: false,
+        lt: 55,
+        ltv: 50,
       },
       // PT-sUSDE-9APR2026
       {
@@ -1025,6 +1730,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: false,
+        lt: 91.6,
+        ltv: 89.6,
       },
       // PT-USDe-9APR2026
       {
@@ -1035,10 +1742,192 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: false,
+        lt: 92.3,
+        ltv: 90.3,
       },
     ],
     deployed: "Sep-09-2025",
     show: false,
+    eModes: [
+      // USDe Stablecoins
+      {
+        id: 1,
+        label: "USDe Stablecoins",
+        collateral: ["0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34"],
+        borrowable: ["0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"],
+        ltv: 90,
+        lt: 93,
+      },
+      // sUSDe Stablecoins
+      {
+        id: 2,
+        label: "sUSDe Stablecoins",
+        collateral: [
+          "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+          "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
+        ],
+        borrowable: ["0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"],
+        ltv: 90,
+        lt: 92,
+      },
+      // weETH WETH
+      {
+        id: 3,
+        label: "weETH WETH",
+        collateral: ["0xA3D68b74bF0528fdD07263c60d6488749044914b"],
+        borrowable: ["0x9895D81bB462A195b4922ED7De0e3ACD007c32CB"],
+        ltv: 93,
+        lt: 95,
+      },
+      // weETH Stablecoins
+      {
+        id: 4,
+        label: "weETH Stablecoins",
+        collateral: ["0xA3D68b74bF0528fdD07263c60d6488749044914b"],
+        borrowable: ["0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"],
+        ltv: 77.5,
+        lt: 80,
+      },
+      // PT-USDe Stablecoins Jan 2026
+      {
+        id: 5,
+        label: "PT-USDe Stablecoins Jan 2026",
+        collateral: ["0x93B544c330F60A2aa05ceD87aEEffB8D38FD8c9a"],
+        borrowable: [
+          "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
+          "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+        ],
+        ltv: 91,
+        lt: 93,
+      },
+      // PT-USDe USDe Jan 2026
+      {
+        id: 6,
+        label: "PT-USDe USDe Jan 2026",
+        collateral: ["0x93B544c330F60A2aa05ceD87aEEffB8D38FD8c9a"],
+        borrowable: ["0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34"],
+        ltv: 94,
+        lt: 96,
+      },
+      // PT-sUSDe Stablecoins Jan 2026
+      {
+        id: 7,
+        label: "PT-sUSDe Stablecoins Jan 2026",
+        collateral: ["0x02FCC4989B4C9D435b7ceD3fE1Ba4CF77BBb5Dd8"],
+        borrowable: [
+          "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
+          "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+        ],
+        ltv: 90,
+        lt: 92,
+      },
+      // PT-sUSDe USDe Jan 2026
+      {
+        id: 8,
+        label: "PT-sUSDe USDe Jan 2026",
+        collateral: ["0x02FCC4989B4C9D435b7ceD3fE1Ba4CF77BBb5Dd8"],
+        borrowable: ["0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34"],
+        ltv: 92,
+        lt: 94,
+      },
+      // wrsETH/WETH
+      {
+        id: 9,
+        label: "wrsETH/WETH",
+        collateral: ["0xe561FE05C39075312Aa9Bc6af79DdaE981461359"],
+        borrowable: [
+          "0x9895D81bB462A195b4922ED7De0e3ACD007c32CB",
+          "0xe48D935e6C9e735463ccCf29a7F11e32bC09136E",
+        ],
+        ltv: 93,
+        lt: 95,
+      },
+      // wstETH/WETH
+      {
+        id: 10,
+        label: "wstETH/WETH",
+        collateral: ["0xe48D935e6C9e735463ccCf29a7F11e32bC09136E"],
+        borrowable: ["0x9895D81bB462A195b4922ED7De0e3ACD007c32CB"],
+        ltv: 94,
+        lt: 96,
+      },
+      // syrupUSDT/USDT0
+      {
+        id: 11,
+        label: "syrupUSDT/USDT0",
+        collateral: ["0xC4374775489CB9C56003BF2C9b12495fC64F0771"],
+        borrowable: ["0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"],
+        ltv: 90,
+        lt: 92,
+      },
+      // WXPL Stablecoins
+      {
+        id: 12,
+        label: "WXPL Stablecoins",
+        collateral: ["0x6100E367285b01F48D07953803A2d8dCA5D19873"],
+        borrowable: ["0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"],
+        ltv: 50,
+        lt: 55,
+      },
+      // PT_USDe_9APR2026__Stablecoins
+      {
+        id: 13,
+        label: "PT_USDe_9APR2026__Stablecoins",
+        collateral: [
+          "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+          "0x93B544c330F60A2aa05ceD87aEEffB8D38FD8c9a",
+          "0x54Dc267be2839303ff1e323584A16e86CeC4Aa44",
+        ],
+        borrowable: [
+          "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
+          "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+        ],
+        ltv: 90.3,
+        lt: 92.3,
+      },
+      // PT_USDe_9APR2026__USDe
+      {
+        id: 14,
+        label: "PT_USDe_9APR2026__USDe",
+        collateral: [
+          "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+          "0x93B544c330F60A2aa05ceD87aEEffB8D38FD8c9a",
+          "0x54Dc267be2839303ff1e323584A16e86CeC4Aa44",
+        ],
+        borrowable: ["0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34"],
+        ltv: 91.2,
+        lt: 93.2,
+      },
+      // PT_sUSDe_9APR2026__Stablecoins
+      {
+        id: 15,
+        label: "PT_sUSDe_9APR2026__Stablecoins",
+        collateral: [
+          "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
+          "0x02FCC4989B4C9D435b7ceD3fE1Ba4CF77BBb5Dd8",
+          "0xab509448ad489e2E1341e25CC500f2596464Cc82",
+        ],
+        borrowable: [
+          "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
+          "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+        ],
+        ltv: 89.6,
+        lt: 91.6,
+      },
+      // PT_sUSDe_9APR2026__USDe
+      {
+        id: 16,
+        label: "PT_sUSDe_9APR2026__USDe",
+        collateral: [
+          "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
+          "0x02FCC4989B4C9D435b7ceD3fE1Ba4CF77BBb5Dd8",
+          "0xab509448ad489e2E1341e25CC500f2596464Cc82",
+        ],
+        borrowable: ["0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34"],
+        ltv: 91.2,
+        lt: 93.2,
+      },
+    ],
   },
 ];
 
