@@ -21,6 +21,7 @@ export interface ILendingMarket {
     lt: number;
   }[];
   leverage?: {
+    id: string; // chain-operator-collateral-borrow[-eMode]
     supply: `0x${string}`;
     borrow: `0x${string}`;
     ltv: number;
