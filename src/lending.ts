@@ -20,6 +20,14 @@ export interface ILendingMarket {
     ltv: number;
     lt: number;
   }[];
+  leverage?: {
+    supply: `0x${string}`;
+    borrow: `0x${string}`;
+    ltv: number;
+    lt: number;
+    maxLeverage: number;
+    eMode?: number;
+  }[];
 }
 
 export const enum LendingEngine {
