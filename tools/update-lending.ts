@@ -2,6 +2,7 @@ import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 import { createPublicClient, formatUnits, http, PublicClient } from "viem";
+import { getAssetBySymbol, tokenlist } from "@daohost/host";
 import {
   ILendingMarket,
   IReserve,
@@ -16,6 +17,7 @@ import {
   getReserveConfigurationABI,
   eModeAbi,
 } from "./abis";
+import { leverageBasePairs, leverageStablecoinPairs } from "./leverage-pairs";
 
 const aaveOracles: Record<string, `0x${string}`> = {
   "1": "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
@@ -217,7 +219,141 @@ function getReserveIdsFromBitmap(bitmap: bigint) {
   return reserveIds;
 }
 
-/* ------------------------ COMMENTED OUTPUT ------------------------ */
+function buildValidPairSet(chainId: string): Set<string> {
+  const valid = new Set<string>();
+  const chainIdNum = parseInt(chainId, 10);
+
+  for (const basePair of leverageBasePairs) {
+    const borrowAsset = getAssetBySymbol(basePair.borrowSymbol);
+    if (!borrowAsset) continue;
+    const borrowAddr = borrowAsset.addresses[chainId];
+    if (!borrowAddr) continue;
+    const borrowAddrStr = (
+      Array.isArray(borrowAddr) ? borrowAddr[0] : borrowAddr
+    ).toLowerCase();
+
+    for (const token of tokenlist.tokens) {
+      if (token.chainId !== chainIdNum) continue;
+      if (!token.tags) continue;
+      const hasAllTags = basePair.collateralTags.every((tag) =>
+        token.tags!.includes(tag),
+      );
+      if (!hasAllTags) continue;
+
+      valid.add(`${token.address.toLowerCase()}:${borrowAddrStr}`);
+    }
+  }
+
+  for (const stablePair of leverageStablecoinPairs) {
+    const borrowAsset = getAssetBySymbol(stablePair.borrowSymbol);
+    const collateralAsset = getAssetBySymbol(stablePair.collateralSymbol);
+    if (!borrowAsset || !collateralAsset) continue;
+
+    const borrowAddr = borrowAsset.addresses[chainId];
+    const collateralAddr = collateralAsset.addresses[chainId];
+    if (!borrowAddr || !collateralAddr) continue;
+
+    const borrowAddrStr = (
+      Array.isArray(borrowAddr) ? borrowAddr[0] : borrowAddr
+    ).toLowerCase();
+    const collateralAddrStr = (
+      Array.isArray(collateralAddr) ? collateralAddr[0] : collateralAddr
+    ).toLowerCase();
+
+    valid.add(`${collateralAddrStr}:${borrowAddrStr}`);
+  }
+
+  return valid;
+}
+
+function buildLeverageData(
+  market: ILendingMarket,
+  updatedReserves: IReserve[],
+  eModeData: NonNullable<ILendingMarket["eModes"]>,
+): NonNullable<ILendingMarket["leverage"]> {
+  const existing = new Map((market.leverage ?? []).map((l) => [l.id, l]));
+
+  const result: NonNullable<ILendingMarket["leverage"]> = [];
+  const seen = new Set<string>();
+
+  const operatorSlug = market.operator.toLowerCase().replace(/\s+/g, "-");
+  const chainSlug = market.chainId;
+
+  // Only emit pairs that leverage.ts would actually display
+  const validPairs = buildValidPairSet(market.chainId);
+
+  function findEMode(
+    collateralAddr: string,
+    borrowAddr: string,
+  ): NonNullable<ILendingMarket["eModes"]>[number] | undefined {
+    for (const eMode of eModeData) {
+      const inCollateral = eMode.collateral.some(
+        (a) => a.toLowerCase() === collateralAddr.toLowerCase(),
+      );
+      const inBorrowable = eMode.borrowable.some(
+        (a) => a.toLowerCase() === borrowAddr.toLowerCase(),
+      );
+      if (inCollateral && inBorrowable) return eMode;
+    }
+    return undefined;
+  }
+
+  function assetSlug(reserve: IReserve): string {
+    return reserve.aTokenSymbol.replace(/^a[A-Z][a-z]*/, (m) =>
+      m.length === 1 ? "" : m.slice(1),
+    );
+  }
+
+  for (const collateral of updatedReserves) {
+    if ((collateral.ltv ?? 0) <= 0) continue;
+
+    for (const borrow of updatedReserves) {
+      if (!borrow.isBorrowable) continue;
+      if (collateral.asset.toLowerCase() === borrow.asset.toLowerCase())
+        continue;
+
+      // Filter: only emit this pair if leverage.ts would show it
+      const pairKey = `${collateral.asset.toLowerCase()}:${borrow.asset.toLowerCase()}`;
+      if (!validPairs.has(pairKey)) continue;
+
+      const eMode = findEMode(collateral.asset, borrow.asset);
+
+      const ltv = (eMode ? eMode.ltv : collateral.ltv) ?? 0;
+      const lt = (eMode ? eMode.lt : collateral.lt) ?? 0;
+
+      if (ltv <= 0) continue;
+
+      const maxLeverage = Math.round((1 / (1 - ltv / 100)) * 100) / 100;
+
+      const colSlug = assetSlug(collateral);
+      const borSlug = assetSlug(borrow);
+      const idBase = `${chainSlug}-${operatorSlug}-${colSlug}-${borSlug}`;
+      const id = eMode ? `${idBase}-eMode${eMode.id}` : idBase;
+
+      if (seen.has(id)) continue;
+      seen.add(id);
+
+      result.push({
+        id,
+        supply: collateral.asset,
+        borrow: borrow.asset,
+        ltv,
+        lt,
+        maxLeverage,
+        ...(eMode ? { eMode: eMode.id } : {}),
+      });
+    }
+  }
+
+  existing.forEach((l) => {
+    if (!seen.has(l.id)) {
+      result.push(l);
+    }
+  });
+  return result;
+}
+
+/* ------------------------ SERIALISATION HELPERS -------------------- */
 
 function toTsObjectLiteralArray(arr: IReserve[]) {
   return (
@@ -225,7 +361,7 @@ function toTsObjectLiteralArray(arr: IReserve[]) {
     arr
       .map((o) => {
         const symbolComment = `  // ${o.aTokenSymbol.replace(/^asi/, "")}`;
-        const literal = toTsObjectLiteral(o).replace(/^/gm, "  "); // indent object
+        const literal = toTsObjectLiteral(o).replace(/^/gm, "  ");
         return `${symbolComment}\n${literal}`;
       })
       .join(",\n") +
@@ -256,6 +392,7 @@ function toTsObjectLiteral(obj: Record<string, any>) {
 
   return `{\n${entries}\n}`;
 }
+
 function toTsEModesArray(arr: NonNullable<ILendingMarket["eModes"]>) {
   return (
     "[\n" +
@@ -270,7 +407,79 @@ function toTsEModesArray(arr: NonNullable<ILendingMarket["eModes"]>) {
   );
 }
 
+function toTsLeverageArray(arr: NonNullable<ILendingMarket["leverage"]>) {
+  return (
+    "[\n" +
+    arr
+      .map((entry) => {
+        const comment = `  // ${entry.id}`;
+        const literal = toTsObjectLiteral(entry as any).replace(/^/gm, "  ");
+        return `${comment}\n${literal}`;
+      })
+      .join(",\n") +
+    "\n]"
+  );
+}
+
 /* ------------------------------------------------------------------ */
+
+/**
+ * Patch or insert a top-level array field for a given market id inside source.
+ *
+ * 1. Try to replace an existing `fieldName: [...]` block.
+ * 2. If not found, insert after `eModes` field.
+ * 3. Fallback: insert after `show` field.
+ */
+function patchArrayField(
+  source: string,
+  marketIdEscaped: string,
+  fieldName: string,
+  replacement: string,
+  label: string,
+): string {
+  // Update existing
+  const updateRegex = new RegExp(
+    `(id:\\s*"${marketIdEscaped}"[\\s\\S]*?${fieldName}:\\s*)\\[[\\s\\S]*?\\](\\s*,?\\s*})`,
+    "m",
+  );
+
+  if (updateRegex.test(source)) {
+    return source.replace(updateRegex, (_, prefix, suffix) => {
+      console.log(`  ✓ Updated ${label}`);
+      return `${prefix}${replacement}${suffix}`;
+    });
+  }
+
+  // Insert after eModes
+  const afterEModesRegex = new RegExp(
+    `(id:\\s*"${marketIdEscaped}"[\\s\\S]*?eModes:\\s*\\[[\\s\\S]*?\\]\\s*,?)(\\s*})`,
+    "m",
+  );
+
+  if (afterEModesRegex.test(source)) {
+    return source.replace(afterEModesRegex, (_, prefix, suffix) => {
+      console.log(`  ✓ Inserted ${label} (after eModes)`);
+      const trimmedPrefix = prefix.replace(/,\s*$/, "");
+      return `${trimmedPrefix},\n    ${fieldName}: ${replacement},${suffix}`;
+    });
+  }
+
+  // Fallback: insert after show
+  const afterShowRegex = new RegExp(
+    `(id:\\s*"${marketIdEscaped}"[\\s\\S]*?show:\\s*(?:true|false)\\s*,)(\\s*})`,
+    "m",
+  );
+
+  if (afterShowRegex.test(source)) {
+    return source.replace(afterShowRegex, (_, prefix, suffix) => {
+      console.log(`  ✓ Inserted ${label} (after show)`);
+      return `${prefix}\n    ${fieldName}: ${replacement},${suffix}`;
+    });
+  }
+
+  console.warn(`  ✗ Could not patch ${label} (pattern not found)`);
+  return source;
+}
 
 async function main() {
   let updatedSource = fs.readFileSync(SOURCE_PATH, "utf8");
@@ -311,6 +520,7 @@ async function main() {
 
     const marketIdEscaped = market.id.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
 
+    // ── reserves ──────────────────────────────────────────────────────────────
     const reservesRegex = new RegExp(
       `(id:\\s*"${marketIdEscaped}"[\\s\\S]*?reserves:\\s*)\\[[\\s\\S]*?\\](\\s*,\\s*(?:uiPoolDataProvider|deployed|show|eModes))`,
       "m",
@@ -330,40 +540,36 @@ async function main() {
       console.warn(`  ✗ Could not find reserves pattern`);
     }
 
+    // ── eModes ────────────────────────────────────────────────────────────────
     if (eModeData && eModeData.length > 0) {
-      const eModesUpdateRegex = new RegExp(
-        `(id:\\s*"${marketIdEscaped}"[\\s\\S]*?eModes:\\s*)\\[[\\s\\S]*?\\](\\s*,?\\s*})`,
-        "m",
-      );
-
       const eModesReplacement = toTsEModesArray(eModeData);
+      updatedSource = patchArrayField(
+        updatedSource,
+        marketIdEscaped,
+        "eModes",
+        eModesReplacement,
+        "eModes",
+      );
+    }
 
-      if (eModesUpdateRegex.test(updatedSource)) {
-        updatedSource = updatedSource.replace(
-          eModesUpdateRegex,
-          (match, prefix, suffix) => {
-            console.log(`  ✓ Updated eModes`);
-            return `${prefix}${eModesReplacement}${suffix}`;
-          },
-        );
-      } else {
-        const eModesInsertRegex = new RegExp(
-          `(id:\\s*"${marketIdEscaped}"[\\s\\S]*?show:\\s*(?:true|false)\\s*,)(\\s*})`,
-          "m",
-        );
+    // ── leverage ──────────────────────────────────────────────────────────────
+    const leverageData = buildLeverageData(
+      market,
+      updatedReserves,
+      eModeData ?? [],
+    );
 
-        if (eModesInsertRegex.test(updatedSource)) {
-          updatedSource = updatedSource.replace(
-            eModesInsertRegex,
-            (match, prefix, suffix) => {
-              console.log(`  ✓ Inserted eModes`);
-              return `${prefix}\n    eModes: ${eModesReplacement},${suffix}`;
-            },
-          );
-        } else {
-          console.warn(`  ✗ Could not insert eModes (pattern not found)`);
-        }
-      }
+    console.log(`  Leverage pairs: ${leverageData.length}`);
+
+    if (leverageData.length > 0) {
+      const leverageReplacement = toTsLeverageArray(leverageData);
+      updatedSource = patchArrayField(
+        updatedSource,
+        marketIdEscaped,
+        "leverage",
+        leverageReplacement,
+        "leverage",
+      );
     }
   }
 

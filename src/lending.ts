@@ -797,8 +797,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
-        lt: 90.2,
-        ltv: 88.2,
+        lt: 91,
+        ltv: 89,
       },
       // PT-sUSDE-7MAY2026
       {
@@ -809,8 +809,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
         isBorrowable: false,
-        lt: 89.4,
-        ltv: 87.4,
+        lt: 90.2,
+        ltv: 88.2,
       },
       // PT-srUSDe-2APR2026
       {
@@ -1278,8 +1278,8 @@ export const lendingMarkets: ILendingMarket[] = [
           "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
           "0xC139190F447e929f090Edeb554D95AbB8b18aC1C",
         ],
-        ltv: 88.2,
-        lt: 90.2,
+        ltv: 89,
+        lt: 91,
       },
       // PT_USDe_7MAY2026__USDe
       {
@@ -1291,8 +1291,8 @@ export const lendingMarkets: ILendingMarket[] = [
           "0xAeBf0Bb9f57E89260d57f31AF34eB58657d96Ce0",
         ],
         borrowable: ["0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"],
-        ltv: 89.1,
-        lt: 91.1,
+        ltv: 89.9,
+        lt: 91.9,
       },
       // PT_sUSDe_7MAY2026__Stablecoins
       {
@@ -1309,8 +1309,8 @@ export const lendingMarkets: ILendingMarket[] = [
           "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
           "0xC139190F447e929f090Edeb554D95AbB8b18aC1C",
         ],
-        ltv: 87.4,
-        lt: 89.4,
+        ltv: 88.2,
+        lt: 90.2,
       },
       // PT_sUSDe_7MAY2026__USDe
       {
@@ -1322,13 +1322,13 @@ export const lendingMarkets: ILendingMarket[] = [
           "0x3de0ff76E8b528C092d47b9DaC775931cef80F49",
         ],
         borrowable: ["0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"],
-        ltv: 88.2,
-        lt: 90.2,
+        ltv: 89,
+        lt: 91,
       },
-      // PT_srUSDe_1APR2026_sUSDe__USDT_USDe_USDC
+      // PT_srUSDe_2APR2026_sUSDe__USDT_USDe_USDC
       {
         id: 38,
-        label: "PT_srUSDe_1APR2026_sUSDe__USDT_USDe_USDC",
+        label: "PT_srUSDe_2APR2026_sUSDe__USDT_USDe_USDC",
         collateral: [
           "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
           "0x9Bf45ab47747F4B4dD09B3C2c73953484b4eB375",
@@ -1341,17 +1341,156 @@ export const lendingMarkets: ILendingMarket[] = [
         ltv: 90,
         lt: 92,
       },
-      // PT_srUSDe_1APR2026_sUSDe__USDe
+      // PT_srUSDe_2APR2026_sUSDe__USDe
       {
         id: 39,
-        label: "PT_srUSDe_1APR2026_sUSDe__USDe",
+        label: "PT_srUSDe_2APR2026_sUSDe__USDe",
         collateral: [
           "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
           "0x9Bf45ab47747F4B4dD09B3C2c73953484b4eB375",
         ],
         borrowable: ["0x4c9EDD5852cd905f086C759E8383e09bff1E68B3"],
-        ltv: 91.7,
-        lt: 93.7,
+        ltv: 92,
+        lt: 94,
+      },
+    ],
+    leverage: [
+      // 1-aave-EthwstETH-EthWETH-eMode1
+      {
+        id: "1-aave-EthwstETH-EthWETH-eMode1",
+        supply: "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+        borrow: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        ltv: 93,
+        lt: 95,
+        maxLeverage: 14.29,
+        eMode: 1,
+      },
+      // 1-aave-cbETH-EthWETH-eMode1
+      {
+        id: "1-aave-cbETH-EthWETH-eMode1",
+        supply: "0xBe9895146f7AF43049ca1c1AE358B0541Ea49704",
+        borrow: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        ltv: 93,
+        lt: 95,
+        maxLeverage: 14.29,
+        eMode: 1,
+      },
+      // 1-aave-rETH-EthWETH-eMode1
+      {
+        id: "1-aave-rETH-EthWETH-eMode1",
+        supply: "0xae78736Cd615f374D3085123A210448E74Fc6393",
+        borrow: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        ltv: 93,
+        lt: 95,
+        maxLeverage: 14.29,
+        eMode: 1,
+      },
+      // 1-aave-EthweETH-EthWETH-eMode1
+      {
+        id: "1-aave-EthweETH-EthWETH-eMode1",
+        supply: "0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee",
+        borrow: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        ltv: 93,
+        lt: 95,
+        maxLeverage: 14.29,
+        eMode: 1,
+      },
+      // 1-aave-osETH-EthWETH-eMode1
+      {
+        id: "1-aave-osETH-EthWETH-eMode1",
+        supply: "0xf1C9acDc66974dFB6dEcB12aA385b9cD01190E38",
+        borrow: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        ltv: 93,
+        lt: 95,
+        maxLeverage: 14.29,
+        eMode: 1,
+      },
+      // 1-aave-ETHx-EthWETH-eMode1
+      {
+        id: "1-aave-ETHx-EthWETH-eMode1",
+        supply: "0xA35b1B31Ce002FBF2058D22F30f95D405200A15b",
+        borrow: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        ltv: 93,
+        lt: 95,
+        maxLeverage: 14.29,
+        eMode: 1,
+      },
+      // 1-aave-sUSDe-USDe-eMode17
+      {
+        id: "1-aave-sUSDe-USDe-eMode17",
+        supply: "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+        borrow: "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+        ltv: 90,
+        lt: 92,
+        maxLeverage: 10,
+        eMode: 17,
+      },
+      // 1-aave-cbBTC-EthWBTC
+      {
+        id: "1-aave-cbBTC-EthWBTC",
+        supply: "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        borrow: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        ltv: 73,
+        lt: 78,
+        maxLeverage: 3.7,
+      },
+      // 1-aave-rsETH-EthWETH-eMode3
+      {
+        id: "1-aave-rsETH-EthWETH-eMode3",
+        supply: "0xA1290d69c65A6Fe4DF752f95823fae25cB99e5A7",
+        borrow: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        ltv: 93,
+        lt: 95,
+        maxLeverage: 14.29,
+        eMode: 3,
+      },
+      // 1-aave-LBTC-EthWBTC-eMode4
+      {
+        id: "1-aave-LBTC-EthWBTC-eMode4",
+        supply: "0x8236a87084f8B84306f72007F36F2618A5634494",
+        borrow: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        ltv: 84,
+        lt: 86,
+        maxLeverage: 6.25,
+        eMode: 4,
+      },
+      // 1-aave-eBTC-EthWBTC-eMode7
+      {
+        id: "1-aave-eBTC-EthWBTC-eMode7",
+        supply: "0x657e8C867D8B37dCC18fA4Caead9C45EB088C642",
+        borrow: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        ltv: 83,
+        lt: 85,
+        maxLeverage: 5.88,
+        eMode: 7,
+      },
+      // 1-aave-tETH-EthWETH
+      {
+        id: "1-aave-tETH-EthWETH",
+        supply: "0xD11c452fc99cF405034ee446803b6F6c1F6d5ED8",
+        borrow: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        ltv: 72,
+        lt: 75,
+        maxLeverage: 3.57,
+      },
+      // 1-aave-ezETH-EthWETH
+      {
+        id: "1-aave-ezETH-EthWETH",
+        supply: "0xbf5495Efe5DB9ce00f80364C8B423567e58d2110",
+        borrow: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        ltv: 93,
+        lt: 95,
+        maxLeverage: 14.29,
+      },
+      // 1-aave-syrupUSDT-EthUSDT-eMode33
+      {
+        id: "1-aave-syrupUSDT-EthUSDT-eMode33",
+        supply: "0x356B8d89c1e1239Cbbb9dE4815c39A1474d5BA7D",
+        borrow: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        ltv: 90,
+        lt: 92,
+        maxLeverage: 10,
+        eMode: 33,
       },
     ],
   },
@@ -1739,8 +1878,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: false,
-        lt: 91.6,
-        ltv: 89.6,
+        lt: 92,
+        ltv: 90,
       },
       // PT-USDe-9APR2026
       {
@@ -1751,8 +1890,8 @@ export const lendingMarkets: ILendingMarket[] = [
         oracleName: "Unknown",
         treasury: "0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D",
         isBorrowable: false,
-        lt: 92.3,
-        ltv: 90.3,
+        lt: 93,
+        ltv: 91,
       },
     ],
     deployed: "Sep-09-2025",
@@ -1891,8 +2030,8 @@ export const lendingMarkets: ILendingMarket[] = [
           "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
           "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
         ],
-        ltv: 90.3,
-        lt: 92.3,
+        ltv: 91,
+        lt: 93,
       },
       // PT_USDe_9APR2026__USDe
       {
@@ -1904,8 +2043,8 @@ export const lendingMarkets: ILendingMarket[] = [
           "0x54Dc267be2839303ff1e323584A16e86CeC4Aa44",
         ],
         borrowable: ["0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34"],
-        ltv: 91.2,
-        lt: 93.2,
+        ltv: 92.2,
+        lt: 94.2,
       },
       // PT_sUSDe_9APR2026__Stablecoins
       {
@@ -1920,8 +2059,8 @@ export const lendingMarkets: ILendingMarket[] = [
           "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
           "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
         ],
-        ltv: 89.6,
-        lt: 91.6,
+        ltv: 90,
+        lt: 92,
       },
       // PT_sUSDe_9APR2026__USDe
       {
@@ -1933,8 +2072,60 @@ export const lendingMarkets: ILendingMarket[] = [
           "0xab509448ad489e2E1341e25CC500f2596464Cc82",
         ],
         borrowable: ["0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34"],
-        ltv: 91.2,
-        lt: 93.2,
+        ltv: 92,
+        lt: 94,
+      },
+    ],
+    leverage: [
+      // 9745-aave-sUSDe-USDe-eMode15
+      {
+        id: "9745-aave-sUSDe-USDe-eMode15",
+        supply: "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
+        borrow: "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+        ltv: 90,
+        lt: 92,
+        maxLeverage: 10,
+        eMode: 15,
+      },
+      // 9745-aave-weETH-WETH-eMode3
+      {
+        id: "9745-aave-weETH-WETH-eMode3",
+        supply: "0xA3D68b74bF0528fdD07263c60d6488749044914b",
+        borrow: "0x9895D81bB462A195b4922ED7De0e3ACD007c32CB",
+        ltv: 93,
+        lt: 95,
+        maxLeverage: 14.29,
+        eMode: 3,
+      },
+      // 9745-aave-wstETH-WETH-eMode10
+      {
+        id: "9745-aave-wstETH-WETH-eMode10",
+        supply: "0xe48D935e6C9e735463ccCf29a7F11e32bC09136E",
+        borrow: "0x9895D81bB462A195b4922ED7De0e3ACD007c32CB",
+        ltv: 94,
+        lt: 96,
+        maxLeverage: 16.67,
+        eMode: 10,
+      },
+      // 9745-aave-wrsETH-WETH-eMode9
+      {
+        id: "9745-aave-wrsETH-WETH-eMode9",
+        supply: "0xe561FE05C39075312Aa9Bc6af79DdaE981461359",
+        borrow: "0x9895D81bB462A195b4922ED7De0e3ACD007c32CB",
+        ltv: 93,
+        lt: 95,
+        maxLeverage: 14.29,
+        eMode: 9,
+      },
+      // 9745-aave-syrupUSDT-USDT0-eMode11
+      {
+        id: "9745-aave-syrupUSDT-USDT0-eMode11",
+        supply: "0xC4374775489CB9C56003BF2C9b12495fC64F0771",
+        borrow: "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
+        ltv: 90,
+        lt: 92,
+        maxLeverage: 10,
+        eMode: 11,
       },
     ],
   },

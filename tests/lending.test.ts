@@ -1,5 +1,5 @@
 import { ILendingMarket, lendingMarkets } from "../src";
-import { tokenlist, assets } from "@stabilitydao/host";
+import { tokenlist, assets } from "@daohost/host";
 import { getLendingMarketsForAsset } from "../src/lending";
 
 describe("testing lending", () => {

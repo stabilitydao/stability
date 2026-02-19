@@ -1,4 +1,4 @@
-import { chains, getAssetBySymbol, tokenlist } from "@stabilitydao/host";
+import { chains, getAssetBySymbol, tokenlist } from "@daohost/host";
 import { getLendingMarketsForAsset } from "../src/lending";
 
 export interface LeverageBasePair {
