@@ -1,37 +1,24 @@
-import { chains, getAssetBySymbol, tokenlist } from "@daohost/host";
-import { getLendingMarketsForAsset } from "../src/lending";
+import { chains } from "@daohost/host";
+import { lendingMarkets } from "../src/lending";
+import { leverageBasePairs, leverageStablecoinPairs } from "./leverage-pairs";
 
-export interface LeverageBasePair {
-  borrowSymbol: string;
-  collateralTags: string[];
+// Strips the aToken protocol prefix to recover the underlying asset symbol.
+// Examples: "aWETH" -> "WETH", "aEthwstETH" -> "wstETH", "aEthcbBTC" -> "cbBTC"
+function stripATokenPrefix(aTokenSymbol: string): string {
+  // Remove leading "a" followed by an optional chain-prefix word (uppercase
+  // letter then lowercase letters, e.g. "Eth", "Matic", "Arb", "Opt").
+  return aTokenSymbol.replace(/^a(?:[A-Z][a-z]+)?/, "");
 }
 
-export interface LeveragePair {
-  borrowSymbol: string;
-  collateralSymbol: string;
+function getSymbol(
+  market: (typeof lendingMarkets)[number],
+  addr: string,
+): string {
+  const reserve = market.reserves.find(
+    (r) => r.asset.toLowerCase() === addr.toLowerCase(),
+  );
+  return reserve ? stripATokenPrefix(reserve.aTokenSymbol) : addr;
 }
-
-const leverageBasePairs: LeverageBasePair[] = [
-  {
-    borrowSymbol: "WETH",
-    collateralTags: ["eth", "lst"],
-  },
-  {
-    borrowSymbol: "WBTC",
-    collateralTags: ["btc", "lst"],
-  },
-];
-
-const leverageStablecoinPairs: LeveragePair[] = [
-  {
-    borrowSymbol: "USDe",
-    collateralSymbol: "sUSDe",
-  },
-  {
-    borrowSymbol: "USDT",
-    collateralSymbol: "syrupUSDT",
-  },
-];
 
 console.log("# Leveraged lending opportunities\n");
 
@@ -40,23 +27,17 @@ for (const basePair of leverageBasePairs) {
     `## Supply ${basePair.collateralTags.join(" ").toUpperCase()}, borrow ${basePair.borrowSymbol}\n`,
   );
 
-  for (const token of tokenlist.tokens) {
-    let tagsMatch = true;
-    for (const tag of basePair.collateralTags) {
-      if (!token.tags || !token.tags.includes(tag)) {
-        tagsMatch = false;
-        break;
-      }
-    }
-    if (!tagsMatch) {
-      continue;
-    }
-    const chainId = token.chainId.toString();
+  for (const market of lendingMarkets) {
+    if (!market.leverage) continue;
+    const chainName = chains[market.chainId]?.name ?? market.chainId;
 
-    const markets = getLendingMarketsForAsset(chainId, token.address);
-    for (const market of markets) {
+    for (const pair of market.leverage) {
+      const borrowSymbol = getSymbol(market, pair.borrow);
+      if (borrowSymbol !== basePair.borrowSymbol) continue;
+
+      const supplySymbol = getSymbol(market, pair.supply);
       console.log(
-        `* ${chains[chainId].name} ${market.operator} ${token.symbol}-${basePair.borrowSymbol}`,
+        `* ${chainName} ${market.operator} ${supplySymbol}-${borrowSymbol}`,
       );
     }
   }
@@ -67,29 +48,18 @@ for (const basePair of leverageBasePairs) {
 console.log("## Supply yield-bearing stablecoin, borrow stablecoin\n");
 
 for (const pair of leverageStablecoinPairs) {
-  const borrowAsset = getAssetBySymbol(pair.borrowSymbol);
-  if (!borrowAsset) {
-    throw new Error("Borrow asset is not supported");
-  }
-  const collateralAsset = getAssetBySymbol(pair.collateralSymbol);
-  if (!collateralAsset) {
-    throw new Error("Collateral asset is not supported");
-  }
+  for (const market of lendingMarkets) {
+    if (!market.leverage) continue;
+    const chainName = chains[market.chainId]?.name ?? market.chainId;
 
-  const collateralAssetChainIds = Object.keys(collateralAsset.addresses);
-  for (const chainId of collateralAssetChainIds) {
-    if (!borrowAsset.addresses[chainId]) {
-      continue;
-    }
-    const markets = getLendingMarketsForAsset(
-      chainId,
-      Array.isArray(collateralAsset.addresses[chainId])
-        ? collateralAsset.addresses[chainId][0]
-        : (collateralAsset.addresses[chainId] as string),
-    );
-    for (const market of markets) {
+    for (const leveragePair of market.leverage) {
+      const borrowSymbol = getSymbol(market, leveragePair.borrow);
+      const supplySymbol = getSymbol(market, leveragePair.supply);
+      if (borrowSymbol !== pair.borrowSymbol) continue;
+      if (supplySymbol !== pair.collateralSymbol) continue;
+
       console.log(
-        `* ${chains[chainId].name} ${market.operator} ${pair.collateralSymbol}-${pair.borrowSymbol}`,
+        `* ${chainName} ${market.operator} ${supplySymbol}-${borrowSymbol}`,
       );
     }
   }
