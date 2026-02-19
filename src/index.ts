@@ -40,7 +40,7 @@ import {
   ApiPostReply,
   InteractionType,
 } from "./api.types";
-import { tokenlist, assets } from "@stabilitydao/host";
+import { tokenlist, assets } from "@daohost/host";
 import { almFactories } from "./addresses";
 import { sonicWhitelistedAssets } from "./assets";
 import { seeds } from "./seeds";

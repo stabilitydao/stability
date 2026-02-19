@@ -168,6 +168,11 @@ export type MarketData = {
       reserves: {
         [asset: `0x${string}`]: MarketReserve;
       };
+      leverage?: {
+        [id: string]: {
+          liveAPR: number;
+        };
+      };
     };
   };
 };
