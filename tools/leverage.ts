@@ -1,68 +1,67 @@
-import { chains } from "@daohost/host";
+import { chains, getAsset } from "@daohost/host";
 import { lendingMarkets } from "../src/lending";
-import { leverageBasePairs, leverageStablecoinPairs } from "./leverage-pairs";
-
-// Strips the aToken protocol prefix to recover the underlying asset symbol.
-// Examples: "aWETH" -> "WETH", "aEthwstETH" -> "wstETH", "aEthcbBTC" -> "cbBTC"
-function stripATokenPrefix(aTokenSymbol: string): string {
-  // Remove leading "a" followed by an optional chain-prefix word (uppercase
-  // letter then lowercase letters, e.g. "Eth", "Matic", "Arb", "Opt").
-  return aTokenSymbol.replace(/^a(?:[A-Z][a-z]+)?/, "");
-}
-
-function getSymbol(
-  market: (typeof lendingMarkets)[number],
-  addr: string,
-): string {
-  const reserve = market.reserves.find(
-    (r) => r.asset.toLowerCase() === addr.toLowerCase(),
-  );
-  return reserve ? stripATokenPrefix(reserve.aTokenSymbol) : addr;
-}
 
 console.log("# Leveraged lending opportunities\n");
 
-for (const basePair of leverageBasePairs) {
-  console.log(
-    `## Supply ${basePair.collateralTags.join(" ").toUpperCase()}, borrow ${basePair.borrowSymbol}\n`,
-  );
+// ---- helpers -------------------------------------------------
 
-  for (const market of lendingMarkets) {
-    if (!market.leverage) continue;
-    const chainName = chains[market.chainId]?.name ?? market.chainId;
+const ETH_LST_SUPPLY_HEADER = "## Supply ETH LST, borrow WETH\n";
+const BTC_LST_SUPPLY_HEADER = "## Supply BTC LST, borrow WBTC\n";
+const STABLE_SUPPLY_HEADER =
+  "## Supply yield-bearing stablecoin, borrow stablecoin\n";
 
-    for (const pair of market.leverage) {
-      const borrowSymbol = getSymbol(market, pair.borrow);
-      if (borrowSymbol !== basePair.borrowSymbol) continue;
+const ethBorrowSymbols = new Set(["WETH"]);
+const btcBorrowSymbols = new Set(["WBTC"]);
+const stableBorrowSymbols = new Set(["USDT", "USDe"]);
 
-      const supplySymbol = getSymbol(market, pair.supply);
-      console.log(
-        `* ${chainName} ${market.operator} ${supplySymbol}-${borrowSymbol}`,
-      );
+// ---- collectors ---------------------------------------------
+
+const ethLstLines: string[] = [];
+const btcLstLines: string[] = [];
+const stableLines: string[] = [];
+
+// ---- main scan ----------------------------------------------
+
+for (const market of lendingMarkets) {
+  if (!market.leverage?.length) continue;
+
+  for (const lev of market.leverage) {
+    const supplyAsset = getAsset(market.chainId, lev.supply);
+    const borrowAsset = getAsset(market.chainId, lev.borrow);
+
+    if (!supplyAsset || !borrowAsset) continue;
+
+    const line = `* ${chains[market.chainId].name} ${market.operator} ${supplyAsset.symbol}-${borrowAsset.symbol}`;
+
+    // ETH LST → WETH
+    if (ethBorrowSymbols.has(borrowAsset.symbol)) {
+      ethLstLines.push(line);
+      continue;
+    }
+
+    // BTC LST → WBTC
+    if (btcBorrowSymbols.has(borrowAsset.symbol)) {
+      btcLstLines.push(line);
+      continue;
+    }
+
+    // Yield-bearing stable → stable
+    if (stableBorrowSymbols.has(borrowAsset.symbol)) {
+      stableLines.push(line);
     }
   }
-
-  console.log("");
 }
 
-console.log("## Supply yield-bearing stablecoin, borrow stablecoin\n");
+// ---- output (order preserved) -------------------------------
 
-for (const pair of leverageStablecoinPairs) {
-  for (const market of lendingMarkets) {
-    if (!market.leverage) continue;
-    const chainName = chains[market.chainId]?.name ?? market.chainId;
+console.log(ETH_LST_SUPPLY_HEADER);
+ethLstLines.forEach((l) => console.log(l));
+console.log("");
 
-    for (const leveragePair of market.leverage) {
-      const borrowSymbol = getSymbol(market, leveragePair.borrow);
-      const supplySymbol = getSymbol(market, leveragePair.supply);
-      if (borrowSymbol !== pair.borrowSymbol) continue;
-      if (supplySymbol !== pair.collateralSymbol) continue;
+console.log(BTC_LST_SUPPLY_HEADER);
+btcLstLines.forEach((l) => console.log(l));
+console.log("");
 
-      console.log(
-        `* ${chainName} ${market.operator} ${supplySymbol}-${borrowSymbol}`,
-      );
-    }
-  }
-}
-
+console.log(STABLE_SUPPLY_HEADER);
+stableLines.forEach((l) => console.log(l));
 console.log("");
